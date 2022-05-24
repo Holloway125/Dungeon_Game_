@@ -867,7 +867,6 @@ GameObject:
   - component: {fileID: 871815399}
   - component: {fileID: 871815398}
   - component: {fileID: 871815397}
-  - component: {fileID: 871815401}
   m_Layer: 5
   m_Name: LaunchMenu
   m_TagString: Untagged
@@ -961,19 +960,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &871815401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 871815396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6736666bd8faa7846ae522aef39119db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseCanvas: {fileID: 0}
 --- !u!1 &1006969385
 GameObject:
   m_ObjectHideFlags: 0
