@@ -6,6 +6,7 @@
  
  public class SettingsPanel : MonoBehaviour
  {
+     
      private const string resolutionWidthPlayerPrefKey = "ResolutionWidth";
      private const string resolutionHeightPlayerPrefKey = "ResolutionHeight";
      private const string resolutionRefreshRatePlayerPrefKey = "RefreshRate";
