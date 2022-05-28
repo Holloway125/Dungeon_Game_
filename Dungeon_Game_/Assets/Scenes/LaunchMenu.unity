@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &23542937 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5376437962813788369, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
+  m_PrefabInstance: {fileID: 379077573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d8b4c52ca0f224393006d741ec526c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &379077573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -178,11 +189,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: ForAll
       objectReference: {fileID: 0}
+    - target: {fileID: 2007917899432662787, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 23542937}
+    - target: {fileID: 2007917899432662787, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5502962869970662354, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6613490603294981020, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
       propertyPath: pauseCanvas
       value: 
       objectReference: {fileID: 1309355516}
-    m_RemovedComponents: []
+    - target: {fileID: 8187479314798920393, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6613490603294981020, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
 --- !u!1 &519420028
 GameObject:
@@ -504,7 +532,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1255439357}
+      - m_Target: {fileID: 23542937}
         m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
@@ -1278,17 +1306,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006969385}
   m_CullTransparentMesh: 1
---- !u!114 &1255439357 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3659858604226984903, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
-  m_PrefabInstance: {fileID: 379077573}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62d8b4c52ca0f224393006d741ec526c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1309355516 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7971682440443794843, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}

@@ -8,7 +8,8 @@ public class Menu : MonoBehaviour
 
 public static bool GameIsPaused = false;
 
-public GameObject pauseCanvas;
+public GameObject pauseMenu;
+public GameObject settingsPanel;
 
 void Update()
 {
@@ -26,7 +27,8 @@ void Update()
 
 void Resume()
 {
-    pauseCanvas.SetActive(false);
+    settingsPanel.SetActive(false);
+    pauseMenu.SetActive(false);
     Time.timeScale = 1f;
     GameIsPaused = false;
 
@@ -34,7 +36,8 @@ void Resume()
 
 void Pause()
 {
-    pauseCanvas.SetActive(true);
+    
+    pauseMenu.SetActive(true);
     Time.timeScale = 0f;
     GameIsPaused = true;
 }
