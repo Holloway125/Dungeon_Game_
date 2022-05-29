@@ -8,22 +8,29 @@ public class EnemyHealth : MonoBehaviour
         public int enemyMaxHealth;
         public int enemyCurrentHealth;
         public Slider slider;
-        public GameObject healthBarUI;
+        public GameObject canvasHealthSlider;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        enemyCurrentHealth = enemyMaxHealth;
-        slider.value = enemyCurrentHealth;
         slider.maxValue = enemyMaxHealth;
         slider.minValue = 0;
+        slider.value = enemyCurrentHealth;
+        enemyCurrentHealth = enemyMaxHealth;
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         slider.value = enemyCurrentHealth;
+
+        if(enemyCurrentHealth < enemyMaxHealth)
+        {
+            canvasHealthSlider.SetActive(true);
+        }
 
         if(enemyCurrentHealth <= 0)
         {
@@ -33,7 +40,7 @@ public class EnemyHealth : MonoBehaviour
 
         if(enemyCurrentHealth > enemyMaxHealth)
         {
-            enemyCurrentHealth = enemyMaxHealth;
+             enemyCurrentHealth = enemyMaxHealth;
         }
     }
 
