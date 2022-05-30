@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &34420242 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8328023496247262086, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
+  m_PrefabInstance: {fileID: 159244830}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &159244830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130,6 +141,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 43124330660749333, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 43124330660749333, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 780276221090752730, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -177,6 +196,30 @@ PrefabInstance:
     - target: {fileID: 1776634484145546717, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
       propertyPath: m_Name
       value: GameSettings
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286341233430064221, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286341233430064221, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6882346493089386932, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6882346493089386932, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584485511480424044, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584485511480424044, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
@@ -1723,6 +1766,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &301026293 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 527546905030387627, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
+  m_PrefabInstance: {fileID: 159244830}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &396126401
 GameObject:
   m_ObjectHideFlags: 0
@@ -88932,20 +88986,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5220228351039929848, guid: 6045ee19c180df84e81c4ac7b7cce4fa, type: 3}
   m_PrefabInstance: {fileID: 9153913575089066910}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1476172466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1476172465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32d2cb0d287b5794e9a81ac514e3a1c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: b6c9fd313e773484c970303946392c19, type: 2}
-  key: 32
 --- !u!114 &1476172472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88958,6 +88998,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ee0476eb4211a49ba93d892cd7ea72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1581053366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4702810065179486201, guid: 2fcf735578dd0bd48be05e55a133ca7b, type: 3}
+  m_PrefabInstance: {fileID: 159244830}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9153913575089066910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88965,6 +89016,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1719910609, guid: 6045ee19c180df84e81c4ac7b7cce4fa, type: 3}
+      propertyPath: Energy
+      value: 
+      objectReference: {fileID: 34420242}
+    - target: {fileID: 1719910609, guid: 6045ee19c180df84e81c4ac7b7cce4fa, type: 3}
+      propertyPath: Health
+      value: 
+      objectReference: {fileID: 301026293}
+    - target: {fileID: 1719910609, guid: 6045ee19c180df84e81c4ac7b7cce4fa, type: 3}
+      propertyPath: Stamina
+      value: 
+      objectReference: {fileID: 1581053366}
     - target: {fileID: 2380705499382354125, guid: 6045ee19c180df84e81c4ac7b7cce4fa, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
