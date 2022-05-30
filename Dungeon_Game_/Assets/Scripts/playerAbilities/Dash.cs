@@ -11,10 +11,10 @@ using UnityEngine;
 public class Dash : Ability
 {
     public float dashVelocity;
-    public override void Activate(GameObject parent)
+    public override void Activate(GameObject player)
     {
-        PlayerResource stamina = parent.GetComponent<PlayerResource>();
-        Player_Movement movement = parent.GetComponent<Player_Movement>();
+        PlayerResource stamina = player.GetComponent<PlayerResource>();
+        Player_Movement movement = player.GetComponent<Player_Movement>();
         if(stamina.Stamina.value >=20f)
         {
         movement.speed = movement.speed * dashVelocity;
@@ -22,9 +22,9 @@ public class Dash : Ability
         }
     }
 
-    public override void BeginCooldown(GameObject parent)
+    public override void BeginCooldown(GameObject player)
     {
-        Player_Movement movement = parent.GetComponent<Player_Movement>();
+        Player_Movement movement = player.GetComponent<Player_Movement>();
         movement.speed = 12f;
     }
 }    
