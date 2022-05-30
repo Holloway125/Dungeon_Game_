@@ -91,7 +91,7 @@ void Update()
     }
 }
 
-void Resume()
+public void Resume()
 {
     settingsPanel.SetActive(false);
     pauseMenu.SetActive(false);
@@ -113,7 +113,7 @@ void PauseMenu()
     GameIsPaused = true;
 }
 
-void PauseInv()
+public void PauseInv()
 {
     
     invPanel.SetActive(true);
@@ -121,7 +121,7 @@ void PauseInv()
     GameIsPaused = true;
 }
 
-void PauseChar()
+public void PauseChar()
 {
     
     charPanel.SetActive(true);
@@ -129,7 +129,7 @@ void PauseChar()
     GameIsPaused = true;
 }
 
-void PauseTalent()
+public void PauseTalent()
 {
     
     talentPanel.SetActive(true);
@@ -137,7 +137,7 @@ void PauseTalent()
     GameIsPaused = true;
 }
 
-void PauseAbility()
+public void PauseAbility()
 {
     
     abilitiesPanel.SetActive(true);
@@ -145,7 +145,7 @@ void PauseAbility()
     GameIsPaused = true;
 }
 
-void PauseLog()
+public void PauseLog()
 {
     
     logPanel.SetActive(true);
