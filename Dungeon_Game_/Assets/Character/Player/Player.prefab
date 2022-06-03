@@ -680,7 +680,7 @@ GameObject:
   - component: {fileID: 5114775566972145740}
   - component: {fileID: 5448408137837704186}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: invText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -908,7 +908,7 @@ GameObject:
   - component: {fileID: 4624117786547142458}
   - component: {fileID: 2559945824522161723}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: lobbookText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1404,7 +1404,7 @@ GameObject:
   - component: {fileID: 7784456061333790047}
   - component: {fileID: 1749967840522263778}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: charText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3288,7 +3288,6 @@ GameObject:
   - component: {fileID: 5104191694468052472}
   - component: {fileID: 23962136275087013}
   - component: {fileID: 8636605506561340849}
-  - component: {fileID: 1415974995}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -8254,29 +8253,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  totalCurrentXP: 1
-  currentXP: 1
+  totalCurrentXP: 0
+  currentXP: 0
   reqXP: 83
-  playerLevel: {fileID: 5448408137837704186}
-  expBar: {fileID: 0}
+  playerLevel: {fileID: 5681799461677790125}
+  expBar: {fileID: 866922753006008942}
   lvl: 1
---- !u!114 &1415974995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5220228351039929848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133318a436ada4e4388691340d1116a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  Energy: {fileID: 8270611415012036186}
-  Stamina: {fileID: 658193745437979795}
-  healthBar: {fileID: 2982370985804603693}
 --- !u!1 &5498208345460896615
 GameObject:
   m_ObjectHideFlags: 0
@@ -8701,7 +8683,7 @@ GameObject:
   - component: {fileID: 5200348253018167126}
   - component: {fileID: 9161172927681221736}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: abilityText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8994,7 +8976,7 @@ GameObject:
   - component: {fileID: 2732265653625712861}
   - component: {fileID: 7999195014653030957}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: talentsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9325,7 +9307,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
