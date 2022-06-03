@@ -8,6 +8,7 @@ public class Ability : ScriptableObject
     public new string name;
     public float cooldownTime;
     public float activeTime;
+    public GameObject player;
 
 
     

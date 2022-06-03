@@ -15,4 +15,5 @@ MonoBehaviour:
   name: Dash
   cooldownTime: 1
   activeTime: 0.25
+  player: {fileID: 5220228351039929848, guid: 6045ee19c180df84e81c4ac7b7cce4fa, type: 3}
   dashVelocity: 3
