@@ -16,16 +16,20 @@ public GameObject talentPanel;
 public GameObject abilitiesPanel;
 public GameObject logPanel;
 
+
 void Update()
 {
     if(Input.GetKeyDown(KeyCode.Escape))
     {
+       
         if (GameIsPaused)
         {
             Resume();
+            
         }else
         {
             PauseMenu();
+            
         }
     }
 
@@ -80,6 +84,7 @@ void Update()
 
             if(Input.GetKeyDown(KeyCode.L))
     {
+        
         if (GameIsPaused)
         {
 
