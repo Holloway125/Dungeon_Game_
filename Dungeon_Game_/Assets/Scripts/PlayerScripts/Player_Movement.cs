@@ -13,8 +13,10 @@ public class Player_Movement : MonoBehaviour
 
 
 
+
     void Update() //Called every frame
     {
+
         float movementX = Input.GetAxisRaw("Horizontal");
         float movementY = Input.GetAxisRaw("Vertical");
 

@@ -7,7 +7,10 @@ using UnityEngine.Animations;
 
 public class PlayerResource : MonoBehaviour
 {
-   
+    //for death animation
+    public Rigidbody2D rb;
+    public Animator _animator;
+    public GameObject youLose;
     //health properties
     public int maxHealth = 100;
     public int currentHealth;
@@ -42,6 +45,7 @@ public class PlayerResource : MonoBehaviour
         levelText = 1;
         totalCurrentXP = 1;
         
+        
     }
 
     void Update()
@@ -75,11 +79,7 @@ public class PlayerResource : MonoBehaviour
         }
         else
         {
-         currentHealth = 0;
-         SetHealth(currentHealth);
-         healthText.SetText($"{currentHealth.ToString()} / {maxHealth.ToString()}");
-         //play death animation code unsure how
-
+            Death();
         }
     }
 
@@ -111,6 +111,26 @@ public class PlayerResource : MonoBehaviour
     {
         health.value = Health;
     }
+
+    public void Death()
+    {
+        currentHealth = 0;
+        SetHealth(currentHealth);
+        healthText.SetText($"{currentHealth.ToString()} / {maxHealth.ToString()}");
+        //play death animation
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        _animator.SetTrigger("death");
+        
+        youLose.SetActive(true);
+
+
+
+    }
     
+    public void TimeStop()
+    {
+        Time.timeScale = 0;
+        
+    }
     
 }
