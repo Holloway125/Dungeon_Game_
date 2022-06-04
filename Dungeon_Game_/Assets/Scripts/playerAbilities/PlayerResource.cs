@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Animations;
 
 public class PlayerResource : MonoBehaviour
 {
+   
     //health properties
     public int maxHealth = 100;
     public int currentHealth;
@@ -39,6 +41,7 @@ public class PlayerResource : MonoBehaviour
         expBar.maxValue = reqXP;
         levelText = 1;
         totalCurrentXP = 1;
+        
     }
 
     void Update()
@@ -64,9 +67,20 @@ public class PlayerResource : MonoBehaviour
 
     void TakeDamage(int damage)
     {
+        if(currentHealth > damage)
+        {
         currentHealth -= damage;
         SetHealth(currentHealth);
         healthText.SetText($"{currentHealth.ToString()} / {maxHealth.ToString()}");
+        }
+        else
+        {
+         currentHealth = 0;
+         SetHealth(currentHealth);
+         healthText.SetText($"{currentHealth.ToString()} / {maxHealth.ToString()}");
+         //play death animation code unsure how
+
+        }
     }
 
     public void GainExperienceFlatRate( float xpGained)
