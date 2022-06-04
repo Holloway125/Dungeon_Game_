@@ -11,10 +11,6 @@ public class Ability : ScriptableObject
 
     
 
-
-    
-
-
-    public virtual void Activate(GameObject player){}
+    public virtual void Activate(GameObject parent){}
     public virtual void BeginCooldown(GameObject parent){}
 }
