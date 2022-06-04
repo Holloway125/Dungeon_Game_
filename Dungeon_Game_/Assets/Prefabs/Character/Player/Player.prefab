@@ -8082,9 +8082,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  Energy: {fileID: 8270611415012036186}
-  Stamina: {fileID: 658193745437979795}
   healthBar: {fileID: 2982370985804603693}
+  health: {fileID: 8412923794188494986}
+  healthText: {fileID: 6921505005561022275}
+  Energy: {fileID: 8270611415012036186}
+  energyText: {fileID: 6657399887629443532}
+  Stamina: {fileID: 658193745437979795}
+  staminaText: {fileID: 8228213921420200630}
 --- !u!212 &7398123987576888321
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13617,8 +13621,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1597.3806, y: -995.53015}
-  m_SizeDelta: {x: -575.2402, y: -11.779999}
+  m_AnchoredPosition: {x: 0.00036621094, y: -0.000091552734}
+  m_SizeDelta: {x: -0.00012207, y: 0.000026703}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2989327867221648472
 CanvasRenderer:
@@ -17275,8 +17279,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1597.3801, y: 995.53}
-  m_SizeDelta: {x: 575.24, y: 11.78}
+  m_AnchoredPosition: {x: 0.02029419, y: 0.7413101}
+  m_SizeDelta: {x: 0.040771, y: 0.8616}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &9177760872566169429
 GameObject:

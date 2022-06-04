@@ -34,6 +34,7 @@ public class LevelSystem : MonoBehaviour
         if (currentXP > reqXP)
         {    
             LevelUP();
+            
         }
     }
     public void GainExperienceFlatRate( float xpGained)
