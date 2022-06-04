@@ -31,7 +31,7 @@ public class PlayerResource : MonoBehaviour
 
     void Start()
     {
-        SetHealth(maxHealth);
+        currentHealth = maxHealth;
         SetMaxHealth(maxHealth);  
         reqXP = 83;
         currentXP = 0;

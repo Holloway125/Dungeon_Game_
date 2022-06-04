@@ -8061,13 +8061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b68e33b756b164496621ad95ed8338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
-  totalCurrentXP: 0
-  currentXP: 0
-  reqXP: 83
-  playerLevel: {fileID: 5681799461677790125}
-  expBar: {fileID: 866922753006008942}
-  lvl: 1
 --- !u!114 &732562270846772988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8082,13 +8075,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  healthBar: {fileID: 2982370985804603693}
   health: {fileID: 8412923794188494986}
   healthText: {fileID: 6921505005561022275}
   Energy: {fileID: 8270611415012036186}
   energyText: {fileID: 6657399887629443532}
   Stamina: {fileID: 658193745437979795}
   staminaText: {fileID: 8228213921420200630}
+  level: 0
+  totalCurrentXP: 0
+  currentXP: 0
+  reqXP: 0
+  playerLevel: {fileID: 5681799461677790125}
+  expBar: {fileID: 866922753006008942}
+  levelText: 0
 --- !u!212 &7398123987576888321
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15726,7 +15725,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4382779096018448652}
   - component: {fileID: 8412923794188494986}
-  - component: {fileID: 2982370985804603693}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -15808,19 +15806,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2982370985804603693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7619767171300812257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9442724748b16354a9293f75c1ed75aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 8412923794188494986}
 --- !u!1 &7692721157614984576
 GameObject:
   m_ObjectHideFlags: 0
