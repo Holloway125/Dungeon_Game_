@@ -3,7 +3,14 @@ guid: 6736666bd8faa7846ae522aef39119db
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - pauseMenu: {instanceID: 0}
+  - settingsPanel: {instanceID: 0}
+  - invPanel: {instanceID: 0}
+  - charPanel: {instanceID: 0}
+  - talentPanel: {instanceID: 0}
+  - abilitiesPanel: {instanceID: 0}
+  - logPanel: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
