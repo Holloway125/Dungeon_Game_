@@ -7,6 +7,7 @@ public class EnemyDamage : MonoBehaviour
     public int damageInt;
     Damage damageScript;
     GameObject otherScript;
+    public bool tookDamage;
 
     void Awake()
     {
@@ -21,6 +22,7 @@ public class EnemyDamage : MonoBehaviour
          if (collision.gameObject.tag == "Player")
          {
             damageScript.TakeDamage(damageInt); 
+            tookDamage = true;
          }
      }
 

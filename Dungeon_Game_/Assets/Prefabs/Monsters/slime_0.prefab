@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7592377365070949006}
   - component: {fileID: 8047009388126023481}
   - component: {fileID: -5474638515725084061}
-  - component: {fileID: 4974536279158448154}
+  - component: {fileID: 5045695476777436600}
   m_Layer: 0
   m_Name: slime_0
   m_TagString: Untagged
@@ -158,14 +158,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f1f48de49e4a54280f41d50f20e252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  checkRadius: 5
-  attackRadius: 1
+  speed: 8
+  checkRadius: 15
+  attackRadius: 0.75
   shouldRotate: 0
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 264
---- !u!114 &4974536279158448154
+--- !u!114 &5045695476777436600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,4 +177,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b8113e3705c074c95a0cfc6f68aa59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageInt: 50
+  damageInt: 10

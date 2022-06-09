@@ -18,13 +18,12 @@ public class Slime : MonoBehaviour
     private Animator anim;
     private Vector2 movement;
     private Vector2 dir;
-
     private bool isInChaseRange;
     private bool isInAttackRange;
-
     private void Start()
     {
         //Defines properties on start
+
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform;
@@ -51,13 +50,12 @@ public class Slime : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(isInChaseRange && !isInAttackRange)//unlocks enemy movement when in range of player and is not attacking
+         if(isInChaseRange && !isInAttackRange)//unlocks enemy movement when in range of player and is not attacking
         {
             MoveCharacter(movement);
         }
-        if(isInAttackRange)//locks enemy movement to zero when attacking
+         if(isInAttackRange)//locks enemy movement to zero when attacking
         {
-            
             rb.velocity = Vector2.zero;
         }
     }
