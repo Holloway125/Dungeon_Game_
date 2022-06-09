@@ -107,12 +107,5 @@ public class PlayerResource : MonoBehaviour
         healthSlider.value = Health;
         }
     }
-
-
-    public void TimeStop() //stops time
-    {
-        Time.timeScale = 0;
-        
-    }
     
 }
