@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1138774080251202267}
   - component: {fileID: 822008448034810830}
+  - component: {fileID: 966312341128384151}
   - component: {fileID: -7592377365070949006}
   - component: {fileID: 8047009388126023481}
   - component: {fileID: -5474638515725084061}
+  - component: {fileID: 5314133493634883058}
   m_Layer: 0
   m_Name: slime_0
   m_TagString: Untagged
@@ -76,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -720103273, guid: 82a9f3df7c878f749a4ae26226d4ff43, type: 3}
+  m_Sprite: {fileID: -1464333908, guid: 82a9f3df7c878f749a4ae26226d4ff43, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,6 +89,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &966312341128384151
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7169616798835329685}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!58 &-7592377365070949006
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -98,11 +121,11 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.031424522}
+  m_Offset: {x: 0, y: 0.24}
   serializedVersion: 2
-  m_Radius: 0.21739435
+  m_Radius: 0.58
 --- !u!95 &8047009388126023481
 Animator:
   serializedVersion: 4
@@ -135,3 +158,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f1f48de49e4a54280f41d50f20e252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 4
+  checkRadius: 5
+  attackRadius: 1
+  shouldRotate: 0
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 264
+--- !u!114 &5314133493634883058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7169616798835329685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5b8113e3705c074c95a0cfc6f68aa59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  playerResource: {fileID: 732562270846772988, guid: 037b2432fa29b5f478a33e0b95ab63d8, type: 3}

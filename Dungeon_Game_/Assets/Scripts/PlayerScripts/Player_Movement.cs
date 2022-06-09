@@ -5,16 +5,13 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
 
-
     public float speed = 12f;
     public Rigidbody2D rb;
     public Animator animator;
     Vector2 movement;
 
 
-
-
-    void Update() //Called every frame
+    void Update()
     {
 
         float movementX = Input.GetAxisRaw("Horizontal");
@@ -25,15 +22,12 @@ public class Player_Movement : MonoBehaviour
         animator.SetFloat("Horizontal", movementX);
         animator.SetFloat("Vertical", movementY);
         animator.SetFloat("Speed", movement.sqrMagnitude);
-        
-
 
     }
 
 
-    void FixedUpdate() //Called 50 times a sec
+    void FixedUpdate()
     {
-        //rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
         rb.velocity = new Vector2(movement.x * speed, movement.y * speed); 
     }
 }

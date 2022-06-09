@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 410314687}
   - component: {fileID: 410314686}
   - component: {fileID: 410314685}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 1079623779}
   - component: {fileID: 1079623781}
   - component: {fileID: 1079623780}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: ReturnToTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 1680303880}
   - component: {fileID: 1680303882}
   - component: {fileID: 1680303881}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: HAHAHA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,13 +427,13 @@ GameObject:
   - component: {fileID: 1785983282}
   - component: {fileID: 1785983284}
   - component: {fileID: 1785983283}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: YouLosePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1785983282
 RectTransform:
   m_ObjectHideFlags: 0
@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 1856149890}
   - component: {fileID: 1856149892}
   - component: {fileID: 1856149891}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: BetterLuck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 2344856850057749961}
   - component: {fileID: 2081147663251373693}
   - component: {fileID: 978035560384723327}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -730,7 +730,7 @@ GameObject:
   - component: {fileID: 3914062424897926882}
   - component: {fileID: 7621274005240219991}
   - component: {fileID: 2337580229364312991}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -806,7 +806,7 @@ GameObject:
   - component: {fileID: 2907628933363625228}
   - component: {fileID: 6894948832028566511}
   - component: {fileID: 3756062630267065618}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: MixerController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,7 +963,7 @@ GameObject:
   - component: {fileID: 8407939931053911000}
   - component: {fileID: 1497241240404095833}
   - component: {fileID: 4142401998572518647}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: SettingsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1063,7 +1063,7 @@ GameObject:
   - component: {fileID: 197090083513557362}
   - component: {fileID: 7756057381770741305}
   - component: {fileID: 721130408125005834}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1152,7 +1152,7 @@ GameObject:
   - component: {fileID: 7000500990181326741}
   - component: {fileID: 2819159277501466626}
   - component: {fileID: 8357942741963801305}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (68)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1240,7 +1240,7 @@ GameObject:
   - component: {fileID: 9076706793361906720}
   - component: {fileID: 1406541404928780467}
   - component: {fileID: 7499020364207528308}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1317,7 +1317,7 @@ GameObject:
   - component: {fileID: 8402631994352134826}
   - component: {fileID: 8128759694190044852}
   - component: {fileID: 2384193625972346954}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (84)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1406,7 +1406,7 @@ GameObject:
   - component: {fileID: 8762096267180348249}
   - component: {fileID: 5986273066902080860}
   - component: {fileID: 8198712309519711570}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: CharStats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1539,7 +1539,7 @@ GameObject:
   - component: {fileID: 4456948035725663297}
   - component: {fileID: 413624225109017148}
   - component: {fileID: 9205326965569962040}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1674,7 +1674,7 @@ GameObject:
   - component: {fileID: 2838604508056044106}
   - component: {fileID: 2527748556362932045}
   - component: {fileID: 6709485832291019435}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1751,7 +1751,7 @@ GameObject:
   - component: {fileID: 8160090544595805241}
   - component: {fileID: 1328292466335425108}
   - component: {fileID: 7477144638563372611}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1840,7 +1840,7 @@ GameObject:
   - component: {fileID: 4564664071698233404}
   - component: {fileID: 757296773241368466}
   - component: {fileID: 6789040312559114643}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (87)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1928,7 +1928,7 @@ GameObject:
   - component: {fileID: 9074867337569929153}
   - component: {fileID: 6588420743285398784}
   - component: {fileID: 3235808803120018468}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2008,7 +2008,7 @@ GameObject:
   - component: {fileID: 4727815020766882427}
   - component: {fileID: 7280188131471939500}
   - component: {fileID: 4020147065850075588}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: AmbientVolumeValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2144,7 +2144,7 @@ GameObject:
   - component: {fileID: 1026842908574861853}
   - component: {fileID: 3104967949784299038}
   - component: {fileID: 5418450367842284479}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2232,7 +2232,7 @@ GameObject:
   - component: {fileID: 5762523838590862242}
   - component: {fileID: 7274226068364643738}
   - component: {fileID: 2267078954110183635}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2307,7 +2307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5817187291450896328}
   - component: {fileID: 4584709918445676659}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: MusicVolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2414,7 +2414,7 @@ GameObject:
   - component: {fileID: 7115987595660524547}
   - component: {fileID: 4292822231649671508}
   - component: {fileID: 2577088464497366610}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: QuitGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2560,7 +2560,7 @@ GameObject:
   - component: {fileID: 1048789061026781402}
   - component: {fileID: 757833963686972863}
   - component: {fileID: 8275926038369025963}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (65)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2649,7 +2649,7 @@ GameObject:
   - component: {fileID: 7597397189464829882}
   - component: {fileID: 2276078024618357334}
   - component: {fileID: 7533917365974391993}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2735,7 +2735,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5665908296132256480}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2775,7 +2775,7 @@ GameObject:
   - component: {fileID: 5862463861132364624}
   - component: {fileID: 1881430740695424759}
   - component: {fileID: 6111322050549661764}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: RelicSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2864,7 +2864,7 @@ GameObject:
   - component: {fileID: 1267722720862215552}
   - component: {fileID: 5798555087902757092}
   - component: {fileID: 5699869316249503631}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2953,7 +2953,7 @@ GameObject:
   - component: {fileID: 3063860681884103463}
   - component: {fileID: 6135422286625661914}
   - component: {fileID: 1691586595445736712}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Abilities
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3084,7 +3084,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8255685839728664046}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Sliding Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3124,7 +3124,7 @@ GameObject:
   - component: {fileID: 2094251208395802551}
   - component: {fileID: 7080812976336712269}
   - component: {fileID: 4628236535196736468}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (69)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3213,7 +3213,7 @@ GameObject:
   - component: {fileID: 4247134859806592059}
   - component: {fileID: 3082391974156674920}
   - component: {fileID: 7675940187072459025}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3302,7 +3302,7 @@ GameObject:
   - component: {fileID: 6064884510514360572}
   - component: {fileID: 897108427686833467}
   - component: {fileID: 2846940902170752118}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (40)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3388,7 +3388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2313605771494873827}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3425,7 +3425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5930474409998861362}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3465,7 +3465,7 @@ GameObject:
   - component: {fileID: 1386097167339645120}
   - component: {fileID: 8710431786596069845}
   - component: {fileID: 1177780947390171435}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Inv
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3599,7 +3599,7 @@ GameObject:
   - component: {fileID: 545132434684721078}
   - component: {fileID: 2675854249801770662}
   - component: {fileID: 5525262146837963266}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (53)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3688,7 +3688,7 @@ GameObject:
   - component: {fileID: 6111508734436272026}
   - component: {fileID: 6358457479649539819}
   - component: {fileID: 8569792597829702662}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (61)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3775,7 +3775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5093800594177098940}
   - component: {fileID: 1141662678454462984}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: AmbientVolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3882,7 +3882,7 @@ GameObject:
   - component: {fileID: 3649447679190039857}
   - component: {fileID: 992565277380886739}
   - component: {fileID: 9158688331110469412}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (59)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3970,7 +3970,7 @@ GameObject:
   - component: {fileID: 7886705934578501925}
   - component: {fileID: 1312758558529503335}
   - component: {fileID: 5885273055064561368}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Resolution
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4104,7 +4104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7436189389382633817}
   - component: {fileID: 7357862712534855020}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4194,7 +4194,7 @@ GameObject:
   - component: {fileID: 3226582059942012826}
   - component: {fileID: 8878371099234064244}
   - component: {fileID: 4548687528992824352}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: TalentsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4369,7 +4369,7 @@ GameObject:
   - component: {fileID: 8661882895976724312}
   - component: {fileID: 6321472761765989727}
   - component: {fileID: 2863967161013664493}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (86)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4458,7 +4458,7 @@ GameObject:
   - component: {fileID: 8878323826894736839}
   - component: {fileID: 7597119901802305443}
   - component: {fileID: 7792893097582775821}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4547,7 +4547,7 @@ GameObject:
   - component: {fileID: 5821030116074597814}
   - component: {fileID: 1165391029813597779}
   - component: {fileID: 543872075676103199}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (83)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4636,7 +4636,7 @@ GameObject:
   - component: {fileID: 8488674104504060693}
   - component: {fileID: 6894794963593694618}
   - component: {fileID: 2869297831983030753}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: SettingsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4786,7 +4786,7 @@ GameObject:
   - component: {fileID: 5601411994367951221}
   - component: {fileID: 5114775566972145740}
   - component: {fileID: 5448408137837704186}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: invText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4924,7 +4924,7 @@ GameObject:
   - component: {fileID: 6959724944306362570}
   - component: {fileID: 6721228795725976392}
   - component: {fileID: 7512581479861780679}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5013,7 +5013,7 @@ GameObject:
   - component: {fileID: 2448226455010805624}
   - component: {fileID: 7881123361298240742}
   - component: {fileID: 209355317278579054}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (51)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5102,7 +5102,7 @@ GameObject:
   - component: {fileID: 6157641668619692869}
   - component: {fileID: 4019474717840523904}
   - component: {fileID: 4844762649768309911}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5189,7 +5189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594507749860103028}
   - component: {fileID: 866922753006008942}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Exp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5281,7 +5281,7 @@ GameObject:
   - component: {fileID: 3705663161427729327}
   - component: {fileID: 8336603393213726807}
   - component: {fileID: 3975844899586578294}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (89)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5367,7 +5367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1618017185236891789}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5406,7 +5406,7 @@ GameObject:
   - component: {fileID: 2950752932992251814}
   - component: {fileID: 4624117786547142458}
   - component: {fileID: 2559945824522161723}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: lobbookText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5543,7 +5543,7 @@ GameObject:
   - component: {fileID: 7148991962229514535}
   - component: {fileID: 1306958780766988919}
   - component: {fileID: 8558202701414270693}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: MusicVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5679,7 +5679,7 @@ GameObject:
   - component: {fileID: 7319804313024011621}
   - component: {fileID: 8065526498117357212}
   - component: {fileID: 4199923017621372322}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5768,7 +5768,7 @@ GameObject:
   - component: {fileID: 5364097888234144091}
   - component: {fileID: 4850150651839656017}
   - component: {fileID: 6120204741747118678}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (56)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5856,7 +5856,7 @@ GameObject:
   - component: {fileID: 2314132084209575151}
   - component: {fileID: 7828584051281516868}
   - component: {fileID: 4984431203100641171}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: SFXVolumeValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5991,7 +5991,7 @@ GameObject:
   - component: {fileID: 2666115028879389596}
   - component: {fileID: 4069488775121584388}
   - component: {fileID: 81257389396119489}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6076,7 +6076,7 @@ GameObject:
   - component: {fileID: 426556960454992059}
   - component: {fileID: 5028230265644888000}
   - component: {fileID: 7957314809492364518}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6164,7 +6164,7 @@ GameObject:
   - component: {fileID: 7847253797446272846}
   - component: {fileID: 4777671306181592531}
   - component: {fileID: 3921081976142687868}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: CloseSettingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6300,7 +6300,7 @@ GameObject:
   - component: {fileID: 1173421645523605643}
   - component: {fileID: 5294675845917938679}
   - component: {fileID: 8250459650823585682}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: ReturnToTitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6451,7 +6451,7 @@ GameObject:
   - component: {fileID: 3561944025663035097}
   - component: {fileID: 4750838205108004958}
   - component: {fileID: 8499304241101854420}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (46)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6537,7 +6537,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9207812200520835846}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6577,7 +6577,7 @@ GameObject:
   - component: {fileID: 7038283762666622895}
   - component: {fileID: 443901217480459406}
   - component: {fileID: 2802281290990246200}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (71)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6665,7 +6665,7 @@ GameObject:
   - component: {fileID: 8813822515953827091}
   - component: {fileID: 5723989095230004034}
   - component: {fileID: 3652016581830073880}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6742,7 +6742,7 @@ GameObject:
   - component: {fileID: 3130918801163228408}
   - component: {fileID: 7427182988844844065}
   - component: {fileID: 7113865972408648978}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6828,7 +6828,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5817103540031423693}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6868,7 +6868,7 @@ GameObject:
   - component: {fileID: 4582496304902475474}
   - component: {fileID: 2899718714334508645}
   - component: {fileID: 5904420716777080233}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: CloseChar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7036,7 +7036,7 @@ GameObject:
   m_Component:
   - component: {fileID: 340945638234994586}
   - component: {fileID: 658193745437979795}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: PlayerStamina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7085,7 +7085,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -7129,7 +7129,7 @@ GameObject:
   - component: {fileID: 530808179117478028}
   - component: {fileID: 670296930093693504}
   - component: {fileID: 5010770175326962656}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (55)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7218,7 +7218,7 @@ GameObject:
   - component: {fileID: 8617325831638159313}
   - component: {fileID: 6029388703572455812}
   - component: {fileID: 8162576486568701039}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Scrollbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7344,7 +7344,7 @@ GameObject:
   - component: {fileID: 834793139561185770}
   - component: {fileID: 8102280181301424895}
   - component: {fileID: 623549456691773186}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Item Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7479,7 +7479,7 @@ GameObject:
   - component: {fileID: 2431671123591388588}
   - component: {fileID: 7784456061333790047}
   - component: {fileID: 1749967840522263778}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: charText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7617,7 +7617,7 @@ GameObject:
   - component: {fileID: 3426406176736990051}
   - component: {fileID: 6596678690392304470}
   - component: {fileID: 3575902910771225180}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7706,7 +7706,7 @@ GameObject:
   - component: {fileID: 4713787080979378379}
   - component: {fileID: 5513069495611078829}
   - component: {fileID: 4606487593689884817}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7794,7 +7794,7 @@ GameObject:
   - component: {fileID: 7673227639343733862}
   - component: {fileID: 525897342310964353}
   - component: {fileID: 4074594571766402231}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7871,7 +7871,7 @@ GameObject:
   - component: {fileID: 7885208485611089759}
   - component: {fileID: 271561225921088865}
   - component: {fileID: 558131708759863851}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (43)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7959,7 +7959,7 @@ GameObject:
   - component: {fileID: 8224348351055584096}
   - component: {fileID: 6866446972060098310}
   - component: {fileID: 8862579741560571573}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: CloseSettingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8095,7 +8095,7 @@ GameObject:
   - component: {fileID: 8242549206044257512}
   - component: {fileID: 4676196216724777424}
   - component: {fileID: 1493798090799506017}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (85)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8183,7 +8183,7 @@ GameObject:
   - component: {fileID: 3158679871838189244}
   - component: {fileID: 1300500640279536816}
   - component: {fileID: 2468636501944269747}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8259,7 +8259,7 @@ GameObject:
   - component: {fileID: 7333329924912220100}
   - component: {fileID: 7186993249318514055}
   - component: {fileID: 6921505005561022275}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: HealthValueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8314,7 +8314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100/100
+  m_text: 0 / 1000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8394,7 +8394,7 @@ GameObject:
   - component: {fileID: 5183056066746349404}
   - component: {fileID: 7364646919651669769}
   - component: {fileID: 4473818718876680546}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8470,7 +8470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1265742243407794632}
   - component: {fileID: 7069674337271431739}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: FullScreenToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8559,7 +8559,7 @@ GameObject:
   - component: {fileID: 478305177313021914}
   - component: {fileID: 6938813351355605212}
   - component: {fileID: 6212261501037850664}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8648,7 +8648,7 @@ GameObject:
   - component: {fileID: 4024821314814535101}
   - component: {fileID: 2963233019598579187}
   - component: {fileID: 5771492559722622804}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (47)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8736,7 +8736,7 @@ GameObject:
   - component: {fileID: 3033942617353843237}
   - component: {fileID: 9189939121870729886}
   - component: {fileID: 2135123119445702881}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8813,7 +8813,7 @@ GameObject:
   - component: {fileID: 3661190338176431529}
   - component: {fileID: 1349535364651704605}
   - component: {fileID: 6821101919846444559}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: SaveGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8957,7 +8957,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8253068803552702472}
   - component: {fileID: 2381437514460945451}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: SFXVolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9064,7 +9064,7 @@ GameObject:
   - component: {fileID: 1497788885666239667}
   - component: {fileID: 3267619317669823758}
   - component: {fileID: 3442488557847428061}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: CloseInv
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9222,7 +9222,7 @@ GameObject:
   - component: {fileID: 9181914491186642918}
   - component: {fileID: 898073099693748487}
   - component: {fileID: 4888275552272362724}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: SaveGameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9373,7 +9373,7 @@ GameObject:
   - component: {fileID: 2062708452382166735}
   - component: {fileID: 4694878458531700890}
   - component: {fileID: 9035357239189449180}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (81)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9461,7 +9461,7 @@ GameObject:
   - component: {fileID: 3257829892882718611}
   - component: {fileID: 3622338141274182024}
   - component: {fileID: 7659833803898153055}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Checkmark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9535,7 +9535,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 669123067807515079}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9575,7 +9575,7 @@ GameObject:
   - component: {fileID: 5928316553756839866}
   - component: {fileID: 6275879951716869182}
   - component: {fileID: 6434723362932862210}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: CloseAbility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9745,7 +9745,7 @@ GameObject:
   - component: {fileID: 5116865686884085276}
   - component: {fileID: 4218416968643944410}
   - component: {fileID: 5999523316649651793}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (67)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9834,7 +9834,7 @@ GameObject:
   - component: {fileID: 5874476885913933437}
   - component: {fileID: 3713710708927130087}
   - component: {fileID: 6297105941593203602}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: CloseLog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9992,7 +9992,7 @@ GameObject:
   - component: {fileID: 1574562489387684710}
   - component: {fileID: 1336188910426986242}
   - component: {fileID: 6058219965254707122}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (54)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10081,7 +10081,7 @@ GameObject:
   - component: {fileID: 8336434867776812838}
   - component: {fileID: 8310361662407219139}
   - component: {fileID: 8411361390411491384}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: AbilityPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10256,7 +10256,7 @@ GameObject:
   - component: {fileID: 2389564888297954254}
   - component: {fileID: 8475347287881875222}
   - component: {fileID: 5765721761440801793}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10345,7 +10345,7 @@ GameObject:
   - component: {fileID: 6355328053224728288}
   - component: {fileID: 8013130265071529530}
   - component: {fileID: 86551057907856538}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (79)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10434,7 +10434,7 @@ GameObject:
   - component: {fileID: 217236589635476591}
   - component: {fileID: 8675879833629052242}
   - component: {fileID: 8092291843416912140}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10522,7 +10522,7 @@ GameObject:
   - component: {fileID: 1876284982309096901}
   - component: {fileID: 878629472722570841}
   - component: {fileID: 9166953501557073058}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10599,7 +10599,7 @@ GameObject:
   - component: {fileID: 179291340071736202}
   - component: {fileID: 8917350209331007046}
   - component: {fileID: 699011859466451690}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (77)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10687,7 +10687,7 @@ GameObject:
   - component: {fileID: 9161516601572991529}
   - component: {fileID: 3732233258717335343}
   - component: {fileID: 4193492480346861876}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10764,7 +10764,7 @@ GameObject:
   - component: {fileID: 3370634372184150942}
   - component: {fileID: 2725907972090043906}
   - component: {fileID: 4015746267703505022}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10853,7 +10853,7 @@ GameObject:
   - component: {fileID: 1356801035839151680}
   - component: {fileID: 2497426463547067808}
   - component: {fileID: 5520533489437976888}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10939,7 +10939,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1042798038750790304}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10978,7 +10978,7 @@ GameObject:
   - component: {fileID: 2240315842121887200}
   - component: {fileID: 6823841602490326359}
   - component: {fileID: 6475461450817976023}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Item Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11055,7 +11055,7 @@ GameObject:
   - component: {fileID: 2136166905788270292}
   - component: {fileID: 8255788889025564355}
   - component: {fileID: 5939857097988043312}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: CloseTalents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11212,7 +11212,7 @@ GameObject:
   - component: {fileID: 1154968165530668883}
   - component: {fileID: 780016255553413912}
   - component: {fileID: 9064823223093824972}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11287,7 +11287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1313135440362789069}
   - component: {fileID: 5715069801847913282}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: vSync
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11364,54 +11364,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
---- !u!1 &3990005798518483664
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8730607068872362053}
-  - component: {fileID: 8371419899955870752}
-  m_Layer: 0
-  m_Name: Hitbox
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8730607068872362053
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3990005798518483664}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9085496221342958964}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &8371419899955870752
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3990005798518483664}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.56}
-  m_Size: {x: 0.65, y: 1.27}
-  m_Direction: 0
 --- !u!1 &3997433682254587579
 GameObject:
   m_ObjectHideFlags: 0
@@ -11423,7 +11375,7 @@ GameObject:
   - component: {fileID: 1538839838247339847}
   - component: {fileID: 9121738320758214523}
   - component: {fileID: 4269361251297849519}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: CloseSettingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11558,7 +11510,7 @@ GameObject:
   - component: {fileID: 3268675795176822107}
   - component: {fileID: 1384476163585414655}
   - component: {fileID: 166415335802970242}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: SFXVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11694,7 +11646,7 @@ GameObject:
   - component: {fileID: 1439688788097042519}
   - component: {fileID: 6285322049790759904}
   - component: {fileID: 2981553858668974011}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (75)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11782,7 +11734,7 @@ GameObject:
   - component: {fileID: 8971723461298886555}
   - component: {fileID: 2282032944609828138}
   - component: {fileID: 2805873609916273316}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11859,7 +11811,7 @@ GameObject:
   - component: {fileID: 5239183266701075868}
   - component: {fileID: 2030536893094328006}
   - component: {fileID: 3092390321653952473}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (70)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11947,7 +11899,7 @@ GameObject:
   - component: {fileID: 6867552532498628769}
   - component: {fileID: 4494391180738332354}
   - component: {fileID: 6771444639878856019}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: DialogueVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12082,7 +12034,7 @@ GameObject:
   - component: {fileID: 4998892877268074388}
   - component: {fileID: 7022118661965862441}
   - component: {fileID: 6480279152660000952}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: MasterVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12217,7 +12169,7 @@ GameObject:
   - component: {fileID: 3221969967151465853}
   - component: {fileID: 1148747572258922250}
   - component: {fileID: 4386168904270235178}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: DialogueVolumeValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12353,7 +12305,7 @@ GameObject:
   - component: {fileID: 8797078051367672628}
   - component: {fileID: 5097345392463426864}
   - component: {fileID: 8537193526155526087}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: ReturnToTitleButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12496,7 +12448,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7703863233398791878}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12535,7 +12487,7 @@ GameObject:
   - component: {fileID: 7645079135855247991}
   - component: {fileID: 5590092122399435984}
   - component: {fileID: 6724053958414857748}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12612,7 +12564,7 @@ GameObject:
   - component: {fileID: 8651894387730142983}
   - component: {fileID: 301536203745194967}
   - component: {fileID: 1360687716132695792}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12699,7 +12651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3928700015299857352}
   - component: {fileID: 8270611415012036186}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: PlayerEnergy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12790,7 +12742,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7313956556168712263}
   - component: {fileID: 2741459143961685591}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12943,7 +12895,7 @@ GameObject:
   - component: {fileID: 2805817660220751011}
   - component: {fileID: 5173293581276199032}
   - component: {fileID: 8228213921420200630}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: StaminaValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13079,7 +13031,7 @@ GameObject:
   - component: {fileID: 2096057836516058564}
   - component: {fileID: 3344905195275235936}
   - component: {fileID: 4253918271571721729}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13168,7 +13120,7 @@ GameObject:
   - component: {fileID: 3607436663667067755}
   - component: {fileID: 8546278748387931438}
   - component: {fileID: 7351576030099150602}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (73)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13257,7 +13209,7 @@ GameObject:
   - component: {fileID: 8907176382737526989}
   - component: {fileID: 5327375275002080285}
   - component: {fileID: 6709625279567094802}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (74)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13345,7 +13297,7 @@ GameObject:
   - component: {fileID: 5310931724882994976}
   - component: {fileID: 506014938598268064}
   - component: {fileID: 3615987552818321671}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13421,7 +13373,7 @@ GameObject:
   - component: {fileID: 2543145531536264617}
   - component: {fileID: 1809249463665432701}
   - component: {fileID: 6657399887629443532}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: ManaValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13557,7 +13509,7 @@ GameObject:
   - component: {fileID: 1771026234790559856}
   - component: {fileID: 5796320940987958897}
   - component: {fileID: 305665188658554217}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13646,7 +13598,7 @@ GameObject:
   - component: {fileID: 623807672495095420}
   - component: {fileID: 8106762053425966605}
   - component: {fileID: 1215179113559472846}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (45)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13734,7 +13686,7 @@ GameObject:
   - component: {fileID: 9196936674296584934}
   - component: {fileID: 7874565427794802044}
   - component: {fileID: 7179725875207378652}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: CloseSettingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13870,7 +13822,7 @@ GameObject:
   - component: {fileID: 7743292961641392379}
   - component: {fileID: 4569265397314963133}
   - component: {fileID: 5920466676801102598}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14047,7 +13999,7 @@ GameObject:
   - component: {fileID: 7856401502669630732}
   - component: {fileID: 4538793210484627273}
   - component: {fileID: 5399398572034953144}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: YouLoseCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14152,10 +14104,10 @@ GameObject:
   - component: {fileID: 7398123987576888321}
   - component: {fileID: 5104191694468052472}
   - component: {fileID: 3942118218743631963}
-  - component: {fileID: 3315978940246574463}
   - component: {fileID: 2499306561990397660}
   - component: {fileID: 23962136275087013}
-  m_Layer: 0
+  - component: {fileID: 8939009537656762019}
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -14176,7 +14128,6 @@ Transform:
   m_Children:
   - {fileID: 4937454448664134360}
   - {fileID: 2666115028879389596}
-  - {fileID: 8730607068872362053}
   - {fileID: 1507400193288117759}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -14195,7 +14146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   rb: {fileID: 3942118218743631963}
-  animator: {fileID: 3315978940246574463}
+  animator: {fileID: 8939009537656762019}
 --- !u!114 &6769753972226568316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14235,23 +14186,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3942118218743631963}
-  _animator: {fileID: 3315978940246574463}
+  _animator: {fileID: 8939009537656762019}
   youLose: {fileID: 1785983281}
-  maxHealth: 100
+  maxHealth: 1000
   currentHealth: 0
-  health: {fileID: 8412923794188494986}
+  healthSlider: {fileID: 8412923794188494986}
   healthText: {fileID: 6921505005561022275}
   Energy: {fileID: 8270611415012036186}
   energyText: {fileID: 6657399887629443532}
-  Stamina: {fileID: 658193745437979795}
+  staminaSlider: {fileID: 658193745437979795}
   staminaText: {fileID: 8228213921420200630}
-  level: 0
+  level: 1
   totalCurrentXP: 0
   currentXP: 0
   reqXP: 0
   playerLevel: {fileID: 5681799461677790125}
   expBar: {fileID: 866922753006008942}
-  levelText: 0
+  levelText: 1
 --- !u!212 &7398123987576888321
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19031,27 +18982,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
---- !u!95 &3315978940246574463
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5220228351039929848}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3bae3972b74d5524f98c08fa9d3e733f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_Constraints: 7
 --- !u!61 &2499306561990397660
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19150,6 +19081,26 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!95 &8939009537656762019
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5220228351039929848}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: beb1342d9d4f225468e6b7a8e76c361a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5281435967759134647
 GameObject:
   m_ObjectHideFlags: 0
@@ -19161,7 +19112,7 @@ GameObject:
   - component: {fileID: 5539788121358337999}
   - component: {fileID: 1357670985039926251}
   - component: {fileID: 1707093970384907693}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19238,7 +19189,7 @@ GameObject:
   - component: {fileID: 8779443253895111353}
   - component: {fileID: 8093214301127200280}
   - component: {fileID: 4223654758291708319}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: AmbientVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19373,7 +19324,7 @@ GameObject:
   - component: {fileID: 1062369940152713086}
   - component: {fileID: 8820803770967432725}
   - component: {fileID: 8461283024920425672}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: DialogueVolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19492,7 +19443,7 @@ GameObject:
   - component: {fileID: 9120165213382336386}
   - component: {fileID: 6270728742858972049}
   - component: {fileID: 1493572931331492592}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (90)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19581,7 +19532,7 @@ GameObject:
   - component: {fileID: 8572081858316917390}
   - component: {fileID: 3995699515574729652}
   - component: {fileID: 5224618922866206734}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (80)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19670,7 +19621,7 @@ GameObject:
   - component: {fileID: 6512034783455080863}
   - component: {fileID: 2752489360385647106}
   - component: {fileID: 5477270978765743097}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19756,7 +19707,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9011866213035937266}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19795,7 +19746,7 @@ GameObject:
   - component: {fileID: 4101409794533957822}
   - component: {fileID: 2947612916032305486}
   - component: {fileID: 1940062601731386267}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Item Checkmark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19871,7 +19822,7 @@ GameObject:
   - component: {fileID: 5480904876937116497}
   - component: {fileID: 8278126054384955947}
   - component: {fileID: 3564115234773557984}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19947,7 +19898,7 @@ GameObject:
   - component: {fileID: 4725826786811131921}
   - component: {fileID: 9213646562136674650}
   - component: {fileID: 1967152815516368856}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20027,7 +19978,7 @@ GameObject:
   - component: {fileID: 3569918611196436677}
   - component: {fileID: 2989327867221648472}
   - component: {fileID: 914500602360217960}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20104,7 +20055,7 @@ GameObject:
   - component: {fileID: 1630141446388707431}
   - component: {fileID: 2212510994422808824}
   - component: {fileID: 84819630520516491}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20193,7 +20144,7 @@ GameObject:
   - component: {fileID: 6440066480078834139}
   - component: {fileID: 4210126320265391538}
   - component: {fileID: 2754248819323218616}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (76)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20281,7 +20232,7 @@ GameObject:
   - component: {fileID: 5236580024531939572}
   - component: {fileID: 3643604164090192794}
   - component: {fileID: 1634964844919745455}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Checkmark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20358,7 +20309,7 @@ GameObject:
   - component: {fileID: 7750306091012212465}
   - component: {fileID: 8943783309399926167}
   - component: {fileID: 4592206905926250769}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20447,7 +20398,7 @@ GameObject:
   - component: {fileID: 188279697295517331}
   - component: {fileID: 6390593837418387020}
   - component: {fileID: 1899887043622236117}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: ExitSettings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20593,7 +20544,7 @@ GameObject:
   - component: {fileID: 1874844676049611136}
   - component: {fileID: 2112090214735493219}
   - component: {fileID: 1878523703340848561}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (52)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20679,7 +20630,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6304953211180809732}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20719,7 +20670,7 @@ GameObject:
   - component: {fileID: 5411225605918434956}
   - component: {fileID: 1113247598642467292}
   - component: {fileID: 9222235646865887040}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: QuitGameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20870,7 +20821,7 @@ GameObject:
   - component: {fileID: 6118615515616292647}
   - component: {fileID: 4110809322449324566}
   - component: {fileID: 7063684480375868780}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20979,7 +20930,7 @@ GameObject:
   - component: {fileID: 6689205951569000485}
   - component: {fileID: 7561807106123812914}
   - component: {fileID: 5624034763415502821}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (48)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21067,7 +21018,7 @@ GameObject:
   - component: {fileID: 8743044660720954018}
   - component: {fileID: 1956628914478079574}
   - component: {fileID: 6485056857172450749}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21143,7 +21094,7 @@ GameObject:
   - component: {fileID: 8413940709359911599}
   - component: {fileID: 1707779417803999298}
   - component: {fileID: 5111505907647301634}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: MasterVolumeValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21279,7 +21230,7 @@ GameObject:
   - component: {fileID: 8852786528129310601}
   - component: {fileID: 8917467937176849217}
   - component: {fileID: 3672109050807717113}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (78)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21368,7 +21319,7 @@ GameObject:
   - component: {fileID: 4580865236191460587}
   - component: {fileID: 2704830606704578374}
   - component: {fileID: 650581446291514959}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (60)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21457,7 +21408,7 @@ GameObject:
   - component: {fileID: 7339399001078279933}
   - component: {fileID: 6966502453518597200}
   - component: {fileID: 8606847872670348767}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (64)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21545,7 +21496,7 @@ GameObject:
   - component: {fileID: 7008064600860760341}
   - component: {fileID: 3595576134755283647}
   - component: {fileID: 3347540270045621705}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21622,7 +21573,7 @@ GameObject:
   - component: {fileID: 423256838317490703}
   - component: {fileID: 4268591543995789553}
   - component: {fileID: 6274624433704036986}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (44)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21711,7 +21662,7 @@ GameObject:
   - component: {fileID: 2137513292867026161}
   - component: {fileID: 7028769178179373141}
   - component: {fileID: 840787214611698228}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21800,7 +21751,7 @@ GameObject:
   - component: {fileID: 3645695662456684818}
   - component: {fileID: 7332847947611997786}
   - component: {fileID: 563217231095813039}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (88)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21886,7 +21837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 168645066111613955}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21926,7 +21877,7 @@ GameObject:
   - component: {fileID: 6415236538433121508}
   - component: {fileID: 3431818329572327848}
   - component: {fileID: 8200481153872919160}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (82)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22015,7 +21966,7 @@ GameObject:
   - component: {fileID: 7605970643170350972}
   - component: {fileID: 4971249517985141921}
   - component: {fileID: 1039485292725683419}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22103,7 +22054,7 @@ GameObject:
   - component: {fileID: 7450673460313016939}
   - component: {fileID: 567229230333854645}
   - component: {fileID: 1987574391647795563}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: CloseSettingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22239,7 +22190,7 @@ GameObject:
   - component: {fileID: 7360385733964747307}
   - component: {fileID: 6064303681630077433}
   - component: {fileID: 5580177442525123934}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: RelicSlot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22327,7 +22278,7 @@ GameObject:
   - component: {fileID: 1042207254615816493}
   - component: {fileID: 3235727954889571449}
   - component: {fileID: 6339987996871675453}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22395,7 +22346,7 @@ GameObject:
   - component: {fileID: 6586873287250142845}
   - component: {fileID: 7357575638499703066}
   - component: {fileID: 3863358705108995717}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (66)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22484,7 +22435,7 @@ GameObject:
   - component: {fileID: 1734998531518563858}
   - component: {fileID: 7752955401792985449}
   - component: {fileID: 7843770577846009303}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22570,7 +22521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 565057130998315227}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22609,7 +22560,7 @@ GameObject:
   - component: {fileID: 8985622639578474884}
   - component: {fileID: 3850516412249438445}
   - component: {fileID: 5720758817880208372}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22686,7 +22637,7 @@ GameObject:
   - component: {fileID: 6852699681929818952}
   - component: {fileID: 3775551598438870102}
   - component: {fileID: 4819090874598892345}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22775,7 +22726,7 @@ GameObject:
   - component: {fileID: 4143732302615275104}
   - component: {fileID: 4304515365357651011}
   - component: {fileID: 1197134504527226344}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (72)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22864,7 +22815,7 @@ GameObject:
   - component: {fileID: 2598322642690561448}
   - component: {fileID: 8489589294361890829}
   - component: {fileID: 2301606301673108863}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22952,7 +22903,7 @@ GameObject:
   - component: {fileID: 515869000665261774}
   - component: {fileID: 6109178657920992688}
   - component: {fileID: 6687223345941461234}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: SceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23017,7 +22968,7 @@ GameObject:
   - component: {fileID: 4572817386182958842}
   - component: {fileID: 4081422907469197260}
   - component: {fileID: 142796085593772803}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: PlayerUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23126,7 +23077,7 @@ GameObject:
   - component: {fileID: 7552212014733106022}
   - component: {fileID: 3093981141127622392}
   - component: {fileID: 1458373693096773487}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23202,7 +23153,7 @@ GameObject:
   - component: {fileID: 2992056012376462477}
   - component: {fileID: 5200348253018167126}
   - component: {fileID: 9161172927681221736}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: abilityText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23340,7 +23291,7 @@ GameObject:
   - component: {fileID: 4765368285878379209}
   - component: {fileID: 2758981886195720463}
   - component: {fileID: 5534738087133450720}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23516,7 +23467,7 @@ GameObject:
   - component: {fileID: 3914874479450872629}
   - component: {fileID: 8277720947944594304}
   - component: {fileID: 6458591999309406150}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23594,7 +23545,7 @@ GameObject:
   - component: {fileID: 6628346634792740340}
   - component: {fileID: 579903681685397775}
   - component: {fileID: 2250895739980505467}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23696,7 +23647,7 @@ GameObject:
   - component: {fileID: 6328496405890478443}
   - component: {fileID: 1849194554758293027}
   - component: {fileID: 2096924257378281489}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: CharPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23873,7 +23824,7 @@ GameObject:
   - component: {fileID: 3876222379759401126}
   - component: {fileID: 4669569375449917622}
   - component: {fileID: 2902452406119102451}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23950,7 +23901,7 @@ GameObject:
   - component: {fileID: 1438289727901670508}
   - component: {fileID: 1976817219054034970}
   - component: {fileID: 4825872838697994888}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24038,7 +23989,7 @@ GameObject:
   - component: {fileID: 4544849910515497516}
   - component: {fileID: 2732265653625712861}
   - component: {fileID: 7999195014653030957}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: talentsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24175,7 +24126,7 @@ GameObject:
   - component: {fileID: 3061906680011603655}
   - component: {fileID: 4393230033624407672}
   - component: {fileID: 2952491001728156594}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24250,7 +24201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4382779096018448652}
   - component: {fileID: 8412923794188494986}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24293,7 +24244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -24319,7 +24270,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 3569918611196436677}
   m_HandleRect: {fileID: 0}
@@ -24327,7 +24278,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 100
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -24342,7 +24293,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!1 &7645115083680761859
 GameObject:
   m_ObjectHideFlags: 0
@@ -24355,7 +24306,7 @@ GameObject:
   - component: {fileID: 1361164151479960602}
   - component: {fileID: 5081149652703567904}
   - component: {fileID: 3426641942353896462}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (57)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24444,7 +24395,7 @@ GameObject:
   - component: {fileID: 314717089239420531}
   - component: {fileID: 6601311678197364}
   - component: {fileID: 5892891323278471922}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (62)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24530,7 +24481,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2985249149821937277}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24570,7 +24521,7 @@ GameObject:
   - component: {fileID: 9001303704541556614}
   - component: {fileID: 3539744535497406861}
   - component: {fileID: 3840522107174840562}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (91)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24659,7 +24610,7 @@ GameObject:
   - component: {fileID: 780225766152908493}
   - component: {fileID: 6858205474073148236}
   - component: {fileID: 4853500324958869172}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: SettingsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24805,7 +24756,7 @@ GameObject:
   - component: {fileID: 7003486706011084866}
   - component: {fileID: 4676278751320524760}
   - component: {fileID: 8782580824742677964}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (50)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24893,7 +24844,7 @@ GameObject:
   - component: {fileID: 9106663678971495005}
   - component: {fileID: 1128347637607496765}
   - component: {fileID: 5681799461677790125}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25029,7 +24980,7 @@ GameObject:
   - component: {fileID: 2468386371321307121}
   - component: {fileID: 6668600339675194300}
   - component: {fileID: 8271365819951229148}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25117,7 +25068,7 @@ GameObject:
   - component: {fileID: 8848637967431192971}
   - component: {fileID: 7827660140326534356}
   - component: {fileID: 6457149473567353997}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25194,7 +25145,7 @@ GameObject:
   - component: {fileID: 3286186082074563717}
   - component: {fileID: 2062048305341521766}
   - component: {fileID: 6301950129424135959}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25283,7 +25234,7 @@ GameObject:
   - component: {fileID: 8663637540883049749}
   - component: {fileID: 4393234788196404877}
   - component: {fileID: 6210038043437828455}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: PauseCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25385,7 +25336,7 @@ GameObject:
   - component: {fileID: 4243899398911633016}
   - component: {fileID: 461917309753695155}
   - component: {fileID: 1976081488019401303}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25474,7 +25425,7 @@ GameObject:
   - component: {fileID: 4394232979043851451}
   - component: {fileID: 8390075821407420135}
   - component: {fileID: 3068591108685549687}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: LogBook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25608,7 +25559,7 @@ GameObject:
   - component: {fileID: 6939067864231292764}
   - component: {fileID: 1294187936279137824}
   - component: {fileID: 3666144126456112359}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (58)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25697,7 +25648,7 @@ GameObject:
   - component: {fileID: 5237159629259028263}
   - component: {fileID: 5138023308213680216}
   - component: {fileID: 5534949605190314213}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: ResolutionSelector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25841,7 +25792,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1507400193288117759}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: GameSettings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25866,7 +25817,7 @@ Transform:
   - {fileID: 7456717024342011157}
   - {fileID: 3865222549018911938}
   m_Father: {fileID: 9085496221342958964}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8421672898394976460
 GameObject:
@@ -25879,7 +25830,7 @@ GameObject:
   - component: {fileID: 6517899305231725709}
   - component: {fileID: 583338117889467570}
   - component: {fileID: 1146064872183320768}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: CloseSettingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26014,7 +25965,7 @@ GameObject:
   - component: {fileID: 1126457764085589345}
   - component: {fileID: 6430814656467478051}
   - component: {fileID: 3451379734270332261}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: MusicVolumeValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26150,7 +26101,7 @@ GameObject:
   - component: {fileID: 7308228983554868300}
   - component: {fileID: 5869715901586987997}
   - component: {fileID: 7762162716162684418}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (42)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26239,7 +26190,7 @@ GameObject:
   - component: {fileID: 6560321708088084658}
   - component: {fileID: 2424995994585076881}
   - component: {fileID: 5401436370999646838}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: RelicSlot (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26328,7 +26279,7 @@ GameObject:
   - component: {fileID: 8499198173967767542}
   - component: {fileID: 7052606787237000708}
   - component: {fileID: 6442383421774716331}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26417,7 +26368,7 @@ GameObject:
   - component: {fileID: 6530583562118307719}
   - component: {fileID: 164241077876507605}
   - component: {fileID: 3491376593692135469}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26506,7 +26457,7 @@ GameObject:
   - component: {fileID: 704613211643090981}
   - component: {fileID: 6410807628290520581}
   - component: {fileID: 6675991182300971165}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26595,7 +26546,7 @@ GameObject:
   - component: {fileID: 5739103774247845009}
   - component: {fileID: 1373164478145035179}
   - component: {fileID: 3931193425117548986}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: LogPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26770,7 +26721,7 @@ GameObject:
   - component: {fileID: 6987300606064880768}
   - component: {fileID: 3673121524831383918}
   - component: {fileID: 523950733248111726}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26859,7 +26810,7 @@ GameObject:
   - component: {fileID: 1684300460210738438}
   - component: {fileID: 7166472619220477290}
   - component: {fileID: 4663419151227288951}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (63)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26947,7 +26898,7 @@ GameObject:
   - component: {fileID: 5042926149503044688}
   - component: {fileID: 6258939213752181240}
   - component: {fileID: 2286602453719359930}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: MasterVolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27066,7 +27017,7 @@ GameObject:
   - component: {fileID: 86578275718013248}
   - component: {fileID: 951022697290021304}
   - component: {fileID: 2365480676813287263}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Talents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27197,7 +27148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3431631704855292640}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27237,7 +27188,7 @@ GameObject:
   - component: {fileID: 4907724455551577329}
   - component: {fileID: 2933099719451374447}
   - component: {fileID: 998449191354585297}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (49)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27325,7 +27276,7 @@ GameObject:
   - component: {fileID: 433028023264738690}
   - component: {fileID: 8111518951460597106}
   - component: {fileID: 8060002366381004518}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27402,7 +27353,7 @@ GameObject:
   - component: {fileID: 8812297939091132671}
   - component: {fileID: 2355711134698986035}
   - component: {fileID: 7481958398208990568}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Viewport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27493,7 +27444,7 @@ GameObject:
   - component: {fileID: 5692885249202986535}
   - component: {fileID: 1644614557902211701}
   - component: {fileID: 5977120013548318116}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InvSlot (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

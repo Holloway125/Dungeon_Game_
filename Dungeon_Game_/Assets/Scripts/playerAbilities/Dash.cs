@@ -15,12 +15,12 @@ public class Dash : Ability
     public override void Activate(GameObject parent)
      {
         ParticleSystem effect = parent.GetComponent<ParticleSystem>();
-        PlayerResource stamina = parent.GetComponent<PlayerResource>();
+        PlayerResource playerResource = parent.GetComponent<PlayerResource>();
         Player_Movement movement = parent.GetComponent<Player_Movement>();
-        if(stamina.Stamina.value >=20f)
+        if(playerResource.staminaSlider.value >=20f)
         {
         movement.speed = movement.speed * dashVelocity;
-        stamina.Stamina.value -= 20f;
+        playerResource.staminaSlider.value -= 20f;
         effect.Play();
        
         
