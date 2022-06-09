@@ -12,7 +12,7 @@ public class Slime : MonoBehaviour
     public bool shouldRotate; //this is for enemies with animations that face both left and right
 
     public LayerMask whatIsPlayer; //Player should always be set to Player under the Layer section in the inspector
-
+    // public PlayerResource playerResource;
     private Transform target;
     private Rigidbody2D rb;
     private Animator anim;
@@ -57,6 +57,7 @@ public class Slime : MonoBehaviour
         }
         if(isInAttackRange)//locks enemy movement to zero when attacking
         {
+            
             rb.velocity = Vector2.zero;
         }
     }

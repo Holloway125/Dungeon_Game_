@@ -433,7 +433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1785983282
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19323,7 +19323,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1062369940152713086}
   - component: {fileID: 8820803770967432725}
-  - component: {fileID: 8461283024920425672}
   m_Layer: 3
   m_Name: DialogueVolumeSlider
   m_TagString: Untagged
@@ -19419,18 +19418,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8461283024920425672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5339233940200956194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e89ed38584820b4fb4c975caf019fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5343023273766037889
 GameObject:
   m_ObjectHideFlags: 0
@@ -26897,7 +26884,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5042926149503044688}
   - component: {fileID: 6258939213752181240}
-  - component: {fileID: 2286602453719359930}
   m_Layer: 3
   m_Name: MasterVolumeSlider
   m_TagString: Untagged
@@ -26993,18 +26979,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2286602453719359930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8997179397226733035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e89ed38584820b4fb4c975caf019fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9076982050527724753
 GameObject:
   m_ObjectHideFlags: 0

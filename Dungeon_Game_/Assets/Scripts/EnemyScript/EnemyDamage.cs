@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
+    public int damageInt;
+    Damage damageScript;
+    GameObject otherScript;
 
-    public int damage;
-    PlayerResource playerResource;
+    void Awake()
+    {
+        otherScript = GameObject.Find("DamageScript");
+        damageScript = otherScript.GetComponent<Damage>();
+    }
 
-
-
-      private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
      {
-         if(collision.gameObject.tag == "Player")
+         GameObject player = GameObject.FindWithTag("Player");
+
+         if (collision.gameObject.tag == "Player")
          {
-             playerResource.TakeDamage(damage);
+            damageScript.TakeDamage(damageInt); 
          }
      }
-
 
 }
 

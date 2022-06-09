@@ -49,19 +49,19 @@ public class PlayerResource : MonoBehaviour
         
     }
 
-     void Update()
-     {
-         if (Input.GetKeyDown(KeyCode.Keypad1))
-         {
-             TakeDamage(20);
-         }
-         if(Input.GetKeyDown(KeyCode.Equals))
-        GainExperienceFlatRate(20);
-        if (currentXP > reqXP)
-        {    
-            LevelUP();
-        }
-     }
+    //  void Update()
+    //  {
+    //      if (Input.GetKeyDown(KeyCode.Keypad1))
+    //      {
+    //          TakeDamage(20);
+    //      }
+    //      if(Input.GetKeyDown(KeyCode.Equals))
+    //     GainExperienceFlatRate(20);
+    //     if (currentXP > reqXP)
+    //     {    
+    //         LevelUP();
+    //     }
+    //  }
     
     void FixedUpdate()
     {
@@ -70,19 +70,6 @@ public class PlayerResource : MonoBehaviour
         staminaText.SetText($"{currentStamina.ToString()} / {staminaSlider.maxValue.ToString()}");
     }
 
-    public void TakeDamage(int damage) // input the amount of damage you want the player to take
-    {
-        if(currentHealth > damage)
-        {
-        currentHealth -= damage;
-        SetHealth(currentHealth);
-        healthText.SetText($"{currentHealth.ToString()} / {maxHealth.ToString()}");
-        }
-        else
-        {
-            Death();
-        }
-    }
 
     public void GainExperienceFlatRate( float xpGained)
     {
@@ -121,19 +108,7 @@ public class PlayerResource : MonoBehaviour
         }
     }
 
-    public void Death() //sets current health to 0 plays death animation puts up return to title canvas and stops all movement
-    {
-        currentHealth = 0;
-        SetHealth(currentHealth);
-        healthText.SetText($"{currentHealth.ToString()} / {maxHealth.ToString()}");
-        //play death animation
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        _animator.SetTrigger("death");
-        
-        youLose.SetActive(true);
 
-    }
-    
     public void TimeStop() //stops time
     {
         Time.timeScale = 0;
