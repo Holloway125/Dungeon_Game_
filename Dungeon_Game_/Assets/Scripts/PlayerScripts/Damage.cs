@@ -35,8 +35,7 @@ public class Damage : MonoBehaviour
         playerResource.rb.constraints = RigidbodyConstraints2D.FreezeAll;
         playerResource._animator.SetTrigger("death");
         playerResource.youLose.SetActive(true);
-
-    }
     
+    }
 
 }

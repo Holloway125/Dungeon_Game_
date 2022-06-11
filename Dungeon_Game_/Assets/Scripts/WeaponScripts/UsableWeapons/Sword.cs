@@ -8,6 +8,7 @@ public class Sword : MonoBehaviour, IWeapon
 
     public void PerformAttack()
     {
-        Debug.Log("Sword Attack!");
+        
+        Debug.Log(this.name + "attack!");
     }
 }

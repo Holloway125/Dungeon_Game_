@@ -49,19 +49,19 @@ public class PlayerResource : MonoBehaviour
         
     }
 
-    //  void Update()
-    //  {
-    //      if (Input.GetKeyDown(KeyCode.Keypad1))
-    //      {
-    //          TakeDamage(20);
-    //      }
-    //      if(Input.GetKeyDown(KeyCode.Equals))
-    //     GainExperienceFlatRate(20);
-    //     if (currentXP > reqXP)
-    //     {    
-    //         LevelUP();
-    //     }
-    //  }
+      void Update()
+      {
+        //   if (Input.GetKeyDown(KeyCode.Keypad1))
+        //   {
+        //       TakeDamage(20);
+        //   }
+          if(Input.GetKeyDown(KeyCode.Equals))
+         GainExperienceFlatRate(20);
+         if (currentXP > reqXP)
+         {    
+             LevelUP();
+         }
+      }
     
     void FixedUpdate()
     {
@@ -73,8 +73,9 @@ public class PlayerResource : MonoBehaviour
 
     public void GainExperienceFlatRate( float xpGained)
     {
-        totalCurrentXP+=20;  
+        totalCurrentXP+=xpGained;  
         expBar.value = currentXP += xpGained; 
+        Debug.Log(totalCurrentXP);
 
     }
     public void LevelUP() // sets health to max health and levels the character rolls left over exp over to next level progression
@@ -86,7 +87,6 @@ public class PlayerResource : MonoBehaviour
         SetHealth(healthSlider.maxValue);
         currentHealth = maxHealth;
         healthText.SetText($"{currentHealth.ToString()} / {maxHealth.ToString()}");
-        
     }
 
         public void SetMaxHealth(float Health) //input max health property or new maxhealth value
@@ -107,5 +107,12 @@ public class PlayerResource : MonoBehaviour
         healthSlider.value = Health;
         }
     }
+    
+    public void TimeStop() // Needed for death Animation
+    {
+        Time.timeScale = 0f;
+    }
+    
+
     
 }

@@ -22,7 +22,7 @@ public class PlayerWeaponController : MonoBehaviour
             Destroy(playerHand.transform.GetChild(0).gameObject);
         }
         
-        EquippedWeapon = (GameObject)Instantiate(Resources.Load<GameObject>("Weapon/" + itemToEquip.ObjectSlug), playerHand.transform.position, playerHand.transform.rotation);
+        EquippedWeapon = (GameObject)Instantiate(Resources.Load<GameObject>("Weapons/" + itemToEquip.ObjectSlug), playerHand.transform.position, playerHand.transform.rotation);
         equippedWeapon = EquippedWeapon.GetComponent<IWeapon>();
         equippedWeapon.Stats = itemToEquip.Stats;
         EquippedWeapon.transform.SetParent(playerHand.transform);
@@ -30,9 +30,19 @@ public class PlayerWeaponController : MonoBehaviour
         Debug.Log(equippedWeapon.Stats[0].GetCalculatedStatValue());
     }
 
+    void Update() //attacks with equippedWeapon
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            PerformWeaponAttack();
+        }
+    }
+
     public void PerformWeaponAttack()
     {
         equippedWeapon.PerformAttack();
     }
+
+
 }
 
