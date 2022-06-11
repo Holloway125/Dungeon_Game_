@@ -44,22 +44,6 @@ public class PlayerResource : MonoBehaviour
         playerLvl = 1;               
     }
 
-<<<<<<< Updated upstream
-      void Update()
-      {
-        //   if (Input.GetKeyDown(KeyCode.Keypad1))
-        //   {
-        //       TakeDamage(20);
-        //   }
-          if(Input.GetKeyDown(KeyCode.Equals))
-         GainExperienceFlatRate(20);
-         if (currentXP > reqXP)
-         {    
-             LevelUP();
-         }
-      }
-    
-=======
     void Update()
       {     
         /* 
@@ -78,7 +62,6 @@ public class PlayerResource : MonoBehaviour
             }
       }
 
->>>>>>> Stashed changes
     void FixedUpdate()
     {
         staminaSlider.value += .2f;
@@ -88,15 +71,8 @@ public class PlayerResource : MonoBehaviour
 
     public void GainExperienceFlatRate(int xpGained)
     {
-<<<<<<< Updated upstream
-        totalCurrentXP+=xpGained;  
-        expBar.value = currentXP += xpGained; 
-        Debug.Log(totalCurrentXP);
-
-=======
         playerXp += xpGained;
         expBar.value += xpGained;
->>>>>>> Stashed changes
     }
 
     public void LevelUP() // sets health to max health and levels the character rolls left over exp over to next level progression
@@ -118,11 +94,7 @@ public class PlayerResource : MonoBehaviour
 
         SetHealth(healthSlider.maxValue); //Sets health to full after lvl up
         currentHealth = maxHealth;
-<<<<<<< Updated upstream
-        healthText.SetText($"{currentHealth.ToString()} / {maxHealth.ToString()}");
-=======
         healthText.SetText($"{currentHealth.ToString()} / {maxHealth.ToString()}");      
->>>>>>> Stashed changes
     }
 
     public void SetMaxHealth(float Health) //input max health property or new maxhealth value
