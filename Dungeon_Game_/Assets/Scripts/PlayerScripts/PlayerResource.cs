@@ -25,30 +25,26 @@ public class PlayerResource : MonoBehaviour
     public Slider staminaSlider;
     public TMP_Text staminaText;
 
-    //level system properties
-    public int level;
-    public float totalCurrentXP;
-    public float currentXP;
-    public float reqXP;
-    public TMP_Text playerLevel;
+    //level properties
+    public int playerXp;//current running total
+    public int totalXp;//total xp needed to lvl
+    public int playerLvl;
+    public TMP_Text lvlText;
     public Slider expBar;
-    public int levelText;
 
     void Start()
     {
         SetMaxHealth(maxHealth);  
         currentHealth = maxHealth;
         healthText.SetText($"{currentHealth.ToString()} / {maxHealth.ToString()}");
-        reqXP = 83;
-        currentXP = 0;
-        expBar.value = currentXP;
-        expBar.maxValue = reqXP;
-        levelText = 1;
-        totalCurrentXP = 1;
-        
-        
+        totalXp = 100; //exp needed to get to lvl 2
+        playerXp = 0;
+        expBar.value = playerXp;
+        expBar.maxValue = totalXp;
+        playerLvl = 1;               
     }
 
+<<<<<<< Updated upstream
       void Update()
       {
         //   if (Input.GetKeyDown(KeyCode.Keypad1))
@@ -63,6 +59,26 @@ public class PlayerResource : MonoBehaviour
          }
       }
     
+=======
+    void Update()
+      {     
+        /* 
+            if (Input.GetKeyDown(KeyCode.Keypad1))
+          {
+              TakeDamage(20);
+          }
+        */
+            if(Input.GetKeyDown(KeyCode.Equals))
+            {
+            GainExperienceFlatRate(250);
+                if (playerXp >= totalXp)
+                {    
+                LevelUP();
+                }
+            }
+      }
+
+>>>>>>> Stashed changes
     void FixedUpdate()
     {
         staminaSlider.value += .2f;
@@ -70,26 +86,46 @@ public class PlayerResource : MonoBehaviour
         staminaText.SetText($"{currentStamina.ToString()} / {staminaSlider.maxValue.ToString()}");
     }
 
-
-    public void GainExperienceFlatRate( float xpGained)
+    public void GainExperienceFlatRate(int xpGained)
     {
+<<<<<<< Updated upstream
         totalCurrentXP+=xpGained;  
         expBar.value = currentXP += xpGained; 
         Debug.Log(totalCurrentXP);
 
-    }
-    public void LevelUP() // sets health to max health and levels the character rolls left over exp over to next level progression
-    {
-        levelText++;
-        currentXP = Mathf.RoundToInt(currentXP - reqXP);
-        playerLevel.SetText(levelText.ToString());
-        reqXP = totalCurrentXP * 0.28571428571f;
-        SetHealth(healthSlider.maxValue);
-        currentHealth = maxHealth;
-        healthText.SetText($"{currentHealth.ToString()} / {maxHealth.ToString()}");
+=======
+        playerXp += xpGained;
+        expBar.value += xpGained;
+>>>>>>> Stashed changes
     }
 
-        public void SetMaxHealth(float Health) //input max health property or new maxhealth value
+    public void LevelUP() // sets health to max health and levels the character rolls left over exp over to next level progression
+    {
+        playerLvl++;
+        lvlText.SetText(playerLvl.ToString());
+        int oldTotal = totalXp; // holds previous lvls totalxp value
+        totalXp = totalXp * 2; //exp curve change later
+
+        if(playerXp>=totalXp)//levels up until playerXp is less than totalxp
+        {
+            LevelUP();
+        }
+        else
+        {
+        expBar.maxValue = totalXp - oldTotal;
+        expBar.value = playerXp - oldTotal;
+        }
+
+        SetHealth(healthSlider.maxValue); //Sets health to full after lvl up
+        currentHealth = maxHealth;
+<<<<<<< Updated upstream
+        healthText.SetText($"{currentHealth.ToString()} / {maxHealth.ToString()}");
+=======
+        healthText.SetText($"{currentHealth.ToString()} / {maxHealth.ToString()}");      
+>>>>>>> Stashed changes
+    }
+
+    public void SetMaxHealth(float Health) //input max health property or new maxhealth value
     {
         maxHealth = Health;
         healthSlider.maxValue = Health;

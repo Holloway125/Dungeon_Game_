@@ -11,7 +11,7 @@ public class Damage : MonoBehaviour
         player = GameObject.Find("Player");
         playerResource = player.GetComponent<PlayerResource>();
     }
-        public void TakeDamage(float damage) // input the amount of damage you want the player to take
+        public void TakeDamage(float damage) // input the amount of damage you want the player to take on each monster
     {
         if(playerResource.currentHealth > damage)
         {

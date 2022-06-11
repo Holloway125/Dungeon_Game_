@@ -14324,7 +14324,6 @@ GameObject:
   - component: {fileID: 9085496221342958964}
   - component: {fileID: 6835799405653156257}
   - component: {fileID: 6769753972226568316}
-  - component: {fileID: 8636605506561340849}
   - component: {fileID: 732562270846772988}
   - component: {fileID: 7398123987576888321}
   - component: {fileID: 5104191694468052472}
@@ -14390,18 +14389,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: b6c9fd313e773484c970303946392c19, type: 2}
   key: 32
---- !u!114 &8636605506561340849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5220228351039929848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7b68e33b756b164496621ad95ed8338, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &732562270846772988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14425,13 +14412,11 @@ MonoBehaviour:
   energyText: {fileID: 6657399887629443532}
   staminaSlider: {fileID: 658193745437979795}
   staminaText: {fileID: 8228213921420200630}
-  level: 1
-  totalCurrentXP: 0
-  currentXP: 0
+  totalXP: 0
   reqXP: 0
-  playerLevel: {fileID: 5681799461677790125}
+  lvlText: {fileID: 5681799461677790125}
   expBar: {fileID: 866922753006008942}
-  levelText: 1
+  playerLvl: 0
 --- !u!212 &7398123987576888321
 SpriteRenderer:
   m_ObjectHideFlags: 0
