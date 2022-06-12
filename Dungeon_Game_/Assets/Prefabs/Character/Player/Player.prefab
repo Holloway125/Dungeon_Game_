@@ -14334,6 +14334,7 @@ GameObject:
   - component: {fileID: 1478049765758017669}
   - component: {fileID: 1659744373411257940}
   - component: {fileID: 8247776400255787469}
+  - component: {fileID: 4542545403242554724}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -14412,11 +14413,6 @@ MonoBehaviour:
   energyText: {fileID: 6657399887629443532}
   staminaSlider: {fileID: 658193745437979795}
   staminaText: {fileID: 8228213921420200630}
-  totalXP: 0
-  reqXP: 0
-  lvlText: {fileID: 5681799461677790125}
-  expBar: {fileID: 866922753006008942}
-  playerLvl: 0
 --- !u!212 &7398123987576888321
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19343,6 +19339,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb010c8351988f14faea35bae41e6b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4542545403242554724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5220228351039929848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b68e33b756b164496621ad95ed8338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerXp: 0
+  totalXp: 0
+  playerLvl: 0
+  lvlText: {fileID: 5681799461677790125}
+  expBar: {fileID: 866922753006008942}
+  player: {fileID: 5220228351039929848}
 --- !u!1 &5281435967759134647
 GameObject:
   m_ObjectHideFlags: 0
