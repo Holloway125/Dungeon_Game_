@@ -21,7 +21,7 @@ public class PlayerWeaponController : MonoBehaviour
             characterStats.RemoveStatBonus(EquippedWeapon.GetComponent<IWeapon>().Stats);
             Destroy(playerHand.transform.GetChild(0).gameObject);
         }
-        
+        // GameObject a = Instantiate(EquippedWeapon, playerHand.transform.position, playerHand.transform.rotation);
         EquippedWeapon = (GameObject)Instantiate(Resources.Load<GameObject>("Weapons/" + itemToEquip.ObjectSlug), playerHand.transform.position, playerHand.transform.rotation);
         equippedWeapon = EquippedWeapon.GetComponent<IWeapon>();
         equippedWeapon.Stats = itemToEquip.Stats;
