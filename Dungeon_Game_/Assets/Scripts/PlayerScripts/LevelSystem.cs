@@ -28,7 +28,7 @@ public class LevelSystem : MonoBehaviour
     {
     if(Input.GetKeyDown(KeyCode.Equals))
         {
-            GainExperienceFlatRate(250);
+            GainExperienceFlatRate(20);
                 if (playerXp >= totalXp)
                 {    
                 LevelUP();
@@ -46,6 +46,7 @@ public class LevelSystem : MonoBehaviour
     {
         PlayerResource playerResource = player.GetComponent<PlayerResource>();//gets PlayerResource script by referencing player GameObject
         playerLvl++;
+        playerResource.SetMaxHealth(50+(playerLvl*5)); //increases health by 5 everytime playerlvls
         lvlText.SetText(playerLvl.ToString());
         int oldTotal = totalXp; // holds previous lvls totalxp value
         totalXp = totalXp * 2; //exp curve... change later
