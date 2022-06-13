@@ -1,8 +1,8 @@
-using System.Collections.Generic;
+// using System.Collections.Generic;
 
-public interface IWeapon 
-{
-    List<BaseValueStat> Stats { get; set; }
-    void PerformAttack();
+// public interface IWeapon 
+// {
+//     List<BaseValueStat> Stats { get; set; }
+//     void PerformAttack();
 
-}
+// }

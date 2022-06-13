@@ -10422,6 +10422,7 @@ GameObject:
   - component: {fileID: 9085496221342958964}
   - component: {fileID: 6835799405653156257}
   - component: {fileID: 6769753972226568316}
+  - component: {fileID: 5032148017327793853}
   - component: {fileID: 732562270846772988}
   - component: {fileID: 8247776400255787469}
   - component: {fileID: 4542545403242554724}
@@ -10485,6 +10486,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: b6c9fd313e773484c970303946392c19, type: 2}
   key: 32
+--- !u!114 &5032148017327793853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5220228351039929848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb010c8351988f14faea35bae41e6b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength:
+    BaseValue: 0
+  agility:
+    BaseValue: 0
+  critalChance:
+    BaseValue: 0
+  critalDamage:
+    BaseValue: 0
+  stamina:
+    BaseValue: 0
+  defense:
+    BaseValue: 0
+  attackSpeed:
+    BaseValue: 0
+  moveSpeed:
+    BaseValue: 0
 --- !u!114 &732562270846772988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10520,6 +10549,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb010c8351988f14faea35bae41e6b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  strength:
+    BaseValue: 0
+  agility:
+    BaseValue: 0
+  critalChance:
+    BaseValue: 0
+  critalDamage:
+    BaseValue: 0
+  stamina:
+    BaseValue: 0
+  defense:
+    BaseValue: 0
+  attackSpeed:
+    BaseValue: 0
+  moveSpeed:
+    BaseValue: 0
 --- !u!114 &4542545403242554724
 MonoBehaviour:
   m_ObjectHideFlags: 0
