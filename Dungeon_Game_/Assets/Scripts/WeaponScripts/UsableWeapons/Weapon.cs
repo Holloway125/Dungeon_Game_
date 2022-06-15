@@ -42,11 +42,9 @@ using Stats;
         public WeaponType weaponType;
         bool notEquip = true;
 
-       		public void Equip(CharacterStats c, WeaponType weapon)
+       		public void Equip(CharacterStats c)
 		{
 
-            if(notEquip)
-            {
 			if (DamageBonus!= 0)
 				c.Damage.AddModifier(new StatModifier(DamageBonus, StatModType.Flat, this));
 			if (CritalChanceBonus != 0)
@@ -57,7 +55,6 @@ using Stats;
 				c.AttackSpeed.AddModifier(new StatModifier(AttackSpeedBonus, StatModType.Flat, this));
             if (DefenseBonus != 0)
 				c.Defense.AddModifier(new StatModifier(DefenseBonus, StatModType.Flat, this));
-
 			if (DamagePercentBonus != 0)
 				c.Damage.AddModifier(new StatModifier(DamagePercentBonus, StatModType.PercentMultiple, this));
 			if (CritalChancePercentBonus != 0)
@@ -68,22 +65,17 @@ using Stats;
 				c.AttackSpeed.AddModifier(new StatModifier(AttackSpeedPercentBonus, StatModType.PercentMultiple, this));
             if (DefensePercentBonus != 0)
 				c.Defense.AddModifier(new StatModifier(DefensePercentBonus, StatModType.Flat, this));
-                notEquip = false;
                 Debug.Log(c.Damage.Value);
-            }
+           
 		}
 
-		public void Unequip(CharacterStats c, WeaponType weapon)
-		{
-            if(notEquip == false)
-			{
-                c.Damage.RemoveAllModifiersFromSource(this);
+		public void Unequip(CharacterStats c)
+        {
+            c.Damage.RemoveAllModifiersFromSource(this);
 			c.CritalChance.RemoveAllModifiersFromSource(this);
 			c.CritalDamage.RemoveAllModifiersFromSource(this);
 			c.AttackSpeed.RemoveAllModifiersFromSource(this);
-            c.Defense.RemoveAllModifiersFromSource(this);
-            notEquip = true;
-            }
+            c.Defense.RemoveAllModifiersFromSource(this);          
 		} 
             
 
