@@ -750,7 +750,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2081147663251373693}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 4fe7cea460362f647bff0fde32ccc043, type: 2}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: Equip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5032148017327793853}
+          m_ObjectArgumentAssemblyTypeName: CharacterStats, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &79665210722823279
 GameObject:
   m_ObjectHideFlags: 0
@@ -10498,21 +10510,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb010c8351988f14faea35bae41e6b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength:
+  Damage:
+    BaseValue: 6
+  CritalChance:
     BaseValue: 0
-  agility:
+  CritalDamage:
     BaseValue: 0
-  critalChance:
+  AttackSpeed:
     BaseValue: 0
-  critalDamage:
-    BaseValue: 0
-  stamina:
-    BaseValue: 0
-  defense:
-    BaseValue: 0
-  attackSpeed:
-    BaseValue: 0
-  moveSpeed:
+  Defense:
     BaseValue: 0
 --- !u!114 &732562270846772988
 MonoBehaviour:
@@ -10549,21 +10555,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb010c8351988f14faea35bae41e6b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength:
+  Damage:
     BaseValue: 0
-  agility:
+  CritalChance:
     BaseValue: 0
-  critalChance:
+  CritalDamage:
     BaseValue: 0
-  critalDamage:
+  AttackSpeed:
     BaseValue: 0
-  stamina:
-    BaseValue: 0
-  defense:
-    BaseValue: 0
-  attackSpeed:
-    BaseValue: 0
-  moveSpeed:
+  Defense:
     BaseValue: 0
 --- !u!114 &4542545403242554724
 MonoBehaviour:
