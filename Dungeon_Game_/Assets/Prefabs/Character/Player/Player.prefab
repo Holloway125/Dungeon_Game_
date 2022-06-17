@@ -800,7 +800,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: a96438354a7e24a489a8a1e8036ba510, type: 2}
+      - m_Target: {fileID: 11400000, guid: 65d5fd0c0ea20fc43b1f31c0ff97528f, type: 2}
         m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
         m_MethodName: Equip
         m_Mode: 2
@@ -1432,7 +1432,19 @@ MonoBehaviour:
   m_Group: {fileID: 4148273243389474095}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 2975b86580f4cc442b25cd5bd8b29f65, type: 2}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: Equip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5032148017327793853}
+          m_ObjectArgumentAssemblyTypeName: CharacterStats, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &210744618606686104
 GameObject:
@@ -2025,7 +2037,19 @@ MonoBehaviour:
   m_Group: {fileID: 4148273243389474095}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 626af5380e39cc7438e9620a8b4f7a42, type: 2}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: Equip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5032148017327793853}
+          m_ObjectArgumentAssemblyTypeName: CharacterStats, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &496335946680947612
 GameObject:
@@ -2662,7 +2686,19 @@ MonoBehaviour:
   m_Group: {fileID: 4148273243389474095}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: ed7aa5a935441d94ea203e3779a635e8, type: 2}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: Equip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5032148017327793853}
+          m_ObjectArgumentAssemblyTypeName: CharacterStats, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &722896354981251291
 GameObject:
@@ -2973,7 +3009,7 @@ GameObject:
   - component: {fileID: 4247134859806592059}
   - component: {fileID: 6875753497629819057}
   m_Layer: 3
-  m_Name: 2HAxe
+  m_Name: BigAxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2993,7 +3029,7 @@ RectTransform:
   m_Children:
   - {fileID: 6933359228256509598}
   m_Father: {fileID: 7313956556168712263}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3054,7 +3090,19 @@ MonoBehaviour:
   m_Group: {fileID: 4148273243389474095}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: be3c83db8a6ce1640bb8f2360cae809a, type: 2}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: Equip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5032148017327793853}
+          m_ObjectArgumentAssemblyTypeName: CharacterStats, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &914159693610536102
 GameObject:
@@ -4377,7 +4425,19 @@ MonoBehaviour:
   m_Group: {fileID: 4148273243389474095}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 32f8fcaa64407f244bdfa91b949f02a5, type: 2}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: Equip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5032148017327793853}
+          m_ObjectArgumentAssemblyTypeName: CharacterStats, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1654379634351972833
 GameObject:
@@ -5086,7 +5146,7 @@ GameObject:
   - component: {fileID: 426556960454992059}
   - component: {fileID: 5440072353175569146}
   m_Layer: 3
-  m_Name: 2HSword
+  m_Name: Claymore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5168,7 +5228,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11400000, guid: 105bab67981ca864ababbf8147061b36, type: 2}
         m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
         m_MethodName: Equip
         m_Mode: 2
@@ -6446,7 +6506,19 @@ MonoBehaviour:
   m_Group: {fileID: 4148273243389474095}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: dbece2e13ae604740b151d093f7c2836, type: 2}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: Equip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5032148017327793853}
+          m_ObjectArgumentAssemblyTypeName: CharacterStats, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &2530094534918511356
 GameObject:
@@ -6541,7 +6613,19 @@ MonoBehaviour:
   m_Group: {fileID: 4148273243389474095}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 81d571edba140e1448a73407fe2a6098, type: 2}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: Equip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5032148017327793853}
+          m_ObjectArgumentAssemblyTypeName: CharacterStats, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &2545078495070090011
 GameObject:
@@ -8703,7 +8787,19 @@ MonoBehaviour:
   m_Group: {fileID: 4148273243389474095}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: b09020ffbb65e9144a01301ba1f57846, type: 2}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: Equip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5032148017327793853}
+          m_ObjectArgumentAssemblyTypeName: CharacterStats, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &3563596495089715433
 GameObject:
@@ -10658,8 +10754,8 @@ RectTransform:
   - {fileID: 5949049993247416754}
   - {fileID: 6278615068354775591}
   - {fileID: 4982617052151472847}
-  - {fileID: 2675988596737172679}
   - {fileID: 5067298803536355854}
+  - {fileID: 2675988596737172679}
   - {fileID: 6544085695159076653}
   - {fileID: 2666417497400572716}
   - {fileID: 3761470554847818133}
@@ -17519,7 +17615,7 @@ RectTransform:
   m_Children:
   - {fileID: 6471067190942558324}
   m_Father: {fileID: 7313956556168712263}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17580,7 +17676,19 @@ MonoBehaviour:
   m_Group: {fileID: 4148273243389474095}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 4ce6b935495eb2f40afded496e938360, type: 2}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: Equip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5032148017327793853}
+          m_ObjectArgumentAssemblyTypeName: CharacterStats, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &5851576886379751552
 GameObject:
@@ -18634,7 +18742,19 @@ MonoBehaviour:
   m_Group: {fileID: 4148273243389474095}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 400db7527abd1cc4d9a097d2c0312f97, type: 2}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: Equip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5032148017327793853}
+          m_ObjectArgumentAssemblyTypeName: CharacterStats, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &6331920102398446387
 GameObject:
@@ -21157,7 +21277,19 @@ MonoBehaviour:
   m_Group: {fileID: 4148273243389474095}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 16c53a32dd9ebcc44a64efb42bfc580b, type: 2}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: Equip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5032148017327793853}
+          m_ObjectArgumentAssemblyTypeName: CharacterStats, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &8029111020216422492
 GameObject:
@@ -22253,7 +22385,7 @@ GameObject:
   - component: {fileID: 704613211643090981}
   - component: {fileID: 4048412970762440322}
   m_Layer: 3
-  m_Name: Sythe
+  m_Name: Scythe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22334,7 +22466,19 @@ MonoBehaviour:
   m_Group: {fileID: 4148273243389474095}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 383315a2f9f42aa4096fe69eebd44b52, type: 2}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: Equip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5032148017327793853}
+          m_ObjectArgumentAssemblyTypeName: CharacterStats, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &8729583419101481004
 GameObject:
@@ -23120,7 +23264,7 @@ GameObject:
   - component: {fileID: 5692885249202986535}
   - component: {fileID: 92321119937079171}
   m_Layer: 3
-  m_Name: 2HMace
+  m_Name: BigMace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23201,5 +23345,17 @@ MonoBehaviour:
   m_Group: {fileID: 4148273243389474095}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: bb5c308185eefe24c8236bd183e0d0a5, type: 2}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: Equip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5032148017327793853}
+          m_ObjectArgumentAssemblyTypeName: CharacterStats, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
