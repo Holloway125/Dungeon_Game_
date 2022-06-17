@@ -12,8 +12,8 @@ public class LevelSystem : MonoBehaviour
     public TMP_Text lvlText;
     public Slider expBar;
 
-    //Health Refrence
-    public GameObject player;
+    
+    public GameObject player;//allows you to reference the player without using GameObject.Find<Player> 
 
      void Start()
      { 
@@ -44,8 +44,10 @@ public class LevelSystem : MonoBehaviour
      
     public void LevelUP() // sets health to max health and levels the character rolls left over exp over to next level progression
     {
+        TalentTree talentTree = player.GetComponent<TalentTree>();//gets TalentTree script from player GameObject
         PlayerResource playerResource = player.GetComponent<PlayerResource>();//gets PlayerResource script by referencing player GameObject
         playerLvl++;
+        talentTree.AddTalentPoint();
         playerResource.SetMaxHealth(50+(playerLvl*5)); //increases health by 5 everytime playerlvls
         lvlText.SetText(playerLvl.ToString());
         int oldTotal = totalXp; // holds previous lvls totalxp value
