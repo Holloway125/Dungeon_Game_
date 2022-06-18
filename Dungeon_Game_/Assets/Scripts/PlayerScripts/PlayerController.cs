@@ -4,28 +4,40 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     
-    Camera cam;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Animator animator;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        cam = Camera.main;    
+    private PlayerSkills playerSkills;
+
+    public Vector2 movement;
+    public float speed = 12f;
+
+    private void Awake() {
+        playerSkills = new PlayerSkills();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0)) //when user left clicks shoots ray from main camera to mouse pointer position
-        {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+    private void Start() {
+    }
 
-            if(Physics.Raycast(ray, out hit))//when ray hits an object those objects will be stored here
-            {
-                Debug.Log (" We hit" + hit.collider.name + " " + hit.point);
-            }
-        }
+    void Update() {
+        float movementX = Input.GetAxisRaw("Horizontal");
+        float movementY = Input.GetAxisRaw("Vertical");
+
+        movement = new Vector2(movementX, movementY).normalized;
+
+        animator.SetFloat("Horizontal", movementX);
+        animator.SetFloat("Vertical", movementY);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
+    }
+
+    void FixedUpdate() {
+        rb.velocity = new Vector2(movement.x * speed, movement.y * speed); 
+    }
+
+    //Place all ability bool funtions here name should be CanUse[AbilityName]
+
+    public bool CanUseBackStab(){
+        return playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.BackStab);
     }
 }

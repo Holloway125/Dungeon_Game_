@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-
 [CreateAssetMenu]
 
 
@@ -16,15 +13,12 @@ public class Dash : Ability
      {
         ParticleSystem effect = parent.GetComponent<ParticleSystem>();
         PlayerResource playerResource = parent.GetComponent<PlayerResource>();
-        Player_Movement movement = parent.GetComponent<Player_Movement>();
+        PlayerController movement = parent.GetComponent<PlayerController>();
         if(playerResource.staminaSlider.value >=20f)
         {
         movement.speed = movement.speed * dashVelocity;
         playerResource.staminaSlider.value -= 20f;
         effect.Play();
-       
-        
-        
         }
      }
 
@@ -32,11 +26,9 @@ public class Dash : Ability
      {
         ParticleSystem effect = player.GetComponent<ParticleSystem>(); 
         TrailRenderer dashEffect = player.GetComponent<TrailRenderer>();
-        Player_Movement movement = player.GetComponent<Player_Movement>();
+        PlayerController movement = player.GetComponent<PlayerController>();
         movement.speed = 12f;
         effect.Stop();
-        
-        
      }
 
 }    
