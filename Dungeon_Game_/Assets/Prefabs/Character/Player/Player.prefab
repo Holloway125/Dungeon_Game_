@@ -11733,7 +11733,6 @@ GameObject:
   - component: {fileID: 6769753972226568316}
   - component: {fileID: 5032148017327793853}
   - component: {fileID: 732562270846772988}
-  - component: {fileID: 8247776400255787469}
   - component: {fileID: 4542545403242554724}
   - component: {fileID: 7398123987576888321}
   - component: {fileID: 5104191694468052472}
@@ -11841,28 +11840,6 @@ MonoBehaviour:
   energyText: {fileID: 6657399887629443532}
   staminaSlider: {fileID: 658193745437979795}
   staminaText: {fileID: 8228213921420200630}
---- !u!114 &8247776400255787469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5220228351039929848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb010c8351988f14faea35bae41e6b97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage:
-    BaseValue: 0
-  CritalChance:
-    BaseValue: 0
-  CritalDamage:
-    BaseValue: 0
-  AttackSpeed:
-    BaseValue: 0
-  Defense:
-    BaseValue: 0
 --- !u!114 &4542545403242554724
 MonoBehaviour:
   m_ObjectHideFlags: 0
