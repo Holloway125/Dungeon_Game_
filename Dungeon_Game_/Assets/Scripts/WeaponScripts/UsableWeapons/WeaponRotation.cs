@@ -12,15 +12,31 @@ public class WeaponRotation : MonoBehaviour
     private float angle;
     private float angleDegree;
     public Animator weaponAnim;
+    bool attacked = false;
+    bool attackedTwice = false;
 
 
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Q) && attacked == false && attackedTwice == false)
         {
             WeaponAttack(weaponAnim, "swordswing");
+            attacked = true;
+            attackedTwice = false;
         }
+        if (Input.GetKeyDown(KeyCode.Q) && attacked == true && attackedTwice == false)
+        {
+            WeaponAttack(weaponAnim, "swordswing1");
+            attacked = true;
+            attackedTwice = true;
+        }  
+        if (Input.GetKeyDown(KeyCode.Q) && attacked == true && attackedTwice == true)
+        {
+            WeaponAttack(weaponAnim, "swordswing2");
+            attackedTwice = false;   
+            attacked = false;
+        } 
     }
 
     public void MouseRotation()
