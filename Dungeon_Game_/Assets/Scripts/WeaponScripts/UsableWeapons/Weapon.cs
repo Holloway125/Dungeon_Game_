@@ -99,6 +99,8 @@ using UnityEngine.UI;
                 Debug.Log($"{weaponType} have been removed");   
 		} 
 
+        
+
     }
 
 
