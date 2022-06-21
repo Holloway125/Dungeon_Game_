@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static SkillTree;
+
 public class LevelSystem : MonoBehaviour
 {
     //level properties
@@ -11,7 +13,7 @@ public class LevelSystem : MonoBehaviour
     public int playerLvl;
     public TMP_Text lvlText;
     public Slider expBar;
-
+    public SkillTree skillTree;//put skilltree script in inspector
     
     public GameObject player;//allows you to reference the player without using GameObject.Find<Player> 
 
@@ -44,16 +46,15 @@ public class LevelSystem : MonoBehaviour
      
     public void LevelUP() // sets health to max health and levels the character rolls left over exp over to next level progression
     {
-        TalentTree talentTree = player.GetComponent<TalentTree>();//gets TalentTree script from player GameObject
-        PlayerResource playerResource = player.GetComponent<PlayerResource>();//gets PlayerResource script by referencing player GameObject
+        PlayerResource playerResource = player.GetComponent<PlayerResource>(); //gets PlayerResource script by referencing player GameObject
         playerLvl++;
-        talentTree.AddTalentPoint();
+        skillTree.skillPoints ++;
         playerResource.SetMaxHealth(50+(playerLvl*5)); //increases health by 5 everytime playerlvls
         lvlText.SetText(playerLvl.ToString());
         int oldTotal = totalXp; // holds previous lvls totalxp value
         totalXp = totalXp * 2; //exp curve... change later
 
-        if(playerXp>=totalXp)//levels up until playerXp is less than totalxp
+        if(playerXp>=totalXp) //levels up until playerXp is less than totalxp
         {
             LevelUP();
         }

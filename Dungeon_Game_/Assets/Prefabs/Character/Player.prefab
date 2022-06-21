@@ -4455,6 +4455,7 @@ MonoBehaviour:
   playerLvl: 0
   lvlText: {fileID: 844510570049237673}
   expBar: {fileID: 3995842601638859670}
+  skillTree: {fileID: 48066864267719959}
   player: {fileID: 2466084335914140134}
 --- !u!212 &720812701271881332
 SpriteRenderer:
@@ -15771,7 +15772,7 @@ MonoBehaviour:
   SkillHolder: {fileID: 8870109593210527018}
   ConnectorList: []
   ConnectorHolder: {fileID: 6913597417258400393}
-  SkillPoints: 0
+  skillPoints: 0
 --- !u!1 &5073858730887967824
 GameObject:
   m_ObjectHideFlags: 0

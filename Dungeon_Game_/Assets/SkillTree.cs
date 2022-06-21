@@ -18,11 +18,10 @@ public class SkillTree : MonoBehaviour
     public List<GameObject> ConnectorList;
     public GameObject ConnectorHolder;
 
-    public int SkillPoints; 
+    public int skillPoints;
 
     private void Start()
     {
-        SkillPoints = 20;
 
         SkillLevels = new int[20];
         SkillCaps = new[] {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, };

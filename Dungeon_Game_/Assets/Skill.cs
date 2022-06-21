@@ -20,7 +20,7 @@ public class Skill : MonoBehaviour
         DescriptionText.text = $"{skillTree.SkillDescriptions[id]}";
 
         GetComponent<Image>().color = skillTree.SkillLevels[id] >= skillTree.SkillCaps[id] ? Color.yellow
-            : skillTree.SkillPoints > 0 ? Color.green : Color.white;
+            : skillTree.skillPoints > 0 ? Color.green : Color.white;
 
             foreach(var connectedSkill in ConnectedSkills)
             {
@@ -31,10 +31,17 @@ public class Skill : MonoBehaviour
 
     public void Buy()
     {
-        if(skillTree.SkillPoints < 1 || skillTree.SkillLevels[id] >= skillTree.SkillCaps[id]) return;
-        skillTree.SkillPoints -= 1;
+        if(skillTree.skillPoints < 1 || skillTree.SkillLevels[id] >= skillTree.SkillCaps[id]) return;
+        skillTree.skillPoints -= 1;
         skillTree.SkillLevels[id]++;
         skillTree.UpdateAllSkillUI();
 
+    }
+
+    public int skillPoints;
+
+    public void AddSkillPoint()
+    {
+    skillPoints ++;
     }
 }
