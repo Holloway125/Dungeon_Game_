@@ -15,7 +15,18 @@ public class ButtonScript : MonoBehaviour
     {
       SceneManager.LoadScene(sceneName);
     }
-    
 
-    
+    public void SetActiveToggle()
+    {
+
+      if(gameObject.activeInHierarchy)
+      {
+        gameObject.SetActive(false);
+      }
+      if(!gameObject.activeInHierarchy)
+      {
+        gameObject.SetActive(true);
+      }
+    }
+
 }
