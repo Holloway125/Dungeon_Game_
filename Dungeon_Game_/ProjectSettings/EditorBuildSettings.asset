@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LaunchMenu.unity
     guid: bdf0118b4b35f6343a4c2d2eef7069eb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameScene.unity
     guid: 19767913f90c60a49b27c4bc192edf8e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game_Test_Arena.unity
     guid: 17450e7cd00baa446ac3e16f6033e6d3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BennyTestArea.unity
     guid: 856adb12a53c0df45ae37462e8035a71
   - enabled: 1

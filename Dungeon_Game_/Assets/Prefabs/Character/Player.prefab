@@ -479,7 +479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -610.2, y: -35.202}
+  m_AnchoredPosition: {x: -610.2002, y: -35.201904}
   m_SizeDelta: {x: 578.34, y: 43.3775}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6604699713817796712
@@ -1814,7 +1814,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34.999756, y: -120.04004}
+  m_AnchoredPosition: {x: -34.99951, y: -120.04004}
   m_SizeDelta: {x: 545.32, y: 27.28}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &3175736699915147097
@@ -4122,7 +4122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3511464138055950663
 Transform:
   m_ObjectHideFlags: 0
@@ -11814,7 +11814,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34.999756, y: -78.58002}
+  m_AnchoredPosition: {x: -34.99951, y: -78.58008}
   m_SizeDelta: {x: 575.24, y: 11.78}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &3995842601638859670
@@ -12858,7 +12858,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 554437929207370404}
         m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -14232,7 +14232,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6028112480496520981
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14923,7 +14923,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 554437929207370404}
         m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
@@ -21084,7 +21084,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34.999756, y: -92.04999}
+  m_AnchoredPosition: {x: -34.99951, y: -92.05005}
   m_SizeDelta: {x: 545.32, y: 27.28}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &2329936233075671257
@@ -21492,8 +21492,8 @@ Camera:
   near clip plane: 0.01
   far clip plane: 1000
   field of view: 110
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 11.25
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -22556,7 +22556,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 554437929207370404}
         m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
@@ -24736,7 +24736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -703.598, y: -75.369995}
+  m_AnchoredPosition: {x: -703.59814, y: -75.37012}
   m_SizeDelta: {x: 186.79, y: 150.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7771758324886049746
