@@ -46,13 +46,12 @@ using UnityEngine.UI;
         public WeaponType weaponType;
         private Toggle myToggle;
         private GameObject weapon;
-      
 
         
        		public void Equip(CharacterStats c)
 		{
                 {
-                    weapon = GameObject.Find($"{weaponType.ToString()}"); 
+                    weapon = GameObject.Find($"{weaponType.ToString()}");
                     myToggle = weapon.GetComponent<Toggle>();
 
                     if (myToggle.isOn)

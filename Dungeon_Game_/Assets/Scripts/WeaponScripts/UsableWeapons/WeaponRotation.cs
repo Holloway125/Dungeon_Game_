@@ -93,6 +93,11 @@ public class WeaponRotation : MonoBehaviour
 
     }
 
+
+    public void WeaponActive()
+    {
+        
+    }
 }
 
 
