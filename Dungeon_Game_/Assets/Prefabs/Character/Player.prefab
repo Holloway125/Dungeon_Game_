@@ -837,6 +837,7 @@ GameObject:
   - component: {fileID: 383165571018071751}
   - component: {fileID: 4416553716716363696}
   - component: {fileID: 1704914275335696788}
+  - component: {fileID: 1907209082}
   m_Layer: 3
   m_Name: StaffWeapon
   m_TagString: Untagged
@@ -869,7 +870,7 @@ Animator:
   m_GameObject: {fileID: 442582193793004121}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d4235f8a0b7e9947b272b97cde21108, type: 2}
+  m_Controller: {fileID: 9100000, guid: a3e89a487c0ab3544a4b0582624a8ad4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -953,6 +954,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1907209082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442582193793004121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65fe88906d40cf47a71feac9674c5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponAnim: {fileID: 383165571018071751}
+  player: {fileID: 2466084335914140134}
 --- !u!1 &466565043092554216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,6 +1056,7 @@ GameObject:
   - component: {fileID: 5575567713734157421}
   - component: {fileID: 7674727881980468827}
   - component: {fileID: 8052221776187350300}
+  - component: {fileID: 2094548850}
   m_Layer: 3
   m_Name: WandWeapon
   m_TagString: Untagged
@@ -1073,7 +1089,7 @@ Animator:
   m_GameObject: {fileID: 475487769198733691}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d4235f8a0b7e9947b272b97cde21108, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1eb1debcdacbdc24cb82041f9d069b56, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1157,6 +1173,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &2094548850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475487769198733691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65fe88906d40cf47a71feac9674c5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponAnim: {fileID: 5575567713734157421}
+  player: {fileID: 2466084335914140134}
 --- !u!1 &547159356324981578
 GameObject:
   m_ObjectHideFlags: 0
@@ -2854,6 +2884,7 @@ GameObject:
   - component: {fileID: 6662577257238398656}
   - component: {fileID: 5436069354045192173}
   - component: {fileID: 5408262471017623863}
+  - component: {fileID: 89679376}
   m_Layer: 3
   m_Name: HalberdWeapon
   m_TagString: Untagged
@@ -2886,7 +2917,7 @@ Animator:
   m_GameObject: {fileID: 1401222041154749724}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d4235f8a0b7e9947b272b97cde21108, type: 2}
+  m_Controller: {fileID: 9100000, guid: 792b44ca77213834d8adf039989e2dbd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2970,6 +3001,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &89679376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401222041154749724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65fe88906d40cf47a71feac9674c5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponAnim: {fileID: 6662577257238398656}
+  player: {fileID: 2466084335914140134}
 --- !u!1 &1412208480193514177
 GameObject:
   m_ObjectHideFlags: 0
@@ -3152,6 +3197,7 @@ GameObject:
   - component: {fileID: 1849954137218489025}
   - component: {fileID: 3078144604367065096}
   - component: {fileID: 403445026098264957}
+  - component: {fileID: 1809109886}
   m_Layer: 3
   m_Name: MaceWeapon
   m_TagString: Untagged
@@ -3184,7 +3230,7 @@ Animator:
   m_GameObject: {fileID: 1424145856755614892}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d4235f8a0b7e9947b272b97cde21108, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9dc107391eb09ea4ea9eb03f4633ccdb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3268,6 +3314,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1809109886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424145856755614892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65fe88906d40cf47a71feac9674c5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponAnim: {fileID: 1849954137218489025}
+  player: {fileID: 2466084335914140134}
 --- !u!1 &1533362429617977763
 GameObject:
   m_ObjectHideFlags: 0
@@ -3881,6 +3941,7 @@ GameObject:
   - component: {fileID: 2254840374272068556}
   - component: {fileID: 6024941369593201248}
   - component: {fileID: 5098522210613594512}
+  - component: {fileID: 1618109853}
   m_Layer: 3
   m_Name: BowWeapon
   m_TagString: Untagged
@@ -3913,7 +3974,7 @@ Animator:
   m_GameObject: {fileID: 1901955463347517285}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d4235f8a0b7e9947b272b97cde21108, type: 2}
+  m_Controller: {fileID: 9100000, guid: ca6e8a075c5ab3f4abe1c81e17d60590, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3997,6 +4058,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1618109853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901955463347517285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65fe88906d40cf47a71feac9674c5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponAnim: {fileID: 2254840374272068556}
+  player: {fileID: 2466084335914140134}
 --- !u!1 &1906028609520812256
 GameObject:
   m_ObjectHideFlags: 0
@@ -5030,7 +5105,6 @@ MonoBehaviour:
   mainCamera: {fileID: 4082139207530380713}
   player: {fileID: 2466084335914140134}
   playerHand: {fileID: 8499664586423593085}
-  weaponAnim: {fileID: 9138274514628686315}
 --- !u!114 &5691024010143345621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10281,6 +10355,7 @@ GameObject:
   - component: {fileID: 9138274514628686315}
   - component: {fileID: 1456754469765763079}
   - component: {fileID: 2637382087825546648}
+  - component: {fileID: 1429654906}
   m_Layer: 3
   m_Name: SwordWeapon
   m_TagString: Untagged
@@ -10313,7 +10388,7 @@ Animator:
   m_GameObject: {fileID: 2558479681255180047}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d4235f8a0b7e9947b272b97cde21108, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5aba538afcdea13418929bd38d7fcd87, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -10397,6 +10472,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1429654906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2558479681255180047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65fe88906d40cf47a71feac9674c5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponAnim: {fileID: 9138274514628686315}
+  player: {fileID: 2466084335914140134}
 --- !u!1 &2563766063928322540
 GameObject:
   m_ObjectHideFlags: 0
@@ -12108,6 +12197,7 @@ GameObject:
   - component: {fileID: 3506004657373423943}
   - component: {fileID: 6732648948579709524}
   - component: {fileID: 4543193390674083174}
+  - component: {fileID: 1689616586}
   m_Layer: 3
   m_Name: BigAxeWeapon
   m_TagString: Untagged
@@ -12140,7 +12230,7 @@ Animator:
   m_GameObject: {fileID: 3200520280473284634}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d4235f8a0b7e9947b272b97cde21108, type: 2}
+  m_Controller: {fileID: 9100000, guid: 91c81d54fe135184e8ed6798cb484415, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -12224,6 +12314,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1689616586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3200520280473284634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65fe88906d40cf47a71feac9674c5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponAnim: {fileID: 3506004657373423943}
+  player: {fileID: 2466084335914140134}
 --- !u!1 &3217492483521516594
 GameObject:
   m_ObjectHideFlags: 0
@@ -12672,6 +12776,7 @@ GameObject:
   - component: {fileID: 8592823262660219662}
   - component: {fileID: 1987217740707114228}
   - component: {fileID: 3403649323339160780}
+  - component: {fileID: 1525172191}
   m_Layer: 3
   m_Name: DaggersWeapon
   m_TagString: Untagged
@@ -12704,7 +12809,7 @@ Animator:
   m_GameObject: {fileID: 3349433697378706831}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d4235f8a0b7e9947b272b97cde21108, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1b4784d46d989ba4f93afa3fd26745e9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -12788,6 +12893,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1525172191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3349433697378706831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65fe88906d40cf47a71feac9674c5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponAnim: {fileID: 8592823262660219662}
+  player: {fileID: 2466084335914140134}
 --- !u!1 &3363942555062440165
 GameObject:
   m_ObjectHideFlags: 0
@@ -12916,6 +13035,7 @@ GameObject:
   - component: {fileID: 737596704707012236}
   - component: {fileID: 4406529922535626787}
   - component: {fileID: 5605366161119766240}
+  - component: {fileID: 1305883591}
   m_Layer: 3
   m_Name: ScytheWeapon
   m_TagString: Untagged
@@ -12948,7 +13068,7 @@ Animator:
   m_GameObject: {fileID: 3591937491853577637}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d4235f8a0b7e9947b272b97cde21108, type: 2}
+  m_Controller: {fileID: 9100000, guid: c912ca41ea0b46547814800c6f1ca855, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -13032,6 +13152,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1305883591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591937491853577637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65fe88906d40cf47a71feac9674c5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponAnim: {fileID: 737596704707012236}
+  player: {fileID: 2466084335914140134}
 --- !u!1 &3615274776090779913
 GameObject:
   m_ObjectHideFlags: 0
@@ -14985,6 +15119,7 @@ GameObject:
   - component: {fileID: 7934161146594046076}
   - component: {fileID: 8931420126471133424}
   - component: {fileID: 8850008439946159807}
+  - component: {fileID: 590339190}
   m_Layer: 3
   m_Name: BigMaceWeapon
   m_TagString: Untagged
@@ -15017,7 +15152,7 @@ Animator:
   m_GameObject: {fileID: 4600319938456414672}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d4235f8a0b7e9947b272b97cde21108, type: 2}
+  m_Controller: {fileID: 9100000, guid: 91c373f1cc9ee1d468c1e7a4714d8158, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -15101,6 +15236,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &590339190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4600319938456414672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65fe88906d40cf47a71feac9674c5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponAnim: {fileID: 7934161146594046076}
+  player: {fileID: 2466084335914140134}
 --- !u!1 &4675859566350967741
 GameObject:
   m_ObjectHideFlags: 0
@@ -19066,6 +19215,7 @@ GameObject:
   - component: {fileID: 6192960231917962092}
   - component: {fileID: 8052492053063518993}
   - component: {fileID: 6966885098271730255}
+  - component: {fileID: 1059289727}
   m_Layer: 3
   m_Name: SpearWeapon
   m_TagString: Untagged
@@ -19098,7 +19248,7 @@ Animator:
   m_GameObject: {fileID: 5599800353325640071}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d4235f8a0b7e9947b272b97cde21108, type: 2}
+  m_Controller: {fileID: 9100000, guid: f20552fe05442f94893f70df310cf2b7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -19182,6 +19332,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1059289727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5599800353325640071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65fe88906d40cf47a71feac9674c5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponAnim: {fileID: 6192960231917962092}
+  player: {fileID: 2466084335914140134}
 --- !u!1 &5601677615607273171
 GameObject:
   m_ObjectHideFlags: 0
@@ -21998,6 +22162,7 @@ GameObject:
   - component: {fileID: 7948280947647098998}
   - component: {fileID: 3885844126110452327}
   - component: {fileID: 337008096029330160}
+  - component: {fileID: 482742908}
   m_Layer: 3
   m_Name: WhipWeapon
   m_TagString: Untagged
@@ -22030,7 +22195,7 @@ Animator:
   m_GameObject: {fileID: 6898962972595202247}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d4235f8a0b7e9947b272b97cde21108, type: 2}
+  m_Controller: {fileID: 9100000, guid: 23beb9d643f49204ca48edfd9a940f02, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -22114,6 +22279,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &482742908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6898962972595202247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65fe88906d40cf47a71feac9674c5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponAnim: {fileID: 7948280947647098998}
+  player: {fileID: 2466084335914140134}
 --- !u!1 &6913597417258400393
 GameObject:
   m_ObjectHideFlags: 0
@@ -22746,6 +22925,7 @@ GameObject:
   - component: {fileID: 2702295415984431489}
   - component: {fileID: 4684565650262813038}
   - component: {fileID: 3464871739926805207}
+  - component: {fileID: 1004636741}
   m_Layer: 3
   m_Name: RapierWeapon
   m_TagString: Untagged
@@ -22778,7 +22958,7 @@ Animator:
   m_GameObject: {fileID: 7374897764894421991}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d4235f8a0b7e9947b272b97cde21108, type: 2}
+  m_Controller: {fileID: 9100000, guid: 787b072df3510fc4186ac3cbe2197ab1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -22862,6 +23042,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1004636741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7374897764894421991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65fe88906d40cf47a71feac9674c5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponAnim: {fileID: 2702295415984431489}
+  player: {fileID: 2466084335914140134}
 --- !u!1 &7448895473600199802
 GameObject:
   m_ObjectHideFlags: 0
@@ -25203,6 +25397,7 @@ GameObject:
   - component: {fileID: 2716485607880122177}
   - component: {fileID: 513810832655515048}
   - component: {fileID: 5766785023695633658}
+  - component: {fileID: 395863923}
   m_Layer: 3
   m_Name: AxeWeapon
   m_TagString: Untagged
@@ -25235,7 +25430,7 @@ Animator:
   m_GameObject: {fileID: 8561285254222090674}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d4235f8a0b7e9947b272b97cde21108, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8f6fe84d11516404787fc6a0393eec86, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -25319,6 +25514,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &395863923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8561285254222090674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65fe88906d40cf47a71feac9674c5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponAnim: {fileID: 2716485607880122177}
+  player: {fileID: 2466084335914140134}
 --- !u!1 &8563053677380119359
 GameObject:
   m_ObjectHideFlags: 0
@@ -25985,6 +26194,7 @@ GameObject:
   - component: {fileID: 4864827348676916115}
   - component: {fileID: 216589356919977691}
   - component: {fileID: 4086887488860181674}
+  - component: {fileID: 136795225}
   m_Layer: 3
   m_Name: ClaymoreWeapon
   m_TagString: Untagged
@@ -26017,7 +26227,7 @@ Animator:
   m_GameObject: {fileID: 8969484438352416969}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d4235f8a0b7e9947b272b97cde21108, type: 2}
+  m_Controller: {fileID: 9100000, guid: f81e9c4372616554eacb726b26d6136b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -26101,6 +26311,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &136795225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8969484438352416969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65fe88906d40cf47a71feac9674c5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponAnim: {fileID: 4864827348676916115}
+  player: {fileID: 2466084335914140134}
 --- !u!1 &9032781658206048417
 GameObject:
   m_ObjectHideFlags: 0
