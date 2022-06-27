@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 966312341128384151}
   - component: {fileID: -7592377365070949006}
   - component: {fileID: 8047009388126023481}
-  - component: {fileID: -5474638515725084061}
   - component: {fileID: 5045695476777436600}
+  - component: {fileID: 7722002844445976165}
   m_Layer: 0
   m_Name: slime_0
   m_TagString: Untagged
@@ -146,25 +146,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-5474638515725084061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7169616798835329685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f1f48de49e4a54280f41d50f20e252, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 8
-  checkRadius: 15
-  attackRadius: 0.75
-  shouldRotate: 0
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 264
 --- !u!114 &5045695476777436600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,3 +159,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageInt: 10
+  tookDamage: 0
+--- !u!114 &7722002844445976165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7169616798835329685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3495fd34983fd1e44a1aaa230957b103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  checkRadius: 5
+  attackRadius: 3
+  health: 10
+  gameObject: {fileID: 7169616798835329685}
+  challengeLevel: 2
+  levelSystem: {fileID: 0}
+  shouldRotate: 0
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 0

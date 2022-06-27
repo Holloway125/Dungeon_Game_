@@ -8,16 +8,17 @@ public class EnemyDamage : MonoBehaviour
     Damage damageScript;
     GameObject otherScript;
     public bool tookDamage;
+    private GameObject player;
 
     void Awake()
     {
+        GameObject player = GameObject.FindWithTag("Player");
         otherScript = GameObject.Find("DamageScript");
         damageScript = otherScript.GetComponent<Damage>();
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
      {
-         GameObject player = GameObject.FindWithTag("Player");
 
          if (collision.gameObject.tag == "Player")
          {

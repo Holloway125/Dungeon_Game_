@@ -5,49 +5,46 @@ using UnityEngine.UI;
 using TMPro;
 using static SkillTree;
 
+
 public class LevelSystem : MonoBehaviour
 {
-    //level properties
     public int playerXp;//current running total
     public int totalXp;//total xp needed to lvl
     public int playerLvl;
     public TMP_Text lvlText;
     public Slider expBar;
-    public SkillTree skillTree;//put skilltree script in inspector
+    public SkillTree skillTree;
     
-    public GameObject player;//allows you to reference the player without using GameObject.Find<Player> 
+    private GameObject player; 
 
-     void Start()
-     { 
-        totalXp = 100; //exp needed to get to lvl 2  
-        playerXp = 0;
-        expBar.value = playerXp;
-        expBar.maxValue = totalXp;
-        playerLvl = 1;   
-     }
-
-     void Update()
+    void Awake()
     {
-    if(Input.GetKeyDown(KeyCode.Equals))
-        {
-            GainExperienceFlatRate(20);
-                if (playerXp >= totalXp)
+        player = GameObject.Find("Player");
+        expBar.value = playerXp;
+        expBar.maxValue = totalXp; 
+        totalXp = 100;  
+        playerXp = 0;
+        playerLvl = 1;
+    }
+
+    void Start()
+    {
+
+    }
+
+    public void GainExperience(int exp)
+    {
+        playerXp += exp;
+        expBar.value += exp;
+            if (playerXp >= totalXp)
                 {    
                 LevelUP();
                 }
-        }
-    }
-
-    public void GainExperienceFlatRate(int xpGained)
-    {
-        playerXp += xpGained;
-        expBar.value += xpGained;
     }
      
-    public void LevelUP() // sets health to max health and levels the character rolls left over exp over to next level progression
+    public void LevelUP()
     {
-        PlayerResource playerResource = player.GetComponent<PlayerResource>(); //gets PlayerResource script by referencing player GameObject
-        playerLvl++;
+        PlayerResource playerResource = player.GetComponent<PlayerResource>();
         skillTree.skillPoints ++;
         playerResource.SetMaxHealth(50+(playerLvl*5)); //increases health by 5 everytime playerlvls
         lvlText.SetText(playerLvl.ToString());
@@ -68,5 +65,4 @@ public class LevelSystem : MonoBehaviour
         playerResource.currentHealth = playerResource.maxHealth;
         playerResource.healthText.SetText($"{playerResource.currentHealth.ToString()} / {playerResource.maxHealth.ToString()}");          
     }
-
 }

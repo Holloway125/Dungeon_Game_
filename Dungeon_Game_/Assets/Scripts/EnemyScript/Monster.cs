@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slime : MonoBehaviour
+public class Monster : MonoBehaviour
 {     
-    //set these in the inspector on the enemy prefab
-    public float speed; //speed of enemy
+    public float speed; 
     public float checkRadius; //how far an enemy can detect the player
-    public float attackRadius;  //how close the enemy has to be to attack player
+    public float attackRadius; 
+    public int health;
+    public GameObject gameObject;
+    public int challengeLevel; 
+    private LevelSystem levelSystem;
 
     public bool shouldRotate; //this is for enemies with animations that face both left and right
 
     public LayerMask whatIsPlayer; //Player should always be set to Player under the Layer section in the inspector
-    // public PlayerResource playerResource;
     private Transform target;
     private Rigidbody2D rb;
     private Animator anim;
@@ -20,13 +22,21 @@ public class Slime : MonoBehaviour
     private Vector2 dir;
     private bool isInChaseRange;
     private bool isInAttackRange;
+
+
     private void Start()
     {
         //Defines properties on start
-
+        levelSystem = GameObject.FindWithTag("Player").GetComponent<LevelSystem>();
+        health = 5;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform;
+        if(challengeLevel >= 0 )
+        {
+            challengeLevel = 1;
+        }
+
     }
 
     private void Update()
@@ -63,5 +73,14 @@ public class Slime : MonoBehaviour
     private void MoveCharacter(Vector2 dir)//method that moves enemy
     {
         rb.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
+    }
+
+    public void Death()
+    {
+        if(health <= 0)
+        {
+        Destroy(gameObject);
+        levelSystem.GainExperience(challengeLevel+levelSystem.playerLvl*100);
+        }
     }
 }

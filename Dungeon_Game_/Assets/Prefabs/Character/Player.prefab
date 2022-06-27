@@ -5178,11 +5178,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerXp: 0
   totalXp: 0
-  playerLvl: 0
   lvlText: {fileID: 844510570049237673}
   expBar: {fileID: 3995842601638859670}
   skillTree: {fileID: 48066864267719959}
-  player: {fileID: 2466084335914140134}
 --- !u!212 &720812701271881332
 SpriteRenderer:
   m_ObjectHideFlags: 0
