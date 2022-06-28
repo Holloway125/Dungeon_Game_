@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8566059538833656839}
   - component: {fileID: 8566059538833656838}
   - component: {fileID: 8566059538833656837}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Dialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 8566059539002110229}
   - component: {fileID: 8566059539002110231}
   - component: {fileID: 8566059539002110230}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: DialogBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 8566059539903122287}
   - component: {fileID: 8566059539903122281}
   - component: {fileID: 8566059539903122280}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 8566059540511150479}
   - component: {fileID: 8566059540511150472}
   - component: {fileID: 8566059540511150473}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: baldguy_npc
   m_TagString: Untagged
   m_Icon: {fileID: 0}

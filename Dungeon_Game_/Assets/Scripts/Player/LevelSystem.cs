@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using static SkillTree;
 
-
 public class LevelSystem : MonoBehaviour
 {
     public int playerXp;//current running total
@@ -27,24 +26,11 @@ public class LevelSystem : MonoBehaviour
         playerLvl = 1;
     }
 
-    void Start()
-    {
-
-    }
-
-    public void GainExperience(int exp)
-    {
-        playerXp += exp;
-        expBar.value += exp;
-            if (playerXp >= totalXp)
-                {    
-                LevelUP();
-                }
-    }
      
     public void LevelUP()
     {
         PlayerResource playerResource = player.GetComponent<PlayerResource>();
+        playerLvl++;
         skillTree.skillPoints ++;
         playerResource.SetMaxHealth(50+(playerLvl*5)); //increases health by 5 everytime playerlvls
         lvlText.SetText(playerLvl.ToString());
@@ -65,4 +51,13 @@ public class LevelSystem : MonoBehaviour
         playerResource.currentHealth = playerResource.maxHealth;
         playerResource.healthText.SetText($"{playerResource.currentHealth.ToString()} / {playerResource.maxHealth.ToString()}");          
     }
+    public void GainExperience(int exp)
+        {
+        playerXp += exp;
+        expBar.value += exp;
+            if (playerXp >= totalXp)
+                {    
+                    LevelUP();
+                }
+        }
 }

@@ -75,12 +75,18 @@ public class Monster : MonoBehaviour
         rb.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
     }
 
+    public void TakeDamage(int damageAmount)
+    {
+        health -= damageAmount;
+        Death();
+    }
+
     public void Death()
     {
         if(health <= 0)
         {
-        Destroy(gameObject);
         levelSystem.GainExperience(challengeLevel+levelSystem.playerLvl*100);
+        Destroy(gameObject);
         }
     }
 }

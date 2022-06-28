@@ -4,8 +4,6 @@ using UnityEngine;
 using Stats;
 using UnityEngine.UI;
 
-
-
     public enum WeaponType
     {
         Claymore,
