@@ -5,7 +5,11 @@ using UnityEngine;
 public class SkillTree : MonoBehaviour
 {
     public static SkillTree skillTree;
-    private void Awake() => skillTree = this;
+    
+    private void Awake()
+    {
+    skillTree = this;
+    }
 
     public int[] SkillLevels;
     public int[] SkillCaps;
@@ -27,7 +31,7 @@ public class SkillTree : MonoBehaviour
         SkillCaps = new[] {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, };
 
         SkillNames = new [] {"SkillName", "SkillName", "SkillName", "SkillName", "SkillName", "SkillName", "SkillName", "SkillName", "SkillName", "SkillName", "SkillName", "SkillName", "SkillName", "SkillName", "SkillName", "SkillName", "SkillName", "SkillName", "SkillName", "SkillName", };// Skill Names go here
-        SkillDescriptions = new[]//This is where you would put Descriptions for the skill
+        SkillDescriptions = new[]
         {
             "PlaceHolder",
             "PlaceHolder",
@@ -70,7 +74,6 @@ public class SkillTree : MonoBehaviour
         SkillList[10].ConnectedSkills = new[] {13};
         SkillList[11].ConnectedSkills = new[] {13};
         SkillList[12].ConnectedSkills = new[] {13};
-
 
         UpdateAllSkillUI();
     }

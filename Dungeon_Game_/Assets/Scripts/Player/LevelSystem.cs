@@ -47,7 +47,7 @@ public class LevelSystem : MonoBehaviour
         expBar.value = playerXp - oldTotal;
         }
         //must use playerResource to get health properties
-        playerResource.SetHealth(playerResource.healthSlider.maxValue); //Sets health to full after lvl up
+        playerResource.SetHealth(playerResource.healthSlider.maxValue);
         playerResource.currentHealth = playerResource.maxHealth;
         playerResource.healthText.SetText($"{playerResource.currentHealth.ToString()} / {playerResource.maxHealth.ToString()}");          
     }

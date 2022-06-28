@@ -175,9 +175,9 @@ MonoBehaviour:
   speed: 8
   checkRadius: 15
   attackRadius: 3
-  health: 10
-  gameObject: {fileID: 7169616798835329685}
+  health: 41
   challengeLevel: 2
+  gameObject: {fileID: 7169616798835329685}
   shouldRotate: 0
   whatIsPlayer:
     serializedVersion: 2

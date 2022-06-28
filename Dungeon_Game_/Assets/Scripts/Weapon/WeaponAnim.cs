@@ -10,18 +10,20 @@ public class WeaponAnim : MonoBehaviour
     GameObject Player;
     WeaponRotation WR;
     EdgeCollider2D collider;
+    CharacterStats c;
 
     // When the object is turned on using the toggle in the inv menu the void awake will run and set WR to the WeaponRotation Script on the Player
     void Awake()
     {
         WR = Player.GetComponent<WeaponRotation>();
         collider = GetComponent<EdgeCollider2D>();
+        c = Player.GetComponent<CharacterStats>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             WeaponAttack(weaponAnim, "swordswing");
         }
@@ -37,7 +39,7 @@ public class WeaponAnim : MonoBehaviour
     {
         if (collider.gameObject.TryGetComponent<Monster>(out Monster monster))
         {
-            monster.TakeDamage(5);
+            monster.TakeDamage((int)c.Damage.Value);
         }
     }
 

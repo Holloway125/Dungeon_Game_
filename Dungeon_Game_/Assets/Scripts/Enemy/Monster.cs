@@ -5,18 +5,20 @@ using UnityEngine;
 public class Monster : MonoBehaviour
 {     
     public float speed; 
-    public float checkRadius; //how far an enemy can detect the player
+    public float checkRadius;
     public float attackRadius; 
     public int health;
-    public GameObject gameObject;
     public int challengeLevel; 
+    public GameObject gameObject;
     private LevelSystem levelSystem;
+    public bool shouldRotate;
 
-    public bool shouldRotate; //this is for enemies with animations that face both left and right
-
-    public LayerMask whatIsPlayer; //Player should always be set to Player under the Layer section in the inspector
+    //Make sure Player is on Player Layer in Inspector
+    public LayerMask whatIsPlayer; 
     private Transform target;
     private Rigidbody2D rb;
+
+    //Defines properties on start
     private Animator anim;
     private Vector2 movement;
     private Vector2 dir;
@@ -26,9 +28,7 @@ public class Monster : MonoBehaviour
 
     private void Start()
     {
-        //Defines properties on start
         levelSystem = GameObject.FindWithTag("Player").GetComponent<LevelSystem>();
-        health = 5;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform;
@@ -36,21 +36,20 @@ public class Monster : MonoBehaviour
         {
             challengeLevel = 1;
         }
-
     }
 
     private void Update()
     {
-        anim.SetBool("isMoving", isInChaseRange); // set boolean in animator to true if enemy is in chase range
-
-        isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer); // sets boolean to true when in chase range of player
-        isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer);// sets boolean to true when in attack range of player
+        anim.SetBool("isMoving", isInChaseRange);
+        isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer);
+        isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer);
 
         dir = target.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         dir.Normalize();
         movement = dir;
-        if(shouldRotate)// if shouldRotate is checked in inspector this will run if unchecked this will not run
+        // if shouldRotate is checked in inspector this will run if unchecked this will not run
+        if(shouldRotate)
         {
             anim.SetFloat("X", dir.x);
             anim.SetFloat("Y", dir.y);
@@ -60,17 +59,17 @@ public class Monster : MonoBehaviour
 
     private void FixedUpdate()
     {
-         if(isInChaseRange && !isInAttackRange)//unlocks enemy movement when in range of player and is not attacking
-        {
-            MoveCharacter(movement);
+         if(isInChaseRange && !isInAttackRange)
+        {           
+             MoveCharacter(movement);
         }
-         if(isInAttackRange)//locks enemy movement to zero when attacking
+         if(isInAttackRange)
         {
             rb.velocity = Vector2.zero;
         }
     }
 
-    private void MoveCharacter(Vector2 dir)//method that moves enemy
+    private void MoveCharacter(Vector2 dir)
     {
         rb.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
     }
@@ -78,15 +77,16 @@ public class Monster : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         health -= damageAmount;
-        Death();
+        if(health <= 0)
+        {
+            anim.SetBool("Death", true);
+        }
     }
 
     public void Death()
     {
-        if(health <= 0)
-        {
+        
         levelSystem.GainExperience(challengeLevel+levelSystem.playerLvl*100);
         Destroy(gameObject);
-        }
     }
 }
