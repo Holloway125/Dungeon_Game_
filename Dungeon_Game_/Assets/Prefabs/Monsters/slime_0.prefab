@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   checkRadius: 15
-  attackRadius: 3
+  attackRadius: 1
   health: 41
   challengeLevel: 2
   gameObject: {fileID: 7169616798835329685}
