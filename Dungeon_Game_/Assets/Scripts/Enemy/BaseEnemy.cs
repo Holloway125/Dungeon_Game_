@@ -5,79 +5,97 @@ using UnityEngine;
 public abstract class BaseEnemy : MonoBehaviour
 {
     [SerializeField]
-    private int Health;
+    private float _enemyHealth;
+    public float EnemyHealth
+    {
+    get {return _enemyHealth;}
+    set {_enemyHealth = EnemyHealth;}
+    }
+    
     [SerializeField]
-    private float speed;
+    private float _speed;
     [SerializeField]
-    private float checkRadius;
+    private float _checkRadius;
     [SerializeField]
-    private float attackRadius;
+    private float _attackRadius;
     [SerializeField]
-    private int challengeLevel;
-    public GameObject gameObject;
-    private LevelSystem levelSystem;
-    public bool shouldRotate;
+    private int _challengeLevel;
+    public GameObject GameObject;
+    private LevelSystem _levelSystem;
+    public bool ShouldRotate;
 
     //Make sure Player is on Player Layer in Inspector
-    public LayerMask whatIsPlayer; 
-    private Transform target;
-    private Rigidbody2D rb;
+    public LayerMask WhatIsPlayer; 
+    private Transform _target;
+    private Rigidbody2D _rb;
 
     //Defines properties on start
-    private Animator anim;
-    private Vector2 movement;
-    private Vector2 dir;
-    private bool isInChaseRange;
-    private bool isInAttackRange;
+    private Animator _anim;
+    private Vector2 _movement;
+    private Vector2 _dir;
+    private bool _isInChaseRange;
+    private bool _isInAttackRange;
+
+        protected virtual void Start()
+    {
+        _levelSystem = GameObject.FindWithTag("Player").GetComponent<LevelSystem>();
+        _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
+        _target = GameObject.FindWithTag("Player").transform;
+        if(_challengeLevel >= 0 )
+        {
+            _challengeLevel = 1;
+        }
+    }
 
         protected virtual void Update()
     {
-        anim.SetBool("isMoving", isInChaseRange);
-        isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer);
-        isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer);
+        _anim.SetBool("isMoving", _isInChaseRange);
+        _isInChaseRange = Physics2D.OverlapCircle(transform.position, _checkRadius, WhatIsPlayer);
+        _isInAttackRange = Physics2D.OverlapCircle(transform.position, _attackRadius, WhatIsPlayer);
 
-        dir = target.position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        dir.Normalize();
-        movement = dir;
-        // if shouldRotate is checked in inspector this will run if unchecked this will not run
-        if(shouldRotate)
+        _dir = _target.position - transform.position;
+        float angle = Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg;
+        _dir.Normalize();
+        _movement = _dir;
+        // if _shouldRotate is checked in inspector this will run if unchecked this will not run
+        if(ShouldRotate)
         {
-            anim.SetFloat("X", dir.x);
-            anim.SetFloat("Y", dir.y);
+            _anim.SetFloat("X", _dir.x);
+            _anim.SetFloat("Y", _dir.y);
         }
 
     }
 
         protected virtual void FixedUpdate()
     {
-         if(isInChaseRange && !isInAttackRange)
+         if(_isInChaseRange && !_isInAttackRange)
         {           
-             MoveEnemy(movement);
+             MoveEnemy(_movement);
         }
-         if(isInAttackRange)
+         if(_isInAttackRange)
         {
-            rb.velocity = Vector2.zero;
+            _rb.velocity = Vector2.zero;
         }
     }
 
-        private void MoveEnemy(Vector2 dir)
+        private void MoveEnemy(Vector2 _dir)
     {
-        rb.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
+        _rb.MovePosition((Vector2)transform.position + (_dir * _speed * Time.deltaTime));
     }
 
-    protected virtual void TakeDamage(int damageAmount)
+    public virtual void TakeDamage(int damageAmount)
     {
-        Health -= damageAmount;
-        if(Health <= 0)
+        EnemyHealth -= damageAmount;
+        if(EnemyHealth <= 0)
         {
-            anim.SetBool("Death", true);
+            _anim.SetBool("Death", true);
         }
     }
 
     protected virtual void Death()
     {
-        levelSystem.GainExperience(challengeLevel+levelSystem.playerLvl*100);
+        _levelSystem.GainExperience(_challengeLevel+_levelSystem.playerLvl*100);
         Destroy(gameObject);
     }
 }

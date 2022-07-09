@@ -9,14 +9,14 @@ public class WeaponAnim : MonoBehaviour
     [SerializeField]
     GameObject Player;
     WeaponRotation WR;
-    EdgeCollider2D collider;
+    EdgeCollider2D _collider;
     CharacterStats c;
 
     // When the object is turned on using the toggle in the inv menu the void awake will run and set WR to the WeaponRotation Script on the Player
     void Awake()
     {
         WR = Player.GetComponent<WeaponRotation>();
-        collider = GetComponent<EdgeCollider2D>();
+        _collider = GetComponent<EdgeCollider2D>();
         c = Player.GetComponent<CharacterStats>();
     }
 
@@ -35,9 +35,9 @@ public class WeaponAnim : MonoBehaviour
         anim.Play(animation);
     }
 
-        void OnTriggerEnter2D(Collider2D collider)
+        void OnTriggerEnter2D(Collider2D _collider)
     {
-        if (collider.gameObject.TryGetComponent<Monster>(out Monster monster))
+        if (_collider.gameObject.TryGetComponent<Monster>(out Monster monster))
         {
             monster.TakeDamage((int)c.Damage.Value);
         }

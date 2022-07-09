@@ -172,13 +172,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3495fd34983fd1e44a1aaa230957b103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  checkRadius: 15
-  attackRadius: 1
-  health: 41
-  challengeLevel: 2
-  gameObject: {fileID: 7169616798835329685}
-  shouldRotate: 0
-  whatIsPlayer:
+  _enemyHealth: 50
+  _speed: 5
+  _checkRadius: 10
+  _attackRadius: 0.5
+  _challengeLevel: 1
+  GameObject: {fileID: 2466084335914140134, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
+  ShouldRotate: 0
+  WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
