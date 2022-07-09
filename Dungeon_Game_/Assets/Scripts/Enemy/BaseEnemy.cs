@@ -5,13 +5,7 @@ using UnityEngine;
 public abstract class BaseEnemy : MonoBehaviour
 {
     [SerializeField]
-    private float _enemyHealth;
-    public float EnemyHealth
-    {
-    get {return _enemyHealth;}
-    set {_enemyHealth = EnemyHealth;}
-    }
-    
+    private float _enemyHealth;   
     [SerializeField]
     private float _speed;
     [SerializeField]
@@ -20,12 +14,13 @@ public abstract class BaseEnemy : MonoBehaviour
     private float _attackRadius;
     [SerializeField]
     private int _challengeLevel;
-    public GameObject GameObject;
     private LevelSystem _levelSystem;
-    public bool ShouldRotate;
+    [SerializeField]
+    private bool ShouldRotate;
 
     //Make sure Player is on Player Layer in Inspector
-    public LayerMask WhatIsPlayer; 
+    [SerializeField]
+    private LayerMask WhatIsPlayer; 
     private Transform _target;
     private Rigidbody2D _rb;
 
@@ -86,8 +81,8 @@ public abstract class BaseEnemy : MonoBehaviour
 
     public virtual void TakeDamage(int damageAmount)
     {
-        EnemyHealth -= damageAmount;
-        if(EnemyHealth <= 0)
+        _enemyHealth -= damageAmount;
+        if(_enemyHealth <= 0)
         {
             _anim.SetBool("Death", true);
         }

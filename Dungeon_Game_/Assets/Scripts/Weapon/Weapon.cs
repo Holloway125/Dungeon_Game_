@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using Stats;
 using UnityEngine.UI;
+using System;
 
     public enum WeaponType
     {
@@ -45,10 +46,14 @@ using UnityEngine.UI;
         private Toggle myToggle;
         private GameObject weapon;
 
+
         
        		public void Equip(CharacterStats c)
 		{
+            try
                 {
+                
+
                     weapon = GameObject.Find($"{weaponType.ToString()}");
                     myToggle = weapon.GetComponent<Toggle>();
 
@@ -81,6 +86,12 @@ using UnityEngine.UI;
                     {
                         Unequip(c);
                     }
+                    
+                }
+               
+                catch (NullReferenceException)
+                {
+
                 }
 
 		}

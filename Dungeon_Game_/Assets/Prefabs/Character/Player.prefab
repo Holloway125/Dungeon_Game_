@@ -4995,6 +4995,7 @@ GameObject:
   - component: {fileID: 1794248794914901021}
   - component: {fileID: 5896024090619803072}
   - component: {fileID: 3448304651373937805}
+  - component: {fileID: 7218383885916422570}
   - component: {fileID: 720812701271881332}
   - component: {fileID: 5087471818677037076}
   - component: {fileID: 1241004066464497434}
@@ -5135,6 +5136,18 @@ MonoBehaviour:
   lvlText: {fileID: 844510570049237673}
   expBar: {fileID: 3995842601638859670}
   skillTree: {fileID: 48066864267719959}
+--- !u!114 &7218383885916422570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2466084335914140134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e1115362ab172740b1c83c0df4c5b04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &720812701271881332
 SpriteRenderer:
   m_ObjectHideFlags: 0

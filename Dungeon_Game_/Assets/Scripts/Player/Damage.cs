@@ -5,11 +5,11 @@ using UnityEngine;
 public class Damage : MonoBehaviour 
 {
     PlayerResource playerResource;
-    GameObject player;
+
     void Awake()
     {
-        player = GameObject.Find("Player");
-        playerResource = player.GetComponent<PlayerResource>();
+
+        playerResource = GetComponent<PlayerResource>();
     }
         public void TakeDamage(float damage) // input the amount of damage you want the player to take on each monster
     {

@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    public int damageInt;
+    [SerializeField]
+    private int damageInt;
+    [SerializeField]
     Damage damageScript;
-    GameObject otherScript;
     public bool tookDamage;
     private GameObject player;
 
     void Awake()
     {
         GameObject player = GameObject.FindWithTag("Player");
-        otherScript = GameObject.Find("DamageScript");
-        damageScript = otherScript.GetComponent<Damage>();
+
+        damageScript = player.GetComponent<Damage>();
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
