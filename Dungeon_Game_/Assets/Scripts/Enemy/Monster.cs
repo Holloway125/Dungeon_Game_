@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Monster : BaseEnemy 
- {     
+{     
  
  // this is how you would override the funtions and add code
 protected override void Start()
@@ -14,4 +14,4 @@ protected override void Start()
 Debug.Log("I am a Slime");
 }
 
- }
+}
