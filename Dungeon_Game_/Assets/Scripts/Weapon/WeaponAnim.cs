@@ -5,12 +5,13 @@ using UnityEngine;
 public class WeaponAnim : MonoBehaviour
 {
     public Animator weaponAnim;
-    Monster monster;
+    BaseEnemy monster;
     [SerializeField]
     GameObject Player;
     WeaponRotation WR;
     EdgeCollider2D _collider;
     CharacterStats c;
+
 
     // When the object is turned on using the toggle in the inv menu the void awake will run and set WR to the WeaponRotation Script on the Player
     void Awake()
@@ -27,6 +28,7 @@ public class WeaponAnim : MonoBehaviour
         {
             WeaponAttack(weaponAnim, "swordswing");
         }
+        // if ()
     } 
         //function that will take the animator of each weapon and then the name of the animation to play it when Q is pressed in update
         public void WeaponAttack(Animator anim, string animation)
@@ -37,7 +39,7 @@ public class WeaponAnim : MonoBehaviour
 
         void OnTriggerEnter2D(Collider2D _collider)
     {
-        if (_collider.gameObject.TryGetComponent<Monster>(out Monster monster))
+        if (_collider.gameObject.TryGetComponent<BaseEnemy>(out BaseEnemy monster))
         {
             monster.TakeDamage((int)c.Damage.Value);
         }

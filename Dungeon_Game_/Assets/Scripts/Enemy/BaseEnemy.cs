@@ -4,93 +4,181 @@ using UnityEngine;
 
 public abstract class BaseEnemy : MonoBehaviour
 {
-    [SerializeField]
-    private float _enemyHealth;   
-    [SerializeField]
-    private float _speed;
-    [SerializeField]
-    private float _checkRadius;
-    [SerializeField]
-    private float _attackRadius;
-    [SerializeField]
-    private int _challengeLevel;
-    private LevelSystem _levelSystem;
-    [SerializeField]
-    private bool ShouldRotate;
 
-    //Make sure Player is on Player Layer in Inspector
+// Make sure Player is on Player Layer in Inspector.
     [SerializeField]
-    private LayerMask WhatIsPlayer; 
-    private Transform _target;
-    private Rigidbody2D _rb;
+    protected LayerMask WhatIsPlayer; 
 
-    //Defines properties on start
-    private Animator _anim;
-    private Vector2 _movement;
-    private Vector2 _dir;
-    private bool _isInChaseRange;
-    private bool _isInAttackRange;
+    [Space]    
+
+// Basic Enemy Stats Set in Inspector.
+    [SerializeField]
+    protected float EnemyHealth;   
+    [SerializeField]
+    protected float Speed;
+    [SerializeField]
+    protected float CheckRadius;
+    [SerializeField]
+    protected int ChallengeLevel;
+// Defined on Awake/Start/Update/FixedUpdate Functions.
+    protected Animator Anim;
+    protected Vector2 Movement;
+    protected GameObject Player;
+    protected Damage DamageScript;
+    protected Vector2 Dir;
+    protected LevelSystem LevelSystem;
+    protected Transform Target;
+    protected Rigidbody2D Rb;
+
+    [Space]
+ 
+// Set in Inspector used for attacking Player.
+
+
+    [SerializeField]
+    protected float AttackRadius;
+
+    [Space]
+
+    // If Enemy has weapon or ability thats played through an Animator then mark true in the Inspector.
+    [SerializeField]
+    protected bool HasAnAttack;
+    [SerializeField]
+    protected int AttackDamaage;
+    [SerializeField]
+    protected float AttackCooldown;
+
+    [Space]
+
+    // If Enemy has a on collision damage then mark true in the inspector.
+    [SerializeField]
+    protected bool HasContactAttack;
+    [SerializeField]
+    protected int ContactDamage;
+    [SerializeField]
+    protected float ContactAttackCooldown;
+
+// Used for attacking.
+    protected bool IsInChaseRange;
+    protected bool IsInAttackRange;
+    protected bool IsCollided;
+
+
+
+
+
+        protected virtual void Awake()
+    {
+        Player = GameObject.FindWithTag("Player");
+        LevelSystem = Player.GetComponent<LevelSystem>();
+        DamageScript = Player.GetComponent<Damage>();
+        Target = Player.transform;
+        Rb = GetComponent<Rigidbody2D>();
+        Anim = GetComponent<Animator>();
+
+        if(ChallengeLevel >= 0 )
+        {
+            ChallengeLevel = 1;
+        }
+
+    }
 
         protected virtual void Start()
     {
-        _levelSystem = GameObject.FindWithTag("Player").GetComponent<LevelSystem>();
-        _rb = GetComponent<Rigidbody2D>();
-        _anim = GetComponent<Animator>();
-        _target = GameObject.FindWithTag("Player").transform;
-        if(_challengeLevel >= 0 )
-        {
-            _challengeLevel = 1;
-        }
+
     }
 
         protected virtual void Update()
     {
-        _anim.SetBool("isMoving", _isInChaseRange);
-        _isInChaseRange = Physics2D.OverlapCircle(transform.position, _checkRadius, WhatIsPlayer);
-        _isInAttackRange = Physics2D.OverlapCircle(transform.position, _attackRadius, WhatIsPlayer);
+        Anim.SetBool("isMoving", IsInChaseRange);
+        IsInChaseRange = Physics2D.OverlapCircle(transform.position, CheckRadius, WhatIsPlayer);
+        IsInAttackRange = Physics2D.OverlapCircle(transform.position, AttackRadius, WhatIsPlayer);
 
-        _dir = _target.position - transform.position;
-        float angle = Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg;
-        _dir.Normalize();
-        _movement = _dir;
-        // if _shouldRotate is checked in inspector this will run if unchecked this will not run
-        if(ShouldRotate)
-        {
-            _anim.SetFloat("X", _dir.x);
-            _anim.SetFloat("Y", _dir.y);
-        }
+        Dir = Target.position - transform.position;
+        float angle = Mathf.Atan2(Dir.y, Dir.x) * Mathf.Rad2Deg;
+        Dir.Normalize();
+        Movement = Dir;
 
     }
 
         protected virtual void FixedUpdate()
     {
-         if(_isInChaseRange && !_isInAttackRange)
+         if(IsInChaseRange && !IsInAttackRange)
         {           
-             MoveEnemy(_movement);
+             MoveEnemy(Movement);
+             if (HasAnAttack)
+             {
+                StopCoroutine("Attack");
+             }
         }
-         if(_isInAttackRange)
+         if(IsInAttackRange)
         {
-            _rb.velocity = Vector2.zero;
+            Rb.velocity = Vector2.zero;
+            if (HasAnAttack)
+            {
+                StartCoroutine("Attack");
+            }
         }
     }
-
-        private void MoveEnemy(Vector2 _dir)
-    {
-        _rb.MovePosition((Vector2)transform.position + (_dir * _speed * Time.deltaTime));
-    }
-
-    public virtual void TakeDamage(int damageAmount)
-    {
-        _enemyHealth -= damageAmount;
-        if(_enemyHealth <= 0)
+        protected void OnCollisionEnter2D(Collision2D collision)
+     {
+        if (collision.gameObject.tag == "Player" && HasContactAttack)
         {
-            _anim.SetBool("Death", true);
+            IsCollided = true;
+            StartCoroutine("ContactAttack");
+        }
+     }
+
+        protected void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collision.gameObject.tag == "Player" && HasContactAttack)
+            {
+                IsCollided = false;
+                StopCoroutine("ContactAttack");
+            }
+        }
+// Coroutine that does damage over time when started.
+        protected IEnumerator ContactAttack()
+        {
+            while(IsCollided)
+            {
+                 DamageScript.TakeDamage(ContactDamage); 
+                yield return new WaitForSeconds(ContactAttackCooldown);
+            }
+            yield return null;
+            
+        }
+
+// Coroutine used to play attack animation of Enemies that have an attack.
+       protected virtual IEnumerator Attack()
+     {
+        
+        if (HasAnAttack)
+        {
+            Anim.Play("Attack");
+            yield return new WaitForSeconds(AttackCooldown);
+        }
+
+     }
+
+        protected void MoveEnemy(Vector2 Dir)
+    {
+        Rb.MovePosition((Vector2)transform.position + (Dir * Speed * Time.deltaTime));
+    }
+// Called in Weapon Anim script to cause damage to Enemy needs.
+// to be public can be overridden to change how much damage Enemy will take such as damaageAmount /= 2;.
+        public virtual void TakeDamage(int damageAmount)
+    {
+        EnemyHealth -= damageAmount;
+        if(EnemyHealth <= 0)
+        {
+            Anim.SetBool("Death", true);
         }
     }
 
-    protected virtual void Death()
+        protected virtual void Death()
     {
-        _levelSystem.GainExperience(_challengeLevel+_levelSystem.playerLvl*100);
+        LevelSystem.GainExperience(ChallengeLevel+LevelSystem.playerLvl*100);
         Destroy(gameObject);
     }
 }
