@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slime : BaseEnemy 
-{     
- 
+public class Slime : BaseEnemy
+{
+
  // this is how you would override the funtions and add code
 protected override void Start()
 {

@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using static SkillTree;
+
 
 public class LevelSystem : MonoBehaviour
 {
+    
+    [SerializeField]
+    private int _skillPoints;
+    public int SkillPoints
+    {
+        get { return _skillPoints; }
+        set { _skillPoints = value; }
+    }
+
     public int playerXp;//current running total
     public int totalXp;//total xp needed to lvl
     public int playerLvl;
     public TMP_Text lvlText;
     public Slider expBar;
-    public SkillTree skillTree;
-    
+
     private GameObject player; 
 
     void Awake()
@@ -31,7 +39,7 @@ public class LevelSystem : MonoBehaviour
     {
         PlayerResource playerResource = player.GetComponent<PlayerResource>();
         playerLvl++;
-        skillTree.skillPoints ++;
+        SkillPoints++;
         playerResource.SetMaxHealth(50+(playerLvl*5)); //increases health by 5 everytime playerlvls
         lvlText.SetText(playerLvl.ToString());
         int oldTotal = totalXp; // holds previous lvls totalxp value
