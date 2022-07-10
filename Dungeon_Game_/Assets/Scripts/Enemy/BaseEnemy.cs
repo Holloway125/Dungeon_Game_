@@ -172,7 +172,7 @@ public abstract class BaseEnemy : MonoBehaviour
         EnemyHealth -= damageAmount;
         if(EnemyHealth <= 0)
         {
-            Anim.SetBool("Death", true);
+            Anim.Play("Death");
         }
     }
 
