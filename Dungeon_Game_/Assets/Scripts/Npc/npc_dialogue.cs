@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Twin_vendor : MonoBehaviour
+public class npc_dialogue : MonoBehaviour
 {
     public GameObject dialogBox;
     public GameObject dialogText;
