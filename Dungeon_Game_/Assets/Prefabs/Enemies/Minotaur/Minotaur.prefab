@@ -163,7 +163,7 @@ MonoBehaviour:
   EnemyHealth: 100
   Speed: 8
   CheckRadius: 15
-  ChallengeLevel: 0
+  ChallengeLevel: 5
   AttackRadius: 0.5
   HasAnAttack: 0
   AttackDamaage: 50

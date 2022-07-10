@@ -4535,7 +4535,7 @@ GameObject:
   - component: {fileID: 3880432162302274754}
   - component: {fileID: 6625889802254117638}
   m_Layer: 0
-  m_Name: SkillHolder
+  m_Name: SkillTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4568,7 +4568,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac00cd76a3e6f6478c2fa26d3ec1e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillCost: 1
+  Skills:
+  - {fileID: 359669004990650761}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2466084335914140134
 GameObject:
   m_ObjectHideFlags: 0
@@ -4720,6 +4725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b68e33b756b164496621ad95ed8338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _skillPoints: 0
   playerXp: 0
   totalXp: 0
   playerLvl: 0
@@ -20828,7 +20834,7 @@ GameObject:
   - component: {fileID: 4045586742313936924}
   - component: {fileID: 359669004990650761}
   m_Layer: 3
-  m_Name: Button
+  m_Name: Stab+
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
