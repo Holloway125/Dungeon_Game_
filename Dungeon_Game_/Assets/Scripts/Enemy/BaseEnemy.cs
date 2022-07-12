@@ -15,14 +15,13 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField]
     protected float EnemyHealth;   
     [SerializeField]
-    protected float Speed;
+    public float Speed;
     [SerializeField]
     protected float CheckRadius;
     [SerializeField]
     protected int ChallengeLevel;
 // Defined on Awake/Start/Update/FixedUpdate Functions.
     protected Animator Anim;
-    protected Vector2 Movement;
     protected GameObject Player;
     protected Damage DamageScript;
     protected Vector2 Dir;
@@ -97,7 +96,7 @@ public abstract class BaseEnemy : MonoBehaviour
         Dir = Target.position - transform.position;
         float angle = Mathf.Atan2(Dir.y, Dir.x) * Mathf.Rad2Deg;
         Dir.Normalize();
-        Movement = Dir;
+        
 
     }
 
@@ -105,7 +104,7 @@ public abstract class BaseEnemy : MonoBehaviour
     {
          if(IsInChaseRange && !IsInAttackRange)
         {           
-             MoveEnemy(Movement);
+             MoveEnemy(Dir);
              if (HasAnAttack)
              {
                 StopCoroutine("Attack");

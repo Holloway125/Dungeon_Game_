@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9088350761340953711}
   - component: {fileID: 95556217619203727}
   - component: {fileID: 3558123439155963339}
+  - component: {fileID: 2099913685614843249}
   m_Layer: 0
   m_Name: Minotaur
   m_TagString: Enemy
@@ -161,8 +162,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   EnemyHealth: 100
-  Speed: 8
-  CheckRadius: 15
+  Speed: 4
+  CheckRadius: 30
   ChallengeLevel: 5
   AttackRadius: 0.5
   HasAnAttack: 0
@@ -171,3 +172,21 @@ MonoBehaviour:
   HasContactAttack: 1
   ContactDamage: 50
   ContactAttackCooldown: 5
+--- !u!114 &2099913685614843249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2366049064367894710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5761689da0d0124194bf3e3eed99871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ability: {fileID: 11400000, guid: 1a8b3d78281b0bc43971f336b63d6ce3, type: 2}
+  IsInAbilityRange: 0
+  AbilityRadius: 10
+  WhatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 8

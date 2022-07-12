@@ -4725,7 +4725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b68e33b756b164496621ad95ed8338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillPoints: 0
+  _skillPoints: 5
   playerXp: 0
   totalXp: 0
   playerLvl: 0

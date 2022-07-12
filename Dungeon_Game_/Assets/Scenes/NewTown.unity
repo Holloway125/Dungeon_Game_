@@ -136,11 +136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 380024537708392814, guid: 290c6f11176f962438f6e789444479d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.75188
+      value: 3.82
       objectReference: {fileID: 0}
     - target: {fileID: 380024537708392814, guid: 290c6f11176f962438f6e789444479d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.194607
+      value: -18.76
       objectReference: {fileID: 0}
     - target: {fileID: 380024537708392814, guid: 290c6f11176f962438f6e789444479d6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -101573,14 +101573,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2346509203010142849, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2346509203010142849, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2346509203010142849, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.54
       objectReference: {fileID: 0}
@@ -101624,10 +101616,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3448304651373937805, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
-      propertyPath: _skillPoints
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3585556229949860175, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -101648,10 +101636,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4697179893674824253, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6294590678685867868, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -101659,10 +101643,6 @@ PrefabInstance:
     - target: {fileID: 6294590678685867868, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6625889802254117638, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
-      propertyPath: _skillMax
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
@@ -101901,6 +101881,14 @@ PrefabInstance:
     - target: {fileID: 380024537708392814, guid: 290c6f11176f962438f6e789444479d6, type: 3}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 380024537708392814, guid: 290c6f11176f962438f6e789444479d6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 380024537708392814, guid: 290c6f11176f962438f6e789444479d6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 380024537708392814, guid: 290c6f11176f962438f6e789444479d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -103993,11 +103981,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 380024537708392814, guid: 290c6f11176f962438f6e789444479d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.889303
+      value: -6.87
       objectReference: {fileID: 0}
     - target: {fileID: 380024537708392814, guid: 290c6f11176f962438f6e789444479d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -18.312754
+      value: -8.88
       objectReference: {fileID: 0}
     - target: {fileID: 380024537708392814, guid: 290c6f11176f962438f6e789444479d6, type: 3}
       propertyPath: m_LocalPosition.z
