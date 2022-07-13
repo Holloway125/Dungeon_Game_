@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,6 +100,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -112,7 +124,7 @@ TextureImporter:
         width: 192
         height: 256
       alignment: 9
-      pivot: {x: 0.497007, y: 0.3818351}
+      pivot: {x: 0.49479166, y: 0.3125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
@@ -2573,39 +2585,30 @@ TextureImporter:
       Plains 1_128: -2032033143
       Plains 1_78: 1653587855
       Plains 1_137: -989406559
+      Plains 1_135: 424216074
       Plains 1_38: -970769054
+      Plains 1_2: -1992131446
       Plains 1_6: 1810512206
-      Plains 1_42: 1986050926
       Plains 1_63: 1070307613
       Plains 1_18: 222413380
-      Plains 1_2: -1992131446
       Plains 1_31: -1134820344
       Plains 1_125: -90883964
-      Plains 1_24: 101366102
-      Plains 1_135: 424216074
-      Plains 1_127: -1691884401
-      Plains 1_64: -1975460780
-      Plains 1_117: 1409104064
-      Plains 1_148: 1702585792
       Plains 1_86: 2101369660
+      Plains 1_93: 1037960799
       Plains 1_143: 635073177
       Plains 1_124: 161150396
-      Plains 1_93: 1037960799
       Plains 1_58: 764499734
       Plains 1_15: -2006922900
-      Plains 1_3: 912808497
-      Plains 1_155: -1130131104
-      Plains 1_126: 1679537376
       Plains 1_22: 526618876
+      Plains 1_49: 684327524
+      Plains 1_94: -1230209783
       Plains 1_87: -1083578413
       Plains 1_119: 1557867755
-      Plains 1_49: 684327524
-      Plains 1_34: -1073172247
       Plains 1_144: -1898823707
-      Plains 1_141: -1778969056
-      Plains 1_94: -1230209783
-      Plains 1_91: 249524721
+      Plains 1_34: -1073172247
       Plains 1_156: 1043942557
+      Plains 1_141: -1778969056
+      Plains 1_91: 249524721
       Plains 1_121: 365295945
       Plains 1_96: -602556297
       Plains 1_151: -1788457229
