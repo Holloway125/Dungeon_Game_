@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Game_Test_Arena.unity
     guid: 17450e7cd00baa446ac3e16f6033e6d3
   - enabled: 0
-    path: Assets/Scenes/BennyTestArea.unity
+    path: Assets/Scenes/Sam'a Test Area.unity
     guid: 856adb12a53c0df45ae37462e8035a71
   - enabled: 0
     path: Assets/Scenes/Level1.unity
