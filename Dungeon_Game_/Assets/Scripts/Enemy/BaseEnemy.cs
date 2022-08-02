@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public abstract class BaseEnemy : MonoBehaviour
 {
@@ -26,8 +27,11 @@ public abstract class BaseEnemy : MonoBehaviour
     protected Damage DamageScript;
     protected Vector2 Dir;
     protected LevelSystem LevelSystem;
-    protected Transform Target;
+    // protected Transform Target;
     protected Rigidbody2D Rb;
+    private AIPath movement;
+    private AIDestinationSetter AIDestinationSetterScript;
+    
 
     [Space]
  
@@ -69,11 +73,13 @@ public abstract class BaseEnemy : MonoBehaviour
         protected virtual void Awake()
     {
         Player = GameObject.FindWithTag("Player");
+        movement = GetComponent<AIPath>();
         LevelSystem = Player.GetComponent<LevelSystem>();
         DamageScript = Player.GetComponent<Damage>();
-        Target = Player.transform;
+        // Target = Player.transform;
         Rb = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
+        AIDestinationSetterScript = GetComponent<AIDestinationSetter>();
 
         if(ChallengeLevel >= 0 )
         {
@@ -93,9 +99,21 @@ public abstract class BaseEnemy : MonoBehaviour
         IsInChaseRange = Physics2D.OverlapCircle(transform.position, CheckRadius, WhatIsPlayer);
         IsInAttackRange = Physics2D.OverlapCircle(transform.position, AttackRadius, WhatIsPlayer);
 
-        Dir = Target.position - transform.position;
-        float angle = Mathf.Atan2(Dir.y, Dir.x) * Mathf.Rad2Deg;
-        Dir.Normalize();
+        // Dir = Target.position - transform.position;
+        // float angle = Mathf.Atan2(Dir.y, Dir.x) * Mathf.Rad2Deg;
+        // Dir.Normalize();
+        if (!IsInChaseRange)
+        {
+            AIDestinationSetterScript.target = this.transform;
+        }
+        else if (IsInChaseRange)
+        {
+            AIDestinationSetterScript.target = Player.transform;
+        }
+        if (movement.maxSpeed != Speed)
+        {
+            movement.maxSpeed = Speed;
+        }
         
 
     }
@@ -104,7 +122,7 @@ public abstract class BaseEnemy : MonoBehaviour
     {
          if(IsInChaseRange && !IsInAttackRange)
         {           
-             MoveEnemy(Dir);
+            //  MoveEnemy(Dir);
              if (HasAnAttack)
              {
                 StopCoroutine("Attack");
@@ -112,7 +130,7 @@ public abstract class BaseEnemy : MonoBehaviour
         }
          if(IsInAttackRange)
         {
-            Rb.velocity = Vector2.zero;
+            // Rb.velocity = Vector2.zero;
             if (HasAnAttack)
             {
                 StartCoroutine("Attack");
@@ -160,10 +178,10 @@ public abstract class BaseEnemy : MonoBehaviour
 
      }
 
-        protected void MoveEnemy(Vector2 Dir)
-    {
-        Rb.MovePosition((Vector2)transform.position + (Dir * Speed * Time.deltaTime));
-    }
+    //     protected void MoveEnemy(Vector2 Dir)
+    // {
+    //     Rb.MovePosition((Vector2)transform.position + (Dir * Speed * Time.deltaTime));
+    // }
 // Called in Weapon Anim script to cause damage to Enemy needs.
 // to be public can be overridden to change how much damage Enemy will take such as damaageAmount /= 2;.
         public virtual void TakeDamage(int damageAmount)

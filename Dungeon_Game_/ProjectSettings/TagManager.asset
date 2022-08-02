@@ -7,6 +7,7 @@ TagManager:
   - Tree
   - interactable
   - Enemy
+  - AStar
   layers:
   - Default
   - TransparentFX

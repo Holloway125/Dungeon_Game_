@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//  Change the name of the script to the enemies name in the project window
-//  Replace Instructions class name with new enemy name
-//  Make sure the project name and the class name is exactly the same
-public class Instructions : BaseEnemy
+public class Golem : BaseEnemy
 {
-/*This is a Monster Template you can just copy and paste the prefab into a new
+/* This is a Monster Template you can just copy and paste the prefab into a new
 folder with the name of the Enemy you are making it will have all the default 
 components and settings you need. You will have to make a new animator controller
 and put it into the animator component. Please make a folder within your new 
