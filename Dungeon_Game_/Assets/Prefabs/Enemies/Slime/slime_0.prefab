@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4479229197532677925}
   - component: {fileID: 8707483443693890942}
   - component: {fileID: 9071266804944641552}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: slime_0
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -175,6 +175,9 @@ MonoBehaviour:
   HasContactAttack: 1
   ContactDamage: 2
   ContactAttackCooldown: 1
+  IgnoreTheseLayers:
+    serializedVersion: 2
+    m_Bits: 264
 --- !u!114 &6490513067720861801
 MonoBehaviour:
   m_ObjectHideFlags: 0

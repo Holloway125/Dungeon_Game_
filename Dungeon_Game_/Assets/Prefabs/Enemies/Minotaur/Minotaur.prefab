@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1420403690316229599}
   - component: {fileID: 1418034601130513178}
   - component: {fileID: 4421614227525118301}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Minotaur
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ MonoBehaviour:
     m_Bits: 8
   EnemyHealth: 100
   Speed: 4
-  CheckRadius: 30
+  CheckRadius: 10
   ChallengeLevel: 5
   AttackRadius: 0.5
   HasAnAttack: 0
@@ -175,6 +175,9 @@ MonoBehaviour:
   HasContactAttack: 1
   ContactDamage: 50
   ContactAttackCooldown: 5
+  IgnoreTheseLayers:
+    serializedVersion: 2
+    m_Bits: 264
 --- !u!114 &2099913685614843249
 MonoBehaviour:
   m_ObjectHideFlags: 0

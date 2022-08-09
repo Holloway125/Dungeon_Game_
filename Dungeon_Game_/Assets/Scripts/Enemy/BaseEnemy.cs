@@ -65,6 +65,9 @@ public abstract class BaseEnemy : MonoBehaviour
     protected bool IsInChaseRange;
     protected bool IsInAttackRange;
     protected bool IsCollided;
+    protected bool LineOfSight;
+    [SerializeField]
+    protected LayerMask IgnoreTheseLayers;
 
 
 
@@ -120,6 +123,18 @@ public abstract class BaseEnemy : MonoBehaviour
 
         protected virtual void FixedUpdate()
     {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, - Player.transform.position, CheckRadius, IgnoreTheseLayers);
+    
+        if (hit.collider != null)
+        {
+            LineOfSight = true;
+            Debug.Log($"{this} has Line of Sight");
+
+        }
+        else
+        {
+            LineOfSight = false;
+        }
          if(IsInChaseRange && !IsInAttackRange)
         {           
             //  MoveEnemy(Dir);
@@ -128,7 +143,7 @@ public abstract class BaseEnemy : MonoBehaviour
                 StopCoroutine("Attack");
              }
         }
-         if(IsInAttackRange)
+         if(IsInAttackRange && LineOfSight)
         {
             // Rb.velocity = Vector2.zero;
             if (HasAnAttack)
