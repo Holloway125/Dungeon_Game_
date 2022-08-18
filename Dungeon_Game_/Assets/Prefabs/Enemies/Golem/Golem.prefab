@@ -176,7 +176,7 @@ MonoBehaviour:
   ContactAttackCooldown: 3
   IgnoreTheseLayers:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 2147483647
 --- !u!114 &1628390825
 MonoBehaviour:
   m_ObjectHideFlags: 0

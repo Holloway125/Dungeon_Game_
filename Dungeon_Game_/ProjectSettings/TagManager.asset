@@ -8,6 +8,7 @@ TagManager:
   - interactable
   - Enemy
   - AStar
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - interactable
   - Enemy
   - EnvirCollider
-  - 
+  - Weapon
   - 
   - 
   - 
