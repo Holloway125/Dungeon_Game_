@@ -8,6 +8,7 @@ public class npc_dialogue : MonoBehaviour
     public GameObject dialogText;
     public string dialog;
     public bool playerInRange;
+    public Collider2D dialogRange;
 
 
     void Update()
