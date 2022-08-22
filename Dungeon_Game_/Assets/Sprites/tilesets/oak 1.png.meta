@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 31.9
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -76,9 +76,91 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: oak 1_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 256
+      alignment: 9
+      pivot: {x: 0.4954742, y: 0.34046164}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -13, y: -62}
+        - {x: -25, y: -55}
+        - {x: -27, y: -41}
+        - {x: -18, y: -33}
+        - {x: 18, y: -33}
+        - {x: 27, y: -41}
+        - {x: 25, y: -55}
+        - {x: 13, y: -62}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ede2dbc051f5d8544a1c78af474a6b95
+      internalID: 1539394819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oak 1_45
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5045264, y: 0.40042984}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12, y: -30}
+        - {x: -25, y: -24}
+        - {x: -27, y: -9}
+        - {x: -18, y: -1}
+        - {x: 18, y: -1}
+        - {x: 27, y: -9}
+        - {x: 25, y: -23}
+        - {x: 12, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8476bfa4d77207c459e023115df4ff33
+      internalID: -2055583967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -89,7 +171,57 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      oak 1_12: 14567113
+      oak 1_10: 1436527036
+      oak 1_8: -1084121196
+      oak 1_1: 274552165
+      oak 1_22: 1478286451
+      oak 1_45: -2055583967
+      oak 1_34: -1641072076
+      oak 1_20: -384052706
+      oak 1_9: 944255282
+      oak 1_15: -107209359
+      oak 1_7: -1012569859
+      oak 1_37: 518256584
+      oak 1_48: 484032445
+      oak 1_25: 583613806
+      oak 1_49: -1378803661
+      oak 1_36: -1599197591
+      oak 1_32: 1539394819
+      oak 1_5: 432420077
+      oak 1_18: -351416118
+      oak 1_43: -664171389
+      oak 1_31: 1012285114
+      oak 1_30: -1053353767
+      oak 1_0: 1458799604
+      oak 1_2: -190371697
+      oak 1_21: 531542410
+      oak 1_42: -2109595673
+      oak 1_46: 2001187558
+      oak 1_16: 827985260
+      oak 1_17: -1260023414
+      oak 1_33: 1226353396
+      oak 1_29: 1081342720
+      oak 1_13: 1632140901
+      oak 1_23: 1803292736
+      oak 1_38: -701549615
+      oak 1_40: 927376729
+      oak 1_28: 962680885
+      oak 1_3: -552877799
+      oak 1_4: -1744526178
+      oak 1_26: 641462163
+      oak 1_11: 1395787085
+      oak 1_6: 819154507
+      oak 1_19: 2131831060
+      oak 1_41: 973489515
+      oak 1_44: -930716493
+      oak 1_24: 1560817685
+      oak 1_27: 1286015825
+      oak 1_35: -458569815
+      oak 1_14: 1201849112
+      oak 1_39: 1202492499
+      oak 1_47: -1023390924
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
