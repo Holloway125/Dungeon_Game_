@@ -159,7 +159,7 @@ Vector3 dir = new Vector3(-21, 18, 0);
         //if player is not in suspicious range and aggro and chase then enemy will reset
         else if (!IsInSuspiciousRange && !IsInAggroRange && !IsInChaseRange)
         {
-            AIDestinationSetterScript.target = StartPosition;
+          //  AIDestinationSetterScript.target = StartPosition;
             movement.maxSpeed = Speed;
             Aggroed = false;
         }
