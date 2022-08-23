@@ -18,12 +18,6 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField]
     public float Speed;
     [SerializeField]
-    protected float AggroRadius;
-    [SerializeField]
-    protected float SuspiciousRadius;
-    [SerializeField]
-    protected float ChaseRadius;
-    [SerializeField]
     protected int ChallengeLevel;
 // Defined on Awake/Start/Update/FixedUpdate Functions.
     protected Animator Anim;
@@ -66,14 +60,7 @@ public abstract class BaseEnemy : MonoBehaviour
     protected float ContactAttackCooldown;
 
 // Used for attacking.
-    protected bool IsInAggroRange;
-    protected bool IsInAttackRange;
-    protected bool IsInSuspiciousRange;
-    protected bool IsInChaseRange;
     protected bool IsCollided;
-    protected bool LineOfSight;
-    protected bool Aggroed;
-    protected Vector3 StartPosition;
     protected Collider2D PlayerCollider;
     [SerializeField]
     protected LayerMask IgnoreTheseLayers;
@@ -94,7 +81,6 @@ public abstract class BaseEnemy : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
         AIDestinationSetterScript = GetComponent<AIDestinationSetter>();
-        StartPosition = transform.position;
         
 
         if(ChallengeLevel >= 0 )
@@ -111,58 +97,10 @@ Vector3 dir = new Vector3(-21, 18, 0);
 
         protected virtual void Update()
     {
-        Anim.SetBool("isMoving", IsInAggroRange);
-        IsInAggroRange = Physics2D.OverlapCircle(transform.position, AggroRadius, WhatIsPlayer);
-        IsInAttackRange = Physics2D.OverlapCircle(transform.position, AttackRadius, WhatIsPlayer);
-        IsInSuspiciousRange = Physics2D.OverlapCircle(transform.position, SuspiciousRadius, WhatIsPlayer);
-        IsInChaseRange = Physics2D.OverlapCircle(transform.position, ChaseRadius, WhatIsPlayer);
-        
-        // Dir = Target.position - transform.position;
-        // float angle = Mathf.Atan2(Dir.y, Dir.x) * Mathf.Rad2Deg;
-        // Dir.Normalize();
 
-        //If Enemy can see player and is in aggro range then enemy has been pulled
-
-        if (IsInAggroRange && LineOfSight)
-        {
-            AIDestinationSetterScript.target = Player.transform;
-            movement.maxSpeed = Speed;
-            Aggroed = true;
-        }
-        //If Enemy has been pulled then it will keep chasing until out of chase range no matter LOS
-        else if (IsInChaseRange && Aggroed)
-        {
-            AIDestinationSetterScript.target = Player.transform;
-            movement.maxSpeed = Speed;
-        }
-        //IF player is in its aggro range but has no line of sight and hasn't been pulled then it will move towards player at 1/3 speed
-        else if (IsInAggroRange && !LineOfSight && !Aggroed)
-        {
-            AIDestinationSetterScript.target = Player.transform;
-            movement.maxSpeed = Speed/3;
-            Aggroed = false;
-        }
-        //if Player is in enemies suspicious range then it will move towards player at 1/4 speed
-        else if (IsInSuspiciousRange && !LineOfSight)
-        {
-            AIDestinationSetterScript.target = Player.transform;
-            movement.maxSpeed = Speed/4;
-            Aggroed = false;
-        }
-        //if Player is in enemies suspicious range and it has line of sight it will move towards player at 1/2 speed
-        else if (IsInSuspiciousRange && LineOfSight)
-        {
-            AIDestinationSetterScript.target = Player.transform;
-            movement.maxSpeed = Speed/2;
-            Aggroed = false;
-        }
-        //if player is not in suspicious range and aggro and chase then enemy will reset
-        else if (!IsInSuspiciousRange && !IsInAggroRange && !IsInChaseRange)
-        {
-          //  AIDestinationSetterScript.target = StartPosition;
-            movement.maxSpeed = Speed;
-            Aggroed = false;
-        }
+        // IsInAttackRange = Physics2D.OverlapCircle(transform.position, AttackRadius, WhatIsPlayer);
+        // IsInSuspiciousRange = Physics2D.OverlapCircle(transform.position, SuspiciousRadius, WhatIsPlayer);
+        // IsInChaseRange = Physics2D.OverlapCircle(transform.position, ChaseRadius, WhatIsPlayer);
 
     }
 
@@ -171,33 +109,33 @@ Vector3 dir = new Vector3(-21, 18, 0);
         
         Vector2 origin = new Vector2(transform.position.x, transform.position.y);
         Vector2 target = new Vector2(Player.transform.position.x + PlayerCollider.offset.x, Player.transform.position.y + PlayerCollider.offset.y);
-        RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, SuspiciousRadius, IgnoreTheseLayers);
+        //RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, SuspiciousRadius, IgnoreTheseLayers);
         Debug.DrawRay(origin, (target - origin), Color.blue);
 
-        if (hit.collider == PlayerCollider)
-        {
-            LineOfSight = true;
-        }
-        else
-        {
-            LineOfSight = false;
-        }
-         if(IsInAggroRange && !IsInAttackRange)
-        {           
-            //  MoveEnemy(Dir);
-             if (HasAnAttack)
-             {
-                StopCoroutine("Attack");
-             }
-        }
-         if(IsInAttackRange && LineOfSight)
-        {
-            // Rb.velocity = Vector2.zero;
-            if (HasAnAttack)
-            {
-                StartCoroutine("Attack");
-            }
-        }
+        // if (hit.collider == PlayerCollider)
+        // {
+        //     LineOfSight = true;
+        // }
+        // else
+        // {
+        //     LineOfSight = false;
+        // }
+        //  if(IsInAggroRange && !IsInAttackRange)
+        // {           
+        //     //  MoveEnemy(Dir);
+        //      if (HasAnAttack)
+        //      {
+        //         StopCoroutine("Attack");
+        //      }
+        // }
+        //  if(IsInAttackRange && LineOfSight)
+        // {
+        //     // Rb.velocity = Vector2.zero;
+        //     if (HasAnAttack)
+        //     {
+        //         StartCoroutine("Attack");
+        //     }
+        // }
     }
         protected void OnCollisionEnter2D(Collision2D collision)
      {
