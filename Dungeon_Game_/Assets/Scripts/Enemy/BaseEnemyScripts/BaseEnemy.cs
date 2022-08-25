@@ -99,6 +99,7 @@ public abstract class BaseEnemy : MonoBehaviour
         if(ChallengeLevel >= 0 )
         {
             ChallengeLevel = 1;
+                
         }
 
     }
@@ -106,6 +107,9 @@ public abstract class BaseEnemy : MonoBehaviour
         protected virtual void Start()
     {
 Vector3 dir = new Vector3(-21, 18, 0);
+        currentState = DefaultState;
+
+        currentState.EnterState(this);
     }
 
         protected virtual void Update()
