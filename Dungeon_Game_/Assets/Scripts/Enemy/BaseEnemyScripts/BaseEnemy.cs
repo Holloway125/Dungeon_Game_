@@ -38,6 +38,8 @@ public abstract class BaseEnemy : MonoBehaviour
 
     [SerializeField]
     protected float AttackRadius;
+    protected float SuspiciousRadius;
+    protected float ChaseRadius;
 
     [Space]
 
@@ -64,8 +66,18 @@ public abstract class BaseEnemy : MonoBehaviour
     protected Collider2D PlayerCollider;
     [SerializeField]
     protected LayerMask IgnoreTheseLayers;
+    protected bool IsInAttackRange;
+    protected bool IsInSuspiciousRange;
+    protected bool IsInAggroRange;
+    protected bool IsInChaseRange;
+    protected bool LineOfSight;
+    BaseEnemyState currentState;
 
-
+    public EnemyChasing ChasingState = new EnemyChasing();
+    public EnemyDefault DefaultState = new EnemyDefault();
+    public EnemySuspicious SuspiciousState = new EnemySuspicious();
+    public EnemyAttacking AttackingState = new EnemyAttacking();
+    public EnemyRetreating RetreatingState = new EnemyRetreating();
 
 
 
@@ -77,7 +89,8 @@ public abstract class BaseEnemy : MonoBehaviour
         LevelSystem = Player.GetComponent<LevelSystem>();
         DamageScript = Player.GetComponent<Damage>();
         PlayerCollider = Player.GetComponent<CircleCollider2D>();
-        // Target = Player.transform;
+        currentState = DefaultState;
+        currentState.EnterState(this);
         Rb = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
         AIDestinationSetterScript = GetComponent<AIDestinationSetter>();
@@ -98,9 +111,9 @@ Vector3 dir = new Vector3(-21, 18, 0);
         protected virtual void Update()
     {
 
-        // IsInAttackRange = Physics2D.OverlapCircle(transform.position, AttackRadius, WhatIsPlayer);
-        // IsInSuspiciousRange = Physics2D.OverlapCircle(transform.position, SuspiciousRadius, WhatIsPlayer);
-        // IsInChaseRange = Physics2D.OverlapCircle(transform.position, ChaseRadius, WhatIsPlayer);
+        IsInAttackRange = Physics2D.OverlapCircle(transform.position, AttackRadius, WhatIsPlayer);
+        IsInSuspiciousRange = Physics2D.OverlapCircle(transform.position, SuspiciousRadius, WhatIsPlayer);
+        IsInChaseRange = Physics2D.OverlapCircle(transform.position, ChaseRadius, WhatIsPlayer);
 
     }
 
@@ -109,33 +122,33 @@ Vector3 dir = new Vector3(-21, 18, 0);
         
         Vector2 origin = new Vector2(transform.position.x, transform.position.y);
         Vector2 target = new Vector2(Player.transform.position.x + PlayerCollider.offset.x, Player.transform.position.y + PlayerCollider.offset.y);
-        //RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, SuspiciousRadius, IgnoreTheseLayers);
+        RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, SuspiciousRadius, IgnoreTheseLayers);
         Debug.DrawRay(origin, (target - origin), Color.blue);
 
-        // if (hit.collider == PlayerCollider)
-        // {
-        //     LineOfSight = true;
-        // }
-        // else
-        // {
-        //     LineOfSight = false;
-        // }
-        //  if(IsInAggroRange && !IsInAttackRange)
-        // {           
-        //     //  MoveEnemy(Dir);
-        //      if (HasAnAttack)
-        //      {
-        //         StopCoroutine("Attack");
-        //      }
-        // }
-        //  if(IsInAttackRange && LineOfSight)
-        // {
-        //     // Rb.velocity = Vector2.zero;
-        //     if (HasAnAttack)
-        //     {
-        //         StartCoroutine("Attack");
-        //     }
-        // }
+        if (hit.collider == PlayerCollider)
+        {
+            LineOfSight = true;
+        }
+        else
+        {
+            LineOfSight = false;
+        }
+         if(IsInAggroRange && !IsInAttackRange)
+        {           
+            //  MoveEnemy(Dir);
+             if (HasAnAttack)
+             {
+                StopCoroutine("Attack");
+             }
+        }
+         if(IsInAttackRange && LineOfSight)
+        {
+            // Rb.velocity = Vector2.zero;
+            if (HasAnAttack)
+            {
+                StartCoroutine("Attack");
+            }
+        }
     }
         protected void OnCollisionEnter2D(Collision2D collision)
      {
@@ -178,10 +191,6 @@ Vector3 dir = new Vector3(-21, 18, 0);
 
      }
 
-    //     protected void MoveEnemy(Vector2 Dir)
-    // {
-    //     Rb.MovePosition((Vector2)transform.position + (Dir * Speed * Time.deltaTime));
-    // }
 // Called in Weapon Anim script to cause damage to Enemy needs.
 // to be public can be overridden to change how much damage Enemy will take such as damaageAmount /= 2;.
         public virtual void TakeDamage(int damageAmount)

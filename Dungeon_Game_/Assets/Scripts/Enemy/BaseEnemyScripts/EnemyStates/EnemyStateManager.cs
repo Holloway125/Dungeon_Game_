@@ -17,11 +17,6 @@ public class EnemyStateManager : MonoBehaviour
 
         currentState.EnterState(this);
     }
-    void OnCollisionEnter(Collision collision)
-    {
-        currentState.OnCollisionEnter(this, collision);
-    }
-
     // Update is called once per frame
     void Update()
     {
