@@ -8,27 +8,27 @@ public abstract class BaseEnemy : MonoBehaviour
 
 // Make sure Player is on Player Layer in Inspector.
     [SerializeField]
-    protected LayerMask WhatIsPlayer; 
+    public LayerMask WhatIsPlayer; 
 
     [Space]    
 
 // Basic Enemy Stats Set in Inspector.
     [SerializeField]
-    protected float EnemyHealth;   
+    public float EnemyHealth;   
     [SerializeField]
     public float Speed;
     [SerializeField]
-    protected int ChallengeLevel;
+    public int ChallengeLevel;
 // Defined on Awake/Start/Update/FixedUpdate Functions.
-    protected Animator Anim;
-    protected GameObject Player;
-    protected Damage DamageScript;
-    protected Vector2 Dir;
-    protected LevelSystem LevelSystem;
-    // protected Transform Target;
-    protected Rigidbody2D Rb;
-    private AIPath movement;
-    private AIDestinationSetter AIDestinationSetterScript;
+    public Animator Anim;
+    public GameObject Player;
+    public Damage DamageScript;
+    public Vector2 Dir;
+    public LevelSystem LevelSystem;
+    // public Transform Target;
+    public Rigidbody2D Rb;
+    public AIPath movement;
+    public AIDestinationSetter AIDestinationSetterScript;
     
 
     [Space]
@@ -37,51 +37,51 @@ public abstract class BaseEnemy : MonoBehaviour
 
 
     [SerializeField]
-    protected float AttackRadius;
-    protected float SuspiciousRadius;
-    protected float ChaseRadius;
+    public float AttackRadius;
+    public float SuspiciousRadius;
+    public float ChaseRadius;
 
     [Space]
 
     // If Enemy has weapon or ability thats played through an Animator then mark true in the Inspector.
     [SerializeField]
-    protected bool HasAnAttack;
+    public bool HasAnAttack;
     [SerializeField]
-    protected int AttackDamaage;
+    public int AttackDamaage;
     [SerializeField]
-    protected float AttackCooldown;
+    public float AttackCooldown;
 
     [Space]
 
     // If Enemy has a on collision damage then mark true in the inspector.
     [SerializeField]
-    protected bool HasContactAttack;
+    public bool HasContactAttack;
     [SerializeField]
-    protected int ContactDamage;
+    public int ContactDamage;
     [SerializeField]
-    protected float ContactAttackCooldown;
+    public float ContactAttackCooldown;
 
 // Used for attacking.
-    protected bool IsCollided;
-    protected Collider2D PlayerCollider;
+    public bool IsCollided;
+    public Collider2D PlayerCollider;
     [SerializeField]
-    protected LayerMask IgnoreTheseLayers;
-    protected bool IsInAttackRange;
-    protected bool IsInSuspiciousRange;
-    protected bool IsInAggroRange;
-    protected bool IsInChaseRange;
-    protected bool LineOfSight;
+    public LayerMask IgnoreTheseLayers;
+    public bool IsInAttackRange;
+    public bool IsInSuspiciousRange;
+    public bool IsInAggroRange;
+    public bool IsInChaseRange;
+    public bool LineOfSight;
     BaseEnemyState currentState;
 
-    public EnemyChasing ChasingState = new EnemyChasing();
     public EnemyDefault DefaultState = new EnemyDefault();
     public EnemySuspicious SuspiciousState = new EnemySuspicious();
+    public EnemyChasing ChasingState = new EnemyChasing();
     public EnemyAttacking AttackingState = new EnemyAttacking();
     public EnemyRetreating RetreatingState = new EnemyRetreating();
 
 
 
-        protected virtual void Awake()
+        public virtual void Awake()
     {
         Player = GameObject.FindWithTag("Player");
         movement = GetComponent<AIPath>();
@@ -94,34 +94,26 @@ public abstract class BaseEnemy : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
         AIDestinationSetterScript = GetComponent<AIDestinationSetter>();
-        
-
         if(ChallengeLevel >= 0 )
         {
-            ChallengeLevel = 1;
-                
+            ChallengeLevel = 1;        
         }
 
     }
-
-        protected virtual void Start()
+        public virtual void Start()
     {
-Vector3 dir = new Vector3(-21, 18, 0);
-        currentState = DefaultState;
-
-        currentState.EnterState(this);
+        Vector3 dir = new Vector3(-21, 18, 0);
     }
 
-        protected virtual void Update()
+        public virtual void Update()
     {
-
+        currentState.UpdateState(this);
         IsInAttackRange = Physics2D.OverlapCircle(transform.position, AttackRadius, WhatIsPlayer);
-        IsInSuspiciousRange = Physics2D.OverlapCircle(transform.position, SuspiciousRadius, WhatIsPlayer);
         IsInChaseRange = Physics2D.OverlapCircle(transform.position, ChaseRadius, WhatIsPlayer);
 
     }
 
-        protected virtual void FixedUpdate()
+        public virtual void FixedUpdate()
     {
         
         Vector2 origin = new Vector2(transform.position.x, transform.position.y);
@@ -154,7 +146,7 @@ Vector3 dir = new Vector3(-21, 18, 0);
             }
         }
     }
-        protected void OnCollisionEnter2D(Collision2D collision)
+        public void OnCollisionEnter2D(Collision2D collision)
      {
         if (collision.gameObject.tag == "Player" && HasContactAttack)
         {
@@ -163,7 +155,7 @@ Vector3 dir = new Vector3(-21, 18, 0);
         }
      }
 
-        protected void OnCollisionExit2D(Collision2D collision)
+        public void OnCollisionExit2D(Collision2D collision)
         {
             if (collision.gameObject.tag == "Player" && HasContactAttack)
             {
@@ -171,8 +163,13 @@ Vector3 dir = new Vector3(-21, 18, 0);
                 StopCoroutine("ContactAttack");
             }
         }
+    public void SwitchState(BaseEnemyState state)
+    {
+        currentState = state;
+        state.EnterState(this);
+    }
 // Coroutine that does damage over time when started.
-        protected IEnumerator ContactAttack()
+        public IEnumerator ContactAttack()
         {
             while(IsCollided)
             {
@@ -184,7 +181,7 @@ Vector3 dir = new Vector3(-21, 18, 0);
         }
 
 // Coroutine used to play attack animation of Enemies that have an attack.
-       protected virtual IEnumerator Attack()
+       public virtual IEnumerator Attack()
      {
         
         if (HasAnAttack)
@@ -206,9 +203,10 @@ Vector3 dir = new Vector3(-21, 18, 0);
         }
     }
 
-        protected virtual void Death()
+        public virtual void Death()
     {
         LevelSystem.GainExperience(ChallengeLevel+LevelSystem.playerLvl*100);
         Destroy(gameObject);
     }
+
 }
