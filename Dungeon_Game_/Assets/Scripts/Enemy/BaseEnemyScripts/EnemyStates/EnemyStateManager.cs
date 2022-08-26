@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyStateManager : MonoBehaviour
 {
-    BaseEnemyState currentState;
+    /*BaseEnemyState currentState;
     public EnemyChasing ChasingState = new EnemyChasing();
     public EnemyDefault DefaultState = new EnemyDefault();
     public EnemySuspicious SuspiciousState = new EnemySuspicious();
@@ -27,5 +27,5 @@ public class EnemyStateManager : MonoBehaviour
     {
         currentState = state;
         state.EnterState(this);
-    }
+    }*/
 }
