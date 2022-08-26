@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
 
     public Vector2 movement;
-    public float speed = 12f;
+    public float speed = 5f;
 
     private void Awake()
     {

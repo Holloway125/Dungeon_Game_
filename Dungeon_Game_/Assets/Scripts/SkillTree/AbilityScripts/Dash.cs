@@ -24,7 +24,7 @@ public class Dash : Ability
         ParticleSystem effect = player.GetComponent<ParticleSystem>(); 
         TrailRenderer dashEffect = player.GetComponent<TrailRenderer>();
         PlayerController movement = player.GetComponent<PlayerController>();
-        movement.speed = 12f;
+        movement.speed = 5f;
         effect.Stop();
      }
 

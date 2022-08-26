@@ -124,7 +124,7 @@ TextureImporter:
         width: 192
         height: 256
       alignment: 9
-      pivot: {x: 0.4947917, y: 0.37109375}
+      pivot: {x: 0.4947917, y: 0.36328125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
@@ -135,6 +135,7 @@ TextureImporter:
         - {x: -25, y: -47}
         - {x: -26, y: -41}
         - {x: -18, y: -32}
+        - {x: -2, y: -26}
         - {x: 18, y: -32}
         - {x: 27, y: -42}
         - {x: 24, y: -47}
@@ -594,7 +595,7 @@ TextureImporter:
       name: Plains_71
       rect:
         serializedVersion: 2
-        x: 288
+        x: 289
         y: 224
         width: 32
         height: 32
@@ -2891,12 +2892,12 @@ TextureImporter:
       name: Plains_36
       rect:
         serializedVersion: 2
-        x: 192
+        x: 193
         y: 386
         width: 64
         height: 64
       alignment: 9
-      pivot: {x: 0.53125, y: 0.515625}
+      pivot: {x: 0.5, y: 0.40625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
@@ -2907,6 +2908,7 @@ TextureImporter:
         - {x: -24, y: -17}
         - {x: -27, y: -12}
         - {x: -18, y: -2}
+        - {x: 0, y: 2}
         - {x: 18, y: -2}
         - {x: 27, y: -12}
         - {x: 24, y: -17}
