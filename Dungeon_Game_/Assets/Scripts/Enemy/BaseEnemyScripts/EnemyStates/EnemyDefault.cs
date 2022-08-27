@@ -4,17 +4,21 @@ public class EnemyDefault : BaseEnemyState
 {
 public override void EnterState(BaseEnemy Enemy)
     {
-    Debug.Log("Hello im default");
+        Enemy.Aggroed = false;
+        Enemy.movement.maxSpeed = Enemy.Speed;
+        Debug.Log("Hello I am in DefaultState");
     }
 
 public override void UpdateState(BaseEnemy Enemy)
     {
-         Enemy.IsInSuspiciousRange = Physics2D.OverlapCircle(Enemy.transform.position, Enemy.SuspiciousRadius, Enemy.WhatIsPlayer);
          if (Enemy.IsInSuspiciousRange)
          {
             Enemy.SwitchState(Enemy.SuspiciousState);
-         }
-         
+         }   
+        //  else
+        //  {
+        //     Enemy.RandomDestinationSetter(Enemy, Enemy.transform, 2);
+        //  } 
     }
 
 }

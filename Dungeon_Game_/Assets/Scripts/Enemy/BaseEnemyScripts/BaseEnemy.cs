@@ -40,6 +40,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public float AttackRadius;
     public float SuspiciousRadius;
     public float ChaseRadius;
+    public float AggroRange;
 
     [Space]
 
@@ -71,7 +72,9 @@ public abstract class BaseEnemy : MonoBehaviour
     public bool IsInAggroRange;
     public bool IsInChaseRange;
     public bool LineOfSight;
+    public bool Aggroed;
     BaseEnemyState currentState;
+    public Transform Respawn;
 
     public EnemyDefault DefaultState = new EnemyDefault();
     public EnemySuspicious SuspiciousState = new EnemySuspicious();
@@ -79,9 +82,14 @@ public abstract class BaseEnemy : MonoBehaviour
     public EnemyAttacking AttackingState = new EnemyAttacking();
     public EnemyRetreating RetreatingState = new EnemyRetreating();
 
+    public void SwitchState(BaseEnemyState state)
+    {
+        currentState = state;
+        state.EnterState(this);
+    }
 
 
-        public virtual void Awake()
+        protected virtual void Awake()
     {
         Player = GameObject.FindWithTag("Player");
         movement = GetComponent<AIPath>();
@@ -90,32 +98,38 @@ public abstract class BaseEnemy : MonoBehaviour
         DamageScript = Player.GetComponent<Damage>();
         PlayerCollider = Player.GetComponent<CircleCollider2D>();
         currentState = DefaultState;
-        currentState.EnterState(this);
         Rb = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
         AIDestinationSetterScript = GetComponent<AIDestinationSetter>();
+        Vector3 dir = new Vector3(-21, 18, 0);
+        Aggroed = false;
+        
+        
         if(ChallengeLevel >= 0 )
         {
             ChallengeLevel = 1;        
         }
 
     }
-        public virtual void Start()
+        protected virtual void Start()
     {
-        Vector3 dir = new Vector3(-21, 18, 0);
+        currentState.EnterState(this);
     }
 
-        public virtual void Update()
+        protected virtual void Update()
     {
         currentState.UpdateState(this);
-        IsInAttackRange = Physics2D.OverlapCircle(transform.position, AttackRadius, WhatIsPlayer);
-        IsInChaseRange = Physics2D.OverlapCircle(transform.position, ChaseRadius, WhatIsPlayer);
+
+
 
     }
 
-        public virtual void FixedUpdate()
+        protected virtual void FixedUpdate()
     {
-        
+        IsInChaseRange = Physics2D.OverlapCircle(transform.position, ChaseRadius, WhatIsPlayer);
+        IsInAttackRange = Physics2D.OverlapCircle(transform.position, AttackRadius, WhatIsPlayer);
+        IsInSuspiciousRange = Physics2D.OverlapCircle(transform.position, SuspiciousRadius, WhatIsPlayer);
+        IsInAggroRange = Physics2D.OverlapCircle(transform.position, AggroRange, WhatIsPlayer);
         Vector2 origin = new Vector2(transform.position.x, transform.position.y);
         Vector2 target = new Vector2(Player.transform.position.x + PlayerCollider.offset.x, Player.transform.position.y + PlayerCollider.offset.y);
         RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, SuspiciousRadius, IgnoreTheseLayers);
@@ -129,24 +143,9 @@ public abstract class BaseEnemy : MonoBehaviour
         {
             LineOfSight = false;
         }
-         if(IsInAggroRange && !IsInAttackRange)
-        {           
-            //  MoveEnemy(Dir);
-             if (HasAnAttack)
-             {
-                StopCoroutine("Attack");
-             }
-        }
-         if(IsInAttackRange && LineOfSight)
-        {
-            // Rb.velocity = Vector2.zero;
-            if (HasAnAttack)
-            {
-                StartCoroutine("Attack");
-            }
-        }
+
     }
-        public void OnCollisionEnter2D(Collision2D collision)
+        protected void OnCollisionEnter2D(Collision2D collision)
      {
         if (collision.gameObject.tag == "Player" && HasContactAttack)
         {
@@ -155,7 +154,7 @@ public abstract class BaseEnemy : MonoBehaviour
         }
      }
 
-        public void OnCollisionExit2D(Collision2D collision)
+        protected void OnCollisionExit2D(Collision2D collision)
         {
             if (collision.gameObject.tag == "Player" && HasContactAttack)
             {
@@ -163,13 +162,9 @@ public abstract class BaseEnemy : MonoBehaviour
                 StopCoroutine("ContactAttack");
             }
         }
-    public void SwitchState(BaseEnemyState state)
-    {
-        currentState = state;
-        state.EnterState(this);
-    }
+
 // Coroutine that does damage over time when started.
-        public IEnumerator ContactAttack()
+    public IEnumerator ContactAttack()
         {
             while(IsCollided)
             {
@@ -179,21 +174,39 @@ public abstract class BaseEnemy : MonoBehaviour
             yield return null;
             
         }
-
 // Coroutine used to play attack animation of Enemies that have an attack.
-       public virtual IEnumerator Attack()
-     {
-        
+public virtual IEnumerator Attack()
+    { 
         if (HasAnAttack)
-        {
-            Anim.Play("Attack");
-            yield return new WaitForSeconds(AttackCooldown);
-        }
+            {
+                Anim.Play("Attack");
+                yield return new WaitForSeconds(AttackCooldown);
+            }
+    }   
+public virtual void InvokeRetreat()
+{
+    float seconds = Random.Range(2,5);
+    Invoke("Retreat", seconds);
+    Debug.Log($"I waited {seconds} seconds");
+}
+public virtual void Retreat()
+{
+    AIDestinationSetterScript.target = null;
+    AIDestinationSetterScript.target = Respawn.transform;
+}
+    // public void RandomDestinationSetter(BaseEnemy Enemy, Transform transform, float Radius)
+    // {
+    //     Vector3 RandomDestination = Random.insideUnitSphere * Radius;
+    //     RandomDestination.z = 0;
+    //     GameObject("").Instantiate(Enemy.transform, RandomDestination, Enemy.transform.rotation);
+    //     Enemy.AIDestinationSetterScript.target = transform;  
+    // }
+     
 
-     }
 
-// Called in Weapon Anim script to cause damage to Enemy needs.
-// to be public can be overridden to change how much damage Enemy will take such as damaageAmount /= 2;.
+// Called in Weapon Anim script to cause damage to Enemy
+// Needs to be public 
+// Can be overridden to change how much damage Enemy will take such as damaageAmount /= 2;.
         public virtual void TakeDamage(int damageAmount)
     {
         EnemyHealth -= damageAmount;
@@ -202,11 +215,15 @@ public abstract class BaseEnemy : MonoBehaviour
             Anim.SetBool("Death", true);
         }
     }
-
+// Used to Give experience and destroy gameObject in Animator.
         public virtual void Death()
     {
         LevelSystem.GainExperience(ChallengeLevel+LevelSystem.playerLvl*100);
         Destroy(gameObject);
     }
 
+    public virtual void DestroySuspect(GameObject Suspect)
+    {
+        Destroy(Suspect);
+    }
 }

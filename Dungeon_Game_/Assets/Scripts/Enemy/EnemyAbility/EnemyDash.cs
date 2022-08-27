@@ -8,14 +8,14 @@ public class EnemyDash : Ability
 
     public override void Activate(GameObject enemy)
      {
-        Minotaur movement = enemy.GetComponent<Minotaur>();
-        movement.Speed = movement.Speed * dashVelocity;
+         Minotaur Enemy = enemy.GetComponent<Minotaur>();
+         Enemy.movement.maxSpeed = Enemy.Speed + dashVelocity;
      }
 
     public override void BeginCooldown(GameObject enemy)
      {
-        Minotaur movement = enemy.GetComponent<Minotaur>();
-        movement.Speed = 3f;
+         Minotaur Enemy = enemy.GetComponent<Minotaur>();
+         Enemy.movement.maxSpeed = Enemy.Speed;
      }
 
 }    
