@@ -15,7 +15,7 @@ namespace Pathfinding {
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_a_i_destination_setter.php")]
 	public class AIDestinationSetter : VersionedMonoBehaviour {
 		/// <summary>The object that the AI should move to</summary>
-		public Transform target;
+		public Vector3 target;
 		IAstarAI ai;
 
 
@@ -35,7 +35,7 @@ namespace Pathfinding {
 
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () {
-			if (target != null && ai != null) ai.destination = target.position;
+			if (target != null && ai != null) ai.destination = target;
 		}
 	}
 }

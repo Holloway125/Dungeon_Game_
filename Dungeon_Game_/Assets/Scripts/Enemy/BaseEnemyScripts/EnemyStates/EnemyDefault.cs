@@ -11,14 +11,12 @@ public override void EnterState(BaseEnemy Enemy)
 
 public override void UpdateState(BaseEnemy Enemy)
     {
-         if (Enemy.IsInSuspiciousRange)
-         {
-            Enemy.SwitchState(Enemy.SuspiciousState);
-         }   
-        //  else
-        //  {
-        //     Enemy.RandomDestinationSetter(Enemy, Enemy.transform, 2);
-        //  } 
+        Debug.Log("DefaultUpdate");
+        if (Enemy.IsInSuspiciousRange)
+        {
+           Enemy.SwitchState(Enemy.SuspiciousState);
+        }   
+
     }
 
 }

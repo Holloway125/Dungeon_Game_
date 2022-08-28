@@ -6,19 +6,15 @@ public class EnemyRetreating : BaseEnemyState
 public override void EnterState(BaseEnemy Enemy)
     
     {
-        Enemy.Aggroed = false;
+        Enemy.movement.maxSpeed = Enemy.Speed;
         Enemy.InvokeRetreat();
-        Enemy.movement.maxSpeed = Enemy.Speed / 2;
-        Debug.Log("I lost them");
+        Debug.Log("I am Retreating");
     }
 
 public override void UpdateState(BaseEnemy Enemy)
     {
-        if (Enemy.IsInSuspiciousRange)
-        {
-            Enemy.SwitchState(Enemy.SuspiciousState);
-        }
-        else if(Enemy.transform.position == Enemy.Respawn.transform.position && !Enemy.IsInSuspiciousRange)
+                Debug.Log("RetreatingUpdate");
+        if(Enemy.IsInSpawn)
         {
             Enemy.SwitchState(Enemy.DefaultState);
         }

@@ -71,11 +71,13 @@ public abstract class BaseEnemy : MonoBehaviour
     public bool IsInSuspiciousRange;
     public bool IsInAggroRange;
     public bool IsInChaseRange;
+    public bool IsInSpawn;
     public bool LineOfSight;
     public bool Aggroed;
-    BaseEnemyState currentState;
-    public Transform Respawn;
+    public Vector3 Home;
 
+
+    BaseEnemyState currentState;
     public EnemyDefault DefaultState = new EnemyDefault();
     public EnemySuspicious SuspiciousState = new EnemySuspicious();
     public EnemyChasing ChasingState = new EnemyChasing();
@@ -103,6 +105,8 @@ public abstract class BaseEnemy : MonoBehaviour
         AIDestinationSetterScript = GetComponent<AIDestinationSetter>();
         Vector3 dir = new Vector3(-21, 18, 0);
         Aggroed = false;
+        Home = this.transform.position;
+        AIDestinationSetterScript.target = Home;
         
         
         if(ChallengeLevel >= 0 )
@@ -120,8 +124,6 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         currentState.UpdateState(this);
 
-
-
     }
 
         protected virtual void FixedUpdate()
@@ -130,6 +132,7 @@ public abstract class BaseEnemy : MonoBehaviour
         IsInAttackRange = Physics2D.OverlapCircle(transform.position, AttackRadius, WhatIsPlayer);
         IsInSuspiciousRange = Physics2D.OverlapCircle(transform.position, SuspiciousRadius, WhatIsPlayer);
         IsInAggroRange = Physics2D.OverlapCircle(transform.position, AggroRange, WhatIsPlayer);
+        IsInSpawn = Physics2D.OverlapCircle(Home, 5);
         Vector2 origin = new Vector2(transform.position.x, transform.position.y);
         Vector2 target = new Vector2(Player.transform.position.x + PlayerCollider.offset.x, Player.transform.position.y + PlayerCollider.offset.y);
         RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, SuspiciousRadius, IgnoreTheseLayers);
@@ -187,22 +190,12 @@ public virtual void InvokeRetreat()
 {
     float seconds = Random.Range(2,5);
     Invoke("Retreat", seconds);
-    Debug.Log($"I waited {seconds} seconds");
 }
 public virtual void Retreat()
 {
-    AIDestinationSetterScript.target = null;
-    AIDestinationSetterScript.target = Respawn.transform;
+    Vector3 RandomPoint = Random.insideUnitCircle;
+    AIDestinationSetterScript.target = Home + RandomPoint;
 }
-    // public void RandomDestinationSetter(BaseEnemy Enemy, Transform transform, float Radius)
-    // {
-    //     Vector3 RandomDestination = Random.insideUnitSphere * Radius;
-    //     RandomDestination.z = 0;
-    //     GameObject("").Instantiate(Enemy.transform, RandomDestination, Enemy.transform.rotation);
-    //     Enemy.AIDestinationSetterScript.target = transform;  
-    // }
-     
-
 
 // Called in Weapon Anim script to cause damage to Enemy
 // Needs to be public 

@@ -2,35 +2,38 @@ using UnityEngine;
 
 public class EnemySuspicious : BaseEnemyState
 {
-    GameObject NewTarget;
+Vector3 NewTarget;
 public override void EnterState(BaseEnemy Enemy)
     {
-        Enemy.Aggroed = false;
-        NewTarget = new GameObject("Suspect");
-        NewTarget.transform.position = Enemy.Player.transform.position;
-        Enemy.AIDestinationSetterScript.target = NewTarget.transform;
-        Enemy.movement.maxSpeed = Enemy.Speed / 3;
-        Debug.Log("I am Suspicious");
+            Enemy.movement.maxSpeed = Enemy.Speed / 3;
+            Debug.Log("I am Suspicious");
+        if (Enemy.IsInAggroRange && Enemy.LineOfSight)
+        {
+            Enemy.SwitchState(Enemy.ChasingState);
+        }
+
     }
 
 public override void UpdateState(BaseEnemy Enemy)
     {
-        if (Enemy.transform.position == NewTarget.transform.position && Enemy.IsInSuspiciousRange)
+        Debug.Log("SuspiciousUpdate");
+
+        if (Vector3.Distance(Enemy.transform.position, Enemy.AIDestinationSetterScript.target) <= 0.01 && Enemy.IsInSuspiciousRange)
+            {           
+            Vector3 RandomPoint = Random.insideUnitCircle * 5;
+            RandomPoint.z = 0;
+            NewTarget = Enemy.Player.transform.position + RandomPoint;
+            Enemy.AIDestinationSetterScript.target = NewTarget;
+            Debug.Log("I am still Suspicious");
+            }
+        
+        else if (Enemy.IsInAggroRange && Enemy.LineOfSight)
         {
-            Enemy.DestroySuspect(NewTarget);
-            NewTarget = new GameObject("Suspect");
-            NewTarget.transform.position = Enemy.Player.transform.position;
-            Enemy.AIDestinationSetterScript.target = NewTarget.transform;
-        }
-        else if (Enemy.transform.position == NewTarget.transform.position && !Enemy.IsInSuspiciousRange)
-        {
-            Enemy.DestroySuspect(NewTarget);
-            Enemy.SwitchState(Enemy.RetreatingState);
-        }
-        else if (Enemy.LineOfSight && Enemy.IsInAggroRange)
-        {
-            Enemy.DestroySuspect(NewTarget);            
             Enemy.SwitchState(Enemy.ChasingState);
+        }
+        else if (!Enemy.IsInSuspiciousRange && Vector3.Distance(Enemy.transform.position, Enemy.AIDestinationSetterScript.target) <= 0.01)
+        {
+            Enemy.SwitchState(Enemy.RetreatingState);
         }
     }
 
