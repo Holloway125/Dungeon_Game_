@@ -15,6 +15,7 @@ public abstract class BaseEnemy : MonoBehaviour
 // Basic Enemy Stats Set in Inspector.
     [SerializeField]
     public float EnemyHealth;   
+    private float CurrentHealth;
     [SerializeField]
     public float Speed;
     [SerializeField]
@@ -193,8 +194,20 @@ public virtual void InvokeRetreat()
 }
 public virtual void Retreat()
 {
+    if (!IsInAggroRange)
+    {
     Vector3 RandomPoint = Random.insideUnitCircle;
     AIDestinationSetterScript.target = Home + RandomPoint;
+            if (CurrentHealth < EnemyHealth)
+        {
+            //probably doesnt work
+                CurrentHealth = EnemyHealth;
+        }
+    }
+    else if (IsInAggroRange && LineOfSight)
+    {
+        SwitchState(ChasingState);
+    }
 }
 
 // Called in Weapon Anim script to cause damage to Enemy
@@ -202,8 +215,8 @@ public virtual void Retreat()
 // Can be overridden to change how much damage Enemy will take such as damaageAmount /= 2;.
         public virtual void TakeDamage(int damageAmount)
     {
-        EnemyHealth -= damageAmount;
-        if(EnemyHealth <= 0)
+        CurrentHealth -= damageAmount;
+        if(CurrentHealth <= 0)
         {
             Anim.SetBool("Death", true);
         }
