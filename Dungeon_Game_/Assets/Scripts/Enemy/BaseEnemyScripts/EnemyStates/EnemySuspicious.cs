@@ -6,7 +6,6 @@ Vector3 NewTarget;
 public override void EnterState(BaseEnemy Enemy)
     {
             Enemy.movement.maxSpeed = Enemy.Speed / 3;
-            Debug.Log("I am Suspicious");
         if (Enemy.IsInAggroRange && Enemy.LineOfSight)
         {
             Enemy.SwitchState(Enemy.ChasingState);
@@ -17,7 +16,10 @@ public override void EnterState(BaseEnemy Enemy)
 public override void UpdateState(BaseEnemy Enemy)
     {
         Debug.Log("SuspiciousUpdate");
-
+        if (Vector3.Distance(Enemy.Home, Enemy.transform.position)> Enemy.Leash)
+        {
+            Enemy.SwitchState(Enemy.RetreatingState);
+        }
         if (Vector3.Distance(Enemy.transform.position, Enemy.AIDestinationSetterScript.target) <= 0.01 && Enemy.IsInSuspiciousRange)
             {           
             Vector3 RandomPoint = Random.insideUnitCircle * 5;

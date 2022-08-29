@@ -164,21 +164,25 @@ MonoBehaviour:
   WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
-  EnemyHealth: 100
-  Speed: 5
-  ChallengeLevel: 5
+  IgnoreTheseLayers:
+    serializedVersion: 2
+    m_Bits: 280
+  EnemyMaxHealth: 50
+  CurrentHealth: 25
+  Speed: 8
+  ChallengeLevel: 1
   Anim: {fileID: 0}
   Player: {fileID: 0}
   DamageScript: {fileID: 0}
-  Dir: {x: 0, y: 0}
   LevelSystem: {fileID: 0}
   Rb: {fileID: 0}
   movement: {fileID: 0}
   AIDestinationSetterScript: {fileID: 0}
   AttackRadius: 0.5
   SuspiciousRadius: 15
-  ChaseRadius: 25
-  AggroRange: 10
+  ChaseRadius: 20
+  AggroRadius: 10
+  Leash: 25
   HasAnAttack: 0
   AttackDamaage: 50
   AttackCooldown: 10
@@ -187,14 +191,15 @@ MonoBehaviour:
   ContactAttackCooldown: 5
   IsCollided: 0
   PlayerCollider: {fileID: 0}
-  IgnoreTheseLayers:
-    serializedVersion: 2
-    m_Bits: 280
   IsInAttackRange: 0
   IsInSuspiciousRange: 0
   IsInAggroRange: 0
   IsInChaseRange: 0
+  IsInSpawn: 0
   LineOfSight: 0
+  Aggroed: 0
+  Home: {x: 0, y: 0, z: 0}
+  DistanceFromHome: 0
 --- !u!114 &2099913685614843249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 0}
+  target: {x: 0, y: 0, z: 0}
 --- !u!114 &1418034601130513178
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,7 +6,6 @@ public override void EnterState(BaseEnemy Enemy)
     {
         Enemy.Aggroed = false;
         Enemy.movement.maxSpeed = Enemy.Speed;
-        Debug.Log("Hello I am in DefaultState");
     }
 
 public override void UpdateState(BaseEnemy Enemy)
@@ -15,7 +14,11 @@ public override void UpdateState(BaseEnemy Enemy)
         if (Enemy.IsInSuspiciousRange)
         {
            Enemy.SwitchState(Enemy.SuspiciousState);
-        }   
+        }  
+        else if (!Enemy.IsInSpawn)
+        {
+            Enemy.AIDestinationSetterScript.target = Enemy.Home;
+        }
 
     }
 

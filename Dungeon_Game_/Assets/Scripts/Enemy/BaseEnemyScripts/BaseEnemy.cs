@@ -7,82 +7,88 @@ public abstract class BaseEnemy : MonoBehaviour
 {
 
 // Make sure Player is on Player Layer in Inspector.
-    [SerializeField]
+    [Header ("Defines Player LayerMask")]
     public LayerMask WhatIsPlayer; 
-
+    [Header ("Layers Ignored for PathFinding")]
+    public LayerMask IgnoreTheseLayers;
     [Space]    
-
-// Basic Enemy Stats Set in Inspector.
-    [SerializeField]
-    public float EnemyHealth;   
-    private float CurrentHealth;
-    [SerializeField]
+// Basic Enemy Stats Set in Inspector
+    [Header("Enemy Stats")]
+    public float EnemyMaxHealth;   
+    public float CurrentHealth;
     public float Speed;
-    [SerializeField]
     public int ChallengeLevel;
 // Defined on Awake/Start/Update/FixedUpdate Functions.
+    [HideInInspector]
     public Animator Anim;
+    [HideInInspector]
     public GameObject Player;
+    [HideInInspector]
     public Damage DamageScript;
-    public Vector2 Dir;
+    [HideInInspector]
     public LevelSystem LevelSystem;
-    // public Transform Target;
+    [HideInInspector]
     public Rigidbody2D Rb;
+    [HideInInspector]
     public AIPath movement;
+    [HideInInspector]
     public AIDestinationSetter AIDestinationSetterScript;
-    
-
     [Space]
- 
 // Set in Inspector used for attacking Player.
-
-
-    [SerializeField]
+    [Header ("Range Settings")]
     public float AttackRadius;
     public float SuspiciousRadius;
     public float ChaseRadius;
-    public float AggroRange;
-
+    public float AggroRadius;
+    public int Leash;
     [Space]
-
+    [Header ("Attack Stats")]
     // If Enemy has weapon or ability thats played through an Animator then mark true in the Inspector.
-    [SerializeField]
     public bool HasAnAttack;
-    [SerializeField]
     public int AttackDamaage;
-    [SerializeField]
     public float AttackCooldown;
-
     [Space]
-
-    // If Enemy has a on collision damage then mark true in the inspector.
-    [SerializeField]
+    [Header ("Contact Attack Stats")]
+    // If Enemy has a on collision damage then mark true in the inspector
     public bool HasContactAttack;
-    [SerializeField]
     public int ContactDamage;
-    [SerializeField]
     public float ContactAttackCooldown;
 
-// Used for attacking.
+    // Used for Attack.
+    [HideInInspector]
     public bool IsCollided;
+    [HideInInspector]
     public Collider2D PlayerCollider;
-    [SerializeField]
-    public LayerMask IgnoreTheseLayers;
+    // Used for Finite State Machine Logic.
+    [HideInInspector]
     public bool IsInAttackRange;
+    [HideInInspector]
     public bool IsInSuspiciousRange;
+    [HideInInspector]
     public bool IsInAggroRange;
+    [HideInInspector]
     public bool IsInChaseRange;
+    [HideInInspector]
     public bool IsInSpawn;
+    [HideInInspector]
     public bool LineOfSight;
+    [HideInInspector]
     public bool Aggroed;
+    [HideInInspector]
     public Vector3 Home;
+    public float DistanceFromHome;
 
 
     BaseEnemyState currentState;
+    [HideInInspector]
     public EnemyDefault DefaultState = new EnemyDefault();
+    [HideInInspector]
     public EnemySuspicious SuspiciousState = new EnemySuspicious();
+    [HideInInspector]
     public EnemyChasing ChasingState = new EnemyChasing();
+    [HideInInspector]
     public EnemyAttacking AttackingState = new EnemyAttacking();
+    [HideInInspector]
     public EnemyRetreating RetreatingState = new EnemyRetreating();
 
     public void SwitchState(BaseEnemyState state)
@@ -108,6 +114,7 @@ public abstract class BaseEnemy : MonoBehaviour
         Aggroed = false;
         Home = this.transform.position;
         AIDestinationSetterScript.target = Home;
+        CurrentHealth = EnemyMaxHealth;
         
         
         if(ChallengeLevel >= 0 )
@@ -132,12 +139,13 @@ public abstract class BaseEnemy : MonoBehaviour
         IsInChaseRange = Physics2D.OverlapCircle(transform.position, ChaseRadius, WhatIsPlayer);
         IsInAttackRange = Physics2D.OverlapCircle(transform.position, AttackRadius, WhatIsPlayer);
         IsInSuspiciousRange = Physics2D.OverlapCircle(transform.position, SuspiciousRadius, WhatIsPlayer);
-        IsInAggroRange = Physics2D.OverlapCircle(transform.position, AggroRange, WhatIsPlayer);
+        IsInAggroRange = Physics2D.OverlapCircle(transform.position, AggroRadius, WhatIsPlayer);
         IsInSpawn = Physics2D.OverlapCircle(Home, 5);
         Vector2 origin = new Vector2(transform.position.x, transform.position.y);
         Vector2 target = new Vector2(Player.transform.position.x + PlayerCollider.offset.x, Player.transform.position.y + PlayerCollider.offset.y);
         RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, SuspiciousRadius, IgnoreTheseLayers);
         Debug.DrawRay(origin, (target - origin), Color.blue);
+        DistanceFromHome = Mathf.Round(Vector3.Distance(Home, transform.position));
 
         if (hit.collider == PlayerCollider)
         {
@@ -146,6 +154,10 @@ public abstract class BaseEnemy : MonoBehaviour
         else
         {
             LineOfSight = false;
+        }
+        if (CurrentHealth > EnemyMaxHealth)
+        {
+            CurrentHealth = EnemyMaxHealth;
         }
 
     }
@@ -179,7 +191,7 @@ public abstract class BaseEnemy : MonoBehaviour
             
         }
 // Coroutine used to play attack animation of Enemies that have an attack.
-public virtual IEnumerator Attack()
+    public virtual IEnumerator Attack()
     { 
         if (HasAnAttack)
             {
@@ -187,31 +199,21 @@ public virtual IEnumerator Attack()
                 yield return new WaitForSeconds(AttackCooldown);
             }
     }   
-public virtual void InvokeRetreat()
-{
-    float seconds = Random.Range(2,5);
-    Invoke("Retreat", seconds);
-}
-public virtual void Retreat()
-{
-    if (!IsInAggroRange)
+    public virtual void InvokeRetreat()
     {
-    Vector3 RandomPoint = Random.insideUnitCircle;
-    AIDestinationSetterScript.target = Home + RandomPoint;
-            if (CurrentHealth < EnemyHealth)
+        float seconds = Random.Range(2,5);
+        Invoke("Retreat", seconds);
+    }
+    public virtual void Retreat()
+    {
+        if (!IsInSpawn)
         {
-            //probably doesnt work
-                CurrentHealth = EnemyHealth;
+        Vector3 RandomPoint = Random.insideUnitCircle;
+        AIDestinationSetterScript.target = Home + RandomPoint;
         }
     }
-    else if (IsInAggroRange && LineOfSight)
-    {
-        SwitchState(ChasingState);
-    }
-}
 
 // Called in Weapon Anim script to cause damage to Enemy
-// Needs to be public 
 // Can be overridden to change how much damage Enemy will take such as damaageAmount /= 2;.
         public virtual void TakeDamage(int damageAmount)
     {

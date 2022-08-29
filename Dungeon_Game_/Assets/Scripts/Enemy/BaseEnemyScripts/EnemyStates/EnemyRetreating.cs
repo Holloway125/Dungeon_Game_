@@ -7,11 +7,6 @@ public override void EnterState(BaseEnemy Enemy)
     
     {
         Enemy.movement.maxSpeed = Enemy.Speed;
-        
-        if (!Enemy.IsInAggroRange)
-        Enemy.InvokeRetreat();
-        Debug.Log("I am Retreating");
-        
     }
 
 public override void UpdateState(BaseEnemy Enemy)
@@ -21,9 +16,14 @@ public override void UpdateState(BaseEnemy Enemy)
         {
             Enemy.SwitchState(Enemy.DefaultState);
         }
-        else if (Enemy.IsInAggroRange && Enemy.LineOfSight)
+        else
         {
-            Enemy.SwitchState(Enemy.ChasingState);
+            Enemy.InvokeRetreat();
+            if (Enemy.CurrentHealth <= Enemy.EnemyMaxHealth)
+            {
+            Enemy.CurrentHealth += Mathf.Round(Enemy.EnemyMaxHealth * .05f);
+            }
+            
         }
 
     }

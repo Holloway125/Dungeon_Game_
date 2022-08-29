@@ -11,8 +11,8 @@ return null;
 
     public override void TakeDamage(int damageAmount)
     {
-        EnemyHealth -= damageAmount;
-        if(EnemyHealth <= 0)
+        CurrentHealth -= damageAmount;
+        if(CurrentHealth <= 0)
         {
             Death();
         }

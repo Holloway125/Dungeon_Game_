@@ -131655,45 +131655,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1420403690316229599, guid: 290c6f11176f962438f6e789444479d6, type: 3}
-      propertyPath: target.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1420403690316229599, guid: 290c6f11176f962438f6e789444479d6, type: 3}
-      propertyPath: target.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2366049064367894710, guid: 290c6f11176f962438f6e789444479d6, type: 3}
       propertyPath: m_Name
       value: BigMinotaur
       objectReference: {fileID: 0}
     - target: {fileID: 3558123439155963339, guid: 290c6f11176f962438f6e789444479d6, type: 3}
       propertyPath: Speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3558123439155963339, guid: 290c6f11176f962438f6e789444479d6, type: 3}
-      propertyPath: Respawn
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3558123439155963339, guid: 290c6f11176f962438f6e789444479d6, type: 3}
-      propertyPath: AggroRange
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3558123439155963339, guid: 290c6f11176f962438f6e789444479d6, type: 3}
-      propertyPath: AggroRadius
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3558123439155963339, guid: 290c6f11176f962438f6e789444479d6, type: 3}
-      propertyPath: ChaseRadius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3558123439155963339, guid: 290c6f11176f962438f6e789444479d6, type: 3}
-      propertyPath: ChallengeLevel
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3558123439155963339, guid: 290c6f11176f962438f6e789444479d6, type: 3}
-      propertyPath: SuspiciousRadius
-      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 290c6f11176f962438f6e789444479d6, type: 3}
