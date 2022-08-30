@@ -12,5 +12,15 @@ protected override void Start()
 base.Start();
 // then you can add whatever code you'd like to the function
 Debug.Log("I am a Slime");
+
+
 }
+    public override void TakeDamage(int damageAmount)
+    {
+        CurrentHealth -= damageAmount;
+        if(CurrentHealth <= 0)
+        {
+            Death();
+        }
+    }
 }

@@ -131659,10 +131659,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigMinotaur
       objectReference: {fileID: 0}
-    - target: {fileID: 3558123439155963339, guid: 290c6f11176f962438f6e789444479d6, type: 3}
-      propertyPath: Speed
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 290c6f11176f962438f6e789444479d6, type: 3}
 --- !u!1 &1470530935

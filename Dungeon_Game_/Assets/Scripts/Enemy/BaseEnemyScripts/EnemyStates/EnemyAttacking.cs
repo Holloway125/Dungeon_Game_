@@ -14,9 +14,13 @@ public override void EnterState(BaseEnemy Enemy)
 public override void UpdateState(BaseEnemy Enemy)
     {
                 Debug.Log("AttackingUpdate");
-        if (Enemy.IsInAttackRange)
+        if (Enemy.IsInAttackRange && Enemy.HasAnAttack)
         {
             Enemy.Attack();
+        }
+        else 
+        {
+            Enemy.SwitchState(Enemy.ChasingState);
         }
 
     }

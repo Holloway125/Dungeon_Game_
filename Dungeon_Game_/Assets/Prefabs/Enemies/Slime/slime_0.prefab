@@ -14,10 +14,9 @@ GameObject:
   - component: {fileID: -7592377365070949006}
   - component: {fileID: 8047009388126023481}
   - component: {fileID: 7722002844445976165}
-  - component: {fileID: 6490513067720861801}
-  - component: {fileID: 4479229197532677925}
-  - component: {fileID: 8707483443693890942}
-  - component: {fileID: 9071266804944641552}
+  - component: {fileID: 8667321935631418114}
+  - component: {fileID: 7136232645447175487}
+  - component: {fileID: 498909196018271618}
   m_Layer: 7
   m_Name: slime_0
   m_TagString: Enemy
@@ -81,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1464333908, guid: 82a9f3df7c878f749a4ae26226d4ff43, type: 3}
+  m_Sprite: {fileID: -1929332789, guid: ac32841a3c4cdbc41a798ce2d4c7adec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,9 +125,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.24}
+  m_Offset: {x: 0, y: 0.00096702576}
   serializedVersion: 2
-  m_Radius: 0.58
+  m_Radius: 0.31179047
 --- !u!95 &8047009388126023481
 Animator:
   serializedVersion: 4
@@ -164,21 +163,57 @@ MonoBehaviour:
   WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
-  EnemyHealth: 50
-  Speed: 10
-  CheckRadius: 10
-  ChallengeLevel: 0
-  AttackRadius: 0.5
-  HasAnAttack: 0
-  AttackDamaage: 0
-  AttackCooldown: 0
-  HasContactAttack: 1
-  ContactDamage: 2
-  ContactAttackCooldown: 1
   IgnoreTheseLayers:
     serializedVersion: 2
-    m_Bits: 247
---- !u!114 &6490513067720861801
+    m_Bits: 280
+  EnemyMaxHealth: 69
+  CurrentHealth: 25
+  Speed: 15
+  ChallengeLevel: 1
+  Anim: {fileID: 0}
+  Player: {fileID: 0}
+  DamageScript: {fileID: 0}
+  LevelSystem: {fileID: 0}
+  Rb: {fileID: 0}
+  movement: {fileID: 0}
+  AIDestinationSetterScript: {fileID: 0}
+  AttackRadius: 0.5
+  SuspiciousRadius: 420
+  ChaseRadius: 420
+  AggroRadius: 420
+  Leash: 420
+  HasAnAttack: 0
+  AttackDamaage: 50
+  AttackCooldown: 10
+  HasContactAttack: 1
+  ContactDamage: 5
+  ContactAttackCooldown: 0.1
+  IsCollided: 0
+  PlayerCollider: {fileID: 0}
+  IsInAttackRange: 0
+  IsInSuspiciousRange: 0
+  IsInAggroRange: 0
+  IsInChaseRange: 0
+  IsInSpawn: 0
+  LineOfSight: 0
+  Aggroed: 0
+  Home: {x: 0, y: 0, z: 0}
+  DistanceFromHome: 0
+--- !u!114 &8667321935631418114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7169616798835329685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  target: {x: 0, y: 0, z: 0}
+--- !u!114 &7136232645447175487
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,8 +240,8 @@ MonoBehaviour:
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
-    value: -1
---- !u!114 &4479229197532677925
+    value: 1
+--- !u!114 &498909196018271618
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,45 +283,3 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 0
   whenCloseToDestination: 1
   constrainInsideGraph: 0
---- !u!114 &8707483443693890942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7169616798835329685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  target: {fileID: 0}
---- !u!114 &9071266804944641552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7169616798835329685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: 1

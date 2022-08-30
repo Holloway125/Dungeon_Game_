@@ -206,10 +206,11 @@ public abstract class BaseEnemy : MonoBehaviour
     }
     public virtual void Retreat()
     {
-        if (!IsInSpawn)
+        if (Vector3.Distance(AIDestinationSetterScript.target, Home) >= 5f)
         {
         Vector3 RandomPoint = Random.insideUnitCircle;
         AIDestinationSetterScript.target = Home + RandomPoint;
+        // Debug.Log(Vector3.Distance(AIDestinationSetterScript.target, Home));
         }
     }
 

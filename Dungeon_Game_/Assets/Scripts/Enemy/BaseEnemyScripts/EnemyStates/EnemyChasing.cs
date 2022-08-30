@@ -21,7 +21,7 @@ public override void UpdateState(BaseEnemy Enemy)
             Enemy.AIDestinationSetterScript.target = Enemy.Player.transform.position;
         }
         
-        if (Enemy.IsInAttackRange && Enemy.LineOfSight)
+        if (Enemy.IsInAttackRange && Enemy.LineOfSight && Enemy.HasAnAttack)
         {
             Enemy.SwitchState(Enemy.AttackingState);
         }
