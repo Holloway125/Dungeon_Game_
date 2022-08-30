@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Golem : BaseEnemy
+public class Enemy_Template : BaseEnemy
 {
-/* This is a Monster Template you can just copy and paste the prefab into a new
+    /* This is a Monster Template you can just copy and paste the prefab into a new
 folder with the name of the Enemy you are making it will have all the default 
 components and settings you need. You will have to make a new animator controller
 and put it into the animator component. Please make a folder within your new 

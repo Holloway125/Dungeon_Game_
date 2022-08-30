@@ -32,4 +32,5 @@ in that new animations folder.
     BaseEnemy ( public class NewEnemy : BaseEnemy)
     remove Template Script and Attach your new Script to PreFab
 */
+
 }

@@ -7,6 +7,7 @@ public override void EnterState(BaseEnemy Enemy)
     
     {
         Enemy.movement.maxSpeed = Enemy.Speed;
+        Enemy.Anim.Play("Run_Slime");
     }
 
 public override void UpdateState(BaseEnemy Enemy)

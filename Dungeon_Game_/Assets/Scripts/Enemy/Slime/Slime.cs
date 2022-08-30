@@ -20,7 +20,8 @@ Debug.Log("I am a Slime");
         CurrentHealth -= damageAmount;
         if(CurrentHealth <= 0)
         {
-            Death();
+            
+            Anim.Play("Death_Slime");
         }
     }
 }

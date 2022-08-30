@@ -210,6 +210,7 @@ public abstract class BaseEnemy : MonoBehaviour
         {
         Vector3 RandomPoint = Random.insideUnitCircle;
         AIDestinationSetterScript.target = Home + RandomPoint;
+        Anim.Play("Run_Slime");
         // Debug.Log(Vector3.Distance(AIDestinationSetterScript.target, Home));
         }
     }
