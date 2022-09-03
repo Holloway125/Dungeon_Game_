@@ -7,7 +7,7 @@ public override void EnterState(BaseEnemy Enemy)
         Enemy.Aggroed = true;
         Enemy.AIDestinationSetterScript.target = Enemy.Player.transform.position;
         Enemy.movement.maxSpeed = Enemy.Speed;
-        Enemy.Anim.Play("RunBlend");
+        Enemy.Animate();
     }
 
 public override void UpdateState(BaseEnemy Enemy)

@@ -12,7 +12,8 @@ public override void EnterState(BaseEnemy Enemy)
 
 public override void UpdateState(BaseEnemy Enemy)
     {
-                Debug.Log("RetreatingUpdate");
+        Enemy.Animate();
+        Debug.Log("RetreatingUpdate");
         if(Enemy.IsInSpawn)
         {
             Enemy.SwitchState(Enemy.DefaultState);
