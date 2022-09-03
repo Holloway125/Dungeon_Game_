@@ -124,7 +124,7 @@ TextureImporter:
         width: 192
         height: 256
       alignment: 9
-      pivot: {x: 0.4947917, y: 0.36328125}
+      pivot: {x: 0.5016237, y: 0.35303295}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
@@ -3289,14 +3289,14 @@ TextureImporter:
       Plains_129: -1531320357
       Plains_139: -1857288033
       Plains_141: -901390477
-      Plains_29: -1670209223
+      Plains_100: -935472231
       Plains_15: -1727192803
       Plains_8: -451593516
-      Plains_178: -1291549822
+      Plains_121: 893803514
       Plains_34: 1916527774
       Plains_76: 1029517721
-      Plains_100: -935472231
-      Plains_121: 893803514
+      Plains_29: -1670209223
+      Plains_178: -1291549822
       Plains_66: 1566815025
       Plains_51: -893266740
       Plains_21: 1359530530
