@@ -7,7 +7,7 @@ public override void EnterState(BaseEnemy Enemy)
         Enemy.Aggroed = true;
         Enemy.AIDestinationSetterScript.target = Enemy.Player.transform.position;
         Enemy.movement.maxSpeed = Enemy.Speed;
-        Enemy.Anim.Play("Run_Slime");
+        Enemy.Animate();
     }
 
 public override void UpdateState(BaseEnemy Enemy)
@@ -19,7 +19,7 @@ public override void UpdateState(BaseEnemy Enemy)
         }
         if (Enemy.IsInChaseRange)
         {
-            Enemy.Anim.Play("Run_Slime");
+            Enemy.Animate();
             Enemy.AIDestinationSetterScript.target = Enemy.Player.transform.position;
         }
         
@@ -32,6 +32,10 @@ public override void UpdateState(BaseEnemy Enemy)
         {
             Enemy.Aggroed = false;
             Enemy.SwitchState(Enemy.RetreatingState);
+        }
+        if (Enemy.CurrentHealth < 0)
+        {
+            Enemy.SwitchState(Enemy.DeathState);
         }
     }
 

@@ -76,6 +76,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public bool Aggroed;
     [HideInInspector]
     public Vector3 Home;
+    [HideInInspector]
     public float DistanceFromHome;
 
 
@@ -90,6 +91,16 @@ public abstract class BaseEnemy : MonoBehaviour
     public EnemyAttacking AttackingState = new EnemyAttacking();
     [HideInInspector]
     public EnemyRetreating RetreatingState = new EnemyRetreating();
+    [HideInInspector]
+    public EnemyDeathState DeathState = new EnemyDeathState();
+    [HideInInspector]
+    //For BlendTree
+    private bool up;
+    private bool down;
+    private bool left;
+    private bool right;
+    private float angleDegree;
+
 
     public void SwitchState(BaseEnemyState state)
     {
@@ -115,8 +126,7 @@ public abstract class BaseEnemy : MonoBehaviour
         Home = this.transform.position;
         AIDestinationSetterScript.target = Home;
         CurrentHealth = EnemyMaxHealth;
-        
-        
+    
         if(ChallengeLevel >= 0 )
         {
             ChallengeLevel = 1;        
@@ -131,6 +141,7 @@ public abstract class BaseEnemy : MonoBehaviour
         protected virtual void Update()
     {
         currentState.UpdateState(this);
+        EnemyDirection();
 
     }
 
@@ -155,12 +166,92 @@ public abstract class BaseEnemy : MonoBehaviour
         {
             LineOfSight = false;
         }
+
+
         if (CurrentHealth > EnemyMaxHealth)
         {
             CurrentHealth = EnemyMaxHealth;
         }
 
     }
+// Functions for determining which anim should play based on the direction the enemy is going
+    public void Animate()
+    {
+                if(angleDegree <= 360)
+
+        {       
+            if (angleDegree <= 300 &&angleDegree >= 240)
+                {
+                    up = false;
+                    down = true;
+                    left = false; 
+                    right = false;
+                }
+                else if (angleDegree <= 120 &&angleDegree >= 60)
+                {
+                    up = true;
+                    down = false;
+                    left = false; 
+                    right = false;
+                }
+                else if (angleDegree <= 360 &&angleDegree >= 299 ||angleDegree <= 59 &&angleDegree >= 0)
+                {
+                    up = false;
+                    down = false;
+                    left = false; 
+                    right = true;
+                }        
+                else if (angleDegree <= 241 &&angleDegree >= 121)
+                {
+                    up = false;
+                    down = false;
+                    left = true; 
+                    right = false;
+                }
+        }
+        if (up)
+        {
+            Anim.Play("RunUp");
+        }
+        else if (down)
+        {
+            Anim.Play("RunDown");
+        }
+        else if (left)
+        {
+            Anim.Play("RunLeft");
+        }
+        else if (right)
+        {
+            Anim.Play("RunRight");
+        }
+//                        90
+//                        up
+//                     300 - 240 
+//                299               241
+//  180  | left  -                 -  right | 360
+//                 59               121
+//                      60 - 120 
+//                        down
+//                         270
+
+
+       
+    }
+        public void EnemyDirection()
+    {
+        float angle;
+        Vector3 Direction;
+        Direction = AIDestinationSetterScript.target - transform.position;
+        angle = Mathf.Atan2(Direction.y, Direction.x);
+        angleDegree = angle * Mathf.Rad2Deg;
+        if (angleDegree <= 0)
+        {
+            angleDegree += 360;
+        }
+
+    }    
+//Function for doing damage
         protected void OnCollisionEnter2D(Collision2D collision)
      {
         if (collision.gameObject.tag == "Player" && HasContactAttack)
@@ -210,7 +301,7 @@ public abstract class BaseEnemy : MonoBehaviour
         {
         Vector3 RandomPoint = Random.insideUnitCircle;
         AIDestinationSetterScript.target = Home + RandomPoint;
-        Anim.Play("Run_Slime");
+        Anim.Play("RunBlend");
         // Debug.Log(Vector3.Distance(AIDestinationSetterScript.target, Home));
         }
     }
