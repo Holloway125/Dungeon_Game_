@@ -22,6 +22,10 @@ public override void UpdateState(BaseEnemy Enemy)
         {
             Enemy.SwitchState(Enemy.ChasingState);
         }
+        if (Enemy.CurrentHealth < 0)
+        {
+        Enemy.SwitchState(Enemy.DeathState);
+        }
 
     }
 

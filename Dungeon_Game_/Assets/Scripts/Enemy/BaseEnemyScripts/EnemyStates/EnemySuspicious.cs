@@ -5,7 +5,7 @@ public class EnemySuspicious : BaseEnemyState
 Vector3 NewTarget;
 public override void EnterState(BaseEnemy Enemy)
     {
-        Enemy.Anim.Play("Run_Slime");
+        Enemy.Animate();
         Enemy.movement.maxSpeed = Enemy.Speed / 3;
         if (Enemy.IsInAggroRange && Enemy.LineOfSight)
         {

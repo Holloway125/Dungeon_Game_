@@ -7,7 +7,7 @@ public override void EnterState(BaseEnemy Enemy)
     
     {
         Enemy.movement.maxSpeed = Enemy.Speed;
-        Enemy.Anim.Play("Run_Slime");
+        Enemy.Animate();
     }
 
 public override void UpdateState(BaseEnemy Enemy)
@@ -25,6 +25,10 @@ public override void UpdateState(BaseEnemy Enemy)
             Enemy.CurrentHealth += Mathf.Round(Enemy.EnemyMaxHealth * .05f);
             }
             
+        }
+        if (Enemy.CurrentHealth < 0)
+        {
+        Enemy.SwitchState(Enemy.DeathState);
         }
 
     }

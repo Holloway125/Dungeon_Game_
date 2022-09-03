@@ -76,6 +76,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public bool Aggroed;
     [HideInInspector]
     public Vector3 Home;
+    [HideInInspector]
     public float DistanceFromHome;
 
 
@@ -90,6 +91,17 @@ public abstract class BaseEnemy : MonoBehaviour
     public EnemyAttacking AttackingState = new EnemyAttacking();
     [HideInInspector]
     public EnemyRetreating RetreatingState = new EnemyRetreating();
+    [HideInInspector]
+    public EnemyDeathState DeathState = new EnemyDeathState();
+    [HideInInspector]
+    //For BlendTree
+    public Vector3 Direction;
+    private int intAngleDegree;
+    private bool up;
+    private bool down;
+    private bool left;
+    private bool right;
+
 
     public void SwitchState(BaseEnemyState state)
     {
@@ -115,6 +127,7 @@ public abstract class BaseEnemy : MonoBehaviour
         Home = this.transform.position;
         AIDestinationSetterScript.target = Home;
         CurrentHealth = EnemyMaxHealth;
+    
         
         
         if(ChallengeLevel >= 0 )
@@ -131,6 +144,7 @@ public abstract class BaseEnemy : MonoBehaviour
         protected virtual void Update()
     {
         currentState.UpdateState(this);
+        EnemyDirection();
 
     }
 
@@ -155,10 +169,26 @@ public abstract class BaseEnemy : MonoBehaviour
         {
             LineOfSight = false;
         }
+
+
         if (CurrentHealth > EnemyMaxHealth)
         {
             CurrentHealth = EnemyMaxHealth;
         }
+
+
+
+
+//                        270
+//                        up
+//                     300 - 240 
+//                299               241
+//  360/0  | left  -                 -  right | 180
+//                 59               121
+//                      60 - 120 
+//                        down
+//                         90
+
 
     }
         protected void OnCollisionEnter2D(Collision2D collision)
@@ -210,7 +240,7 @@ public abstract class BaseEnemy : MonoBehaviour
         {
         Vector3 RandomPoint = Random.insideUnitCircle;
         AIDestinationSetterScript.target = Home + RandomPoint;
-        Anim.Play("Run_Slime");
+        Anim.Play("RunBlend");
         // Debug.Log(Vector3.Distance(AIDestinationSetterScript.target, Home));
         }
     }
@@ -236,4 +266,113 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         Destroy(Suspect);
     }
+    public void EnemyDirection()
+    {
+        float angle;
+        float angleDegree;
+        Direction = AIDestinationSetterScript.target - transform.position;
+        angle = Mathf.Atan2(Direction.y, Direction.x);
+        angleDegree = angle * Mathf.Rad2Deg;
+        intAngleDegree = Mathf.RoundToInt(angleDegree);
+        if (angleDegree < 0)
+        {
+            angleDegree+=360;
+        }
+        Debug.Log(intAngleDegree);
+
+    }    
+    public void Animate()
+    {
+                if(intAngleDegree <= 360)
+
+        {       
+            if (intAngleDegree <= 300 && intAngleDegree >= 240)
+                {
+                    up = true;
+                    down = false;
+                    left = false; 
+                    right = false;
+                }
+                else if (intAngleDegree <= 120 && intAngleDegree >= 60)
+                {
+                    up = false;
+                    down = true;
+                    left = false; 
+                    right = false;
+                }
+                else if (intAngleDegree <= 360 && intAngleDegree >= 299 || intAngleDegree <= 59 && intAngleDegree >= 0)
+                {
+                    up = false;
+                    down = false;
+                    left = true; 
+                    right = false;
+                }        
+                else if (intAngleDegree <= 241 && intAngleDegree >= 121)
+                {
+                    up = false;
+                    down = false;
+                    left = false; 
+                    right = true;
+                }
+        }
+        if (up)
+        {
+            Anim.Play("RunUp");
+        }
+        else if (down)
+        {
+            Anim.Play("RunDown");
+        }
+        else if (left)
+        {
+            Anim.Play("RunLeft");
+        }
+        else if (right)
+        {
+            Anim.Play("RunRight");
+        }
+    }
+
+
+
+    //     public void SetAnimationRotation()
+    // {
+    //     //Gets mouse position and returns x,y value of the pixels mouse is on in current resolution
+    //     ScreenPosition = Input.mousePosition; 
+    //     //Sets screen position z to the near viewport of camera so it can then be translated correctlying into mouse world postion
+    //     ScreenPosition.z = mainCamera.nearClipPlane + 1;
+    //     //returns world position location of mouse in the Scene
+    //     mouseWorldPosition = mainCamera.ScreenToWorldPoint(ScreenPosition);
+    //     //returns a new vector3 that is the mouses position relative to the player of the scene
+    //     Vector3 diffPos = mouseWorldPosition - player.transform.position;
+    //     //returns a radian that can be used to convert to degrees 
+    //     angle = Mathf.Atan2(diffPos.y, diffPos.x);
+    //     //converts the radian to degrees in the range of (-180, 180)
+    //     angleDegree = angle * Mathf.Rad2Deg;
+    //     //converts the range of (-180, 180) to a range of (0, 360) which then can be passed into the rotation z value of an object to set it rotation pointing to the cursors current position
+    //     if(angleDegree < 0)
+    //     {
+    //         angleDegree+=360;
+    //     }           
+    //     Quaternion rotation = Quaternion.Euler(0, 0, angleDegree);
+    //     playerHand.transform.rotation = rotation;
+    //     playerHand.transform.position = new Vector3 ((Mathf.Cos(angle)) + player.transform.position.x, Mathf.Sin(angle) + player.transform.position.y, 0f);
+    // }
 }
+
+
+
+
+//                        270
+//                        up
+//                     300 - 240 
+//                299               241
+//  360/0  | left  -                 -  right | 180
+//                 59               121
+//                      60 - 120 
+//                        down
+//                         90
+
+
+
+

@@ -166,9 +166,9 @@ MonoBehaviour:
   IgnoreTheseLayers:
     serializedVersion: 2
     m_Bits: 280
-  EnemyMaxHealth: 50
+  EnemyMaxHealth: 150
   CurrentHealth: 25
-  Speed: 8
+  Speed: 1
   ChallengeLevel: 1
   Anim: {fileID: 0}
   Player: {fileID: 0}
@@ -178,10 +178,10 @@ MonoBehaviour:
   movement: {fileID: 0}
   AIDestinationSetterScript: {fileID: 0}
   AttackRadius: 0.5
-  SuspiciousRadius: 420
-  ChaseRadius: 420
-  AggroRadius: 420
-  Leash: 420
+  SuspiciousRadius: 50
+  ChaseRadius: 75
+  AggroRadius: 40
+  Leash: 150
   HasAnAttack: 0
   AttackDamaage: 50
   AttackCooldown: 10
@@ -199,6 +199,7 @@ MonoBehaviour:
   Aggroed: 0
   Home: {x: 0, y: 0, z: 0}
   DistanceFromHome: 0
+  Direction: {x: 0, y: 0, z: 0}
 --- !u!114 &8667321935631418114
 MonoBehaviour:
   m_ObjectHideFlags: 0
