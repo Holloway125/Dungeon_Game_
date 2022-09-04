@@ -10,7 +10,7 @@ public override void EnterState(BaseEnemy Enemy)
 
 public override void UpdateState(BaseEnemy Enemy)
     {
-        Debug.Log("DefaultUpdate");
+
         if (Enemy.IsInSuspiciousRange)
         {
            Enemy.SwitchState(Enemy.SuspiciousState);

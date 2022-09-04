@@ -97,6 +97,11 @@ public abstract class BaseEnemy : MonoBehaviour
     //For Animator
     private float angleDegree;
     public bool AttackAnimPlaying;
+    public bool HasAbility;
+    public bool HasAbility2;
+    public EnemyAbilityHolder Ability;
+    public EnemyAbilityHolder Ability2;
+    
 
 
     public void SwitchState(BaseEnemyState state)

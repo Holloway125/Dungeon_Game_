@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 8667321935631418114}
   - component: {fileID: 7136232645447175487}
   - component: {fileID: 498909196018271618}
+  - component: {fileID: 1191539087}
+  - component: {fileID: 1191539088}
   m_Layer: 7
   m_Name: Slime
   m_TagString: Enemy
@@ -177,14 +179,14 @@ MonoBehaviour:
   Rb: {fileID: 0}
   movement: {fileID: 0}
   AIDestinationSetterScript: {fileID: 0}
-  AttackRadius: 10
+  AttackRadius: 5
   SuspiciousRadius: 50
   ChaseRadius: 75
   AggroRadius: 40
   Leash: 150
   HasAnAttack: 1
   AttackDamaage: 20
-  AttackCooldown: 10
+  AttackCooldown: 5
   HasContactAttack: 1
   ContactDamage: 5
   ContactAttackCooldown: 0.1
@@ -199,6 +201,11 @@ MonoBehaviour:
   Aggroed: 0
   Home: {x: 0, y: 0, z: 0}
   DistanceFromHome: 0
+  AttackAnimPlaying: 0
+  HasAbility: 1
+  HasAbility2: 1
+  Ability: {fileID: 1191539087}
+  Ability2: {fileID: 1191539088}
 --- !u!114 &8667321935631418114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,3 +290,41 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 0
   whenCloseToDestination: 1
   constrainInsideGraph: 0
+--- !u!114 &1191539087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7169616798835329685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5761689da0d0124194bf3e3eed99871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ability: {fileID: 11400000, guid: 1a8b3d78281b0bc43971f336b63d6ce3, type: 2}
+  IsInAbilityRange: 0
+  AbilityRadius: 5
+  WhatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 8
+  state: 0
+--- !u!114 &1191539088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7169616798835329685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5761689da0d0124194bf3e3eed99871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ability: {fileID: 11400000, guid: 9863a26c60a0c9e4db2ff073e12d5de5, type: 2}
+  IsInAbilityRange: 0
+  AbilityRadius: 10
+  WhatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 8
+  state: 0

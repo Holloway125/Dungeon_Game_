@@ -10,13 +10,14 @@ public class EnemyAbilityHolder : MonoBehaviour
     private float _CooldownTime;
     private float _ActiveTime;
     [SerializeField]
-    protected bool IsInAbilityRange;
+    public bool IsInAbilityRange;
     [SerializeField]
     protected float AbilityRadius;
     [SerializeField]
     protected LayerMask WhatIsPlayer;
-    private BaseEnemy BaseEnemyScript;
-    enum EnemyAbilityState 
+    [HideInInspector]
+    protected BaseEnemy BaseEnemyScript;
+    public enum EnemyAbilityState 
     {
         ready, 
         active,
@@ -27,7 +28,7 @@ public class EnemyAbilityHolder : MonoBehaviour
     {
         BaseEnemyScript = GetComponent<BaseEnemy>();
     }
-    EnemyAbilityState state = EnemyAbilityState.ready;
+    public EnemyAbilityState state = EnemyAbilityState.ready;
 
 
     void Update()
@@ -36,7 +37,7 @@ public class EnemyAbilityHolder : MonoBehaviour
         switch (state)
         {
             case EnemyAbilityState.ready:
-               if (IsInAbilityRange && BaseEnemyScript.IsInAggroRange)
+               if (IsInAbilityRange && BaseEnemyScript.Aggroed)
             {
                 Ability.Activate(gameObject);
                 state = EnemyAbilityState.active;

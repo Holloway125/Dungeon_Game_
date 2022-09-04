@@ -16,7 +16,7 @@ public override void EnterState(BaseEnemy Enemy)
 
 public override void UpdateState(BaseEnemy Enemy)
     {
-        Debug.Log("SuspiciousUpdate");
+
         if (Enemy.DistanceFromHome > Enemy.Leash)
         {
             Enemy.SwitchState(Enemy.RetreatingState);
