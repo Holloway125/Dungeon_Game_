@@ -177,13 +177,13 @@ MonoBehaviour:
   Rb: {fileID: 0}
   movement: {fileID: 0}
   AIDestinationSetterScript: {fileID: 0}
-  AttackRadius: 0.5
+  AttackRadius: 10
   SuspiciousRadius: 50
   ChaseRadius: 75
   AggroRadius: 40
   Leash: 150
-  HasAnAttack: 0
-  AttackDamaage: 50
+  HasAnAttack: 1
+  AttackDamaage: 20
   AttackCooldown: 10
   HasContactAttack: 1
   ContactDamage: 5
@@ -199,7 +199,6 @@ MonoBehaviour:
   Aggroed: 0
   Home: {x: 0, y: 0, z: 0}
   DistanceFromHome: 0
-  Direction: {x: 0, y: 0, z: 0}
 --- !u!114 &8667321935631418114
 MonoBehaviour:
   m_ObjectHideFlags: 0

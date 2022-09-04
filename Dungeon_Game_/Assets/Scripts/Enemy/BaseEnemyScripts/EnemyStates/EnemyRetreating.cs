@@ -7,12 +7,12 @@ public override void EnterState(BaseEnemy Enemy)
     
     {
         Enemy.movement.maxSpeed = Enemy.Speed;
-        Enemy.Animate();
+        Enemy.Animate("Run");
     }
 
 public override void UpdateState(BaseEnemy Enemy)
     {
-        Enemy.Animate();
+        Enemy.Animate("Run");
         Debug.Log("RetreatingUpdate");
         if(Enemy.IsInSpawn)
         {

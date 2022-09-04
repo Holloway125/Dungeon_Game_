@@ -94,12 +94,9 @@ public abstract class BaseEnemy : MonoBehaviour
     [HideInInspector]
     public EnemyDeathState DeathState = new EnemyDeathState();
     [HideInInspector]
-    //For BlendTree
-    private bool up;
-    private bool down;
-    private bool left;
-    private bool right;
+    //For Animator
     private float angleDegree;
+    public bool AttackAnimPlaying;
 
 
     public void SwitchState(BaseEnemyState state)
@@ -175,56 +172,7 @@ public abstract class BaseEnemy : MonoBehaviour
 
     }
 // Functions for determining which anim should play based on the direction the enemy is going
-    public void Animate()
-    {
-                if(angleDegree <= 360)
 
-        {       
-            if (angleDegree <= 300 &&angleDegree >= 240)
-                {
-                    up = false;
-                    down = true;
-                    left = false; 
-                    right = false;
-                }
-                else if (angleDegree <= 120 &&angleDegree >= 60)
-                {
-                    up = true;
-                    down = false;
-                    left = false; 
-                    right = false;
-                }
-                else if (angleDegree <= 360 &&angleDegree >= 299 ||angleDegree <= 59 &&angleDegree >= 0)
-                {
-                    up = false;
-                    down = false;
-                    left = false; 
-                    right = true;
-                }        
-                else if (angleDegree <= 241 &&angleDegree >= 121)
-                {
-                    up = false;
-                    down = false;
-                    left = true; 
-                    right = false;
-                }
-        }
-        if (up)
-        {
-            Anim.Play("RunUp");
-        }
-        else if (down)
-        {
-            Anim.Play("RunDown");
-        }
-        else if (left)
-        {
-            Anim.Play("RunLeft");
-        }
-        else if (right)
-        {
-            Anim.Play("RunRight");
-        }
 //                        90
 //                        up
 //                     300 - 240 
@@ -233,11 +181,43 @@ public abstract class BaseEnemy : MonoBehaviour
 //                 59               121
 //                      60 - 120 
 //                        down
-//                         270
+//                         270    
 
+        public void Animate(string action)
+        {
+            if (Anim.GetBool("up"))
+            {
+                Anim.Play($"{action}Up");
+                AttackAnimPlaying = true;
+            }
+            else if (Anim.GetBool("down"))
+            {
+                Anim.Play($"{action}Down");
+                AttackAnimPlaying = true;            
+            }
+            else if (Anim.GetBool("left"))
+            {
+                Anim.Play($"{action}Left");
+                AttackAnimPlaying = true;            
+            }
+            else if (Anim.GetBool("right"))
+            {
+                Anim.Play($"{action}Right");   
+                AttackAnimPlaying = true;         
+            }
 
-       
-    }
+        }
+        public void AttackAnimate()
+        {
+            if (!AttackAnimPlaying)
+            {
+                Animate("Attack");
+            }
+        }
+        public void UpdateTarget()
+        {
+            AIDestinationSetterScript.target = Player.transform.position;
+        }
         public void EnemyDirection()
     {
         float angle;
@@ -245,9 +225,43 @@ public abstract class BaseEnemy : MonoBehaviour
         Direction = AIDestinationSetterScript.target - transform.position;
         angle = Mathf.Atan2(Direction.y, Direction.x);
         angleDegree = angle * Mathf.Rad2Deg;
-        if (angleDegree <= 0)
+
+            if (angleDegree <= 0)
         {
             angleDegree += 360;
+        }
+
+            if(angleDegree <= 360)
+
+        {       
+            if (angleDegree <= 300 &&angleDegree >= 240)
+                {
+                    Anim.SetBool("up",false);
+                    Anim.SetBool("down",true);
+                    Anim.SetBool("left",false);
+                    Anim.SetBool("right",false);
+                }
+                else if (angleDegree <= 120 &&angleDegree >= 60)
+                {
+                    Anim.SetBool("up",true);
+                    Anim.SetBool("down",false);
+                    Anim.SetBool("left",false);
+                    Anim.SetBool("right",false);
+                }
+                else if (angleDegree <= 360 &&angleDegree >= 299 ||angleDegree <= 59 &&angleDegree >= 0)
+                {
+                    Anim.SetBool("up",false);
+                    Anim.SetBool("down",false);
+                    Anim.SetBool("left",false);
+                    Anim.SetBool("right",true);
+                }        
+                else if (angleDegree <= 241 &&angleDegree >= 121)
+                {
+                    Anim.SetBool("up",false);
+                    Anim.SetBool("down",false);
+                    Anim.SetBool("left",true); 
+                    Anim.SetBool("right",false);
+                }
         }
 
     }    

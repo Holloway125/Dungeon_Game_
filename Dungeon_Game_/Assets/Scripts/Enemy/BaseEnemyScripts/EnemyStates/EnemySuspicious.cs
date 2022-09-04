@@ -5,7 +5,7 @@ public class EnemySuspicious : BaseEnemyState
 Vector3 NewTarget;
 public override void EnterState(BaseEnemy Enemy)
     {
-        Enemy.Animate();
+        Enemy.Animate("Run");
         Enemy.movement.maxSpeed = Enemy.Speed / 3;
         if (Enemy.IsInAggroRange && Enemy.LineOfSight)
         {
@@ -27,7 +27,7 @@ public override void UpdateState(BaseEnemy Enemy)
             RandomPoint.z = 0;
             NewTarget = Enemy.Player.transform.position + RandomPoint;
             Enemy.AIDestinationSetterScript.target = NewTarget;
-            Enemy.Animate();
+            Enemy.Animate("Run");
             }
         
         else if (Enemy.IsInAggroRange && Enemy.LineOfSight)
