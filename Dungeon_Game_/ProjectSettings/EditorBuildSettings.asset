@@ -9,12 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/LaunchMenu.unity
     guid: bdf0118b4b35f6343a4c2d2eef7069eb
   - enabled: 0
-    path: Assets/Scenes/GameScene.unity
-    guid: 19767913f90c60a49b27c4bc192edf8e
-  - enabled: 0
-    path: Assets/Scenes/Game_Test_Arena.unity
-    guid: 17450e7cd00baa446ac3e16f6033e6d3
-  - enabled: 0
     path: Assets/Scenes/Sam'a Test Area.unity
     guid: 856adb12a53c0df45ae37462e8035a71
   - enabled: 0
@@ -23,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewTown.unity
     guid: 92872632054128942ade63252d48d076
+  - enabled: 1
+    path: Assets/Scenes/RedCabin.unity
+    guid: 4d727bac9c0bfd540887383811526629
   m_configObjects: {}
