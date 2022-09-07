@@ -4,41 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
+[ExecuteInEditMode()]
 public class Tooltip : MonoBehaviour
 {
 
-    [SerializeField]
-    private Camera _uiCamera;
+    public TextMeshProUGUI headerField;
+    public TextMeshProUGUI contentField;
+    public LayoutElement layoutElement;
+    public int characterWrapLimit;
 
-    private TextMeshPro _tooltipText;
-    private RectTransform _backgroundRectTransform;
-    
-    private void Awake()
+    void Update()
     {
-        _backgroundRectTransform = transform.Find("Background").GetComponent<RectTransform>();
-        _tooltipText = transform.Find("Text").GetComponent<TextMeshPro>();
-        ShowToolTip("Hi Loser!");
+        int headerLength = headerField.text.Length;
+        int contentLength = contentField.text.Length;
+
+        layoutElement.enabled = (headerLength > characterWrapLimit || contentLength > characterWrapLimit) ? true : false;
+
     }
 
-    private void Update()
-    {
-        Vector2 localPoint;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponent<RectTransform>(), Input.mousePosition, _uiCamera, out localPoint);
-        transform.localPosition = localPoint;
-    }
-
-    private void ShowToolTip(string tooltipString)
-    {
-        _tooltipText.text = tooltipString;
-        float textPaddingSize = 4f;
-        Vector2 backgroundSize = new Vector2(_tooltipText.preferredWidth + textPaddingSize * 2f, _tooltipText.preferredHeight + textPaddingSize * 2f);
-        _backgroundRectTransform.sizeDelta = backgroundSize;
-
-        gameObject.SetActive(true);
-    }
-
-    private void HideToolTip()
-    {
-        gameObject.SetActive(false);
-    }
 }
