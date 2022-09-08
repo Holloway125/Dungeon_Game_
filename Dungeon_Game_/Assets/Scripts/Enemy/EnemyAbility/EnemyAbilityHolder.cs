@@ -42,6 +42,7 @@ public class EnemyAbilityHolder : MonoBehaviour
                 Ability.Activate(gameObject);
                 state = EnemyAbilityState.active;
                 _ActiveTime = Ability.activeTime;
+                Debug.Log("ready");
 
             }
 
@@ -50,6 +51,7 @@ public class EnemyAbilityHolder : MonoBehaviour
                 if (_ActiveTime > 0 )
                 {
                     _ActiveTime -= Time.deltaTime;
+                    Debug.Log("active");
                 }
                 else 
                 {
@@ -62,6 +64,7 @@ public class EnemyAbilityHolder : MonoBehaviour
                 if (_CooldownTime > 0 )
                 {
                     _CooldownTime -= Time.deltaTime;
+                    Debug.Log("cooldown");
                 }
                 else 
                 {

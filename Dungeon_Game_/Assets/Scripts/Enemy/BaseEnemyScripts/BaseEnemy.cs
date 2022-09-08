@@ -92,6 +92,8 @@ public abstract class BaseEnemy : MonoBehaviour
     [HideInInspector]
     public EnemyRetreating RetreatingState = new EnemyRetreating();
     [HideInInspector]
+    public EnemyAbilityCast AbilityState = new EnemyAbilityCast();
+    [HideInInspector]
     public EnemyDeathState DeathState = new EnemyDeathState();
     [HideInInspector]
     //For Animator
@@ -110,6 +112,15 @@ public abstract class BaseEnemy : MonoBehaviour
         state.EnterState(this);
     }
 
+    public void EnterAbilityState()
+    {
+        currentState = AbilityState;
+        AbilityState.EnterState(this);
+    }
+    public void ExitAbilityState()
+    {
+        currentState = ChasingState;
+    }
 
         protected virtual void Awake()
     {

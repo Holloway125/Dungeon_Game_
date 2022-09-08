@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: EnemyLeap
   cooldownTime: 8
-  activeTime: 0
+  activeTime: 2

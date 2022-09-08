@@ -9,6 +9,7 @@ public class EnemyLeap : Ability
     public override void Activate(GameObject enemy)
      {
         var Enemy = enemy.GetComponent<BaseEnemy>();
+        Enemy.Anim.Play("AttackUp");
 
      }
 
