@@ -149,6 +149,7 @@ public abstract class BaseEnemy : MonoBehaviour
         protected virtual void Start()
     {
         currentState.EnterState(this);
+        EnemyDirection();
     }
 
         protected virtual void Update()
@@ -331,7 +332,7 @@ public abstract class BaseEnemy : MonoBehaviour
         {
         Vector3 RandomPoint = Random.insideUnitCircle;
         AIDestinationSetterScript.target = Home + RandomPoint;
-        Anim.Play("RunBlend");
+        Animate("Run");
         // Debug.Log(Vector3.Distance(AIDestinationSetterScript.target, Home));
         }
     }

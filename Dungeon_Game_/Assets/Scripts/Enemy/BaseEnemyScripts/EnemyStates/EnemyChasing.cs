@@ -12,14 +12,17 @@ public override void EnterState(BaseEnemy Enemy)
 
 public override void UpdateState(BaseEnemy Enemy)
     {
+        
+        Debug.Log("Chasing");
         if (Enemy.DistanceFromHome > Enemy.Leash)
         {
             Enemy.SwitchState(Enemy.RetreatingState);
+            Enemy.Animate("Run");
         }
         if (Enemy.IsInChaseRange)
         {
-            Enemy.Animate("Run");
             Enemy.AIDestinationSetterScript.target = Enemy.Player.transform.position;
+            Enemy.Animate("Run");
         }
         
         // if (Enemy.IsInAttackRange && Enemy.LineOfSight && Enemy.HasAnAttack)
@@ -31,6 +34,7 @@ public override void UpdateState(BaseEnemy Enemy)
         {
             Enemy.Aggroed = false;
             Enemy.SwitchState(Enemy.RetreatingState);
+            Enemy.Animate("Run");
         }
         if (Enemy.CurrentHealth < 0)
         {

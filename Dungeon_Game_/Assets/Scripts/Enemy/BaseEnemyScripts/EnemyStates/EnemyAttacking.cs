@@ -28,7 +28,7 @@ public override void UpdateState(BaseEnemy Enemy)
             case EnemyAttacks.attack:
                 if (Enemy.IsInAttackRange && Enemy.LineOfSight)
                 {
-                    Enemy.Animate("Attack");
+                    Enemy.AttackAnimate();
                 }
                 if (Enemy.HasAbility && Enemy.Ability.IsInAbilityRange && Enemy.Ability.state == EnemyAbilityHolder.EnemyAbilityState.ready)
                 {

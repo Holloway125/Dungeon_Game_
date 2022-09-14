@@ -16,10 +16,12 @@ public override void EnterState(BaseEnemy Enemy)
 
 public override void UpdateState(BaseEnemy Enemy)
     {
-
+        Enemy.Animate("Run");
+        Debug.Log("Suspicious");
         if (Enemy.DistanceFromHome > Enemy.Leash)
         {
             Enemy.SwitchState(Enemy.RetreatingState);
+
         }
         if (Vector3.Distance(Enemy.transform.position, Enemy.AIDestinationSetterScript.target) <= .01f && Enemy.IsInSuspiciousRange)
             {           
@@ -27,7 +29,7 @@ public override void UpdateState(BaseEnemy Enemy)
             RandomPoint.z = 0;
             NewTarget = Enemy.Player.transform.position + RandomPoint;
             Enemy.AIDestinationSetterScript.target = NewTarget;
-            Enemy.Animate("Run");
+
             }
         
         else if (Enemy.IsInAggroRange && Enemy.LineOfSight)
@@ -37,6 +39,7 @@ public override void UpdateState(BaseEnemy Enemy)
         else if (!Enemy.IsInSuspiciousRange && Vector3.Distance(Enemy.transform.position, Enemy.AIDestinationSetterScript.target) <= .01f)
         {
             Enemy.SwitchState(Enemy.RetreatingState);
+
         }
     }
 

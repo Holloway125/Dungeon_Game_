@@ -4,13 +4,14 @@ public class EnemyDefault : BaseEnemyState
 {
 public override void EnterState(BaseEnemy Enemy)
     {
+        Enemy.Animate("Idle");
         Enemy.Aggroed = false;
         Enemy.movement.maxSpeed = Enemy.Speed;
     }
 
 public override void UpdateState(BaseEnemy Enemy)
     {
-
+        Debug.Log("Default");
         if (Enemy.IsInSuspiciousRange)
         {
            Enemy.SwitchState(Enemy.SuspiciousState);
