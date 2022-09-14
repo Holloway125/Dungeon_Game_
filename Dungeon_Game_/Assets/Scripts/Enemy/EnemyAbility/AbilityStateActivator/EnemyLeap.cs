@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyLeap : Ability 
 {
 
+public float Force;
 
     public override void Activate(GameObject enemy)
      {
@@ -18,5 +19,6 @@ public class EnemyLeap : Ability
          var Enemy = enemy.GetComponent<BaseEnemy>();
 
      }
+
 
 }   

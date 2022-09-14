@@ -15,3 +15,4 @@ MonoBehaviour:
   name: EnemyLeap
   cooldownTime: 8
   activeTime: 2
+  Force: 5

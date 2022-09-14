@@ -12,10 +12,18 @@ protected override void Start()
 base.Start();
 // then you can add whatever code you'd like to the function
 
-
 }
     public override void TakeDamage(int damageAmount)
     {
         CurrentHealth -= damageAmount;
     }
+
+    
+    public void LeapAbility()
+    {
+        // var enemy = GetComponent<BaseEnemy>();
+        this.Rb.AddForce((this.Player.transform.position - this.transform.position).normalized * 25, ForceMode2D.Force);
+    }
+
+
 }
