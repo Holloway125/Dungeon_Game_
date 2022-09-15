@@ -17,6 +17,8 @@ public class EnemyAbilityHolder : MonoBehaviour
     protected LayerMask WhatIsPlayer;
     [HideInInspector]
     protected BaseEnemy BaseEnemyScript;
+    [SerializeField]
+    protected AnimationClip AnimationClip;
     public enum EnemyAbilityState 
     {
         ready, 
@@ -26,7 +28,10 @@ public class EnemyAbilityHolder : MonoBehaviour
 
     void Start()
     {
+        
         BaseEnemyScript = GetComponent<BaseEnemy>();
+        Ability.activeTime = Mathf.Round(((Ability.animationClip.length + .005f) * 100)) / 100;
+
     }
     public EnemyAbilityState state = EnemyAbilityState.ready;
 
@@ -35,14 +40,14 @@ public class EnemyAbilityHolder : MonoBehaviour
     {
         IsInAbilityRange = Physics2D.OverlapCircle(transform.position, AbilityRadius, WhatIsPlayer);
         switch (state)
-        {
+         {
             case EnemyAbilityState.ready:
                if (IsInAbilityRange && BaseEnemyScript.Aggroed)
             {
                 Ability.Activate(gameObject);
                 state = EnemyAbilityState.active;
                 _ActiveTime = Ability.activeTime;
-                Debug.Log("ready");
+
 
             }
 
@@ -51,7 +56,7 @@ public class EnemyAbilityHolder : MonoBehaviour
                 if (_ActiveTime > 0 )
                 {
                     _ActiveTime -= Time.deltaTime;
-                    Debug.Log("active");
+
                 }
                 else 
                 {
@@ -64,7 +69,7 @@ public class EnemyAbilityHolder : MonoBehaviour
                 if (_CooldownTime > 0 )
                 {
                     _CooldownTime -= Time.deltaTime;
-                    Debug.Log("cooldown");
+
                 }
                 else 
                 {

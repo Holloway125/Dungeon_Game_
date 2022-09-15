@@ -179,10 +179,10 @@ MonoBehaviour:
   movement: {fileID: 0}
   AIDestinationSetterScript: {fileID: 0}
   AttackRadius: 5
-  SuspiciousRadius: 50
-  ChaseRadius: 75
-  AggroRadius: 40
-  Leash: 150
+  SuspiciousRadius: 15
+  ChaseRadius: 25
+  AggroRadius: 10
+  Leash: 50
   HasAnAttack: 1
   AttackDamaage: 20
   AttackCooldown: 5
@@ -205,6 +205,7 @@ MonoBehaviour:
   HasAbility2: 1
   Ability: {fileID: 0}
   Ability2: {fileID: 1191539088}
+  JumpForce: 50
 --- !u!114 &8667321935631418114
 MonoBehaviour:
   m_ObjectHideFlags: 0

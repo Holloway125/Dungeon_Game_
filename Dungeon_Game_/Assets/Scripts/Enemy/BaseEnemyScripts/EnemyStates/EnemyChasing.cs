@@ -12,8 +12,14 @@ public override void EnterState(BaseEnemy Enemy)
 
 public override void UpdateState(BaseEnemy Enemy)
     {
-        
-        Debug.Log("Chasing");
+        Enemy.LOS();
+        Enemy.IsInChaseRange = Physics2D.OverlapCircle(Enemy.transform.position, Enemy.ChaseRadius, Enemy.WhatIsPlayer);
+        Enemy.DistanceFromHome = Mathf.Round(Vector3.Distance(Enemy.Home, Enemy.transform.position));
+        if(Enemy.HasAnAttack)
+        {
+        Enemy.IsInAttackRange = Physics2D.OverlapCircle(Enemy.transform.position, Enemy.AttackRadius, Enemy.WhatIsPlayer);
+        }
+
         if (Enemy.DistanceFromHome > Enemy.Leash)
         {
             Enemy.SwitchState(Enemy.RetreatingState);

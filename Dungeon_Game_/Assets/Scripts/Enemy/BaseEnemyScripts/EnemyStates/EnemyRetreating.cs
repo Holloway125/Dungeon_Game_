@@ -12,8 +12,8 @@ public override void EnterState(BaseEnemy Enemy)
 
 public override void UpdateState(BaseEnemy Enemy)
     {
+        Enemy.IsInSpawn = Physics2D.OverlapCircle(Enemy.Home, 5);
         Enemy.Animate("Run");
-        Debug.Log("RetreatingUpdate");
         if(Enemy.IsInSpawn)
         {
             Enemy.SwitchState(Enemy.DefaultState);

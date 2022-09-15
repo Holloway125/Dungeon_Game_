@@ -10,7 +10,7 @@ public float Force;
     public override void Activate(GameObject enemy)
      {
         var Enemy = enemy.GetComponent<BaseEnemy>();
-        Enemy.Animate("Attack");
+        Enemy.Anim.Play("AttackUp");
 
      }
 

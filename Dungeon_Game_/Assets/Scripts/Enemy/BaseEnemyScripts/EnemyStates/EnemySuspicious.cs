@@ -16,27 +16,27 @@ public override void EnterState(BaseEnemy Enemy)
 
 public override void UpdateState(BaseEnemy Enemy)
     {
+        Enemy.LOS();
+        Enemy.IsInAggroRange = Physics2D.OverlapCircle(Enemy.transform.position, Enemy.AggroRadius, Enemy.WhatIsPlayer);
         Enemy.Animate("Run");
-        Debug.Log("Suspicious");
+        Enemy.DistanceFromHome = Mathf.Round(Vector3.Distance(Enemy.Home, Enemy.transform.position));
         if (Enemy.DistanceFromHome > Enemy.Leash)
         {
             Enemy.SwitchState(Enemy.RetreatingState);
-
         }
-        if (Vector3.Distance(Enemy.transform.position, Enemy.AIDestinationSetterScript.target) <= .01f && Enemy.IsInSuspiciousRange)
+        if (Vector3.Distance(Enemy.transform.position, Enemy.AIDestinationSetterScript.target) <= .1f && Enemy.IsInSuspiciousRange)
             {           
             Vector3 RandomPoint = Random.insideUnitCircle * 5;
             RandomPoint.z = 0;
             NewTarget = Enemy.Player.transform.position + RandomPoint;
             Enemy.AIDestinationSetterScript.target = NewTarget;
-
             }
         
         else if (Enemy.IsInAggroRange && Enemy.LineOfSight)
         {
             Enemy.SwitchState(Enemy.ChasingState);
         }
-        else if (!Enemy.IsInSuspiciousRange && Vector3.Distance(Enemy.transform.position, Enemy.AIDestinationSetterScript.target) <= .01f)
+        else if (!Enemy.IsInSuspiciousRange && Vector3.Distance(Enemy.transform.position, Enemy.AIDestinationSetterScript.target) <= .1f)
         {
             Enemy.SwitchState(Enemy.RetreatingState);
 

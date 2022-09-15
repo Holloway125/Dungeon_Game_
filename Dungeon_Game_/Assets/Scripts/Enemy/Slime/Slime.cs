@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Slime : BaseEnemy
 {
-
+[Header ("Slime Specific")]
+[SerializeField]
+float JumpForce;
  // this is how you would override the funtions and add code
 protected override void Start()
 {
@@ -21,8 +23,11 @@ base.Start();
     
     public void LeapAbility()
     {
-        // var enemy = GetComponent<BaseEnemy>();
-        this.Rb.AddForce((this.Player.transform.position - this.transform.position).normalized * 25, ForceMode2D.Force);
+        
+        var enemy = GetComponent<BaseEnemy>();
+        Vector2 Direction = new Vector2(enemy.Player.transform.position.x - this.transform.position.x, enemy.Player.transform.position.y - this.transform.position.y).normalized;
+        this.Rb.AddForce(Direction * JumpForce);
+        Debug.Log(Direction * JumpForce);
     }
 
 

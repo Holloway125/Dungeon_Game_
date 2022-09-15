@@ -98,7 +98,7 @@ public abstract class BaseEnemy : MonoBehaviour
     [HideInInspector]
     //For Animator
     private float angleDegree;
-    public bool AttackAnimPlaying;
+    public bool AttackAnimPlaying = false;
     public bool HasAbility;
     public bool HasAbility2;
     public EnemyAbilityHolder Ability;
@@ -155,38 +155,15 @@ public abstract class BaseEnemy : MonoBehaviour
         protected virtual void Update()
     {
         currentState.UpdateState(this);
+        if (currentState != DefaultState)
+        {
         EnemyDirection();
+        }
 
     }
 
         protected virtual void FixedUpdate()
     {
-        IsInChaseRange = Physics2D.OverlapCircle(transform.position, ChaseRadius, WhatIsPlayer);
-        IsInAttackRange = Physics2D.OverlapCircle(transform.position, AttackRadius, WhatIsPlayer);
-        IsInSuspiciousRange = Physics2D.OverlapCircle(transform.position, SuspiciousRadius, WhatIsPlayer);
-        IsInAggroRange = Physics2D.OverlapCircle(transform.position, AggroRadius, WhatIsPlayer);
-        IsInSpawn = Physics2D.OverlapCircle(Home, 5);
-        Vector2 origin = new Vector2(transform.position.x, transform.position.y);
-        Vector2 target = new Vector2(Player.transform.position.x + PlayerCollider.offset.x, Player.transform.position.y + PlayerCollider.offset.y);
-        RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, SuspiciousRadius, IgnoreTheseLayers);
-        Debug.DrawRay(origin, (target - origin), Color.blue);
-        DistanceFromHome = Mathf.Round(Vector3.Distance(Home, transform.position));
-
-        if (hit.collider == PlayerCollider)
-        {
-            LineOfSight = true;
-        }
-        else
-        {
-            LineOfSight = false;
-        }
-
-
-        if (CurrentHealth > EnemyMaxHealth)
-        {
-            CurrentHealth = EnemyMaxHealth;
-        }
-
     }
 // Functions for determining which anim should play based on the direction the enemy is going
 
@@ -200,27 +177,24 @@ public abstract class BaseEnemy : MonoBehaviour
 //                        down
 //                         270    
 
+
         public void Animate(string action)
         {
             if (Anim.GetBool("up"))
             {
                 Anim.Play($"{action}Up");
-                AttackAnimPlaying = true;
             }
             else if (Anim.GetBool("down"))
             {
                 Anim.Play($"{action}Down");
-                AttackAnimPlaying = true;            
             }
             else if (Anim.GetBool("left"))
             {
-                Anim.Play($"{action}Left");
-                AttackAnimPlaying = true;            
+                Anim.Play($"{action}Left");    
             }
             else if (Anim.GetBool("right"))
             {
                 Anim.Play($"{action}Right");   
-                AttackAnimPlaying = true;         
             }
 
         }
@@ -234,6 +208,10 @@ public abstract class BaseEnemy : MonoBehaviour
         public void UpdateTarget()
         {
             AIDestinationSetterScript.target = Player.transform.position;
+        }
+        public void UpdateTarget(Vector3 target)
+        {
+            AIDestinationSetterScript.target = target;
         }
         public void EnemyDirection()
     {
@@ -282,6 +260,27 @@ public abstract class BaseEnemy : MonoBehaviour
         }
 
     }    
+        public void LOS()  
+        {       
+                Vector2 origin = new Vector2(transform.position.x, transform.position.y);
+                Vector2 target = new Vector2(Player.transform.position.x + PlayerCollider.offset.x, Player.transform.position.y + PlayerCollider.offset.y);
+                RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, SuspiciousRadius, IgnoreTheseLayers);
+
+                if (hit.collider == PlayerCollider)
+                {
+                    LineOfSight = true;
+                }
+                else
+                {
+                    LineOfSight = false;
+                }
+
+
+                if (CurrentHealth > EnemyMaxHealth)
+                {
+                    CurrentHealth = EnemyMaxHealth;
+                }
+        }
 //Function for doing damage
         protected void OnCollisionEnter2D(Collision2D collision)
      {
