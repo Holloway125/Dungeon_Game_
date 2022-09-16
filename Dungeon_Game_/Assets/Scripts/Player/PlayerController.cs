@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
         float movementX = Input.GetAxisRaw("Horizontal");
         float movementY = Input.GetAxisRaw("Vertical");
 

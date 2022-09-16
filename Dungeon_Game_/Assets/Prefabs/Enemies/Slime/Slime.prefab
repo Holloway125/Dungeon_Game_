@@ -308,4 +308,5 @@ MonoBehaviour:
   WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
+  AnimationClip: {fileID: 7400000, guid: 2cb4a8bcca93c2a4abfd1be9e22ddf13, type: 2}
   state: 0

@@ -151,7 +151,8 @@ public abstract class BaseEnemy : MonoBehaviour
         currentState.EnterState(this);
         EnemyDirection();
     }
-
+private float angle;
+private float MyAngleDegree;
         protected virtual void Update()
     {
         currentState.UpdateState(this);
@@ -160,6 +161,18 @@ public abstract class BaseEnemy : MonoBehaviour
         EnemyDirection();
         }
 
+        Vector3 diffPos = Player.transform.position - this.transform.position;
+        //returns a radian that can be used to convert to degrees 
+        angle = Mathf.Atan2(diffPos.y, diffPos.x);
+        //converts the radian to degrees in the range of (-180, 180)
+        MyAngleDegree = angle * Mathf.Rad2Deg;
+        //converts the range of (-180, 180) to a range of (0, 360) which then can be passed into the rotation z value of an object to set it rotation pointing to the cursors current position
+        if(MyAngleDegree < 0)
+        {
+            MyAngleDegree+=360;
+        }   
+        
+        Debug.Log(MyAngleDegree);
     }
 
         protected virtual void FixedUpdate()
