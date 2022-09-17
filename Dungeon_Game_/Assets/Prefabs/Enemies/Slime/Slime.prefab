@@ -34,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 7169616798835329685}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.5300736, y: -6.130905, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -178,10 +178,10 @@ MonoBehaviour:
   Rb: {fileID: 0}
   movement: {fileID: 0}
   AIDestinationSetterScript: {fileID: 0}
-  AttackRadius: 5
-  SuspiciousRadius: 15
-  ChaseRadius: 25
-  AggroRadius: 10
+  AttackRadius: 0
+  SuspiciousRadius: 5
+  ChaseRadius: 10
+  AggroRadius: 0
   Leash: 50
   HasAnAttack: 1
   AttackDamaage: 20

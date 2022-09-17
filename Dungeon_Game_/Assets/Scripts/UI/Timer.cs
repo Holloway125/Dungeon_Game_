@@ -11,11 +11,6 @@ public class Timer : MonoBehaviour
     public bool timerIsRunning = false;
     public TextMeshProUGUI timeText;
 
-    private void Start()
-    {
-        timerIsRunning = true;
-    }
-
     void Update()
     {
         if (timerIsRunning)
@@ -56,4 +51,5 @@ public class Timer : MonoBehaviour
     {
         SceneManager.LoadScene("LaunchMenu");
     }
+
 }
