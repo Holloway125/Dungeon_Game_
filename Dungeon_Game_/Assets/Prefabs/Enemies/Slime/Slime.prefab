@@ -178,10 +178,10 @@ MonoBehaviour:
   Rb: {fileID: 0}
   movement: {fileID: 0}
   AIDestinationSetterScript: {fileID: 0}
-  AttackRadius: 0
-  SuspiciousRadius: 5
+  AttackRadius: 3
+  SuspiciousRadius: 15
   ChaseRadius: 10
-  AggroRadius: 0
+  AggroRadius: 5
   Leash: 50
   HasAnAttack: 1
   AttackDamaage: 20

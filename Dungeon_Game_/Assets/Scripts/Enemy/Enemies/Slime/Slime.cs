@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class Slime : BaseEnemy
 {
+
+
 [Header ("Slime Specific")]
 [SerializeField]
 float JumpForce;
  // this is how you would override the funtions and add code
+
+
 protected override void Start()
 {
 // if you want to keep all functionality of the inherited classes function this is how you would keep it
 base.Start();
 // then you can add whatever code you'd like to the function
-
 }
-    public override void TakeDamage(int damageAmount)
-    {
-        CurrentHealth -= damageAmount;
-    }
 
-    
+
     public void LeapAbility()
     {
         
@@ -30,6 +29,5 @@ base.Start();
         Debug.Log(Direction * JumpForce);
 
     }
-
 
 }

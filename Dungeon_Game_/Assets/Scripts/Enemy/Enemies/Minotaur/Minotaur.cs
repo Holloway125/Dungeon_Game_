@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Minotaur : BaseEnemy
 {
+    public Timer timer;
     public override IEnumerator Attack()
     {
 return null;
@@ -14,6 +15,7 @@ return null;
         CurrentHealth -= damageAmount;
         if(CurrentHealth <= 0)
         {
+            timer.bossAlive = false;
             Death();
         }
     }

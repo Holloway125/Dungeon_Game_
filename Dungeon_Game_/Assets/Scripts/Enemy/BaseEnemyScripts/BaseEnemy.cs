@@ -33,6 +33,9 @@ public abstract class BaseEnemy : MonoBehaviour
     public AIPath movement;
     [HideInInspector]
     public AIDestinationSetter AIDestinationSetterScript;
+    [HideInInspector]
+    public Timer timer;
+
     [Space]
 // Set in Inspector used for attacking Player.
     [Header ("Range Settings")]
@@ -127,9 +130,10 @@ public abstract class BaseEnemy : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
         movement = GetComponent<AIPath>();
         movement.maxSpeed = Speed;
+        timer = GetComponent<Timer>();
         LevelSystem = Player.GetComponent<LevelSystem>();
         DamageScript = Player.GetComponent<Damage>();
-        PlayerCollider = Player.GetComponent<CircleCollider2D>();
+        PlayerCollider = Player.GetComponent<CapsuleCollider2D>();
         currentState = DefaultState;
         Rb = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
@@ -171,6 +175,11 @@ private float MyAngleDegree;
         {
             MyAngleDegree+=360;
         }   
+
+        if(CurrentHealth <= 0)
+        {
+            timer.bossAlive = false;
+        }
         
         //Debug.Log(MyAngleDegree);
     }
