@@ -7,13 +7,19 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    public float timeRemaining = 10;
+    public float timeRemaining = 90;
     public bool timerIsRunning = false;
     public TextMeshProUGUI timeText;
 
+
+    void Start()
+    {
+        timerIsRunning = false;
+    }
+
     void Update()
     {
-        if (timerIsRunning)
+        if (timerIsRunning == true)
         {
             if (timeRemaining > 0)
             {
@@ -37,17 +43,17 @@ public class Timer : MonoBehaviour
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    void PauseTimer()
+    public void PauseTimer()
     {
         timerIsRunning = false;
     }
 
-    void StartTimer()
+    public void StartTimer()
     {
         timerIsRunning = true;
     }
 
-    void GameOver()
+    public void GameOver()
     {
         SceneManager.LoadScene("LaunchMenu");
     }

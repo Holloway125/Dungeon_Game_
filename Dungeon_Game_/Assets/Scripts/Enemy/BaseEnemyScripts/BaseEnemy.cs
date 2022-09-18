@@ -172,7 +172,7 @@ private float MyAngleDegree;
             MyAngleDegree+=360;
         }   
         
-        Debug.Log(MyAngleDegree);
+        //Debug.Log(MyAngleDegree);
     }
 
         protected virtual void FixedUpdate()

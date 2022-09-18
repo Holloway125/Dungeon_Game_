@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -828,8 +828,8 @@ TextureImporter:
       player_24x24_02_red_moss_16: 1721658498
       player_24x24_02_red_moss_2: -1273781344
       player_24x24_02_red_moss_4: 419047997
-      player_24x24_02_red_moss_19: -1819021164
       player_24x24_02_red_moss_15: -1663782906
+      player_24x24_02_red_moss_19: -1819021164
       player_24x24_02_red_moss_14: 858890401
       player_24x24_02_red_moss_8: -87652043
       player_24x24_02_red_moss_21: 2015415676

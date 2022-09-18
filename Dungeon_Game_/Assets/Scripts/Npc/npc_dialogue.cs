@@ -1,26 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class npc_dialogue : MonoBehaviour
 {
     public GameObject dialogBox;
-    public GameObject dialogText;
+    public TMP_Text dialogText;
     public string dialog;
     public bool playerInRange;
-    public Collider2D dialogRange;
 
+    public Timer timer;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && playerInRange)
+        if(Input.GetKeyDown(KeyCode.E) && playerInRange)
         {
-            if (dialogBox.activeInHierarchy)
+            if(dialogBox.activeInHierarchy)
             {
                 dialogBox.SetActive(false);
             }
             else
             {
+                timer.StartTimer();
                 dialogBox.SetActive(true);
             }
         }
@@ -28,7 +31,7 @@ public class npc_dialogue : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if(other.CompareTag("Player"))
         {
             playerInRange = true;
         }
