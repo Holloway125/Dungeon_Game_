@@ -1997,7 +1997,7 @@ GameObject:
   - component: {fileID: 1241004066464497434}
   - component: {fileID: 451862969000100013}
   - component: {fileID: 4358859265416030546}
-  - component: {fileID: 8166308791304854267}
+  - component: {fileID: 7786453153001808674}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -7015,8 +7015,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!58 &8166308791304854267
-CircleCollider2D:
+--- !u!70 &7786453153001808674
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7028,9 +7028,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.34}
-  serializedVersion: 2
-  m_Radius: 0.2241065
+  m_Offset: {x: 0, y: -0.09}
+  m_Size: {x: 0.45, y: 0.91}
+  m_Direction: 0
 --- !u!1 &2520616499042653449
 GameObject:
   m_ObjectHideFlags: 0
