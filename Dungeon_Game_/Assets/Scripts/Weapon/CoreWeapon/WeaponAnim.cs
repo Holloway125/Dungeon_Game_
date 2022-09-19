@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class WeaponAnim : MonoBehaviour
 {
-    public Animator weaponAnim;
+    [SerializeField]
+    Animator weaponAnim;
     BaseEnemy monster;
     [SerializeField]
     GameObject Player;
@@ -24,17 +25,18 @@ public class WeaponAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if(Input.GetKeyDown(KeyCode.Mouse0) && !weaponAnim.GetBool("attacking"))
         {
-            WeaponAttack(weaponAnim, "swordswing");
+            WeaponAttack(weaponAnim, WR.MouseRotation());
         }
         // if ()
     } 
         //function that will take the animator of each weapon and then the name of the animation to play it when Q is pressed in update
         public void WeaponAttack(Animator anim, string animation)
     {
-        WR.SetAnimationRotation();
-        anim.Play(animation);
+        weaponAnim.SetBool("attacking", true);
+        anim.Play($"{animation}Attack");
+        Debug.Log($"{animation}Attack");
     }
 
         void OnTriggerEnter2D(Collider2D _collider)
@@ -44,5 +46,9 @@ public class WeaponAnim : MonoBehaviour
             monster.TakeDamage((int)c.Damage.Value);
         }
     }
+        public void AttackingBoolFalse()
+        {
+            weaponAnim.SetBool("attacking", false);
+        }
 
 }
