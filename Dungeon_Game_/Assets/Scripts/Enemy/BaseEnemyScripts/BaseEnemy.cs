@@ -176,11 +176,6 @@ private float MyAngleDegree;
             MyAngleDegree+=360;
         }   
 
-        if(CurrentHealth <= 0)
-        {
-            timer.bossAlive = false;
-        }
-        
         //Debug.Log(MyAngleDegree);
     }
 
@@ -366,6 +361,7 @@ private float MyAngleDegree;
         if(CurrentHealth <= 0)
         {
             Anim.SetBool("Death", true);
+            timer.bossAlive = false;
         }
     }
 // Used to Give experience and destroy gameObject in Animator.

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Minotaur : BaseEnemy
 {
-    public Timer timer;
+
     public override IEnumerator Attack()
     {
 return null;

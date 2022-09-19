@@ -30,4 +30,13 @@ base.Start();
 
     }
 
+        void BossDeath()
+    {
+        if(CurrentHealth <= 0)
+        {
+            timer.bossAlive = false;
+        }
+    }
+
+
 }

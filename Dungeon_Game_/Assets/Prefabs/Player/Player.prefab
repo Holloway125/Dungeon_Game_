@@ -2133,7 +2133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage:
-    BaseValue: 6
+    BaseValue: 500
   CritalChance:
     BaseValue: 0
   CritalDamage:

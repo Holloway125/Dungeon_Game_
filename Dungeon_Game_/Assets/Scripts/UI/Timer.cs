@@ -11,7 +11,6 @@ public class Timer : MonoBehaviour
     public bool timerIsRunning = false;
     public TextMeshProUGUI timeText;
     public bool bossAlive = true;
-    public GameObject boss;
 
     public Damage damage;
 
@@ -71,5 +70,6 @@ public class Timer : MonoBehaviour
     {
         damage.Death();
     }
+
 
 }
