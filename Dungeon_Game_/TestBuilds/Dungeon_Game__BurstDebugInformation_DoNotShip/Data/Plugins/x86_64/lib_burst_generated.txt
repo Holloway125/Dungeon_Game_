@@ -135,6 +135,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\Benjamin\Desktop\GitHub\Dungeon_Game_\Dungeon_Game_\Temp\StagingArea\Data\Managed\Unity.VisualScripting.State.dll
 --root-assembly=C:\Users\Benjamin\Desktop\GitHub\Dungeon_Game_\Dungeon_Game_\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Core.dll
 --root-assembly=C:\Users\Benjamin\Desktop\GitHub\Dungeon_Game_\Dungeon_Game_\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
+--root-assembly=C:\Users\Benjamin\Desktop\GitHub\Dungeon_Game_\Dungeon_Game_\Temp\StagingArea\Data\Managed\AstarPathfindingProject.dll
 --root-assembly=C:\Users\Benjamin\Desktop\GitHub\Dungeon_Game_\Dungeon_Game_\Temp\StagingArea\Data\Managed\Unity.Services.Core.Environments.Internal.dll
 --root-assembly=C:\Users\Benjamin\Desktop\GitHub\Dungeon_Game_\Dungeon_Game_\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=C:\Users\Benjamin\Desktop\GitHub\Dungeon_Game_\Dungeon_Game_\Temp\StagingArea\Data\Managed\Unity.2D.Animation.Runtime.dll
@@ -298,6 +299,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\Benjamin\Desktop\GitHub\Dungeon_Game_\Dungeon_Game_\Temp\StagingArea\Data\Managed\Unity.VisualScripting.State.dll
 --root-assembly=C:\Users\Benjamin\Desktop\GitHub\Dungeon_Game_\Dungeon_Game_\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Core.dll
 --root-assembly=C:\Users\Benjamin\Desktop\GitHub\Dungeon_Game_\Dungeon_Game_\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
+--root-assembly=C:\Users\Benjamin\Desktop\GitHub\Dungeon_Game_\Dungeon_Game_\Temp\StagingArea\Data\Managed\AstarPathfindingProject.dll
 --root-assembly=C:\Users\Benjamin\Desktop\GitHub\Dungeon_Game_\Dungeon_Game_\Temp\StagingArea\Data\Managed\Unity.Services.Core.Environments.Internal.dll
 --root-assembly=C:\Users\Benjamin\Desktop\GitHub\Dungeon_Game_\Dungeon_Game_\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=C:\Users\Benjamin\Desktop\GitHub\Dungeon_Game_\Dungeon_Game_\Temp\StagingArea\Data\Managed\Unity.2D.Animation.Runtime.dll

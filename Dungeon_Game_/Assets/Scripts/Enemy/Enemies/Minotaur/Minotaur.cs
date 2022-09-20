@@ -15,7 +15,6 @@ return null;
         CurrentHealth -= damageAmount;
         if(CurrentHealth <= 0)
         {
-            timer.bossAlive = false;
             Death();
         }
     }

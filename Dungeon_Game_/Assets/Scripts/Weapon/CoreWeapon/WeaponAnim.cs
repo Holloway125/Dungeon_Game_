@@ -36,7 +36,6 @@ public class WeaponAnim : MonoBehaviour
     {
         weaponAnim.SetBool("attacking", true);
         anim.Play($"{animation}Attack");
-        Debug.Log($"{animation}Attack");
     }
 
         void OnTriggerEnter2D(Collider2D _collider)

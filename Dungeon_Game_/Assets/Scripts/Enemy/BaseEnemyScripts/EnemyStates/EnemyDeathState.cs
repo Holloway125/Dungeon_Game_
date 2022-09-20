@@ -11,10 +11,10 @@ public override void EnterState(BaseEnemy Enemy)
 
 public override void UpdateState(BaseEnemy Enemy)
 {
-    if (Enemy.CurrentHealth < 0)
-    {
-        Enemy.SwitchState(Enemy.DeathState);
-    }
+    // if (Enemy.CurrentHealth < 0)
+    // {
+    //     Enemy.SwitchState(Enemy.DeathState);
+    // }
 }
 
 }

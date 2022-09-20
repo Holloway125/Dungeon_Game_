@@ -14,7 +14,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-            if(!animator.GetBool("attacking"))
+        
+        if (animator.GetBool("attacking") == true)
+        {
+            animator.SetFloat("Horizontal", 0);
+            animator.SetFloat("Vertical", 0);
+            animator.SetFloat("Speed", 0);      
+            Debug.Log("not excuting");      
+        }
+
+        else if(animator.GetBool("attacking") == false)
         {       
             float movementX = Input.GetAxisRaw("Horizontal");
             float movementY = Input.GetAxisRaw("Vertical");
@@ -22,6 +31,7 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Horizontal", movementX);
             animator.SetFloat("Vertical", movementY);
             animator.SetFloat("Speed", movement.sqrMagnitude);
+            Debug.Log("I am excuting");    
         }
     }
 

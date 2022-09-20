@@ -20,10 +20,10 @@ public override void UpdateState(BaseEnemy Enemy)
         {
             Enemy.AIDestinationSetterScript.target = Enemy.transform.position;
         }
-        if (Enemy.CurrentHealth < 0)
-        {
-        Enemy.SwitchState(Enemy.DeathState);
-        }
+        // if (Enemy.CurrentHealth < 0)
+        // {
+        // Enemy.SwitchState(Enemy.DeathState);
+        // }
 
     }
 

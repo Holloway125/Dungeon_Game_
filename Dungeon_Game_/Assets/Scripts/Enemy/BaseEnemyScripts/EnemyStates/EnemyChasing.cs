@@ -42,10 +42,10 @@ public override void UpdateState(BaseEnemy Enemy)
             Enemy.SwitchState(Enemy.RetreatingState);
             Enemy.Animate("Run");
         }
-        if (Enemy.CurrentHealth < 0)
-        {
-            Enemy.SwitchState(Enemy.DeathState);
-        }
+        // if (Enemy.CurrentHealth < 0)
+        // {
+        //     Enemy.SwitchState(Enemy.DeathState);
+        // }
     }
 
 }

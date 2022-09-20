@@ -33,8 +33,6 @@ public abstract class BaseEnemy : MonoBehaviour
     public AIPath movement;
     [HideInInspector]
     public AIDestinationSetter AIDestinationSetterScript;
-    [HideInInspector]
-    public Timer timer;
 
     [Space]
 // Set in Inspector used for attacking Player.
@@ -130,7 +128,6 @@ public abstract class BaseEnemy : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
         movement = GetComponent<AIPath>();
         movement.maxSpeed = Speed;
-        timer = GetComponent<Timer>();
         LevelSystem = Player.GetComponent<LevelSystem>();
         DamageScript = Player.GetComponent<Damage>();
         PlayerCollider = Player.GetComponent<CapsuleCollider2D>();
@@ -360,8 +357,7 @@ private float MyAngleDegree;
         CurrentHealth -= damageAmount;
         if(CurrentHealth <= 0)
         {
-            Anim.SetBool("Death", true);
-            timer.bossAlive = false;
+            SwitchState(DeathState);
         }
     }
 // Used to Give experience and destroy gameObject in Animator.
@@ -371,8 +367,8 @@ private float MyAngleDegree;
         Destroy(gameObject);
     }
 
-    public virtual void DestroySuspect(GameObject Suspect)
-    {
-        Destroy(Suspect);
-    }
+    // public virtual void DestroySuspect(GameObject Suspect)
+    // {
+    //     Destroy(Suspect);
+    // }
 }
