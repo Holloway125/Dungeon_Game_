@@ -2177,7 +2177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b68e33b756b164496621ad95ed8338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillPoints: 5
   playerXp: 0
   totalXp: 0
   playerLvl: 0
@@ -6966,12 +6965,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -7060,7 +7059,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: beb1342d9d4f225468e6b7a8e76c361a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 

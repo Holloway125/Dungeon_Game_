@@ -18,10 +18,6 @@ public class PlayerResource : MonoBehaviour
     public Slider healthSlider;
     public TMP_Text healthText;
 
-    //energy properties
-    public Slider Energy;
-    public TMP_Text energyText;
-
     //stamina properties
     public Slider staminaSlider;
     public TMP_Text staminaText;
@@ -32,16 +28,6 @@ public class PlayerResource : MonoBehaviour
         currentHealth = maxHealth;
         healthText.SetText($"{currentHealth.ToString()} / {maxHealth.ToString()}");          
     }
-
-    void Update()
-      {     
-        /* 
-            if (Input.GetKeyDown(KeyCode.Keypad1))
-          {
-              TakeDamage(20);
-          }
-        */
-      }
 
     void FixedUpdate()
     {

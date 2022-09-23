@@ -8,14 +8,6 @@ using TMPro;
 public class LevelSystem : MonoBehaviour
 {
     
-    [SerializeField]
-    private int _skillPoints;
-    public int SkillPoints
-    {
-        get { return _skillPoints; }
-        set { _skillPoints = value; }
-    }
-
     public int playerXp;//current running total
     public int totalXp;//total xp needed to lvl
     public int playerLvl;
@@ -39,7 +31,6 @@ public class LevelSystem : MonoBehaviour
     {
         PlayerResource playerResource = player.GetComponent<PlayerResource>();
         playerLvl++;
-        SkillPoints++;
         playerResource.SetMaxHealth(50+(playerLvl*5)); //increases health by 5 everytime playerlvls
         lvlText.SetText(playerLvl.ToString());
         int oldTotal = totalXp; // holds previous lvls totalxp value

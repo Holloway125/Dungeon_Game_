@@ -40,7 +40,7 @@ public class Timer : MonoBehaviour
             }
             
         }
-
+        
     }
 
     void DisplayTime(float timeToDisplay)
