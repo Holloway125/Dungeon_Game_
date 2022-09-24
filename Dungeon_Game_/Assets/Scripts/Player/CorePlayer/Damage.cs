@@ -17,12 +17,12 @@ public class Damage : MonoBehaviour
         {
         playerResource.currentHealth -= damage;
         playerResource.SetHealth(playerResource.currentHealth);
-        playerResource.healthText.SetText($"{Mathf.RoundToInt(playerResource.currentHealth).ToString()} / {playerResource.maxHealth.ToString()}");
+        playerResource.healthText.text = ($"{Mathf.RoundToInt(playerResource.currentHealth).ToString()}");
         }
-         else
-         {
-             Death();
-         }
+        else
+        {
+            Death();
+        }
     }
 
         public void Death() //sets current health to 0 plays death animation puts up return to title canvas and stops all movement
@@ -30,7 +30,7 @@ public class Damage : MonoBehaviour
         playerResource.currentHealth = 0;
         playerResource.SetHealth(playerResource.currentHealth);
 
-        playerResource.healthText.SetText($"{playerResource.currentHealth.ToString()} / {playerResource.maxHealth.ToString()}");
+        playerResource.healthText.text = ($"{playerResource.currentHealth.ToString()} / {playerResource.maxHealth.ToString()}");
         //play death animation
         playerResource.rb.constraints = RigidbodyConstraints2D.FreezeAll;
         playerResource._animator.SetTrigger("death");

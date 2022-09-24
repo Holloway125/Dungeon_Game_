@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using UnityEngine.Animations;
 
 public class PlayerResource : MonoBehaviour
@@ -15,43 +14,42 @@ public class PlayerResource : MonoBehaviour
     //health properties
     public float maxHealth = 100;
     public float currentHealth;
-    public Slider healthSlider;
-    public TMP_Text healthText;
+    public Image healthSlider;
+    public Text healthText;
 
     //stamina properties
-    public Slider staminaSlider;
-    public TMP_Text staminaText;
+    public Image staminaSlider;
+    public Text staminaText;
 
     void Start()
     {
         SetMaxHealth(maxHealth);  
         currentHealth = maxHealth;
-        healthText.SetText($"{currentHealth.ToString()} / {maxHealth.ToString()}");          
+        healthText.text = ($"{maxHealth.ToString()}");      
     }
 
     void FixedUpdate()
     {
-        staminaSlider.value += .2f;
-        int currentStamina = Mathf.RoundToInt(staminaSlider.value);
-        staminaText.SetText($"{currentStamina.ToString()} / {staminaSlider.maxValue.ToString()}");
+        staminaSlider.fillAmount += .002f;
+        int currentStamina = Mathf.RoundToInt(staminaSlider.fillAmount*100);
+        staminaText.text = ($"{currentStamina.ToString()}");
     }
 
-    public void SetMaxHealth(float Health) //input max health property or new maxhealth value
+    public void SetMaxHealth(float Health) //input max health property or new maxhealth fillAmount
     {
         maxHealth = Health;
-        healthSlider.maxValue = Health;
-        healthSlider.value = Health;
+        healthSlider.fillAmount = 1;
     }
 
-    public void SetHealth(float Health) // input current health property for setting new health value after taking damage or put in maxHealth to set current health to max;
+    public void SetHealth(float Health) // input current health property for setting new health fillAmount after taking damage or put in maxHealth to set current health to max;
     {
-        if (Health > healthSlider.maxValue)
+        if (Health/maxHealth*100 > healthSlider.fillAmount)
         {
-            healthSlider.value = healthSlider.maxValue;
+            healthSlider.fillAmount = healthSlider.fillAmount;
         }
         else
         {
-        healthSlider.value = Health;
+        healthSlider.fillAmount = Health;
         }
     }
     

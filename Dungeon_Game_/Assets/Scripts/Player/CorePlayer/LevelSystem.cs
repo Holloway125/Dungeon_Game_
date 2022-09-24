@@ -11,16 +11,16 @@ public class LevelSystem : MonoBehaviour
     public int playerXp;//current running total
     public int totalXp;//total xp needed to lvl
     public int playerLvl;
-    public TMP_Text lvlText;
-    public Slider expBar;
+    public Text lvlText;
+    public Image expBar;
 
     private GameObject player; 
 
     void Awake()
     {
         player = GameObject.Find("Player");
-        expBar.value = playerXp;
-        expBar.maxValue = totalXp; 
+        expBar.fillAmount = playerXp;
+        expBar.fillAmount = totalXp; 
         totalXp = 100;  
         playerXp = 0;
         playerLvl = 1;
@@ -32,8 +32,8 @@ public class LevelSystem : MonoBehaviour
         PlayerResource playerResource = player.GetComponent<PlayerResource>();
         playerLvl++;
         playerResource.SetMaxHealth(50+(playerLvl*5)); //increases health by 5 everytime playerlvls
-        lvlText.SetText(playerLvl.ToString());
-        int oldTotal = totalXp; // holds previous lvls totalxp value
+        lvlText.text = (playerLvl.ToString());
+        int oldTotal = totalXp; // holds previous lvls totalxp fillAmount
         totalXp = totalXp * 2; //exp curve... change later
 
         if(playerXp>=totalXp) //levels up until playerXp is less than totalxp
@@ -42,18 +42,18 @@ public class LevelSystem : MonoBehaviour
         }
         else
         {
-        expBar.maxValue = totalXp - oldTotal;
-        expBar.value = playerXp - oldTotal;
+        expBar.fillAmount = totalXp - oldTotal;
+        expBar.fillAmount = playerXp - oldTotal;
         }
         //must use playerResource to get health properties
-        playerResource.SetHealth(playerResource.healthSlider.maxValue);
+        playerResource.SetHealth(playerResource.healthSlider.fillAmount);
         playerResource.currentHealth = playerResource.maxHealth;
-        playerResource.healthText.SetText($"{playerResource.currentHealth.ToString()} / {playerResource.maxHealth.ToString()}");          
+        playerResource.healthText.text = ($"{playerResource.currentHealth.ToString()} / {playerResource.maxHealth.ToString()}");          
     }
     public void GainExperience(int exp)
         {
         playerXp += exp;
-        expBar.value += exp;
+        expBar.fillAmount += exp;
             if (playerXp >= totalXp)
                 {    
                     LevelUP();

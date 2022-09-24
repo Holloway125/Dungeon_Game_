@@ -11,10 +11,10 @@ public class Dash : Ability
         ParticleSystem effect = parent.GetComponent<ParticleSystem>();
         PlayerResource playerResource = parent.GetComponent<PlayerResource>();
         PlayerController movement = parent.GetComponent<PlayerController>();
-        if(playerResource.staminaSlider.value >=20f)
+        if(playerResource.staminaSlider.fillAmount >=.2f)
         {
         movement.speed = movement.speed * dashVelocity;
-        playerResource.staminaSlider.value -= 20f;
+        playerResource.staminaSlider.fillAmount -= .2f;
         effect.Play();
         }
      }
