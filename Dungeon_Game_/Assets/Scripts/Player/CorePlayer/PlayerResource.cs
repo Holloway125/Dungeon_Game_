@@ -22,8 +22,7 @@ public class PlayerResource : MonoBehaviour
     public Text staminaText;
 
     void Start()
-    {
-        SetMaxHealth(maxHealth);  
+    { 
         currentHealth = maxHealth;
         healthText.text = ($"{maxHealth.ToString()}");      
     }
@@ -33,24 +32,6 @@ public class PlayerResource : MonoBehaviour
         staminaSlider.fillAmount += .002f;
         int currentStamina = Mathf.RoundToInt(staminaSlider.fillAmount*100);
         staminaText.text = ($"{currentStamina.ToString()}");
-    }
-
-    public void SetMaxHealth(float Health) //input max health property or new maxhealth fillAmount
-    {
-        maxHealth = Health;
-        healthSlider.fillAmount = 1;
-    }
-
-    public void SetHealth(float Health) // input current health property for setting new health fillAmount after taking damage or put in maxHealth to set current health to max;
-    {
-        if (Health/maxHealth*100 > healthSlider.fillAmount)
-        {
-            healthSlider.fillAmount = healthSlider.fillAmount;
-        }
-        else
-        {
-        healthSlider.fillAmount = Health;
-        }
     }
     
     public void TimeStop() // Needed for death Animation

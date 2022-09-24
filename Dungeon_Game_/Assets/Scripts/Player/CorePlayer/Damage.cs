@@ -16,7 +16,6 @@ public class Damage : MonoBehaviour
         if(playerResource.currentHealth > damage)
         {
         playerResource.currentHealth -= damage;
-        playerResource.SetHealth(playerResource.currentHealth);
         playerResource.healthText.text = ($"{Mathf.RoundToInt(playerResource.currentHealth).ToString()}");
         }
         else
@@ -28,7 +27,6 @@ public class Damage : MonoBehaviour
         public void Death() //sets current health to 0 plays death animation puts up return to title canvas and stops all movement
     {
         playerResource.currentHealth = 0;
-        playerResource.SetHealth(playerResource.currentHealth);
 
         playerResource.healthText.text = ($"{playerResource.currentHealth.ToString()} / {playerResource.maxHealth.ToString()}");
         //play death animation

@@ -167,10 +167,10 @@ MonoBehaviour:
   IgnoreTheseLayers:
     serializedVersion: 2
     m_Bits: 280
-  EnemyMaxHealth: 150
-  CurrentHealth: 25
+  EnemyMaxHealth: 5
+  CurrentHealth: 5
   Speed: 1
-  ChallengeLevel: 1
+  expGiven: 150
   Anim: {fileID: 0}
   Player: {fileID: 0}
   DamageScript: {fileID: 0}
@@ -187,8 +187,8 @@ MonoBehaviour:
   AttackDamaage: 20
   AttackCooldown: 5
   HasContactAttack: 1
-  ContactDamage: 5
-  ContactAttackCooldown: 0.1
+  ContactDamage: 1
+  ContactAttackCooldown: 1
   IsCollided: 0
   PlayerCollider: {fileID: 0}
   IsInAttackRange: 0

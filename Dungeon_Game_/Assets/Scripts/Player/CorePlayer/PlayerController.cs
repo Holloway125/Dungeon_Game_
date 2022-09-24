@@ -18,8 +18,6 @@ public class PlayerController : MonoBehaviour
         if (animator.GetBool("attacking") == true)
         {
             speed = 0f;  
-            Debug.Log("not excuting");  
-
         }
 
         else if(animator.GetBool("attacking") == false)
@@ -28,7 +26,6 @@ public class PlayerController : MonoBehaviour
             float movementX = Input.GetAxisRaw("Horizontal");
             float movementY = Input.GetAxisRaw("Vertical");
             movement = new Vector2(movementX, movementY).normalized;
-            Debug.Log("I am excuting");    
         }
     }
 

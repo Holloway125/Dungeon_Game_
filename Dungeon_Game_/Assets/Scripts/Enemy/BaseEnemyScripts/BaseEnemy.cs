@@ -17,7 +17,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public float EnemyMaxHealth;   
     public float CurrentHealth;
     public float Speed;
-    public int ChallengeLevel;
+    public int expGiven;
 // Defined on Awake/Start/Update/FixedUpdate Functions.
     [HideInInspector]
     public Animator Anim;
@@ -140,11 +140,7 @@ public abstract class BaseEnemy : MonoBehaviour
         Home = this.transform.position;
         AIDestinationSetterScript.target = Home;
         CurrentHealth = EnemyMaxHealth;
-    
-        if(ChallengeLevel >= 0 )
-        {
-            ChallengeLevel = 1;        
-        }
+
 
     }
         protected virtual void Start()
@@ -319,7 +315,8 @@ private float MyAngleDegree;
         {
             while(IsCollided)
             {
-                 DamageScript.TakeDamage(ContactDamage); 
+                Debug.Log("Made Contact with player");
+                DamageScript.TakeDamage(ContactDamage); 
                 yield return new WaitForSeconds(ContactAttackCooldown);
             }
             yield return null;
@@ -363,7 +360,7 @@ private float MyAngleDegree;
 // Used to Give experience and destroy gameObject in Animator.
         public virtual void Death()
     {
-        LevelSystem.GainExperience(ChallengeLevel+LevelSystem.playerLvl*100);
+        LevelSystem.GainExperience(expGiven);
         Destroy(gameObject);
     }
 
