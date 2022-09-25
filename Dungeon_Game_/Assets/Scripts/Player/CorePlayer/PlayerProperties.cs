@@ -15,7 +15,6 @@ public class PlayerProperties : MonoBehaviour
             if (value >= 0 && value <= 30)
             {
                 _speed = value;
-                Debug.Log("SetSpeed");
             }
         }
     }
