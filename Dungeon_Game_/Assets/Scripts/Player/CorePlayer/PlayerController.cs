@@ -12,26 +12,31 @@ public class PlayerController : MonoBehaviour
     public Vector2 movement;
     public PlayerProperties playerproperties;
 
+    void Attacking()
+    {
+        animator.SetBool("attacking", true);
+        playerproperties.Speed = 0;
+    }
+
+    void StopAttacking()
+    {
+        animator.SetBool("attacking", false);
+        playerproperties.Speed = 5;       
+    }
 
     void Update()
     {
-        
-        if (animator.GetBool("attacking") == true)
-        {
-        playerproperties.Speed = 0;
-        }
-
-        else if(animator.GetBool("attacking") == false)
-        {       
-            float movementX = Input.GetAxisRaw("Horizontal");
-            float movementY = Input.GetAxisRaw("Vertical");
-            movement = new Vector2(movementX, movementY).normalized;
-        }
+        float movementX = Input.GetAxisRaw("Horizontal");
+        float movementY = Input.GetAxisRaw("Vertical");
+        movement = new Vector2(movementX, movementY).normalized;
+        animator.SetFloat("Horizontal", movementX);
+        animator.SetFloat("Vertical", movementY);
+        animator.SetFloat("Speed", movement.sqrMagnitude); 
     }
 
     void FixedUpdate() 
     {
-            rb.velocity = new Vector2(movement.x * playerproperties.Speed, movement.y * playerproperties.Speed);        
+        rb.velocity = new Vector2(movement.x * playerproperties.Speed, movement.y * playerproperties.Speed);        
     }
 
 }
