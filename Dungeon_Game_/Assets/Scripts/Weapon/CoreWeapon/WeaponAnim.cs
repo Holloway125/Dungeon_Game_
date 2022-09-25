@@ -29,12 +29,10 @@ public class WeaponAnim : MonoBehaviour
         {
             WeaponAttack(weaponAnim, WR.MouseRotation());
         }
-        // if ()
     } 
         //function that will take the animator of each weapon and then the name of the animation to play it when Q is pressed in update
         public void WeaponAttack(Animator anim, string animation)
     {
-        weaponAnim.SetBool("attacking", true);
         anim.Play($"{animation}Attack");
     }
 
@@ -45,9 +43,5 @@ public class WeaponAnim : MonoBehaviour
             monster.TakeDamage((int)c.Damage.Value);
         }
     }
-        public void AttackingBoolFalse()
-        {
-            weaponAnim.SetBool("attacking", false);
-        }
 
 }

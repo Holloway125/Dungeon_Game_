@@ -1045,7 +1045,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1234
+  m_Text: 100
 --- !u!114 &4884672640250015441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1141,7 +1141,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1234
+  m_Text: 100
 --- !u!114 &4446756918477840155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3048,12 +3048,13 @@ GameObject:
   - component: {fileID: 2346509203010142849}
   - component: {fileID: 3995036121498226227}
   - component: {fileID: 3342239755756748632}
-  - component: {fileID: 697684878707762847}
-  - component: {fileID: 3872876474892839518}
-  - component: {fileID: 5691024010143345621}
+  - component: {fileID: 1489136273}
   - component: {fileID: 5896024090619803072}
   - component: {fileID: 3448304651373937805}
+  - component: {fileID: 5691024010143345621}
   - component: {fileID: 7218383885916422570}
+  - component: {fileID: 697684878707762847}
+  - component: {fileID: 3872876474892839518}
   - component: {fileID: 720812701271881332}
   - component: {fileID: 5087471818677037076}
   - component: {fileID: 1241004066464497434}
@@ -3114,6 +3115,92 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b0a2427bc937c47b2a69f4f863c0bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1489136273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2466084335914140134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb010c8351988f14faea35bae41e6b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage:
+    BaseValue: 10
+  CritalChance:
+    BaseValue: 0
+  CritalDamage:
+    BaseValue: 0
+  AttackSpeed:
+    BaseValue: 0
+  Defense:
+    BaseValue: 0
+--- !u!114 &5896024090619803072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2466084335914140134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133318a436ada4e4388691340d1116a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1241004066464497434}
+  _animator: {fileID: 4358859265416030546}
+  youLose: {fileID: 9054966811847209974}
+  maxHealth: 100
+  currentHealth: 100
+  healthSlider: {fileID: 7049989854676285882}
+  healthText: {fileID: 8742285712178286437}
+  staminaSlider: {fileID: 6762264409990920907}
+  staminaText: {fileID: 7157465271619004244}
+--- !u!114 &3448304651373937805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2466084335914140134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b68e33b756b164496621ad95ed8338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerXp: 0
+  totalXp: 0
+  playerLvl: 0
+  lvlText: {fileID: 8827051644862106811}
+  expBar: {fileID: 1956730947516105603}
+--- !u!114 &5691024010143345621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2466084335914140134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d2cb0d287b5794e9a81ac514e3a1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: b6c9fd313e773484c970303946392c19, type: 2}
+  key: 32
+--- !u!114 &7218383885916422570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2466084335914140134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e1115362ab172740b1c83c0df4c5b04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &697684878707762847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3142,70 +3229,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 6430465057328727485}
   player: {fileID: 2466084335914140134}
---- !u!114 &5691024010143345621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2466084335914140134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32d2cb0d287b5794e9a81ac514e3a1c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: b6c9fd313e773484c970303946392c19, type: 2}
-  key: 32
---- !u!114 &5896024090619803072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2466084335914140134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133318a436ada4e4388691340d1116a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 1241004066464497434}
-  _animator: {fileID: 4358859265416030546}
-  youLose: {fileID: 0}
-  maxHealth: 50
-  currentHealth: 100
-  healthSlider: {fileID: 7049989854676285882}
-  healthText: {fileID: 8742285712178286437}
-  staminaSlider: {fileID: 6762264409990920907}
-  staminaText: {fileID: 7157465271619004244}
---- !u!114 &3448304651373937805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2466084335914140134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7b68e33b756b164496621ad95ed8338, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerXp: 0
-  totalXp: 0
-  playerLvl: 0
-  lvlText: {fileID: 8827051644862106811}
-  expBar: {fileID: 1956730947516105603}
---- !u!114 &7218383885916422570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2466084335914140134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e1115362ab172740b1c83c0df4c5b04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &720812701271881332
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3892,7 +3915,7 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0.5, z: 0}
+    m_Position: {x: 0, y: -0.06, z: 0}
     m_Rotation: {x: -0, y: 0, z: 0}
     m_Scale: {x: 0.01, y: 0.01, z: 1}
     placementMode: 0
@@ -8107,9 +8130,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.71, y: 0}
+  m_Offset: {x: 0, y: -0.06}
   serializedVersion: 2
-  m_Radius: 0.22
+  m_Radius: 0.53
 --- !u!1 &2562790188697539815
 GameObject:
   m_ObjectHideFlags: 0
@@ -8428,7 +8451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2994213713304687969}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8458,7 +8481,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
+  near clip plane: -1
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -8499,9 +8522,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 32
-  m_RefResolutionX: 1920
-  m_RefResolutionY: 1080
-  m_UpscaleRT: 0
+  m_RefResolutionX: 640
+  m_RefResolutionY: 360
+  m_UpscaleRT: 1
   m_PixelSnapping: 0
   m_CropFrameX: 0
   m_CropFrameY: 0
@@ -8541,7 +8564,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -66.767, y: 525.07}
+  m_AnchoredPosition: {x: -55.510406, y: 51.29248}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5383869970070103453
@@ -11220,7 +11243,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.534
+  m_FillAmount: 0.6
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -11495,7 +11518,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.74404, y: 515.78}
+  m_AnchoredPosition: {x: 12.000631, y: 42.002502}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5668353690661338656
@@ -11636,8 +11659,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960, y: 540}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchoredPosition: {x: 960, y: 1012.9}
+  m_SizeDelta: {x: 481.3168, y: 134.2937}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5668353691715678670
 Canvas:
@@ -11716,6 +11739,7 @@ MonoBehaviour:
   timerIsRunning: 0
   timeText: {fileID: 6300699243151986282}
   bossAlive: 1
+  damage: {fileID: 7218383885916422570}
 --- !u!222 &5911576121646209932
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13166,7 +13190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.7434, y: 515.7775}
+  m_AnchoredPosition: {x: 12, y: 42}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4837351756469251381
@@ -16069,7 +16093,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -655.3, y: -44.3}
+  m_AnchoredPosition: {x: -655.30005, y: -44.30005}
   m_SizeDelta: {x: 72.457, y: 68.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7771758324886049746

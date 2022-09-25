@@ -10,9 +10,9 @@ public static bool GameIsPaused = false;
 
 public GameObject pauseMenu;
 public GameObject settingsPanel;
-public GameObject charPanel;
-public GameObject invPanel;
-public GameObject logPanel;
+// public GameObject charPanel;
+// public GameObject invPanel;
+// public GameObject logPanel;
 
 
 void Update()
@@ -31,52 +31,52 @@ void Update()
         }
     }
 
-        if(Input.GetKeyDown(KeyCode.Tab))
-    {
-        if (GameIsPaused)
-        {
+    //     if(Input.GetKeyDown(KeyCode.Tab))
+    // {
+    //     if (GameIsPaused)
+    //     {
 
-            Resume();
+    //         Resume();
             
-        }else
-        {
-            PauseInv();
-        }
-    }
+    //     }else
+    //     {
+    //         PauseInv();
+    //     }
+    // }
 
-            if(Input.GetKeyDown(KeyCode.C))
-    {
-        if (GameIsPaused)
-        {
+    //         if(Input.GetKeyDown(KeyCode.C))
+    // {
+    //     if (GameIsPaused)
+    //     {
 
-            Resume();
-        }else
-        {
-            PauseChar();
-        }
-    }
+    //         Resume();
+    //     }else
+    //     {
+    //         PauseChar();
+    //     }
+    // }
 
-            if(Input.GetKeyDown(KeyCode.L))
-    {
+    //         if(Input.GetKeyDown(KeyCode.L))
+    // {
         
-        if (GameIsPaused)
-        {
+    //     if (GameIsPaused)
+    //     {
 
-            Resume();
-        }else
-        {
-            PauseLog();
-        }
-    }
+    //         Resume();
+    //     }else
+    //     {
+    //         PauseLog();
+    //     }
+    // }
 }
 
 public void Resume()
 {
     settingsPanel.SetActive(false);
     pauseMenu.SetActive(false);
-    invPanel.SetActive(false);
-    charPanel.SetActive(false);
-    logPanel.SetActive(false);
+    // invPanel.SetActive(false);
+    // charPanel.SetActive(false);
+    // logPanel.SetActive(false);
     Time.timeScale = 1f;
     GameIsPaused = false;
 
@@ -96,29 +96,29 @@ void PauseMenu()
     GameIsPaused = true;
 }
 
-public void PauseInv()
-{
+// public void PauseInv()
+// {
     
-    invPanel.SetActive(true);
-    Time.timeScale = 0f;
-    GameIsPaused = true;
-}
+//     invPanel.SetActive(true);
+//     Time.timeScale = 0f;
+//     GameIsPaused = true;
+// }
 
-public void PauseChar()
-{
+// public void PauseChar()
+// {
     
-    charPanel.SetActive(true);
-    Time.timeScale = 0f;
-    GameIsPaused = true;
-}
+//     charPanel.SetActive(true);
+//     Time.timeScale = 0f;
+//     GameIsPaused = true;
+// }
 
 
-public void PauseLog()
-{
+// public void PauseLog()
+// {
     
-    logPanel.SetActive(true);
-    Time.timeScale = 0f;
-    GameIsPaused = true;
-}
+//     logPanel.SetActive(true);
+//     Time.timeScale = 0f;
+//     GameIsPaused = true;
+// }
 
 }
