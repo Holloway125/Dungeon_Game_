@@ -14,6 +14,10 @@ public class Timer : MonoBehaviour
 
     public Damage damage;
 
+    void Awake()
+    {
+
+    }
     void Start()
     {
         timerIsRunning = false; 

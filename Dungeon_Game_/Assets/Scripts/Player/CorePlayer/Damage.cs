@@ -27,8 +27,7 @@ public class Damage : MonoBehaviour
         public void Death() //sets current health to 0 plays death animation puts up return to title canvas and stops all movement
     {
         playerResource.currentHealth = 0;
-
-        playerResource.healthText.text = ($"{playerResource.currentHealth.ToString()} / {playerResource.maxHealth.ToString()}");
+        playerResource.healthText.text = ($"{playerResource.currentHealth.ToString()}");
         //play death animation
         playerResource.rb.constraints = RigidbodyConstraints2D.FreezeAll;
         playerResource._animator.SetTrigger("death");

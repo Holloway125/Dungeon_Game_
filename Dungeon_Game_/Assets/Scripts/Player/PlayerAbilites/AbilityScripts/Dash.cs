@@ -26,8 +26,6 @@ public class Dash : Ability
         playerproperties.Speed = 25f;
         playerResource.staminaSlider.fillAmount -= .2f;
         effect.Play();
-        Debug.Log("Dash Active");
-        Debug.Log(playerproperties.Speed);
         }
      }
 
