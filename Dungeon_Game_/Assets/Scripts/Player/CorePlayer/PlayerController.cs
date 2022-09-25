@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
 
         else if(animator.GetBool("attacking") == false)
         {       
-            playerproperties.Speed = 5;
             float movementX = Input.GetAxisRaw("Horizontal");
             float movementY = Input.GetAxisRaw("Vertical");
             movement = new Vector2(movementX, movementY).normalized;
