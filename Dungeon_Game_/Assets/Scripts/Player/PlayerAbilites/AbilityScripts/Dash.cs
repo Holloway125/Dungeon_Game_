@@ -4,18 +4,30 @@ using UnityEngine;
 
 public class Dash : Ability
 {
-    public float dashVelocity;
+
+      PlayerController movement;
+      PlayerResource playerResource;
+      ParticleSystem effect;
+      GameObject parent;
+      PlayerProperties playerproperties;
+
 
     public override void Activate(GameObject parent)
-     {
-        ParticleSystem effect = parent.GetComponent<ParticleSystem>();
-        PlayerResource playerResource = parent.GetComponent<PlayerResource>();
-        PlayerController movement = parent.GetComponent<PlayerController>();
+     {  
+
+         parent = GameObject.Find("Player");
+         playerproperties = parent.GetComponent<PlayerProperties>();
+         effect = parent.GetComponent<ParticleSystem>();
+         playerResource = parent.GetComponent<PlayerResource>();
+         movement = parent.GetComponent<PlayerController>();
+
         if(playerResource.staminaSlider.fillAmount >=.2f)
         {
-        movement.speed = movement.speed * dashVelocity;
+        playerproperties.Speed = 25f;
         playerResource.staminaSlider.fillAmount -= .2f;
         effect.Play();
+        Debug.Log("Dash Active");
+        Debug.Log(playerproperties.Speed);
         }
      }
 
@@ -24,7 +36,7 @@ public class Dash : Ability
         ParticleSystem effect = player.GetComponent<ParticleSystem>(); 
         TrailRenderer dashEffect = player.GetComponent<TrailRenderer>();
         PlayerController movement = player.GetComponent<PlayerController>();
-        movement.speed = 8f;
+        playerproperties.Speed = 5;
         effect.Stop();
      }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class AbilityHolder : MonoBehaviour
 {
     public Ability ability;
+
     float cooldownTime;
     float activeTime;
     enum AbilityState 
@@ -29,7 +30,6 @@ public class AbilityHolder : MonoBehaviour
                 ability.Activate(gameObject);
                 state = AbilityState.active;
                 activeTime = ability.activeTime;
-
             }
 
             break;
