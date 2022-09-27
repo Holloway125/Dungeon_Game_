@@ -24,7 +24,7 @@ public abstract class BaseEnemy : MonoBehaviour
     [HideInInspector]
     public GameObject Player;
     [HideInInspector]
-    public Damage DamageScript;
+    public PlayerResource playerResource;
     [HideInInspector]
     public LevelSystem LevelSystem;
     [HideInInspector]
@@ -129,7 +129,7 @@ public abstract class BaseEnemy : MonoBehaviour
         movement = GetComponent<AIPath>();
         movement.maxSpeed = Speed;
         LevelSystem = Player.GetComponent<LevelSystem>();
-        DamageScript = Player.GetComponent<Damage>();
+        playerResource = Player.GetComponent<PlayerResource>();
         PlayerCollider = Player.GetComponent<CapsuleCollider2D>();
         currentState = DefaultState;
         Rb = GetComponent<Rigidbody2D>();
@@ -316,7 +316,7 @@ private float MyAngleDegree;
             while(IsCollided)
             {
                 Debug.Log("Made Contact with player");
-                DamageScript.TakeDamage(ContactDamage); 
+                playerResource.TakeDamage(ContactDamage); 
                 yield return new WaitForSeconds(ContactAttackCooldown);
             }
             yield return null;

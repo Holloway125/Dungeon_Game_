@@ -38,4 +38,29 @@ public class PlayerResource : MonoBehaviour
     {
         Time.timeScale = 0f;
     } 
+
+    public void TakeDamage(float damage) 
+    {
+        if(currentHealth > damage)
+        {
+        currentHealth -= damage;
+        healthSlider.fillAmount = currentHealth/maxHealth;
+        healthText.text = ($"{Mathf.RoundToInt(currentHealth).ToString()}");
+        }
+        else
+        {
+            Death();
+        }
+    }
+
+    public void Death() //sets current health to 0 plays death animation puts up return to title canvas and stops all movement
+    {
+        currentHealth = 0;
+        healthText.text = ($"{currentHealth.ToString()}");
+        //play death animation
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        _animator.SetTrigger("death");
+        youLose.SetActive(true);
+    
+    }
 }

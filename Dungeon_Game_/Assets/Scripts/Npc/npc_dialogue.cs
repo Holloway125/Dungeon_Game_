@@ -6,7 +6,7 @@ using TMPro;
 
 public class npc_dialogue : MonoBehaviour
 {
-    public GameObject dialogBox;
+    public GameObject chatBox;
     public TMP_Text dialogText;
     public string dialog;
     public bool playerInRange;
@@ -17,14 +17,14 @@ public class npc_dialogue : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && playerInRange)
         {
-            if(dialogBox.activeInHierarchy)
+            if(chatBox.activeInHierarchy)
             {
-                dialogBox.SetActive(false);
+                chatBox.SetActive(false);
             }
             else
             {
                 timer.StartTimer();
-                dialogBox.SetActive(true);
+                chatBox.SetActive(true);
             }
         }
     }
@@ -42,7 +42,7 @@ public class npc_dialogue : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            dialogBox.SetActive(false);
+            chatBox.SetActive(false);
         }
     }
 }
