@@ -4,11 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class FirstBoss : BaseEnemy
 {
-
-    public void WinConditionMet()
+    public override void Death()
     {
-        SceneManager.LoadScene("WinScene");
-    }
 
+        timer.YouWin();
 
+    }        
 }

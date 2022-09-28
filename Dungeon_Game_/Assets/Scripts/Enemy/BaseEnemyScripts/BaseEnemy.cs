@@ -30,6 +30,8 @@ public abstract class BaseEnemy : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D Rb;
     [HideInInspector]
+    public Timer timer;
+    [HideInInspector]
     public AIPath movement;
     [HideInInspector]
     public AIDestinationSetter AIDestinationSetterScript;
@@ -104,6 +106,8 @@ public abstract class BaseEnemy : MonoBehaviour
     public bool HasAbility2;
     public EnemyAbilityHolder Ability;
     public EnemyAbilityHolder Ability2;
+    public bool isBoss;
+    
     
 
 
@@ -133,6 +137,7 @@ public abstract class BaseEnemy : MonoBehaviour
         PlayerCollider = Player.GetComponent<CapsuleCollider2D>();
         currentState = DefaultState;
         Rb = GetComponent<Rigidbody2D>();
+        timer = Player.GetComponent<Timer>();
         Anim = GetComponent<Animator>();
         AIDestinationSetterScript = GetComponent<AIDestinationSetter>();
         Vector3 dir = new Vector3(-21, 18, 0);

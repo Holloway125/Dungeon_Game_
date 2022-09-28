@@ -10,7 +10,6 @@ public class Timer : MonoBehaviour
     public float timeRemaining = 90;
     public bool timerIsRunning = false;
     public TextMeshProUGUI timeText;
-    public bool bossAlive = true;
 
     GameObject player; 
     PlayerResource playerResource;
@@ -27,14 +26,9 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        if (timerIsRunning == true && bossAlive == true)
+        if (timerIsRunning == true)
         {
-            if (timeRemaining > 0 && bossAlive == false)
-            {
-                YouWin();
-            }
-
-            else if (timeRemaining > 0)
+            if (timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
                 DisplayTime(timeRemaining);
@@ -69,6 +63,7 @@ public class Timer : MonoBehaviour
 
     public void YouWin()
     {
+        //PauseTimer()
         SceneManager.LoadScene("LaunchMenu");
     }
 
