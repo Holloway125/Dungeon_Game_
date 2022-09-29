@@ -11837,8 +11837,6 @@ MonoBehaviour:
   timeRemaining: 10
   timerIsRunning: 0
   timeText: {fileID: 6300699243151986282}
-  bossAlive: 1
-  damage: {fileID: 0}
 --- !u!222 &5911576121646209932
 CanvasRenderer:
   m_ObjectHideFlags: 0
