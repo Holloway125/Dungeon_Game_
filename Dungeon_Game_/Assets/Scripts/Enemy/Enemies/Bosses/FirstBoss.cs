@@ -7,8 +7,15 @@ public class FirstBoss : BaseEnemy
 
     public void WinConditionMet()
     {
+<<<<<<< HEAD
         SceneManager.LoadScene("WinScene");
     }
 
 
+=======
+
+        timer.YouWin();
+
+    }        
+>>>>>>> parent of d6e8472d (Youwin)
 }
