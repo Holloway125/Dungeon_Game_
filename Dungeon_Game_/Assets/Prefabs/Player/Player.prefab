@@ -11740,14 +11740,9 @@ MonoBehaviour:
   timeText: {fileID: 6300699243151986282}
   bossAlive: 1
 <<<<<<< HEAD
-<<<<<<< HEAD
   damage: {fileID: 7218383885916422570}
 =======
   damage: {fileID: 0}
->>>>>>> parent of 9fe342a1 (nothing much)
-=======
-  damage: {fileID: 0}
->>>>>>> parent of 9fe342a1 (nothing much)
 --- !u!222 &5911576121646209932
 CanvasRenderer:
   m_ObjectHideFlags: 0
