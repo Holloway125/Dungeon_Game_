@@ -58,3 +58,10 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+*.meta
+Dungeon_Game_/Assets/Prefabs/NPCs/TimeWizzard/NPC_Interactable.prefab
+Dungeon_Game_/Assets/Prefabs/NPCs/TimeWizzard/NPC_Interactable.prefab.meta
+Dungeon_Game_/Assets/Prefabs/Player/Player.prefab
+Dungeon_Game_/Assets/Scenes/Level1.unity
+Dungeon_Game_/UserSettings/EditorUserSettings.asset
+Dungeon_Game_/UserSettings/Layouts/default-2021.dwlt
