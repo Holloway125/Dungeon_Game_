@@ -9,6 +9,7 @@ public class FirstBoss : BaseEnemy
     {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         SceneManager.LoadScene("WinScene");
     }
 
@@ -16,9 +17,15 @@ public class FirstBoss : BaseEnemy
 =======
 =======
 >>>>>>> parent of d6e8472d (Youwin)
+=======
+        SceneManager.LoadScene("WinScene");
+    }
+>>>>>>> parent of 99baae58 (BossSlime and Mountain)
 
-        timer.YouWin();
 
+<<<<<<< HEAD
     }        
 >>>>>>> parent of d6e8472d (Youwin)
+=======
+>>>>>>> parent of 99baae58 (BossSlime and Mountain)
 }
