@@ -10,6 +10,7 @@ TagManager:
   - AStar
   - Weapon
   - Boss
+  - Camera
   layers:
   - Default
   - TransparentFX

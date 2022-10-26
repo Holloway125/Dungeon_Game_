@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class MoveCameraLeft : MonoBehaviour
 {
-    public GameObject _Camera;
+    GameObject _Camera;
     CameraController cameraController;
+    
     void Awake()
     {
+        _Camera = GameObject.FindGameObjectWithTag("Camera");
         cameraController = _Camera.GetComponent<CameraController>();
     }
 
