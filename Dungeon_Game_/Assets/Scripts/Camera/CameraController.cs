@@ -5,25 +5,24 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     
-    public void MoveUp()
+    public void MoveUp(float x, float y, float z)
     {
-        transform.position += new Vector3(0f, 13.25f, 0f);
+        transform.position += new Vector3(x, y, z);
     }
 
-    public void MoveRight()
+    public void MoveRight(float x, float y, float z)
     {  
-        transform.position += new Vector3(21f, 0f, 0f);
+        transform.position += new Vector3(x, y, z);
     }
 
-    public void MoveLeft()
+    public void MoveLeft(float x, float y, float z)
     {  
-        transform.position += new Vector3(-21f, 0f, 0f);
+        transform.position += new Vector3(x, y, z);
     }
 
-    public void MoveDown()
+    public void MoveDown(float x, float y, float z)
     {
-        transform.position += new Vector3(0f, -13.25f, 0f);
+        transform.position += new Vector3(x, y, z);
     }
-
 
 }

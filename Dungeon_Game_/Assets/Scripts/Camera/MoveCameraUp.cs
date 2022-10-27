@@ -6,6 +6,10 @@ public class MoveCameraUp : MonoBehaviour
 {
     GameObject _Camera;
     CameraController cameraController;
+
+    public float x;
+    public float y;
+    public float z;
     
     void Awake()
     {  
@@ -15,7 +19,7 @@ public class MoveCameraUp : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        cameraController.MoveUp();
+        cameraController.MoveUp(x,y,z);
     }
 
 

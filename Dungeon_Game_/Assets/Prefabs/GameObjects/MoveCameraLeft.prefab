@@ -46,7 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c951b643b79ca4e96feb3cea250ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Camera: {fileID: 0}
+  x: -20
+  y: 0
+  z: 0
 --- !u!58 &2457329549413624152
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -6,7 +6,11 @@ public class MoveCameraRight : MonoBehaviour
 {
     GameObject _Camera;
     CameraController cameraController;
-    
+
+    public float x;
+    public float y;
+    public float z;
+
     void Awake()
     {
         _Camera = GameObject.FindGameObjectWithTag("Camera");
@@ -15,7 +19,7 @@ public class MoveCameraRight : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        cameraController.MoveRight();
+        cameraController.MoveRight(x,y,z);
     }
 
 
