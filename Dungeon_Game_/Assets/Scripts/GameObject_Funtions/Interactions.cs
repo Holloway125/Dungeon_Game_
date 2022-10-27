@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Interactions : MonoBehaviour
 {
-    private Collider2D doorCollider;
+    private Collider2D Collider2D;
     private bool playerInRange;
     [SerializeField]
     private string playerInteraction;
@@ -14,7 +14,7 @@ public class Interactions : MonoBehaviour
 
     void Start()
     {
-        doorCollider = GetComponent<BoxCollider2D>();
+        Collider2D = GetComponent<Collider2D>();
     }
 
     void Update()
