@@ -37,5 +37,30 @@ public class PlayerResource : MonoBehaviour
     public void TimeStop() // Needed for death Animation
     {
         Time.timeScale = 0f;
-    } 
+    }
+
+    public void TakeDamage(float damage) // input the amount of damage you want the player to take on each monster
+    {
+        if(currentHealth > damage)
+        {
+        currentHealth -= damage;
+        healthText.text = ($"{Mathf.RoundToInt(currentHealth).ToString()}");
+        }
+        else
+        {
+            Death();
+        }
+    }
+
+    public void Death() //sets current health to 0 plays death animation puts up return to title canvas and stops all movement
+    {
+        currentHealth = 0;
+        healthText.text = ($"{currentHealth.ToString()}");
+        //play death animation
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        _animator.SetTrigger("death");
+        youLose.SetActive(true);
+    
+    }
+ 
 }

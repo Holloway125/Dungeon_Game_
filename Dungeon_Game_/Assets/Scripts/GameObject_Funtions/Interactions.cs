@@ -21,7 +21,7 @@ public class Interactions : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && playerInRange)
         {
-            SceneManager.LoadScene("RedCabin");
+            
         }
     }
 

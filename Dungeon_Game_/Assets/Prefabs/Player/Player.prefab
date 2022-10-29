@@ -3052,7 +3052,6 @@ GameObject:
   - component: {fileID: 5896024090619803072}
   - component: {fileID: 3448304651373937805}
   - component: {fileID: 5691024010143345621}
-  - component: {fileID: 7218383885916422570}
   - component: {fileID: 697684878707762847}
   - component: {fileID: 3872876474892839518}
   - component: {fileID: 720812701271881332}
@@ -3127,7 +3126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage:
-    BaseValue: 10
+    BaseValue: 17
   CritalChance:
     BaseValue: 0
   CritalDamage:
@@ -3188,18 +3187,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: b6c9fd313e773484c970303946392c19, type: 2}
   key: 32
---- !u!114 &7218383885916422570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2466084335914140134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e1115362ab172740b1c83c0df4c5b04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &697684878707762847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11708,7 +11695,6 @@ MonoBehaviour:
   timerIsRunning: 0
   timeText: {fileID: 6300699243151986282}
   bossAlive: 1
-  damage: {fileID: 7218383885916422570}
 --- !u!222 &5911576121646209932
 CanvasRenderer:
   m_ObjectHideFlags: 0

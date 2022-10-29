@@ -12,15 +12,17 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI timeText;
     public bool bossAlive = true;
 
-    public Damage damage;
+    PlayerResource PlayerResource;
+    GameObject Player;
 
     void Awake()
     {
-
+        Player = GameObject.Find("Player");
+        PlayerResource = Player.GetComponent<PlayerResource>();
     }
     void Start()
     {
-        timerIsRunning = false; 
+        timerIsRunning = true;
     }
 
     void Update()
@@ -72,7 +74,7 @@ public class Timer : MonoBehaviour
 
     public void GameOver()
     {
-        damage.Death();
+        PlayerResource.Death();
     }
 
 

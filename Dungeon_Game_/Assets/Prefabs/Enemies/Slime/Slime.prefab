@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 8667321935631418114}
   - component: {fileID: 7136232645447175487}
   - component: {fileID: 498909196018271618}
-  - component: {fileID: 1191539088}
   m_Layer: 7
   m_Name: Slime
   m_TagString: Enemy
@@ -104,9 +103,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -167,27 +166,27 @@ MonoBehaviour:
   IgnoreTheseLayers:
     serializedVersion: 2
     m_Bits: 280
-  EnemyMaxHealth: 5
-  CurrentHealth: 5
+  EnemyMaxHealth: 50
+  CurrentHealth: 50
   Speed: 1
-  expGiven: 150
+  expGiven: 75
   Anim: {fileID: 0}
   Player: {fileID: 0}
-  DamageScript: {fileID: 0}
+  PlayerResource: {fileID: 0}
   LevelSystem: {fileID: 0}
   Rb: {fileID: 0}
   movement: {fileID: 0}
   AIDestinationSetterScript: {fileID: 0}
-  AttackRadius: 3
-  SuspiciousRadius: 15
-  ChaseRadius: 10
-  AggroRadius: 5
+  AttackRadius: 2
+  SuspiciousRadius: 5
+  ChaseRadius: 3
+  AggroRadius: 2
   Leash: 50
   HasAnAttack: 1
   AttackDamaage: 20
   AttackCooldown: 5
   HasContactAttack: 1
-  ContactDamage: 1
+  ContactDamage: 20
   ContactAttackCooldown: 1
   IsCollided: 0
   PlayerCollider: {fileID: 0}
@@ -201,10 +200,10 @@ MonoBehaviour:
   Home: {x: 0, y: 0, z: 0}
   DistanceFromHome: 0
   AttackAnimPlaying: 0
-  HasAbility: 1
-  HasAbility2: 1
+  HasAbility: 0
+  HasAbility2: 0
   Ability: {fileID: 0}
-  Ability2: {fileID: 1191539088}
+  Ability2: {fileID: 0}
   JumpForce: 50
 --- !u!114 &8667321935631418114
 MonoBehaviour:
@@ -264,7 +263,7 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 5
+  maxSpeed: 2
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -290,23 +289,3 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 0
   whenCloseToDestination: 1
   constrainInsideGraph: 0
---- !u!114 &1191539088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7169616798835329685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5761689da0d0124194bf3e3eed99871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Ability: {fileID: 11400000, guid: 9863a26c60a0c9e4db2ff073e12d5de5, type: 2}
-  IsInAbilityRange: 0
-  AbilityRadius: 10
-  WhatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 8
-  AnimationClip: {fileID: 7400000, guid: 2cb4a8bcca93c2a4abfd1be9e22ddf13, type: 2}
-  state: 0

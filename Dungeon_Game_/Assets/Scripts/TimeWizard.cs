@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class npc_dialogue : MonoBehaviour
+public class TimeWizard : MonoBehaviour
 {
     public GameObject dialogBox;
     public TMP_Text dialogText;
@@ -22,7 +22,7 @@ public class npc_dialogue : MonoBehaviour
             }
             else
             {
-                timer.PauseTimer();
+                timer.StartTimer();
                 dialogBox.SetActive(true);
             }
         }

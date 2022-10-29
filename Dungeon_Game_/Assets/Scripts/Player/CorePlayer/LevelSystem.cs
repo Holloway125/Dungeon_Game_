@@ -36,6 +36,7 @@ public class LevelSystem : MonoBehaviour
         playerResource.maxHealth = 100+(playerLvl*25);
         playerResource.healthText.text = ($"{playerResource.maxHealth.ToString()}");          
         playerResource.healthSlider.fillAmount = 1;
+        playerResource.currentHealth = playerResource.maxHealth;
         playerXp = playerXp - totalXp;
         lvlText.text = (playerLvl.ToString());
 
