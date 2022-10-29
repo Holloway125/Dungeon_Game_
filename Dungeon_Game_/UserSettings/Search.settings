@@ -10,7 +10,7 @@ scopes = {
 	"last_search.DD5CDD96" = ""
 	"OpenInspectorPreview.DD5CDD96" = "0"
 	"currentGroup.DD5CDD96" = "scene"
-	"last_search.DA949528" = "snap setting"
+	"last_search.DA949528" = "grid"
 	"OpenInspectorPreview.DA949528" = "0"
 	"currentGroup.DA949528" = "all"
 }
@@ -59,6 +59,7 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"gri"
 ]
 searchItemFavorites = [
 ]

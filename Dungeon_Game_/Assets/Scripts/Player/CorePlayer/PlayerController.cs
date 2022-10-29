@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 movement;
     public PlayerProperties playerproperties;
 
+
     void Attacking()
     {
         animator.SetBool("attacking", true);

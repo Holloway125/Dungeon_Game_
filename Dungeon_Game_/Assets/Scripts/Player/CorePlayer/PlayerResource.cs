@@ -32,6 +32,7 @@ public class PlayerResource : MonoBehaviour
         staminaSlider.fillAmount += .002f;
         int currentStamina = Mathf.RoundToInt(staminaSlider.fillAmount*100);
         staminaText.text = ($"{currentStamina.ToString()}");
+        healthSlider.fillAmount = currentHealth/maxHealth;
     }
     
     public void TimeStop() // Needed for death Animation

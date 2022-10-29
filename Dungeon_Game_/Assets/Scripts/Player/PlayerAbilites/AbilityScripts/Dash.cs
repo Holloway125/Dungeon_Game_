@@ -21,10 +21,10 @@ public class Dash : Ability
          playerResource = parent.GetComponent<PlayerResource>();
          movement = parent.GetComponent<PlayerController>();
 
-        if(playerResource.staminaSlider.fillAmount >=.2f)
+        if(playerResource.staminaSlider.fillAmount >= .4f)
         {
-        playerproperties.Speed = 25f;
-        playerResource.staminaSlider.fillAmount -= .2f;
+        playerproperties.Speed = 15f;
+        playerResource.staminaSlider.fillAmount -= .4f;
         effect.Play();
         }
      }
