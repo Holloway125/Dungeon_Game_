@@ -16,7 +16,7 @@ public class CombatManager : MonoBehaviour
 
     public void Attack()
     {
-        if(Input.GetButtonDown("Fire2"))
+        if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             if(canReceiveInput)
             {
