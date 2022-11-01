@@ -38,15 +38,15 @@ public class Tooltip : MonoBehaviour
 
     }
 
-    public void Update()
-    {
-        Vector2 position = Input.mousePosition;
+    // public void Update()
+    // {
+    //     Vector2 position = Input.mousePosition;
 
-        float pivotX = position.x / Screen.width;
-        float pivotY = position.y / Screen.height;
+    //     float pivotX = position.x / Screen.width;
+    //     float pivotY = position.y / Screen.height;
         
-        rectTransform.pivot = new Vector2(pivotX, pivotY);
-        transform.position = position;
-    }
+    //     rectTransform.pivot = new Vector2(pivotX, pivotY);
+    //     transform.position = position;
+    // }
 
 }

@@ -14,21 +14,38 @@ public class CombatManager : MonoBehaviour
         instance = this;
     }
 
-    public void Attack()
-    {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            if(canReceiveInput)
-            {
-                inputReceived = true;
-                canReceiveInput = false;
-            }
-            else
-            {
-                return;
-            }
-        }
-    }
+    // public void Attack(InputAction.CallbackContext context)
+    // {
+    //     if(context.performed)
+    //     {
+    //         if(canReceiveInput)
+    //         {
+    //             inputReceived = true;
+    //             canReceiveInput = false;
+    //         }
+    //         else
+    //         {
+    //             return;
+    //         }
+    //     }
+    // }
+
+    // public void Attack()
+    // {
+    //     if(Input.GetKeyDown(KeyCode.Tab))
+    //     {
+    //         if(canReceiveInput)
+    //         {
+    //             inputReceived = true;
+    //             canReceiveInput = false;
+    //         }
+
+    //         else
+    //         {
+    //             return;
+    //         }
+    //     }
+    // }
 
     public void InputManager()
     {
@@ -40,5 +57,6 @@ public class CombatManager : MonoBehaviour
         {
             canReceiveInput = false;
         }
+        Debug.Log(canReceiveInput);
     }
 }
