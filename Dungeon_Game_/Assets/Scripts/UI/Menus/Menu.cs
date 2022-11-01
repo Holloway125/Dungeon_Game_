@@ -15,21 +15,21 @@ public GameObject settingsPanel;
 // public GameObject logPanel;
 
 
-void Update()
-{
-    if(Input.GetKeyDown(KeyCode.Escape))
-    {
+// void Update()
+// {
+//     if(Input.GetKeyDown(KeyCode.Escape))
+//     {
        
-        if (GameIsPaused)
-        {
-            Resume();
+//         if (GameIsPaused)
+//         {
+//             Resume();
             
-        }else
-        {
-            PauseMenu();
+//         }else
+//         {
+//             PauseMenu();
             
-        }
-    }
+//         }
+//  }
 
     //     if(Input.GetKeyDown(KeyCode.Tab))
     // {
@@ -68,33 +68,32 @@ void Update()
     //         PauseLog();
     //     }
     // }
-}
+//}
 
-public void Resume()
-{
-    settingsPanel.SetActive(false);
-    pauseMenu.SetActive(false);
-    // invPanel.SetActive(false);
-    // charPanel.SetActive(false);
-    // logPanel.SetActive(false);
-    Time.timeScale = 1f;
-    GameIsPaused = false;
+// public void Resume()
+// {
+//     settingsPanel.SetActive(false);
+//     pauseMenu.SetActive(false);
+//     // invPanel.SetActive(false);
+//     // charPanel.SetActive(false);
+//     // logPanel.SetActive(false);
+//     Time.timeScale = 1f;
+//     GameIsPaused = false;
+// }
 
-}
+// void OnMouseOver()
+// {
+//         //If your mouse hovers over the GameObject with the script attached, output this message
+//         Debug.Log("Mouse is over GameObject.");
+// }
 
-void OnMouseOver()
-{
-        //If your mouse hovers over the GameObject with the script attached, output this message
-        Debug.Log("Mouse is over GameObject.");
-}
-
-void PauseMenu()
-{
+// void PauseMenu()
+// {
     
-    pauseMenu.SetActive(true);
-    Time.timeScale = 0f;
-    GameIsPaused = true;
-}
+//     pauseMenu.SetActive(true);
+//     Time.timeScale = 0f;
+//     GameIsPaused = true;
+// }
 
 // public void PauseInv()
 // {

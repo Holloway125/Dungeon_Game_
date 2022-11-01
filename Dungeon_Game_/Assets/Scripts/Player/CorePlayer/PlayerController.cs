@@ -5,72 +5,53 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private PlayerControls playerControls;
+    [SerializeField]
+    private float _speed;
+    private PlayerActions _playerActions;
+    private Rigidbody2D _rBody;
+    private Vector2 _moveInput;
+    private Animator _anim;
 
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Animator animator;
+    private PlayerInput _playerInput;
+    private InputAction _movement;
 
-
-    public Vector2 movement;
-    public PlayerProperties playerproperties;
-
-    void Awake()
+    private void Awake()
     {
-        playerControls = new PlayerControls();
+        _playerInput = GetComponent<PlayerInput>();
+        _movement = _playerInput.actions["Movement"];
+        // _playerActions = new PlayerActions();
+        // _rBody = GetComponent<Rigidbody2D>();
+        // _anim = GetComponent<Animator>();
+        // if (_rBody is null)
+        //     Debug.LogError("Rigidbody is NULL!");
+        
     }
 
-    void Start()   
+    private void OnEnable()
     {
-
+        _playerActions.Player_Map.Enable();
     }
 
-    void Update()
+    private void OnDisable()
     {
-        Vector2 move = playerControls.Player.Move.ReadValue<Vector2>();
-        Debug.Log(move);
-    }
-
-    void OnEnable()
-    {
-        playerControls.Enable();
-    }
-
-    void Disable()
-    {
-        playerControls.Disable();
+        _playerActions.Player_Map.Disable();
     }
 
     void Attacking()
     {
-        animator.SetBool("attacking", true);
-        playerproperties.Speed = 0;
+        _anim.SetBool("attacking", true);
+        _speed = 0;
     }
 
     void StopAttacking()
     {
-        animator.SetBool("attacking", false);
-        playerproperties.Speed = 5;       
+        _anim.SetBool("attacking", false);
+        _speed = 5;       
     }
 
-    // void Update()
-    // {
-    //     float movementX = Input.GetAxisRaw("Horizontal");
-    //     float movementY = Input.GetAxisRaw("Vertical");
-    //     movement = new Vector2(movementX, movementY).normalized;
-    //     animator.SetFloat("Horizontal", movementX);
-    //     animator.SetFloat("Vertical", movementY);
-    //     animator.SetFloat("Speed", movement.sqrMagnitude); 
-    // }
-
-    // void FixedUpdate() 
-    // {
-    //     rb.velocity = new Vector2(movement.x * playerproperties.Speed, movement.y * playerproperties.Speed);        
-    // }
-
-    public void Movement(InputAction.CallbackContext context)
+    void FixedUpdate() 
     {
-        movement = context.ReadValue<Vector2>();
-        rb.velocity = new Vector2(movement.x,movement.y).normalized;
+        _moveInput = _playerActions.Player_Map.Movement.ReadValue<Vector2>();
+        _rBody.velocity = _moveInput * _speed;
     }
-
 }

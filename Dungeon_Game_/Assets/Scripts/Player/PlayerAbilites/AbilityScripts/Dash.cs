@@ -5,37 +5,37 @@ using UnityEngine;
 public class Dash : Ability
 {
 
-      PlayerController movement;
-      PlayerResource playerResource;
-      ParticleSystem effect;
-      GameObject parent;
-      PlayerProperties playerproperties;
+   //    PlayerController movement;
+   //    PlayerResource playerResource;
+   //    ParticleSystem effect;
+   //    GameObject parent;
+   //    PlayerProperties playerproperties;
 
 
-    public override void Activate(GameObject parent)
-     {  
+   //  public override void Activate(GameObject parent)
+   //   {  
 
-         parent = GameObject.Find("Player");
-         playerproperties = parent.GetComponent<PlayerProperties>();
-         effect = parent.GetComponent<ParticleSystem>();
-         playerResource = parent.GetComponent<PlayerResource>();
-         movement = parent.GetComponent<PlayerController>();
+   //       parent = GameObject.Find("Player");
+   //       playerproperties = parent.GetComponent<PlayerProperties>();
+   //       effect = parent.GetComponent<ParticleSystem>();
+   //       playerResource = parent.GetComponent<PlayerResource>();
+   //       movement = parent.GetComponent<PlayerController>();
 
-        if(playerResource.staminaSlider.fillAmount >= .4f)
-        {
-        playerproperties.Speed = 15f;
-        playerResource.staminaSlider.fillAmount -= .4f;
-        effect.Play();
-        }
-     }
+   //      if(playerResource.staminaSlider.fillAmount >= .4f)
+   //      {
+   //      playerproperties.Speed = 15f;
+   //      playerResource.staminaSlider.fillAmount -= .4f;
+   //      effect.Play();
+   //      }
+   //   }
 
-    public override void BeginCooldown(GameObject player)
-     {
-        ParticleSystem effect = player.GetComponent<ParticleSystem>(); 
-        TrailRenderer dashEffect = player.GetComponent<TrailRenderer>();
-        PlayerController movement = player.GetComponent<PlayerController>();
-        playerproperties.Speed = 5;
-        effect.Stop();
-     }
+   //  public override void BeginCooldown(GameObject player)
+   //   {
+   //      ParticleSystem effect = player.GetComponent<ParticleSystem>(); 
+   //      TrailRenderer dashEffect = player.GetComponent<TrailRenderer>();
+   //      PlayerController movement = player.GetComponent<PlayerController>();
+   //      playerproperties.Speed = 5;
+   //      effect.Stop();
+   //   }
 
 }    

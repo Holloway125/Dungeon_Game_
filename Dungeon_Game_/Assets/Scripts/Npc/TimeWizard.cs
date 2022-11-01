@@ -12,21 +12,21 @@ public class TimeWizard : MonoBehaviour
 
     public Timer timer;
 
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.E) && playerInRange)
-        {
-            if(dialogBox.activeInHierarchy)
-            {
-                dialogBox.SetActive(false);
-            }
-            else
-            {
-                timer.StartTimer();
-                dialogBox.SetActive(true);
-            }
-        }
-    }
+    // void Update()
+    // {
+    //     if(Input.GetKeyDown(KeyCode.E) && playerInRange)
+    //     {
+    //         if(dialogBox.activeInHierarchy)
+    //         {
+    //             dialogBox.SetActive(false);
+    //         }
+    //         else
+    //         {
+    //             timer.StartTimer();
+    //             dialogBox.SetActive(true);
+    //         }
+    //     }
+    // }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

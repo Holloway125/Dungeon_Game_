@@ -3047,7 +3047,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2346509203010142849}
   - component: {fileID: 3995036121498226227}
-  - component: {fileID: 3342239755756748632}
   - component: {fileID: 1489136273}
   - component: {fileID: 5896024090619803072}
   - component: {fileID: 3448304651373937805}
@@ -3097,22 +3096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1041950ec290c4c4abd839a39a0fc937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 1241004066464497434}
-  animator: {fileID: 4358859265416030546}
-  movement: {x: 0, y: 0}
-  playerproperties: {fileID: 3342239755756748632}
---- !u!114 &3342239755756748632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2466084335914140134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08b0a2427bc937c47b2a69f4f863c0bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _speed: 0
 --- !u!114 &1489136273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14024,7 +14008,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2620338848088382054}
   - component: {fileID: 4955069556205705642}
-  - component: {fileID: 5095299627305312096}
   m_Layer: 3
   m_Name: EventSystem
   m_TagString: Untagged
@@ -14062,25 +14045,6 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
---- !u!114 &5095299627305312096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7594627536478878996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!1 &7732983936618467004
 GameObject:
   m_ObjectHideFlags: 0
