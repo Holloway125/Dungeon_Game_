@@ -5,14 +5,20 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private float _speed;
+    [SerializeField] private float _speed;
     private PlayerActions _playerActions;
     private Rigidbody2D _rBody;
     private Vector2 _moveInput;
 
+    [SerializeField] private Camera _camera;
+    [SerializeField] private GameObject player;
     private Animator _anim;
     private bool isMoving;
+
+    private Vector3 mousePosition;
+    private Vector3 mouseWorldPosition;
+    private float angle;
+    private float angleDegree;
 
     private void Awake()
     {
@@ -20,6 +26,30 @@ public class PlayerController : MonoBehaviour
         _rBody = GetComponent<Rigidbody2D>();
         if (_rBody is null)
             Debug.LogError("RigidBody2D is null!");
+        _anim = GetComponent<Animator>();
+        _playerActions.Player_Map.Attack.performed += context => Attack();
+    }
+
+    private void FixedUpdate() 
+    {
+        _moveInput = _playerActions.Player_Map.Movement.ReadValue<Vector2>();
+        _rBody.velocity = _moveInput * _speed;
+        _anim.SetFloat("Horizontal",_rBody.velocity.x);
+        _anim.SetFloat("Vertical",_rBody.velocity.y);
+
+        if(_rBody.velocity.x != 0f)
+        {
+            isMoving = true;
+        }
+        else if (_rBody.velocity.y != 0f)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+        _anim.SetBool("isMoving", isMoving);
     }
 
     private void OnEnable()
@@ -32,36 +62,79 @@ public class PlayerController : MonoBehaviour
         _playerActions.Player_Map.Disable();
     }
 
-    // void Attacking()
-    // {
-    //     _anim.SetBool("attacking", true);
-    //     _speed = 0;
-    // }
-
-    // void StopAttacking()
-    // {
-    //     _anim.SetBool("attacking", false);
-    //     _speed = 5;       
-    // }
-
-    void FixedUpdate() 
+    public void Attack()
     {
-        _moveInput = _playerActions.Player_Map.Movement.ReadValue<Vector2>();
-        _rBody.velocity = _moveInput * _speed;
-        _anim.SetFloat("Horizontal",_rBody.velocity.x);
-        _anim.SetFloat("Vertical",_rBody.velocity.y);
-        if(_rBody.velocity.x < 0.1f || _rBody.velocity.x > -0.1f)
-        {
-            isMoving = true;
-        }
-        else if (_rBody.velocity.y < 0.1f || _rBody.velocity.y > -0.1f)
-        {
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
-        }
-        _anim.SetBool("isMoving", isMoving);
+        _anim.SetBool("isAttacking", true);
+        _speed = 0;
+        mousePosition = _playerActions.Player_Map.MousePosition.ReadValue<Vector2>();
+        mouseWorldPosition = _camera.ScreenToWorldPoint(mousePosition);
+        Vector3 diffPos = mouseWorldPosition - player.transform.position;
+        angle = Mathf.Atan2(diffPos.y, diffPos.x);
+        angleDegree = angle * Mathf.Rad2Deg;
+        _anim.SetFloat("Direction", angleDegree);
+        //StopAttacking();
+        Debug.Log(_anim.GetFloat("Direction"));
     }
+
+    // private void StopAttacking()
+    // {
+    //     _anim.SetBool("isAttacking", false);
+    //     _speed = 5;
+    //     Debug.Log("Done Attacking!");
+    // }
+
+    // public string MouseRotation()
+    // {
+    //     //Gets mouse position and returns x,y value of the pixels mouse is on in current resolution
+    //     ScreenPosition = Input.mousePosition; 
+    //     //Sets screen position z to the near viewport of camera so it can then be translated correctlying into mouse world postion
+    //     ScreenPosition.z = mainCamera.nearClipPlane + 1;
+    //     //returns world position location of mouse in the Scene
+    //     mouseWorldPosition = mainCamera.ScreenToWorldPoint(ScreenPosition);
+    //     //returns a new vector3 that is the mouses position relative to the player of the scene
+    //     Vector3 diffPos = mouseWorldPosition - player.transform.position;
+    //     //returns a radian that can be used to convert to degrees 
+    //     angle = Mathf.Atan2(diffPos.y, diffPos.x);
+    //     //converts the radian to degrees in the range of (-180, 180)
+    //     angleDegree = angle * Mathf.Rad2Deg;
+    //     //converts the range of (-180, 180) to a range of (0, 360) which then can be passed into the rotation z value of an object to set it rotation pointing to the cursors current position
+    //     if(angleDegree < 0)
+    //     {
+    //         angleDegree+=360;           
+    //     }   
+    //     if (angleDegree >= 0  && angleDegree <= 22.5 || angleDegree <= 360 && angleDegree >=337.5)
+    //     {
+    //         return "East";
+    //     }
+    //     else if (angleDegree > 22.5 && angleDegree <= 67.5)
+    //     {
+    //         return "NorthEast";
+    //     }
+    //     else if (angleDegree > 67.5 && angleDegree <= 112.5)
+    //     {
+    //         return "North";
+    //     }
+    //     else if (angleDegree > 112.5 && angleDegree <= 157.5)
+    //     {
+    //         return "NorthWest";
+    //     }
+    //     else if (angleDegree > 157.5 && angleDegree <= 202.5)
+    //     {
+    //         return "West";
+    //     }     
+    //     else if (angleDegree > 202.5 && angleDegree <= 247.5)
+    //     {
+    //         return "SouthWest";
+    //     }      
+    //     else if (angleDegree > 247.5 && angleDegree <= 292.5)
+    //     {
+    //         return "South";
+    //     }    
+    //     else if (angleDegree > 292.5 && angleDegree <= 337.5)
+    //     {
+    //         return "SouthEast";
+    //     }        
+    //     else return "NoMouse"; 
+    // }
+
 }

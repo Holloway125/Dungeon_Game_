@@ -629,7 +629,6 @@ GameObject:
   - component: {fileID: 76050288}
   - component: {fileID: 76050287}
   - component: {fileID: 76050286}
-  - component: {fileID: 76050291}
   m_Layer: 0
   m_Name: ComboTester
   m_TagString: Untagged
@@ -759,18 +758,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &76050291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 76050285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb3cd0f5e93df6641928f2fe1c70dc5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &82127266 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2828324246278025237, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
@@ -9388,7 +9375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 697684878707762847, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1241004066464497434, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: m_Constraints
@@ -9458,6 +9445,14 @@ PrefabInstance:
       propertyPath: _speed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3995036121498226227, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1136134651}
+    - target: {fileID: 3995036121498226227, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 1685212084}
     - target: {fileID: 4304841749485895973, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -10561,7 +10556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 631db7dcccd4a904f98e63afdeb49c5f, type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -10581,11 +10576,42 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 42aa2f36-8318-4965-bb3a-830fc1839011
     m_ActionName: Player/Dodge[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1136134668}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5d4950ae-791c-40a8-8415-c15e246c5b96
+    m_ActionName: Player_Map/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4ed01d3f-7e2c-4984-8eb6-e9a688f85941
+    m_ActionName: Player_Map/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player_Map
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1685212084}
+--- !u!114 &1136134668 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3995036121498226227, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
+  m_PrefabInstance: {fileID: 713370007}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136134651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1041950ec290c4c4abd839a39a0fc937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1136323188
 GameObject:
   m_ObjectHideFlags: 0

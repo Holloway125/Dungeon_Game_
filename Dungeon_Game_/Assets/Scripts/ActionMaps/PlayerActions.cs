@@ -44,6 +44,33 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""5d4950ae-791c-40a8-8415-c15e246c5b96"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""4ed01d3f-7e2c-4984-8eb6-e9a688f85941"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""9d2617cd-28c7-4d97-8fbf-94343d368b6c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -211,6 +238,39 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                     ""action"": ""Dodge"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b629faf-03e3-4585-8723-6889ce3f09c6"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a4df19f-3002-4dbe-aa0e-62d2f2951c5c"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0ad1a3e7-d73f-47e2-b6fe-5fe74edcdbbd"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -221,6 +281,9 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
         m_Player_Map = asset.FindActionMap("Player_Map", throwIfNotFound: true);
         m_Player_Map_Movement = m_Player_Map.FindAction("Movement", throwIfNotFound: true);
         m_Player_Map_Dodge = m_Player_Map.FindAction("Dodge", throwIfNotFound: true);
+        m_Player_Map_Attack = m_Player_Map.FindAction("Attack", throwIfNotFound: true);
+        m_Player_Map_Interact = m_Player_Map.FindAction("Interact", throwIfNotFound: true);
+        m_Player_Map_MousePosition = m_Player_Map.FindAction("MousePosition", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -282,12 +345,18 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
     private IPlayer_MapActions m_Player_MapActionsCallbackInterface;
     private readonly InputAction m_Player_Map_Movement;
     private readonly InputAction m_Player_Map_Dodge;
+    private readonly InputAction m_Player_Map_Attack;
+    private readonly InputAction m_Player_Map_Interact;
+    private readonly InputAction m_Player_Map_MousePosition;
     public struct Player_MapActions
     {
         private @PlayerActions m_Wrapper;
         public Player_MapActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Map_Movement;
         public InputAction @Dodge => m_Wrapper.m_Player_Map_Dodge;
+        public InputAction @Attack => m_Wrapper.m_Player_Map_Attack;
+        public InputAction @Interact => m_Wrapper.m_Player_Map_Interact;
+        public InputAction @MousePosition => m_Wrapper.m_Player_Map_MousePosition;
         public InputActionMap Get() { return m_Wrapper.m_Player_Map; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -303,6 +372,15 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                 @Dodge.started -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnDodge;
                 @Dodge.performed -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnDodge;
                 @Dodge.canceled -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnDodge;
+                @Attack.started -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnAttack;
+                @Interact.started -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnInteract;
+                @MousePosition.started -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnMousePosition;
+                @MousePosition.performed -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnMousePosition;
+                @MousePosition.canceled -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnMousePosition;
             }
             m_Wrapper.m_Player_MapActionsCallbackInterface = instance;
             if (instance != null)
@@ -313,6 +391,15 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                 @Dodge.started += instance.OnDodge;
                 @Dodge.performed += instance.OnDodge;
                 @Dodge.canceled += instance.OnDodge;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
+                @MousePosition.started += instance.OnMousePosition;
+                @MousePosition.performed += instance.OnMousePosition;
+                @MousePosition.canceled += instance.OnMousePosition;
             }
         }
     }
@@ -321,5 +408,8 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnDodge(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+        void OnMousePosition(InputAction.CallbackContext context);
     }
 }
