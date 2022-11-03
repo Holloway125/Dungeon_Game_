@@ -66,14 +66,8 @@ public class PlayerController : MonoBehaviour
     {
         _anim.SetBool("isAttacking", true);
         _speed = 0;
-        mousePosition = _playerActions.Player_Map.MousePosition.ReadValue<Vector2>();
-        mouseWorldPosition = _camera.ScreenToWorldPoint(mousePosition);
-        Vector3 diffPos = mouseWorldPosition - player.transform.position;
-        angle = Mathf.Atan2(diffPos.y, diffPos.x);
-        angleDegree = angle * Mathf.Rad2Deg;
-        _anim.SetFloat("Direction", angleDegree);
-        //StopAttacking();
-        Debug.Log(_anim.GetFloat("Direction"));
+        MouseRotation();
+        // Debug.Log(_anim.GetFloat("Direction"));
     }
 
     // private void StopAttacking()
@@ -83,58 +77,50 @@ public class PlayerController : MonoBehaviour
     //     Debug.Log("Done Attacking!");
     // }
 
-    // public string MouseRotation()
-    // {
-    //     //Gets mouse position and returns x,y value of the pixels mouse is on in current resolution
-    //     ScreenPosition = Input.mousePosition; 
-    //     //Sets screen position z to the near viewport of camera so it can then be translated correctlying into mouse world postion
-    //     ScreenPosition.z = mainCamera.nearClipPlane + 1;
-    //     //returns world position location of mouse in the Scene
-    //     mouseWorldPosition = mainCamera.ScreenToWorldPoint(ScreenPosition);
-    //     //returns a new vector3 that is the mouses position relative to the player of the scene
-    //     Vector3 diffPos = mouseWorldPosition - player.transform.position;
-    //     //returns a radian that can be used to convert to degrees 
-    //     angle = Mathf.Atan2(diffPos.y, diffPos.x);
-    //     //converts the radian to degrees in the range of (-180, 180)
-    //     angleDegree = angle * Mathf.Rad2Deg;
-    //     //converts the range of (-180, 180) to a range of (0, 360) which then can be passed into the rotation z value of an object to set it rotation pointing to the cursors current position
-    //     if(angleDegree < 0)
-    //     {
-    //         angleDegree+=360;           
-    //     }   
-    //     if (angleDegree >= 0  && angleDegree <= 22.5 || angleDegree <= 360 && angleDegree >=337.5)
-    //     {
-    //         return "East";
-    //     }
-    //     else if (angleDegree > 22.5 && angleDegree <= 67.5)
-    //     {
-    //         return "NorthEast";
-    //     }
-    //     else if (angleDegree > 67.5 && angleDegree <= 112.5)
-    //     {
-    //         return "North";
-    //     }
-    //     else if (angleDegree > 112.5 && angleDegree <= 157.5)
-    //     {
-    //         return "NorthWest";
-    //     }
-    //     else if (angleDegree > 157.5 && angleDegree <= 202.5)
-    //     {
-    //         return "West";
-    //     }     
-    //     else if (angleDegree > 202.5 && angleDegree <= 247.5)
-    //     {
-    //         return "SouthWest";
-    //     }      
-    //     else if (angleDegree > 247.5 && angleDegree <= 292.5)
-    //     {
-    //         return "South";
-    //     }    
-    //     else if (angleDegree > 292.5 && angleDegree <= 337.5)
-    //     {
-    //         return "SouthEast";
-    //     }        
-    //     else return "NoMouse"; 
-    // }
+    private void MouseRotation()
+    {
+        mousePosition = _playerActions.Player_Map.MousePosition.ReadValue<Vector2>();
+        mouseWorldPosition = _camera.ScreenToWorldPoint(mousePosition);
+        Vector3 diffPos = mouseWorldPosition - player.transform.position;
+        angle = Mathf.Atan2(diffPos.y, diffPos.x);
+        angleDegree = angle * Mathf.Rad2Deg;
+        //converts the range of (-180, 180) to a range of (0, 360) which then can be passed into the rotation z value of an object to set it rotation pointing to the cursors current position
+        if(angleDegree < 0)
+        {
+            angleDegree+=360;           
+        }   
+        if (angleDegree >= 0  && angleDegree <= 22.5 || angleDegree <= 360 && angleDegree >=337.5)
+        {
+             _anim.Play("East");
+        }
+        else if (angleDegree > 22.5 && angleDegree <= 67.5)
+        {
+             _anim.Play("NorthEast");
+        }
+        else if (angleDegree > 67.5 && angleDegree <= 112.5)
+        {
+             _anim.Play("North");
+        }
+        else if (angleDegree > 112.5 && angleDegree <= 157.5)
+        {
+             _anim.Play("NorthWest");
+        }
+        else if (angleDegree > 157.5 && angleDegree <= 202.5)
+        {
+             _anim.Play("West");
+        }     
+        else if (angleDegree > 202.5 && angleDegree <= 247.5)
+        {
+             _anim.Play("SouthWest");
+        }      
+        else if (angleDegree > 247.5 && angleDegree <= 292.5)
+        {
+             _anim.Play("South");
+        }    
+        else if (angleDegree > 292.5 && angleDegree <= 337.5)
+        {
+             _anim.Play("SouthEast");
+        }
+    }
 
 }
