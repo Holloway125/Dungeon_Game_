@@ -3051,8 +3051,6 @@ GameObject:
   - component: {fileID: 5896024090619803072}
   - component: {fileID: 3448304651373937805}
   - component: {fileID: 5691024010143345621}
-  - component: {fileID: 697684878707762847}
-  - component: {fileID: 3872876474892839518}
   - component: {fileID: 720812701271881332}
   - component: {fileID: 5087471818677037076}
   - component: {fileID: 1241004066464497434}
@@ -3097,6 +3095,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0
+  _camera: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &1489136273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3171,34 +3171,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: b6c9fd313e773484c970303946392c19, type: 2}
   key: 32
---- !u!114 &697684878707762847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2466084335914140134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a65fe88906d40cf47a71feac9674c5a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponAnim: {fileID: 4358859265416030546}
-  Player: {fileID: 2466084335914140134}
---- !u!114 &3872876474892839518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2466084335914140134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dbce5d7617e344488ba4aac64cd742b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
-  player: {fileID: 2466084335914140134}
 --- !u!212 &720812701271881332
 SpriteRenderer:
   m_ObjectHideFlags: 0
