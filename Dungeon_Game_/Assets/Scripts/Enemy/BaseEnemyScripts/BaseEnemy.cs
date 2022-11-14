@@ -104,7 +104,9 @@ public abstract class BaseEnemy : MonoBehaviour
     public bool HasAbility2;
     public EnemyAbilityHolder Ability;
     public EnemyAbilityHolder Ability2;
-    
+
+    private float angle;
+    private float MyAngleDegree;
 
 
     public void SwitchState(BaseEnemyState state)
@@ -118,12 +120,13 @@ public abstract class BaseEnemy : MonoBehaviour
         currentState = AbilityState;
         AbilityState.EnterState(this);
     }
+
     public void ExitAbilityState()
     {
         currentState = ChasingState;
     }
 
-        protected virtual void Awake()
+    protected virtual void Awake()
     {
         Player = GameObject.FindWithTag("Player");
         movement = GetComponent<AIPath>();
@@ -140,17 +143,15 @@ public abstract class BaseEnemy : MonoBehaviour
         Home = this.transform.position;
         AIDestinationSetterScript.target = Home;
         CurrentHealth = EnemyMaxHealth;
-
-
     }
-        protected virtual void Start()
+    
+    protected virtual void Start()
     {
         currentState.EnterState(this);
         EnemyDirection();
     }
-private float angle;
-private float MyAngleDegree;
-        protected virtual void Update()
+
+    protected virtual void Update()
     {
         currentState.UpdateState(this);
         if (currentState != DefaultState)
@@ -168,12 +169,12 @@ private float MyAngleDegree;
         {
             MyAngleDegree+=360;
         }   
-
         //Debug.Log(MyAngleDegree);
     }
 
-        protected virtual void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
+
     }
 // Functions for determining which anim should play based on the direction the enemy is going
 
@@ -188,42 +189,46 @@ private float MyAngleDegree;
 //                         270    
 
 
-        public void Animate(string action)
+    public void Animate(string action)
+    {
+        if (Anim.GetBool("up"))
         {
-            if (Anim.GetBool("up"))
-            {
-                Anim.Play($"{action}Up");
-            }
-            else if (Anim.GetBool("down"))
-            {
-                Anim.Play($"{action}Down");
-            }
-            else if (Anim.GetBool("left"))
-            {
-                Anim.Play($"{action}Left");    
-            }
-            else if (Anim.GetBool("right"))
-            {
-                Anim.Play($"{action}Right");   
-            }
+            Anim.Play($"{action}Up");
+        }
+        else if (Anim.GetBool("down"))
+        {
+            Anim.Play($"{action}Down");
+        }
+        else if (Anim.GetBool("left"))
+        {
+            Anim.Play($"{action}Left");    
+        }
+        else if (Anim.GetBool("right"))
+        {
+            Anim.Play($"{action}Right");   
+        }
 
-        }
-        public void AttackAnimate()
+    }
+
+    public void AttackAnimate()
+    {
+        if (!AttackAnimPlaying)
         {
-            if (!AttackAnimPlaying)
-            {
-                Animate("Attack");
-            }
+            Animate("Attack");
         }
-        public void UpdateTarget()
-        {
-            AIDestinationSetterScript.target = Player.transform.position;
-        }
-        public void UpdateTarget(Vector3 target)
-        {
-            AIDestinationSetterScript.target = target;
-        }
-        public void EnemyDirection()
+    }
+
+    public void UpdateTarget()
+    {
+        AIDestinationSetterScript.target = Player.transform.position;
+    }
+
+    public void UpdateTarget(Vector3 target)
+    {
+        AIDestinationSetterScript.target = target;
+    }
+
+    public void EnemyDirection()
     {
         float angle;
         Vector3 Direction;
@@ -231,111 +236,117 @@ private float MyAngleDegree;
         angle = Mathf.Atan2(Direction.y, Direction.x);
         angleDegree = angle * Mathf.Rad2Deg;
 
-            if (angleDegree <= 0)
+        if (angleDegree <= 0)
         {
             angleDegree += 360;
         }
 
-            if(angleDegree <= 360)
-
+        if(angleDegree <= 360)
         {       
             if (angleDegree <= 300 &&angleDegree >= 240)
-                {
-                    Anim.SetBool("up",false);
-                    Anim.SetBool("down",true);
-                    Anim.SetBool("left",false);
-                    Anim.SetBool("right",false);
-                }
-                else if (angleDegree <= 120 &&angleDegree >= 60)
-                {
-                    Anim.SetBool("up",true);
-                    Anim.SetBool("down",false);
-                    Anim.SetBool("left",false);
-                    Anim.SetBool("right",false);
-                }
-                else if (angleDegree <= 360 &&angleDegree >= 299 ||angleDegree <= 59 &&angleDegree >= 0)
-                {
-                    Anim.SetBool("up",false);
-                    Anim.SetBool("down",false);
-                    Anim.SetBool("left",false);
-                    Anim.SetBool("right",true);
-                }        
-                else if (angleDegree <= 241 &&angleDegree >= 121)
-                {
-                    Anim.SetBool("up",false);
-                    Anim.SetBool("down",false);
-                    Anim.SetBool("left",true); 
-                    Anim.SetBool("right",false);
-                }
+            {
+                Anim.SetBool("up",false);
+                Anim.SetBool("down",true);
+                Anim.SetBool("left",false);
+                Anim.SetBool("right",false);
+            }
+
+            else if (angleDegree <= 120 &&angleDegree >= 60)
+            {
+                Anim.SetBool("up",true);
+                Anim.SetBool("down",false);
+                Anim.SetBool("left",false);
+                Anim.SetBool("right",false);
+            }
+
+            else if (angleDegree <= 360 &&angleDegree >= 299 ||angleDegree <= 59 &&angleDegree >= 0)
+            {
+                Anim.SetBool("up",false);
+                Anim.SetBool("down",false);
+                Anim.SetBool("left",false);
+                Anim.SetBool("right",true);
+            }  
+
+            else if (angleDegree <= 241 &&angleDegree >= 121)
+            {
+                Anim.SetBool("up",false);
+                Anim.SetBool("down",false);
+                Anim.SetBool("left",true); 
+                Anim.SetBool("right",false);
+            }
         }
 
-    }    
-        public void LOS()  
-        {       
-                Vector2 origin = new Vector2(transform.position.x, transform.position.y);
-                Vector2 target = new Vector2(Player.transform.position.x + PlayerCollider.offset.x, Player.transform.position.y + PlayerCollider.offset.y);
-                RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, SuspiciousRadius, IgnoreTheseLayers);
+    }   
 
-                if (hit.collider == PlayerCollider)
-                {
-                    LineOfSight = true;
-                }
-                else
-                {
-                    LineOfSight = false;
-                }
+    public void LOS()  
+    {       
+        Vector2 origin = new Vector2(transform.position.x, transform.position.y);
+        Vector2 target = new Vector2(Player.transform.position.x + PlayerCollider.offset.x, Player.transform.position.y + PlayerCollider.offset.y);
+        RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, SuspiciousRadius, IgnoreTheseLayers);
 
-
-                if (CurrentHealth > EnemyMaxHealth)
-                {
-                    CurrentHealth = EnemyMaxHealth;
-                }
+        if (hit.collider == PlayerCollider)
+        {
+            LineOfSight = true;
         }
+
+        else
+        {
+            LineOfSight = false;
+        }
+
+        if (CurrentHealth > EnemyMaxHealth)
+        {
+            CurrentHealth = EnemyMaxHealth;
+        }
+    }
+
 //Function for doing damage
-        protected void OnCollisionEnter2D(Collision2D collision)
-     {
+    protected void OnCollisionEnter2D(Collision2D collision)
+    {
         if (collision.gameObject.tag == "Player" && HasContactAttack)
         {
             IsCollided = true;
             StartCoroutine("ContactAttack");
         }
-     }
+    }
 
-        protected void OnCollisionExit2D(Collision2D collision)
+    protected void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && HasContactAttack)
         {
-            if (collision.gameObject.tag == "Player" && HasContactAttack)
-            {
-                IsCollided = false;
-                StopCoroutine("ContactAttack");
-            }
+            IsCollided = false;
+            StopCoroutine("ContactAttack");
         }
+    }
 
 // Coroutine that does damage over time when started.
     public IEnumerator ContactAttack()
+    {
+        while(IsCollided)
         {
-            while(IsCollided)
-            {
-                Debug.Log("Made Contact with player");
-                PlayerResource.TakeDamage(ContactDamage); 
-                yield return new WaitForSeconds(ContactAttackCooldown);
-            }
-            yield return null;
-            
+            Debug.Log("Made Contact with player");
+            PlayerResource.TakeDamage(ContactDamage); 
+            yield return new WaitForSeconds(ContactAttackCooldown);
         }
+        yield return null;
+    }
+
 // Coroutine used to play attack animation of Enemies that have an attack.
     public virtual IEnumerator Attack()
     { 
         if (HasAnAttack)
-            {
-                Anim.Play("Attack");
-                yield return new WaitForSeconds(AttackCooldown);
-            }
+        {
+            Anim.Play("Attack");
+            yield return new WaitForSeconds(AttackCooldown);
+        }
     }   
+
     public virtual void InvokeRetreat()
     {
         float seconds = Random.Range(2,5);
         Invoke("Retreat", seconds);
     }
+
     public virtual void Retreat()
     {
         if (Vector3.Distance(AIDestinationSetterScript.target, Home) >= 5f)
@@ -347,9 +358,9 @@ private float MyAngleDegree;
         }
     }
 
-// Called in Weapon Anim script to cause damage to Enemy
+// Called in PlayerController script to cause damage to Enemy
 // Can be overridden to change how much damage Enemy will take such as damaageAmount /= 2;.
-        public virtual void TakeDamage(int damageAmount)
+    public virtual void TakeDamage(int damageAmount)
     {
         CurrentHealth -= damageAmount;
         if(CurrentHealth <= 0)
@@ -357,8 +368,9 @@ private float MyAngleDegree;
             SwitchState(DeathState);
         }
     }
+
 // Used to Give experience and destroy gameObject in Animator.
-        public virtual void Death()
+    public virtual void Death()
     {
         LevelSystem.GainExperience(expGiven);
         Destroy(gameObject);

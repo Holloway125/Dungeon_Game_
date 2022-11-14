@@ -25,7 +25,7 @@ public class MixerController : MonoBehaviour
     private void Start()
     {
 //Master load methods on start
-                masterVolumeSlider.onValueChanged.AddListener((mv) => {
+            masterVolumeSlider.onValueChanged.AddListener((mv) => {
             masterVolumeValue.text = mv.ToString("0.0");
         });
                 if (!PlayerPrefs.HasKey("MasterVolume"))

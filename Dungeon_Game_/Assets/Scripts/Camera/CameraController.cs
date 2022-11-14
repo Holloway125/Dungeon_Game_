@@ -11,8 +11,6 @@ public class CameraController : MonoBehaviour
     {
         Player = GameObject.FindWithTag("Player");
     }
-    
-    
 
     public void MoveUp(float x, float y, float z)
     {
@@ -37,5 +35,4 @@ public class CameraController : MonoBehaviour
         transform.position += new Vector3(x, y, z);
         Player.transform.position += new Vector3(0, -3, 0);
     }
-
 }

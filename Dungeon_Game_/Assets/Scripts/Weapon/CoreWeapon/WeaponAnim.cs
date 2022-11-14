@@ -20,21 +20,8 @@ public class WeaponAnim : MonoBehaviour
     //     c = Player.GetComponent<CharacterStats>();
     // }
 
-    // void Update()
-    // {
-    //     if(Input.GetKeyDown(KeyCode.Mouse0) && !weaponAnim.GetBool("attacking"))
-    //     {
-    //         WeaponAttack(weaponAnim, WR.MouseRotation());
-    //     }
-    // } 
-    
     // //function that will take the animator of each weapon and then the name 
     // //of the animation to play it when Q is pressed in update
-
-    // public void WeaponAttack(Animator anim, string animation)
-    // {
-    //     anim.Play($"{animation}Attack");
-    // }
 
     // void OnTriggerEnter2D(Collider2D _collider)
     // {

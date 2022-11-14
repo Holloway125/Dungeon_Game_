@@ -5,10 +5,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] public float _speed;
     private PlayerActions _playerActions;
     private Rigidbody2D _rBody;
     private Vector2 _moveInput;
+    private CircleCollider2D _weaponCollider;
+    private CharacterStats _characterStats;
 
     [SerializeField] private Camera _camera;
     [SerializeField] private GameObject player;
@@ -25,9 +27,24 @@ public class PlayerController : MonoBehaviour
         _playerActions = new PlayerActions();
         _rBody = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+        _weaponCollider = GetComponent<CircleCollider2D>();
+        _characterStats = GetComponent<CharacterStats>();
+    }
+
+    private void Start()
+    {
         // _playerActions.Player_Map.Attack.performed += context => Attacking();
         // _playerActions.Player_Map.Interact.performed += context => Interact();
+    }
 
+    private void OnEnable()
+    {
+        _playerActions.Player_Map.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _playerActions.Player_Map.Disable();
     }
 
     private void FixedUpdate() 
@@ -52,31 +69,29 @@ public class PlayerController : MonoBehaviour
         _anim.SetBool("isMoving", isMoving);
     }
 
-    private void OnEnable()
-    {
-        _playerActions.Player_Map.Enable();
-    }
 
-    private void OnDisable()
-    {
-        _playerActions.Player_Map.Disable();
-    }
-
-    public void Attacking()
+    private void Attacking()
     {
         _speed = 0;
         _anim.Play($"{MouseRotation()}Attack");
-        Debug.Log(MouseRotation());
-    }   
+    }  
+
+    //Deals Damage to Monsters
+    private void OnTriggerEnter2D(Collider2D _collider)
+    {
+        if (_collider.gameObject.TryGetComponent<BaseEnemy>(out BaseEnemy monster))
+        {
+            monster.TakeDamage((int)_characterStats.Damage.Value);
+        }
+    }
 
     private void StopAttacking()
     {
         _speed = 5;
         _anim.SetTrigger("Idle");
-        Debug.Log("Done Attacking!");
     }
 
-    public string MouseRotation()
+    private string MouseRotation()
     {
         //Gets mouse position and returns x,y value of the pixels mouse is on in current resolution
         mousePosition = Mouse.current.position.ReadValue();
@@ -135,5 +150,4 @@ public class PlayerController : MonoBehaviour
         }        
         else return "NoMouse"; 
     }
-
 }
