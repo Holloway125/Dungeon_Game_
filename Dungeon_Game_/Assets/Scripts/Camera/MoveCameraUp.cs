@@ -7,8 +7,9 @@ public class MoveCameraUp : MonoBehaviour
 {
     GameObject _Camera;
     CameraController cameraController;
-    GameObject Interactable;
+    GameObject Interactable;    
     bool playerInRange = false;
+    private PlayerActions _playerActions;
 
     public float x;
     public float y;
@@ -16,24 +17,30 @@ public class MoveCameraUp : MonoBehaviour
     
     void Awake()
     {  
+        _playerActions = new PlayerActions();
         _Camera = GameObject.FindGameObjectWithTag("Camera");
         cameraController = _Camera.GetComponent<CameraController>();
         Interactable = GameObject.Find("/Player/PlayerUI/Interactable");
+        _playerActions.Player_Map.Interact.performed += context => Interact();
     }
 
-    
-    public void Interact() 
+    private void OnEnable()
     {
+        _playerActions.Player_Map.Enable();
     }
 
+    private void OnDisable()
+    {
+        _playerActions.Player_Map.Disable();
+    }
 
-    // void Update()
-    // {
-    //     if(Input.GetKeyDown(KeyCode.E) && playerInRange)
-    //     {
-    //         cameraController.MoveUp(x,y,z);
-    //     }
-    // }
+    public void Interact()
+    {
+        if(playerInRange == true)
+        {
+            cameraController.MoveUp(x,y,z);
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {

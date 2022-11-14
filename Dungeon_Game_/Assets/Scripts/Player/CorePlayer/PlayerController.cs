@@ -24,10 +24,9 @@ public class PlayerController : MonoBehaviour
     {
         _playerActions = new PlayerActions();
         _rBody = GetComponent<Rigidbody2D>();
-        if (_rBody is null)
-            Debug.LogError("RigidBody2D is null!");
         _anim = GetComponent<Animator>();
-        _playerActions.Player_Map.Attack.performed += context => Attacking();
+        // _playerActions.Player_Map.Attack.performed += context => Attacking();
+        // _playerActions.Player_Map.Interact.performed += context => Interact();
 
     }
 
@@ -53,13 +52,6 @@ public class PlayerController : MonoBehaviour
         _anim.SetBool("isMoving", isMoving);
     }
 
-    public void Interact(InputAction.CallbackContext context) 
-    {
-        if(context.performed)
-        {
-    
-        }
-    }
     private void OnEnable()
     {
         _playerActions.Player_Map.Enable();

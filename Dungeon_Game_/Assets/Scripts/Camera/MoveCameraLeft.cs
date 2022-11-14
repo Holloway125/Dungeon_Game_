@@ -6,8 +6,9 @@ public class MoveCameraLeft : MonoBehaviour
 {
     GameObject _Camera;
     CameraController cameraController;
-    GameObject Interactable;
+    GameObject Interactable;    
     bool playerInRange = false;
+    private PlayerActions _playerActions;
 
     public float x;
     public float y;
@@ -15,18 +16,30 @@ public class MoveCameraLeft : MonoBehaviour
     
     void Awake()
     {  
+        _playerActions = new PlayerActions();
         _Camera = GameObject.FindGameObjectWithTag("Camera");
         cameraController = _Camera.GetComponent<CameraController>();
         Interactable = GameObject.Find("/Player/PlayerUI/Interactable");
+        _playerActions.Player_Map.Interact.performed += context => Interact();
     }
 
-    // void Update()
-    // {
-    //     if(Input.GetKeyDown(KeyCode.E) && playerInRange)
-    //     {
-    //         cameraController.MoveLeft(x,y,z);
-    //     }
-    // }
+    private void OnEnable()
+    {
+        _playerActions.Player_Map.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _playerActions.Player_Map.Disable();
+    }
+
+    public void Interact()
+    {
+        if(playerInRange == true)
+        {
+            cameraController.MoveLeft(x,y,z);
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -42,7 +55,7 @@ public class MoveCameraLeft : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            Interactable.SetActive(false);         
+            Interactable.SetActive(false);
         }
     }
 }
