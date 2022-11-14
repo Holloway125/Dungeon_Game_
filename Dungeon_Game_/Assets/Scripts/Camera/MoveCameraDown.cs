@@ -14,12 +14,16 @@ public class MoveCameraDown : MonoBehaviour
     public float y;
     public float z;
     
-    void Awake()
+    private void Awake()
     {  
         _playerActions = new PlayerActions();
         _Camera = GameObject.FindGameObjectWithTag("Camera");
         cameraController = _Camera.GetComponent<CameraController>();
         Interactable = GameObject.Find("/Player/PlayerUI/Interactable");
+    }
+
+    private void Start()
+    {
         _playerActions.Player_Map.Interact.performed += context => Interact();
     }
 
@@ -33,7 +37,7 @@ public class MoveCameraDown : MonoBehaviour
         _playerActions.Player_Map.Disable();
     }
 
-    public void Interact()
+    private void Interact()
     {
         if(playerInRange == true)
         {
@@ -41,7 +45,7 @@ public class MoveCameraDown : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player"))
         {
@@ -50,7 +54,7 @@ public class MoveCameraDown : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {

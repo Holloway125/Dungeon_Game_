@@ -1,28 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 
-public class MoveCameraUp : MonoBehaviour
+public abstract class Dialogue : MonoBehaviour
 {
-    GameObject _Camera;
-    CameraController cameraController;
-    GameObject Interactable;    
+    public GameObject dialogBox;
+    public TMP_Text dialogText;
     bool playerInRange = false;
+
     private PlayerActions _playerActions;
 
-    public float x;
-    public float y;
-    public float z;
-    
     private void Awake()
-    {  
+    {
         _playerActions = new PlayerActions();
-        _Camera = GameObject.FindGameObjectWithTag("Camera");
-        cameraController = _Camera.GetComponent<CameraController>();
-        Interactable = GameObject.Find("/Player/PlayerUI/Interactable");
     }
-
     private void Start()
     {
         _playerActions.Player_Map.Interact.performed += context => Interact();
@@ -38,11 +31,19 @@ public class MoveCameraUp : MonoBehaviour
         _playerActions.Player_Map.Disable();
     }
 
+    //Can change code here to change Interaction
     private void Interact()
     {
         if(playerInRange == true)
         {
-            cameraController.MoveUp(x,y,z);
+            if(dialogBox.activeInHierarchy)
+            {
+                dialogBox.SetActive(false);
+            }
+            else
+            {
+                dialogBox.SetActive(true);
+            }
         }
     }
 
@@ -51,7 +52,6 @@ public class MoveCameraUp : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             playerInRange = true;
-            Interactable.SetActive(true);
         }
     }
 
@@ -60,7 +60,7 @@ public class MoveCameraUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            Interactable.SetActive(false);
+            dialogBox.SetActive(false);
         }
     }
 }

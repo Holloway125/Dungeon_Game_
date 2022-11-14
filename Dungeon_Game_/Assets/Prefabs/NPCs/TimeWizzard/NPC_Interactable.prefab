@@ -248,10 +248,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8566059540511150478}
   - component: {fileID: 8566059540511150477}
-  - component: {fileID: 8566059540511150473}
   - component: {fileID: 3125787896195453294}
   - component: {fileID: 4953633283369472785}
   - component: {fileID: 3947329372564430598}
+  - component: {fileID: 5241260992886071128}
   m_Layer: 0
   m_Name: NPC_Interactable
   m_TagString: Untagged
@@ -327,23 +327,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8566059540511150473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8566059540511150476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cf4075a1c25dc645ada2504f4044a4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogBox: {fileID: 8597411570137255527}
-  dialogText: {fileID: 2856306881863647630}
-  dialog: 
-  playerInRange: 0
-  timer: {fileID: 0}
 --- !u!50 &3125787896195453294
 Rigidbody2D:
   serializedVersion: 4
@@ -414,6 +397,20 @@ PolygonCollider2D:
       - {x: 0.33333334, y: 0.33333334}
       - {x: 0.33333334, y: 0.041666668}
       - {x: 0.25, y: -0.16666667}
+--- !u!114 &5241260992886071128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8566059540511150476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 974c0cc6e2e9fca40b1218ed1ec22b83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBox: {fileID: 8597411570137255527}
+  dialogText: {fileID: 2856306881863647630}
 --- !u!1 &8597411570137255527
 GameObject:
   m_ObjectHideFlags: 0

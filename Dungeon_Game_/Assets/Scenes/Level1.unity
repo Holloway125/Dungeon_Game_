@@ -1567,6 +1567,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6775337262275649182, guid: a9b5d5d8f602d804581097980a06927a, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 82127266}
     - target: {fileID: 8566059540511150473, guid: a9b5d5d8f602d804581097980a06927a, type: 3}
       propertyPath: timer
       value: 
@@ -89710,23 +89714,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &2045813973 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8566059540511150476, guid: a9b5d5d8f602d804581097980a06927a, type: 3}
-  m_PrefabInstance: {fileID: 275377775}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2045813974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2045813973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e910ceab9306d64faaabc9bd39f19fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2077318360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 999516110305497300, guid: b9a1bbe20e3867b43b1da6656c9d8fa5, type: 3}
@@ -90044,19 +90031,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6692977677099505251, guid: a9c117eb22780074b80cb094ac486af6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6692977677099505251, guid: a9c117eb22780074b80cb094ac486af6, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6692977677099505251, guid: a9c117eb22780074b80cb094ac486af6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 960
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6692977677099505251, guid: a9c117eb22780074b80cb094ac486af6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -540
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6692977678030208203, guid: a9c117eb22780074b80cb094ac486af6, type: 3}
       propertyPath: m_Name
