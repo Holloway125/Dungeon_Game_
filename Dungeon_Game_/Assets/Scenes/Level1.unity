@@ -1060,7 +1060,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &148293673
 Transform:
   m_ObjectHideFlags: 0
@@ -1638,6 +1638,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 212021983}
     m_Modifications:
+    - target: {fileID: 4922443738445575997, guid: 7989dc7594375d04492bc5dba8a312a5, type: 3}
+      propertyPath: y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7903600813484103591, guid: 7989dc7594375d04492bc5dba8a312a5, type: 3}
       propertyPath: m_Name
       value: MoveCameraUp

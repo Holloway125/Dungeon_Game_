@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("RigidBody2D is null!");
         _anim = GetComponent<Animator>();
         _playerActions.Player_Map.Attack.performed += context => Attacking();
+
     }
 
     private void FixedUpdate() 
@@ -52,6 +53,13 @@ public class PlayerController : MonoBehaviour
         _anim.SetBool("isMoving", isMoving);
     }
 
+    public void Interact(InputAction.CallbackContext context) 
+    {
+        if(context.performed)
+        {
+    
+        }
+    }
     private void OnEnable()
     {
         _playerActions.Player_Map.Enable();
@@ -79,7 +87,7 @@ public class PlayerController : MonoBehaviour
     public string MouseRotation()
     {
         //Gets mouse position and returns x,y value of the pixels mouse is on in current resolution
-        mousePosition = _playerActions.Player_Map.MousePosition.ReadValue<Vector3>(); 
+        mousePosition = Mouse.current.position.ReadValue();
 
         //Sets screen position z to the near viewport of camera so it can then be translated correctlying into mouse world postion
         mousePosition.z = _camera.nearClipPlane + 1;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MoveCameraUp : MonoBehaviour
 {
@@ -19,13 +20,20 @@ public class MoveCameraUp : MonoBehaviour
         cameraController = _Camera.GetComponent<CameraController>();
         Interactable = GameObject.Find("/Player/PlayerUI/Interactable");
     }
-    void Update()
+
+    
+    public void Interact() 
     {
-        if(Input.GetKeyDown(KeyCode.E) && playerInRange)
-        {
-            cameraController.MoveUp(x,y,z);
-        }
     }
+
+
+    // void Update()
+    // {
+    //     if(Input.GetKeyDown(KeyCode.E) && playerInRange)
+    //     {
+    //         cameraController.MoveUp(x,y,z);
+    //     }
+    // }
 
     void OnTriggerEnter2D(Collider2D other)
     {

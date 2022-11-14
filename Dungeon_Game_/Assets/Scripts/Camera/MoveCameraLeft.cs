@@ -20,13 +20,13 @@ public class MoveCameraLeft : MonoBehaviour
         Interactable = GameObject.Find("/Player/PlayerUI/Interactable");
     }
 
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.E) && playerInRange)
-        {
-            cameraController.MoveLeft(x,y,z);
-        }
-    }
+    // void Update()
+    // {
+    //     if(Input.GetKeyDown(KeyCode.E) && playerInRange)
+    //     {
+    //         cameraController.MoveLeft(x,y,z);
+    //     }
+    // }
 
     void OnTriggerEnter2D(Collider2D other)
     {

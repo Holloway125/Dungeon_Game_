@@ -20,13 +20,13 @@ public class MoveCameraRight : MonoBehaviour
         cameraController = _Camera.GetComponent<CameraController>();
         Interactable = GameObject.Find("/Player/PlayerUI/Interactable");
     }
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.E) && playerInRange)
-        {
-            cameraController.MoveRight(x,y,z);
-        }
-    }
+    // void Update()
+    // {
+    //     if(Input.GetKeyDown(KeyCode.E) && playerInRange)
+    //     {
+    //         cameraController.MoveRight(x,y,z);
+    //     }
+    // }
 
     void OnTriggerEnter2D(Collider2D other)
     {
