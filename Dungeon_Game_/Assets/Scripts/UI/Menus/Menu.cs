@@ -8,17 +8,25 @@ public class Menu : MonoBehaviour
 
     public static bool GameIsPaused = false;
 
-    public GameObject pauseMenu;
-    public GameObject settingsPanel;
-    public GameObject charPanel;
-    public GameObject invPanel;
+    private GameObject _player;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject charPanel;
+    [SerializeField] private GameObject invPanel;
+    [SerializeField] private GameObject _map;
 
     private PlayerActions _playerActions;
 
-    void Awake()
+    private void Awake()
     {
         _playerActions = new PlayerActions();
+        _player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private void Start()
+    {
         _playerActions.UI.Menu.performed += context => PauseMenu();
+        _playerActions.UI.Map.performed += context => MapOpenandClose();
     }
 
     private void OnEnable()
@@ -31,7 +39,7 @@ public class Menu : MonoBehaviour
         _playerActions.UI.Disable();
     }
 
-    public void Resume()
+    private void Resume()
     {
         settingsPanel.SetActive(false);
         pauseMenu.SetActive(false);
@@ -42,7 +50,7 @@ public class Menu : MonoBehaviour
         GameIsPaused = false;
     }
 
-    void PauseMenu()
+    private void PauseMenu()
     {  
         if(GameIsPaused == false)
         {
@@ -53,6 +61,19 @@ public class Menu : MonoBehaviour
         else if(GameIsPaused == true)
         {
             Resume();
+        }
+    }
+
+    private void MapOpenandClose()
+    {
+        if(_map == false)
+        {
+            _map.SetActive(true);
+        }
+
+        else if(_map == true)
+        {
+            _map.SetActive(false);
         }
     }
 

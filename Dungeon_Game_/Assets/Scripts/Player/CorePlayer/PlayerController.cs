@@ -33,8 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        // _playerActions.Player_Map.Attack.performed += context => Attacking();
-        // _playerActions.Player_Map.Interact.performed += context => Interact();
+        _playerActions.Player_Map.Attack.performed += context => Attacking();
     }
 
     private void OnEnable()

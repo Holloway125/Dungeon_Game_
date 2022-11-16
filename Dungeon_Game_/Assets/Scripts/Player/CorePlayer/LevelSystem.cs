@@ -13,24 +13,31 @@ public class LevelSystem : MonoBehaviour
     //total xp needed to lvl
     public int totalXp;
 
-    public int playerLvl;
-    public Text lvlText;
-    public Image expBar;
+    private int playerLvl;
+    private Text lvlText;
+    private Image expBar;
 
     private GameObject player; 
     private PlayerResource playerResource;
 
-    void Awake()
+    private void Awake()
     {
         player = GameObject.Find("Player");
         playerResource = player.GetComponent<PlayerResource>();
-        expBar.fillAmount = 0; 
+        expBar = GameObject.Find("/PlayerUI/Exp/Background/FillMask").GetComponent<Image>();
+        lvlText = GameObject.Find("/PlayerUI/Level").GetComponent<Text>();
+
+    }
+
+    private void Start()
+    {
+        expBar.fillAmount = 0;
         totalXp = 100;  
         playerXp = 0;
         playerLvl = 1;
     }
-     
-    public void LevelUP()
+
+    private void LevelUP()
     {
         playerLvl++;
         playerResource.maxHealth = 100+(playerLvl*25);

@@ -11,6 +11,7 @@ TagManager:
   - Weapon
   - Boss
   - Camera
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Enemy
   - EnvirCollider
   - Weapon
-  - 
+  - Map Markers
   - 
   - 
   - 

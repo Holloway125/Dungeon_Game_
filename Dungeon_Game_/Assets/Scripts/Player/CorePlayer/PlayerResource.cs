@@ -7,9 +7,12 @@ using UnityEngine.Animations;
 public class PlayerResource : MonoBehaviour
 {
     //for death animation
-    public Rigidbody2D rb;
-    public Animator _animator;
-    public GameObject youLose;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Animator _animator;
+
+    //UI_Elements
+    private GameObject _UI;
+    public GameObject _youLose;
 
     //health properties
     public float maxHealth = 100;
@@ -21,13 +24,23 @@ public class PlayerResource : MonoBehaviour
     public Image staminaSlider;
     public Text staminaText;
 
-    void Start()
+    private void Awake()
+    {
+        _UI = GameObject.FindGameObjectWithTag("UI");
+        healthSlider = GameObject.Find("/PlayerUI/HealthBar/Background/FillMask").GetComponent<Image>();
+        healthText = GameObject.Find("/PlayerUI/HealthBar/Background/HealthValue").GetComponent<Text>();
+        staminaSlider = GameObject.Find("/PlayerUI/PlayerStamina/Background/FillMask").GetComponent<Image>();
+        staminaText = GameObject.Find("/PlayerUI/PlayerStamina/Background/StaminaValue").GetComponent<Text>();
+        _youLose = GameObject.Find("/PlayerUI/GameSettings/YouLoseCanvas/YouLosePanel");
+    }
+
+    private void Start()
     { 
         currentHealth = maxHealth;
         healthText.text = ($"{maxHealth.ToString()}");      
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         staminaSlider.fillAmount += .002f;
         int currentStamina = Mathf.RoundToInt(staminaSlider.fillAmount*100);
@@ -60,8 +73,6 @@ public class PlayerResource : MonoBehaviour
         //play death animation
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         _animator.SetTrigger("death");
-        youLose.SetActive(true);
-    
+        _youLose.SetActive(true);
     }
- 
 }
