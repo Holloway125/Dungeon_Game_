@@ -26,7 +26,7 @@ public class Menu : MonoBehaviour
     private void Start()
     {
         _playerActions.UI.Menu.performed += context => PauseMenu();
-        _playerActions.UI.Map.performed += context => MapOpenandClose();
+       // _playerActions.UI.Map.performed += context => MapOpenandClose();
     }
 
     private void OnEnable()
@@ -64,18 +64,18 @@ public class Menu : MonoBehaviour
         }
     }
 
-    private void MapOpenandClose()
-    {
-        if(_map == false)
-        {
-            _map.SetActive(true);
-        }
+    // private bool MapOpenandClose()
+    // {
+    //     if(_map.SetActive(false))
+    //     {
+    //         _map.SetActive(true);
+    //     }
 
-        else if(_map == true)
-        {
-            _map.SetActive(false);
-        }
-    }
+    //     else if(_map.SetActive(true))
+    //     {
+    //         _map.SetActive(false);
+    //     }
+    // }
 
     //LEGACY CODE FOR REFERENCE WHEN NEEDED
 
