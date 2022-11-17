@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MoveCameraLeft : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class MoveCameraLeft : MonoBehaviour
         _playerActions = new PlayerActions();
         _Camera = GameObject.FindGameObjectWithTag("Camera");
         cameraController = _Camera.GetComponent<CameraController>();
-        Interactable = GameObject.Find("/Player/PlayerUI/Interactable");
+        Interactable = GameObject.Find("/PlayerUI/Interactable");
     }
 
     private void Start()

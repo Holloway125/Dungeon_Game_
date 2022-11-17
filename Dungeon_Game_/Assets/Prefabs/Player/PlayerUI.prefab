@@ -441,8 +441,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 6734642696923843954}
   settingsPanel: {fileID: 4850525309633095268}
-  charPanel: {fileID: 0}
-  invPanel: {fileID: 0}
   _map: {fileID: 7700569799120656378}
 --- !u!114 &3028755755316157016
 MonoBehaviour:
@@ -8403,7 +8401,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6667165869694267826}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -174.98737, y: -905.0228, z: -20}
+  m_LocalPosition: {x: -932, y: -517.1, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8441,7 +8439,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1919
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 30362603cb4230142845a8f442f82237, type: 2}
   m_TargetDisplay: 0
@@ -10089,7 +10087,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7700569799120656378}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.17}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10097,10 +10095,10 @@ RectTransform:
   m_Father: {fileID: 4629794061288140571}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 175, y: -175}
-  m_SizeDelta: {x: 256, y: 256}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1324.5837, y: 721.9315}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6114048815319397799
 CanvasRenderer:
@@ -10259,7 +10257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5020053177050286524
 RectTransform:
   m_ObjectHideFlags: 0

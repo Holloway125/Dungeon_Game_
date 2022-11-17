@@ -5,11 +5,11 @@ using UnityEngine.InputSystem;
 
 public class MoveCameraUp : MonoBehaviour
 {
-    GameObject _Camera;
-    CameraController cameraController;
-    GameObject Interactable;    
-    bool playerInRange = false;
+    private CameraController cameraController;
     private PlayerActions _playerActions;
+    private GameObject _Camera;
+    [SerializeField] private GameObject Interactable;    
+    private bool playerInRange = false;
 
     public float x;
     public float y;
@@ -20,12 +20,14 @@ public class MoveCameraUp : MonoBehaviour
         _playerActions = new PlayerActions();
         _Camera = GameObject.FindGameObjectWithTag("Camera");
         cameraController = _Camera.GetComponent<CameraController>();
+        //A GameObject has to be Active in Hierarchy for GameObject.Find() to work so interactable is active by default and is set to false in Start()
         Interactable = GameObject.Find("/PlayerUI/Interactable");
     }
 
     private void Start()
     {
         _playerActions.Player_Map.Interact.performed += context => Interact();
+        Interactable.SetActive(false);
     }
 
     private void OnEnable()

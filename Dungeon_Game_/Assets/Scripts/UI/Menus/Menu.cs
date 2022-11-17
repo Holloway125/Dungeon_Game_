@@ -6,16 +6,17 @@ using UnityEngine;
 public class Menu : MonoBehaviour
 {
 
-    public static bool GameIsPaused = false;
+    private PlayerActions _playerActions;
 
-    private GameObject _player;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject settingsPanel;
-    [SerializeField] private GameObject charPanel;
-    [SerializeField] private GameObject invPanel;
+    //[SerializeField] private GameObject charPanel;
+    //[SerializeField] private GameObject invPanel;
     [SerializeField] private GameObject _map;
+    private GameObject _player;
 
-    private PlayerActions _playerActions;
+    public static bool GameIsPaused = false;
+    private bool _mapIsOpen = false;
 
     private void Awake()
     {
@@ -26,7 +27,12 @@ public class Menu : MonoBehaviour
     private void Start()
     {
         _playerActions.UI.Menu.performed += context => PauseMenu();
-       // _playerActions.UI.Map.performed += context => MapOpenandClose();
+        _playerActions.UI.Map.performed += context => MapOpenandClose();
+        pauseMenu.SetActive(false);
+        settingsPanel.SetActive(false);
+        //charPanel.SetActive(false);
+        //invPanel.SetActive(false);
+        _map.SetActive(false);
     }
 
     private void OnEnable()
@@ -64,18 +70,23 @@ public class Menu : MonoBehaviour
         }
     }
 
-    // private bool MapOpenandClose()
-    // {
-    //     if(_map.SetActive(false))
-    //     {
-    //         _map.SetActive(true);
-    //     }
+    private void MapOpenandClose()
+    {
+        if(_mapIsOpen == true)
+        {
+            _map.SetActive(false);
+            _mapIsOpen = false;
+            Resume();
+        }
 
-    //     else if(_map.SetActive(true))
-    //     {
-    //         _map.SetActive(false);
-    //     }
-    // }
+        else if(_mapIsOpen == false)
+        {
+            _map.SetActive(true);
+            _mapIsOpen = true;
+            Time.timeScale = 0f;
+            GameIsPaused = true;
+        }
+    }
 
     //LEGACY CODE FOR REFERENCE WHEN NEEDED
 
