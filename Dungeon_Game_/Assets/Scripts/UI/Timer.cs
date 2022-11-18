@@ -17,24 +17,21 @@ public class Timer : MonoBehaviour
 
     void Awake()
     {
-        Player = GameObject.Find("Player");
-        PlayerResource = Player.GetComponent<PlayerResource>();
+        Player = GameObject.FindWithTag("Player");
+        //PlayerResource = Player.GetComponent<PlayerResource>();
+        
     }
     void Start()
     {
         timerIsRunning = true;
+        bossAlive = true;
     }
 
     void Update()
     {
         if (timerIsRunning == true && bossAlive == true)
         {
-            if (timeRemaining > 0 && bossAlive == false)
-            {
-                YouWin();
-            }
-
-            else if (timeRemaining > 0)
+             if (timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
                 DisplayTime(timeRemaining);
@@ -45,6 +42,11 @@ public class Timer : MonoBehaviour
                 GameOver();
             }
             
+        }
+
+        else if (timerIsRunning == true && bossAlive == false)
+        {
+            YouWin();
         }
         
     }
