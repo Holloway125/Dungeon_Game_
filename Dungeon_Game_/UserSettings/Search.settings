@@ -13,6 +13,9 @@ scopes = {
 	"last_search.DA949528" = "grid"
 	"OpenInspectorPreview.DA949528" = "0"
 	"currentGroup.DA949528" = "all"
+	"last_search.F8949528" = "dia"
+	"OpenInspectorPreview.F8949528" = "0"
+	"currentGroup.F8949528" = "all"
 }
 providers = {
 	adb = {

@@ -7,25 +7,25 @@ public class Interactions : MonoBehaviour
 {
     // private Collider2D Collider2D;
     // private bool playerInRange;
-    // [SerializeField]
-    // private string playerInteraction;
-    // [SerializeField]
-    // private string displayText;
+    // [SerializeField] private string playerInteraction;
+    // [SerializeField] private string displayText;
 
-    // void Start()
+    // private void Awake()
     // {
-    //     Collider2D = GetComponent<Collider2D>();
+    //    Collider2D = GetComponent<Collider2D>();
     // }
 
-    // void Update()
+    // private void Start()
     // {
-    //     if(Input.GetKeyDown(KeyCode.E) && playerInRange)
-    //     {
-            
-    //     }
+    //     _playerActions.Player_Map.Interact.performed += context => Interact();
     // }
 
-    // void OnTriggerEnter2D(Collider2D other)
+    // private void Interact()
+    // {
+        
+    // }
+
+    // private void OnTriggerEnter2D(Collider2D other)
     // {
     //     if(other.CompareTag("Player"))
     //     {
@@ -33,12 +33,11 @@ public class Interactions : MonoBehaviour
     //     }
     // }
 
-    // void OnTriggerExit2D(Collider2D other)
+    // private void OnTriggerExit2D(Collider2D other)
     // {
     //     if (other.CompareTag("Player"))
     //     {
     //         playerInRange = false;
     //     }
     // }
-
 }

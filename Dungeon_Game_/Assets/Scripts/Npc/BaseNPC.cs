@@ -4,13 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public abstract class Dialogue : MonoBehaviour
+public abstract class BaseNPC : MonoBehaviour
 {
-    public GameObject dialogBox;
-    public TMP_Text dialogText;
-    bool playerInRange = false;
-
     private PlayerActions _playerActions;
+    
+    private bool playerInRange = false;
+
+    public GameObject dialogBox;
+    // public TMP_Text dialogText;
+
 
     private void Awake()
     {
@@ -31,19 +33,16 @@ public abstract class Dialogue : MonoBehaviour
         _playerActions.Player_Map.Disable();
     }
 
-    //Can change code here to change Interaction
-    private void Interact()
+    //Change Interaction by overriding
+    protected virtual void Interact()
     {
         if(playerInRange == true)
         {
-            if(dialogBox.activeInHierarchy)
-            {
-                dialogBox.SetActive(false);
-            }
-            else
-            {
-                dialogBox.SetActive(true);
-            }
+            dialogBox.SetActive(true);
+        }
+        else
+        {
+            return;
         }
     }
 

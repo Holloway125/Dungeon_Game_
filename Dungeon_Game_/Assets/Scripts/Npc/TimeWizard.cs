@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC_Dialogue : Dialogue
+public class TimeWizard : BaseNPC
 {
     
 }

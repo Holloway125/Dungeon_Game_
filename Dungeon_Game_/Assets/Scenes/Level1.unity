@@ -10136,6 +10136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e39a221a152bf24fa97b2288b2d64f5, type: 3}
+--- !u!1 &939115669 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8566059540511150476, guid: a9b5d5d8f602d804581097980a06927a, type: 3}
+  m_PrefabInstance: {fileID: 275377775}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &940373123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11177,6 +11182,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8566059540511150478, guid: a9b5d5d8f602d804581097980a06927a, type: 3}
   m_PrefabInstance: {fileID: 275377775}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1241193551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939115669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72bc63a5591390499eba96d2a35f754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBox: {fileID: 1914122396}
 --- !u!4 &1242587524 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7380497344706835734, guid: c3188689f47905f45b9db53648796ad0, type: 3}
@@ -12419,7 +12437,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1153932165242731534, guid: a9b5d5d8f602d804581097980a06927a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a9b5d5d8f602d804581097980a06927a, type: 3}
 --- !u!1001 &1705921090
 PrefabInstance:
@@ -12942,6 +12961,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e39a221a152bf24fa97b2288b2d64f5, type: 3}
+--- !u!1 &1818546944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8566059540511150476, guid: a9b5d5d8f602d804581097980a06927a, type: 3}
+  m_PrefabInstance: {fileID: 1689557814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1818546949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818546944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb0503d9a65904c8160197eff62d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBox: {fileID: 1827724169}
 --- !u!1001 &1823951959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13003,6 +13040,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 999516110305497300, guid: b9a1bbe20e3867b43b1da6656c9d8fa5, type: 3}
   m_PrefabInstance: {fileID: 2127717065}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1827724169 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8597411570137255527, guid: a9b5d5d8f602d804581097980a06927a, type: 3}
+  m_PrefabInstance: {fileID: 1689557814}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1840293151
 PrefabInstance:
@@ -13272,6 +13314,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71ff2e6b852f7de438996c4892adeb56, type: 3}
+--- !u!1 &1914122396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8597411570137255527, guid: a9b5d5d8f602d804581097980a06927a, type: 3}
+  m_PrefabInstance: {fileID: 275377775}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1923037595 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1138774080251202267, guid: 3e39a221a152bf24fa97b2288b2d64f5, type: 3}
@@ -90195,6 +90242,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 737851798778875379, guid: 4f7be39ddea830a4685da12a909f1853, type: 3}
       propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304026345198706451, guid: 4f7be39ddea830a4685da12a909f1853, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1416725240041199295, guid: 4f7be39ddea830a4685da12a909f1853, type: 3}
