@@ -9460,11 +9460,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2346509203010142849, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2346509203010142849, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 2346509203010142849, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11194,6 +11194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72bc63a5591390499eba96d2a35f754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timer: {fileID: 0}
+  playerInRange: 0
   dialogBox: {fileID: 1914122396}
 --- !u!4 &1242587524 stripped
 Transform:
@@ -12978,6 +12980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb0503d9a65904c8160197eff62d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timer: {fileID: 0}
+  playerInRange: 0
   dialogBox: {fileID: 1827724169}
 --- !u!1001 &1823951959
 PrefabInstance:
@@ -90149,11 +90153,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1201754116578076856, guid: 928b53a17a6367e4aa1cf962955c1124, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1201754116578076856, guid: 928b53a17a6367e4aa1cf962955c1124, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 1201754116578076856, guid: 928b53a17a6367e4aa1cf962955c1124, type: 3}
       propertyPath: m_LocalPosition.z

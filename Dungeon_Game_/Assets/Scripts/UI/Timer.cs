@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    public float timeRemaining = 90;
+    public float timeRemaining;
     public bool timerIsRunning = false;
     public TextMeshProUGUI timeText;
     public bool bossAlive = true;
@@ -15,19 +15,19 @@ public class Timer : MonoBehaviour
     PlayerResource PlayerResource;
     GameObject Player;
 
-    void Awake()
+    private void Awake()
     {
         Player = GameObject.FindWithTag("Player");
-        //PlayerResource = Player.GetComponent<PlayerResource>();
-        
+        //PlayerResource = Player.GetComponent<PlayerResource>(); 
     }
-    void Start()
+
+    private void Start()
     {
         timerIsRunning = true;
         bossAlive = true;
     }
 
-    void Update()
+    private void Update()
     {
         if (timerIsRunning == true && bossAlive == true)
         {
@@ -51,7 +51,7 @@ public class Timer : MonoBehaviour
         
     }
 
-    void DisplayTime(float timeToDisplay)
+    private void DisplayTime(float timeToDisplay)
     {
         timeToDisplay += 1;
         float minutes = Mathf.FloorToInt(timeToDisplay / 60); 

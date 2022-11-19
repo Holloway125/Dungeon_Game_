@@ -7,8 +7,9 @@ using TMPro;
 public abstract class BaseNPC : MonoBehaviour
 {
     private PlayerActions _playerActions;
+    public Timer _timer;
     
-    private bool playerInRange = false;
+    public bool playerInRange = false;
 
     public GameObject dialogBox;
     // public TMP_Text dialogText;
@@ -17,6 +18,7 @@ public abstract class BaseNPC : MonoBehaviour
     private void Awake()
     {
         _playerActions = new PlayerActions();
+        _timer = GameObject.Find("/PlayerUI/Timer/").GetComponent<Timer>();
     }
     private void Start()
     {
