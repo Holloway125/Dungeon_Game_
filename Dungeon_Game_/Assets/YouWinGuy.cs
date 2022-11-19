@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class YouWinGuy : BaseNPC
 {
-    public float timerStop;
     //GameObject _youWin;
 
     // protected override void Start()
@@ -18,9 +17,7 @@ public class YouWinGuy : BaseNPC
         if(playerInRange == true)
         {
             _timer.PauseTimer();
-            timerStop = _timer.timeRemaining;
             SceneManager.LoadScene("YouWin");
-            _timer.timeRemaining = timerStop;
         }
         else
         {

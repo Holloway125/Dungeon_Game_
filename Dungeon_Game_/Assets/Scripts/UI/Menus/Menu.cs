@@ -22,6 +22,7 @@ public class Menu : MonoBehaviour
     {
         _playerActions = new PlayerActions();
         _player = GameObject.FindGameObjectWithTag("Player");
+        _map = GameObject.Find("/PlayerUI/Map");
     }
 
     private void Start()

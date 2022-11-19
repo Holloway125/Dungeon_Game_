@@ -7,23 +7,21 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    public float timeRemaining;
     public bool timerIsRunning = false;
     public TextMeshProUGUI timeText;
     public bool bossAlive = true;
 
-    PlayerResource PlayerResource;
+    // PlayerResource PlayerResource;
     GameObject Player;
 
     private void Awake()
     {
         Player = GameObject.FindWithTag("Player");
-        //PlayerResource = Player.GetComponent<PlayerResource>(); 
+        // PlayerResource = Player.GetComponent<PlayerResource>();
     }
 
     private void Start()
     {
-        timerIsRunning = true;
         bossAlive = true;
     }
 
@@ -31,27 +29,28 @@ public class Timer : MonoBehaviour
     {
         if (timerIsRunning == true && bossAlive == true)
         {
-             if (timeRemaining > 0)
+             if (DataStorage._TimeLeft > 0)
             {
-                timeRemaining -= Time.deltaTime;
-                DisplayTime(timeRemaining);
+                DataStorage._TimeLeft -= Time.deltaTime;
+                DisplayTime(DataStorage._TimeLeft);
             }
 
-            else if (timeRemaining <= 0)
+            else if (DataStorage._TimeLeft <= 0)
             {
-                GameOver();
+                Debug.Log("No Time Left!");
+                //GameOver();
             }
             
         }
 
         else if (timerIsRunning == true && bossAlive == false)
         {
-            YouWin();
+            // YouWin();
         }
         
     }
 
-    private void DisplayTime(float timeToDisplay)
+    public void DisplayTime(float timeToDisplay)
     {
         timeToDisplay += 1;
         float minutes = Mathf.FloorToInt(timeToDisplay / 60); 
@@ -69,15 +68,15 @@ public class Timer : MonoBehaviour
         timerIsRunning = true;
     }
 
-    public void YouWin()
-    {
-        SceneManager.LoadScene("LaunchMenu");
-    }
+    // public void YouWin()
+    // {
+    //     SceneManager.LoadScene("LaunchMenu");
+    // }
 
-    public void GameOver()
-    {
-        PlayerResource.Death();
-    }
+    // public void GameOver()
+    // {
+    //     PlayerResource.Death();
+    // }
 
 
 }

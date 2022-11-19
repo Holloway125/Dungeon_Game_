@@ -18,8 +18,9 @@ public abstract class BaseNPC : MonoBehaviour
     private void Awake()
     {
         _playerActions = new PlayerActions();
-        _timer = GameObject.Find("/PlayerUI/Timer/").GetComponent<Timer>();
+        _timer = GameObject.Find("/PlayerUI/Timer").GetComponent<Timer>();
     }
+    
     private void Start()
     {
         _playerActions.Player_Map.Interact.performed += context => Interact();
