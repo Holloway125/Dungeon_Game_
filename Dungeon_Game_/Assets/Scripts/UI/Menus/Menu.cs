@@ -34,6 +34,7 @@ public class Menu : MonoBehaviour
         //charPanel.SetActive(false);
         //invPanel.SetActive(false);
         _map.SetActive(false);
+
     }
 
     private void OnEnable()

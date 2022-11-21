@@ -37,7 +37,8 @@ public class PlayerResource : MonoBehaviour
     private void Start()
     { 
         currentHealth = maxHealth;
-        healthText.text = ($"{maxHealth.ToString()}");      
+        healthText.text = ($"{maxHealth.ToString()}");   
+        _animator.SetBool("Death", false);   
     }
 
     private void FixedUpdate()
@@ -55,24 +56,32 @@ public class PlayerResource : MonoBehaviour
 
     public void TakeDamage(float damage) // input the amount of damage you want the player to take on each monster
     {
-        if(currentHealth > damage)
+        if (_animator.GetBool("Death") == false)
         {
-        currentHealth -= damage;
-        healthText.text = ($"{Mathf.RoundToInt(currentHealth).ToString()}");
+            if(currentHealth >= damage)
+            {
+            currentHealth -= damage;
+            healthText.text = ($"{Mathf.RoundToInt(currentHealth).ToString()}");
+                if (currentHealth <= 0)
+                {
+                    Death();
+                }
+            }
         }
-        else
+        else if (_animator.GetBool("Death") == true)
         {
-            Death();
+            return;
         }
     }
 
     public void Death() //sets current health to 0 plays death animation puts up return to title canvas and stops all movement
     {
+        _animator.Play("death");
+        _animator.SetBool("Death", true);
         currentHealth = 0;
         healthText.text = ($"{currentHealth.ToString()}");
         //play death animation
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        _animator.SetTrigger("death");
         _youLose.SetActive(true);
     }
 }

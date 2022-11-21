@@ -324,7 +324,6 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         while(IsCollided)
         {
-            Debug.Log("Made Contact with player");
             PlayerResource.TakeDamage(ContactDamage); 
             yield return new WaitForSeconds(ContactAttackCooldown);
         }
@@ -368,11 +367,17 @@ public abstract class BaseEnemy : MonoBehaviour
             SwitchState(DeathState);
         }
     }
+    
+    public virtual void MonsterExp()
+    {
+        LevelSystem.GainExperience(expGiven);
+        Debug.Log("monsterexp");
+    }
+
 
 // Used to Give experience and destroy gameObject in Animator.
     public virtual void Death()
     {
-        LevelSystem.GainExperience(expGiven);
         Destroy(gameObject);
     }
 

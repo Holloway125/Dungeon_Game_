@@ -12,6 +12,7 @@ public override void EnterState(BaseEnemy Enemy)
 
 public override void UpdateState(BaseEnemy Enemy)
     {
+        
         Enemy.LOS();
         Enemy.IsInChaseRange = Physics2D.OverlapCircle(Enemy.transform.position, Enemy.ChaseRadius, Enemy.WhatIsPlayer);
         Enemy.DistanceFromHome = Mathf.Round(Vector3.Distance(Enemy.Home, Enemy.transform.position));
