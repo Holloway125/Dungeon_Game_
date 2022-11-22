@@ -9615,9 +9615,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -5089490298295779772, guid: 631db7dcccd4a904f98e63afdeb49c5f, type: 3}
     - target: {fileID: 5691024010143345621, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
+      propertyPath: ability2
+      value: 
+      objectReference: {fileID: 11400000, guid: b391167fe030cd640a3f6c38640aca3c, type: 2}
+    - target: {fileID: 5691024010143345621, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5691024010143345621, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
+      propertyPath: abilityTwo
+      value: 
+      objectReference: {fileID: 11400000, guid: b391167fe030cd640a3f6c38640aca3c, type: 2}
     - target: {fileID: 5691024010143345621, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: activeTime
       value: 1
@@ -9649,6 +9657,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3872876474892839518, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
     - {fileID: 697684878707762847, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
+    - {fileID: 5087471818677037076, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
+    - {fileID: 451862969000100013, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
 --- !u!4 &744759851 stripped
 Transform:
@@ -10825,6 +10835,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 64d7a8e1-8455-43b2-8716-27b6baf5ed25
     m_ActionName: UI/Map[/Keyboard/m]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ff6b0fa1-5b6e-4be7-b1f4-9c31f3590b57
+    m_ActionName: Player_Map/Fire[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player_Map

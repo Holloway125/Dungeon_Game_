@@ -6,29 +6,31 @@ using UnityEngine.InputSystem;
 public class AbilityHolder : MonoBehaviour
 {
     private PlayerActions _playerActions;
-    public Ability ability;
-    public InputActionReference key;
-
-    float cooldownTime;
-    float activeTime;
-    enum AbilityState 
+    private AbilityState state = AbilityState.ready;
+    private AbilityState stateTwo = AbilityState.ready;
+    private enum AbilityState 
     {
         ready, 
         active,
         cooldown
     }
 
-    AbilityState state = AbilityState.ready;
+    private float cooldownTime;
+    private float activeTime;
 
-    void Awake()
+    public Ability ability;
+    public Ability abilityTwo;
+
+
+    private void Awake()
     {
         _playerActions = new PlayerActions();
     }
 
-    void Start()
+    private void Start()
     {
         _playerActions.Player_Map.Dodge.performed += state => AbilityActivate();
-
+        _playerActions.Player_Map.Fire.performed += stateTwo => AbilityActivateTwo();
     }
 
     private void OnEnable()
@@ -40,19 +42,25 @@ public class AbilityHolder : MonoBehaviour
     {
         _playerActions.Player_Map.Disable();
     }
-
-    private void AbilityActivate()
+    
+    public void AbilityActivate()
     {
-        switch (state)
-        {
-            case AbilityState.ready:
-                {
-                    ability.Activate(gameObject);
-                    state = AbilityState.active;
-                    activeTime = ability.activeTime;
-                }
-            break;
+        ability.Activate(gameObject);
+        state = AbilityState.active;
+        activeTime = ability.activeTime;
+    }
 
+    public void AbilityActivateTwo()
+    {
+        abilityTwo.Activate(gameObject);
+        stateTwo = AbilityState.active;
+        activeTime = abilityTwo.activeTime;
+    }
+
+    private void Update()
+    {
+        switch(state)
+        {
             case AbilityState.active:
                 if ( activeTime > 0 )
                 {
@@ -77,43 +85,32 @@ public class AbilityHolder : MonoBehaviour
                 } 
             break;
         }
+
+        switch(stateTwo)
+        {
+            case AbilityState.active:
+                if ( activeTime > 0 )
+                {
+                    activeTime -= Time.deltaTime;
+                }
+                else if (activeTime <= 0 )
+                {
+                    abilityTwo.BeginCooldown(gameObject);
+                    stateTwo = AbilityState.cooldown;
+                    cooldownTime = abilityTwo.cooldownTime;
+                }
+            break;
+
+            case AbilityState.cooldown:
+                if ( cooldownTime > 0 )
+                {
+                    cooldownTime -= Time.deltaTime;
+                }
+                else if ( cooldownTime <= 0 )
+                {
+                    stateTwo = AbilityState.ready;
+                } 
+            break;
+        }
     }
-    
-    // void Update()
-    // {
-            // switch (state)
-            // {
-            //     case AbilityState.ready:
-            //         {
-            //             ability.Activate(gameObject);
-            //             state = AbilityState.active;
-            //             activeTime = ability.activeTime;
-            //         }
-            //     break;
-
-            //     case AbilityState.active:
-            //         if ( activeTime > 0 )
-            //         {
-            //             activeTime -= Time.deltaTime;
-            //         }
-            //         else if (activeTime <= 0 )
-            //         {
-            //             ability.BeginCooldown(gameObject);
-            //             state = AbilityState.cooldown;
-            //             cooldownTime = ability.cooldownTime;
-            //         }
-            //     break;
-
-            //     case AbilityState.cooldown:
-            //         if ( cooldownTime > 0 )
-            //         {
-            //             cooldownTime -= Time.deltaTime;
-            //         }
-            //         else if ( cooldownTime <= 0 )
-            //         {
-            //             state = AbilityState.ready;
-            //         } 
-            //     break;
-            // }
-    // }
 }

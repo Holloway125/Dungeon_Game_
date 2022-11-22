@@ -71,6 +71,15 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Fire"",
+                    ""type"": ""Button"",
+                    ""id"": ""ff6b0fa1-5b6e-4be7-b1f4-9c31f3590b57"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -269,6 +278,17 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a07aea44-a515-48d1-93cd-36a121283f04"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -840,6 +860,7 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
         m_Player_Map_Attack = m_Player_Map.FindAction("Attack", throwIfNotFound: true);
         m_Player_Map_Interact = m_Player_Map.FindAction("Interact", throwIfNotFound: true);
         m_Player_Map_MousePosition = m_Player_Map.FindAction("MousePosition", throwIfNotFound: true);
+        m_Player_Map_Fire = m_Player_Map.FindAction("Fire", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -918,6 +939,7 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Map_Attack;
     private readonly InputAction m_Player_Map_Interact;
     private readonly InputAction m_Player_Map_MousePosition;
+    private readonly InputAction m_Player_Map_Fire;
     public struct Player_MapActions
     {
         private @PlayerActions m_Wrapper;
@@ -927,6 +949,7 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Map_Attack;
         public InputAction @Interact => m_Wrapper.m_Player_Map_Interact;
         public InputAction @MousePosition => m_Wrapper.m_Player_Map_MousePosition;
+        public InputAction @Fire => m_Wrapper.m_Player_Map_Fire;
         public InputActionMap Get() { return m_Wrapper.m_Player_Map; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -951,6 +974,9 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                 @MousePosition.started -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnMousePosition;
                 @MousePosition.performed -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnMousePosition;
                 @MousePosition.canceled -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnMousePosition;
+                @Fire.started -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnFire;
+                @Fire.performed -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnFire;
+                @Fire.canceled -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnFire;
             }
             m_Wrapper.m_Player_MapActionsCallbackInterface = instance;
             if (instance != null)
@@ -970,6 +996,9 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                 @MousePosition.started += instance.OnMousePosition;
                 @MousePosition.performed += instance.OnMousePosition;
                 @MousePosition.canceled += instance.OnMousePosition;
+                @Fire.started += instance.OnFire;
+                @Fire.performed += instance.OnFire;
+                @Fire.canceled += instance.OnFire;
             }
         }
     }
@@ -1102,6 +1131,7 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
+        void OnFire(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
