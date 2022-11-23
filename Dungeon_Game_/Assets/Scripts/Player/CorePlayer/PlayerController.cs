@@ -25,15 +25,15 @@ public class PlayerController : MonoBehaviour
     private float attackOneTime;
     private float attackTwoTime;
     private float attackThreeTime;
-    private string currentMouseRotation;
+    private string currentMouseRotation = "East";
     private string lastMouseRotation;
-    private enum Attack
-    {
-        AttackOne,
-        AttackTwo,
-        AttackThree
-    }
-    private Attack attack = Attack.AttackOne;
+    // private enum Attack
+    // {
+    //     AttackOne,
+    //     AttackTwo,
+    //     AttackThree
+    // }
+    //private Attack attack = Attack.AttackOne;
     private float _attackTimer;
 
 
@@ -58,8 +58,6 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("Got anim");
         }
- 
-        
     }
 
     private void OnEnable()
@@ -71,10 +69,7 @@ public class PlayerController : MonoBehaviour
     {
         _playerActions.Player_Map.Disable();
     }
-    public void SetAttackTimer(float value)
-    {
-        _attackTimer = value;
-    }
+
     private void FixedUpdate() 
     {
         if(_attackTimer > 0)
@@ -82,10 +77,10 @@ public class PlayerController : MonoBehaviour
             _attackTimer -= Time.deltaTime;
             
         }
-        else if (_attackTimer <= 0)
-        {
-            ComboClickedBoolFalse();
-        }
+        // else if (_attackTimer <= 0)
+        // {
+        //     ComboClickedBoolFalse();
+        // }
 
         _moveInput = _playerActions.Player_Map.Movement.ReadValue<Vector2>();
         _rBody.velocity = _moveInput * _speed;
@@ -107,11 +102,6 @@ public class PlayerController : MonoBehaviour
         _anim.SetBool("isMoving", isMoving);
     }
 
-    public void ComboClickedBoolFalse()
-    {
-        _anim.SetBool("ComboClicked", false);
-    }
-
     private void Attacking()
     {
         MouseRotation();
@@ -119,16 +109,39 @@ public class PlayerController : MonoBehaviour
         {
             _anim.Play($"{MouseRotation()}Attack"); 
         }
-        else if (_attackTimer > 0 && _anim.GetBool("ComboClicked") == false && lastMouseRotation == currentMouseRotation)
+        else if(lastMouseRotation == currentMouseRotation && _attackTimer > 0)
         {
             _anim.SetBool("ComboClicked", true);
         }
-
+        // if(lastMouseRotation != currentMouseRotation)
+        // {
+        //     lastMouseRotation = null;
+        //     currentMouseRotation = null;
+        // }
+        // else
+        // {
+        //     _anim.SetBool("ComboClicked", true);
+        // }
     }  
 
-        public void SetSpeed(float value)
+    public void SetAttackTimer(float value)
+    {
+        _attackTimer = value;
+    }
+
+    public void SetSpeed(float value)
     {
         _speed = value;
+    }
+
+    private void StopAttacking()
+    {
+        _anim.SetTrigger("Idle");
+    }
+
+    public void ComboClickedBoolFalse()
+    {
+        _anim.SetBool("ComboClicked", false);
     }
 
     //Deals Damage to Monsters
@@ -139,16 +152,6 @@ public class PlayerController : MonoBehaviour
             monster.TakeDamage((int)_characterStats.Damage.Value);
         }
     }
-
-    private void StopAttacking()
-    {
-        _anim.SetTrigger("Idle");
-    }
-
-    // public void LastMouseRotationSet(string rotation)
-    // {
-    //     lastMouseRotation = rotation;
-    // }
 
     private string MouseRotation()
     {
@@ -220,6 +223,8 @@ public class PlayerController : MonoBehaviour
         else return "NoMouse";
 
     }
-
-
+    // public void LastMouseRotationSet(string rotation)
+    // {
+    //     lastMouseRotation = rotation;
+    // }
 }
