@@ -10776,7 +10776,19 @@ MonoBehaviour:
     m_ActionId: 42aa2f36-8318-4965-bb3a-830fc1839011
     m_ActionName: Player/Dodge[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1136134665}
+        m_TargetAssemblyTypeName: CombatManager, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 5d4950ae-791c-40a8-8415-c15e246c5b96
     m_ActionName: Player_Map/New action
   - m_PersistentCalls:
@@ -10844,6 +10856,20 @@ MonoBehaviour:
   m_DefaultActionMap: Player_Map
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1685212084}
+--- !u!114 &1136134665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136134651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08abca577945b4544b85fe6ba1f7c3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canReceiveInput: 0
+  inputReceived: 0
 --- !u!1 &1136323188
 GameObject:
   m_ObjectHideFlags: 0

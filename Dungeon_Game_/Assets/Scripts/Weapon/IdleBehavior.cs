@@ -4,22 +4,32 @@ using UnityEngine;
 using static CombatManager;
 
 
-public class IdleBehavior : StateMachineBehaviour
-{
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    //*override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
 
-    //}
+public class IdleBehavior : StateMachineBehaviour
+
+     
+
+{
+    
+    GameObject player;
+    PlayerController playerController;
+
+    //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        player = GameObject.FindWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
+    }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if(CombatManager.instance.inputReceived)
         {
-            animator.SetTrigger("AttackOne");
+            animator.SetTrigger($"{playerController.MouseRotation()}AttackOne");       
             CombatManager.instance.InputManager();
             CombatManager.instance.inputReceived = false;
+            Debug.Log("attacked");
         }
         
     }

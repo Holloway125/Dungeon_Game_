@@ -22,11 +22,13 @@ public class PlayerController : MonoBehaviour
     private float angle;
     private float angleDegree;
     private AnimationClip clips;
-    private float attackOneTime;
-    private float attackTwoTime;
-    private float attackThreeTime;
-    private string currentMouseRotation = "East";
-    private string lastMouseRotation;
+    public bool isAttacking;
+
+    // private float attackOneTime;
+    // private float attackTwoTime;
+    // private float attackThreeTime;
+    // private string currentMouseRotation = "East";
+    // private string lastMouseRotation;
     // private enum Attack
     // {
     //     AttackOne,
@@ -34,7 +36,7 @@ public class PlayerController : MonoBehaviour
     //     AttackThree
     // }
     //private Attack attack = Attack.AttackOne;
-    private float _attackTimer;
+
 
 
     private void Awake()
@@ -48,16 +50,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-       // UpdateAnimClipTimes();
-        _playerActions.Player_Map.Attack.performed += context => Attacking();
+        _playerActions.Player_Map.Attack.performed += context => CombatManager.instance.Attack(context);
         _anim = GetComponent<Animator>();
-        if(_anim == null)
-        {
-            Debug.Log("Error: Did not find anim!");
-        } else
-        {
-            //Debug.Log("Got anim");
-        }
     }
 
     private void OnEnable()
@@ -72,15 +66,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate() 
     {
-        if(_attackTimer > 0)
-        {
-            _attackTimer -= Time.deltaTime;
-            
-        }
-        // else if (_attackTimer <= 0)
-        // {
-        //     ComboClickedBoolFalse();
-        // }
 
         _moveInput = _playerActions.Player_Map.Movement.ReadValue<Vector2>();
         _rBody.velocity = _moveInput * _speed;
@@ -102,48 +87,6 @@ public class PlayerController : MonoBehaviour
         _anim.SetBool("isMoving", isMoving);
     }
 
-    private void Attacking()
-    {
-        MouseRotation();
-        if(_attackTimer <= 0)
-        {
-            _anim.Play($"{MouseRotation()}Attack"); 
-        }
-        else if(lastMouseRotation == currentMouseRotation && _attackTimer > 0)
-        {
-            _anim.SetBool("ComboClicked", true);
-        }
-        // if(lastMouseRotation != currentMouseRotation)
-        // {
-        //     lastMouseRotation = null;
-        //     currentMouseRotation = null;
-        // }
-        // else
-        // {
-        //     _anim.SetBool("ComboClicked", true);
-        // }
-    }  
-
-    public void SetAttackTimer(float value)
-    {
-        _attackTimer = value;
-    }
-
-    public void SetSpeed(float value)
-    {
-        _speed = value;
-    }
-
-    private void StopAttacking()
-    {
-        _anim.SetTrigger("Idle");
-    }
-
-    public void ComboClickedBoolFalse()
-    {
-        _anim.SetBool("ComboClicked", false);
-    }
-
     //Deals Damage to Monsters
     private void OnTriggerEnter2D(Collider2D _collider)
     {
@@ -153,7 +96,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private string MouseRotation()
+    public string MouseRotation()
     {
         //Gets mouse position and returns x,y value of the pixels mouse is on in current resolution
         mousePosition = Mouse.current.position.ReadValue();
@@ -173,8 +116,6 @@ public class PlayerController : MonoBehaviour
         //converts the radian to degrees in the range of (-180, 180)
         angleDegree = angle * Mathf.Rad2Deg;
 
-        lastMouseRotation = currentMouseRotation; 
-
         //converts the range of (-180, 180) to a range of (0, 360) which then can be passed into the rotation z value of an object to set it rotation pointing to the cursors current position
         if(angleDegree < 0)
         {
@@ -182,49 +123,37 @@ public class PlayerController : MonoBehaviour
         }   
         if (angleDegree >= 0  && angleDegree <= 22.5 || angleDegree <= 360 && angleDegree >=337.5)
         {
-            currentMouseRotation = "East";
             return "East";
         }
         else if (angleDegree > 22.5 && angleDegree <= 67.5)
         {
-            currentMouseRotation = "NorthWest";
             return "NorthEast";
         }
         else if (angleDegree > 67.5 && angleDegree <= 112.5)
         {
-            currentMouseRotation = "North";
             return "North";
         }
         else if (angleDegree > 112.5 && angleDegree <= 157.5)
         {
-            currentMouseRotation = "NorthWest";
             return "NorthWest";
         }
         else if (angleDegree > 157.5 && angleDegree <= 202.5)
         {
-            currentMouseRotation = "West";
             return "West";
         }     
         else if (angleDegree > 202.5 && angleDegree <= 247.5)
         {
-            currentMouseRotation = "SouthWest";
             return "SouthWest";
         }      
         else if (angleDegree > 247.5 && angleDegree <= 292.5)
         {
-            currentMouseRotation = "South";
             return "South";
         }    
         else if (angleDegree > 292.5 && angleDegree <= 337.5)
         {
-            currentMouseRotation = "SouthEast";
             return "SouthEast" ;
         }        
         else return "NoMouse";
 
     }
-    // public void LastMouseRotationSet(string rotation)
-    // {
-    //     lastMouseRotation = rotation;
-    // }
 }
