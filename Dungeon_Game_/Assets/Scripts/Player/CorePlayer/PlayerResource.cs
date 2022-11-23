@@ -84,4 +84,5 @@ public class PlayerResource : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         _youLose.SetActive(true);
     }
+
 }
