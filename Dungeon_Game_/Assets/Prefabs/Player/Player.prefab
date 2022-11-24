@@ -57,6 +57,7 @@ MonoBehaviour:
   _speed: 0
   _camera: {fileID: 0}
   player: {fileID: 0}
+  isAttacking: 0
 --- !u!114 &1489136273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: b6c9fd313e773484c970303946392c19, type: 2}
-  key: {fileID: 0}
+  abilityTwo: {fileID: 0}
 --- !u!212 &720812701271881332
 SpriteRenderer:
   m_ObjectHideFlags: 0
