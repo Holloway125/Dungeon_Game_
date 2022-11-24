@@ -22,7 +22,7 @@ public class Dash : Ability
 
       if(playerResource.staminaSlider.fillAmount >= .4f)
       {
-      playerController._speed = 15f;
+      playerController.SetCurrentSpeed(15);
       playerResource.staminaSlider.fillAmount -= .4f;
       //Play Animation
       }
@@ -33,6 +33,6 @@ public class Dash : Ability
       ParticleSystem effect = player.GetComponent<ParticleSystem>(); 
       TrailRenderer dashEffect = player.GetComponent<TrailRenderer>();
       PlayerController movement = player.GetComponent<PlayerController>();
-      playerController._speed = 5;
+      playerController.SetCurrentSpeed(DataStorage.GetDefaultSpeed());
    }
 }

@@ -5,39 +5,27 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] public float _speed;
+    //GameObject and Component References
     private PlayerActions _playerActions;
     private Rigidbody2D _rBody;
     private Vector2 _moveInput;
     private CircleCollider2D _weaponCollider;
     private CharacterStats _characterStats;
-
     [SerializeField] private Camera _camera;
     [SerializeField] private GameObject player;
     private Animator _anim;
-    private bool isMoving;
 
+
+    //MouseRotation Variables
     private Vector3 mousePosition;
     private Vector3 mouseWorldPosition;
     private float angle;
     private float angleDegree;
-    private AnimationClip clips;
+
+    //PlayerStats and Conditions
+    private float currentSpeed = 5f;
+    private bool isMoving;
     public bool isAttacking;
-
-    // private float attackOneTime;
-    // private float attackTwoTime;
-    // private float attackThreeTime;
-    // private string currentMouseRotation = "East";
-    // private string lastMouseRotation;
-    // private enum Attack
-    // {
-    //     AttackOne,
-    //     AttackTwo,
-    //     AttackThree
-    // }
-    //private Attack attack = Attack.AttackOne;
-
-
 
     private void Awake()
     {
@@ -66,9 +54,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate() 
     {
-
         _moveInput = _playerActions.Player_Map.Movement.ReadValue<Vector2>();
-        _rBody.velocity = _moveInput * _speed;
+        _rBody.velocity = _moveInput * currentSpeed;
         _anim.SetFloat("Horizontal",_rBody.velocity.x);
         _anim.SetFloat("Vertical",_rBody.velocity.y);
 
@@ -85,6 +72,19 @@ public class PlayerController : MonoBehaviour
             isMoving = false;
         }
         _anim.SetBool("isMoving", isMoving);
+    }
+
+    public void SetCurrentSpeed(float i)
+    {
+        if(i >= 0 && i <=25)
+        {
+            currentSpeed = i;
+        }
+    }
+
+    public float GetCurrentSpeed()
+    {
+        return currentSpeed;
     }
 
     //Deals Damage to Monsters
@@ -154,6 +154,5 @@ public class PlayerController : MonoBehaviour
             return "SouthEast" ;
         }        
         else return "NoMouse";
-
     }
 }
