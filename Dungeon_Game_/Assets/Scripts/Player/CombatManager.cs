@@ -9,6 +9,8 @@ public class CombatManager : MonoBehaviour
 
     public bool canReceiveInput = true;
     public bool inputReceived;
+    GameObject player;
+    Animator _anim;
 
     void Awake()
     {
@@ -17,6 +19,8 @@ public class CombatManager : MonoBehaviour
     
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
+        _anim = player.GetComponent<Animator>();
         canReceiveInput = true;
     }
 

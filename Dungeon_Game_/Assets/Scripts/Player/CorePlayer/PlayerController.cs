@@ -23,9 +23,10 @@ public class PlayerController : MonoBehaviour
     private float angleDegree;
 
     //PlayerStats and Conditions
-    private float currentSpeed = 5f;
-    private bool isMoving;
-    public bool isAttacking;
+    
+    [SerializeField] private float currentSpeed;
+
+    [SerializeField] private bool isMoving;
 
     private void Awake()
     {
@@ -72,6 +73,10 @@ public class PlayerController : MonoBehaviour
             isMoving = false;
         }
         _anim.SetBool("isMoving", isMoving);
+        if (isMoving)
+        {
+            CombatManager.instance.InputManager();
+        }
     }
 
     public void SetCurrentSpeed(float i)

@@ -7,6 +7,7 @@ public class TransitionOneBehavior : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        
         CombatManager.instance.canReceiveInput = true;
         CombatManager.instance.inputReceived = false;
     }
