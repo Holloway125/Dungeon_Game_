@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2346509203010142849}
   - component: {fileID: 3995036121498226227}
+  - component: {fileID: 1136134665}
   - component: {fileID: 1489136273}
   - component: {fileID: 5896024090619803072}
   - component: {fileID: 3448304651373937805}
@@ -19,6 +20,7 @@ GameObject:
   - component: {fileID: 4358859265416030546}
   - component: {fileID: 7786453153001808674}
   - component: {fileID: 5943964512751037709}
+  - component: {fileID: 1136134653}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -54,10 +56,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1041950ec290c4c4abd839a39a0fc937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0
   _camera: {fileID: 0}
-  player: {fileID: 0}
-  isAttacking: 0
+  player: {fileID: 2466084335914140134}
+  currentSpeed: 0
+  isMoving: 0
+  actionPerformed: 0
+--- !u!114 &1136134665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2466084335914140134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08abca577945b4544b85fe6ba1f7c3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canReceiveInput: 0
+  inputReceived: 0
 --- !u!114 &1489136273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: b6c9fd313e773484c970303946392c19, type: 2}
-  abilityTwo: {fileID: 0}
+  abilityTwo: {fileID: 11400000, guid: b391167fe030cd640a3f6c38640aca3c, type: 2}
 --- !u!212 &720812701271881332
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -254,6 +271,120 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.06}
   serializedVersion: 2
   m_Radius: 0.53
+--- !u!114 &1136134653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2466084335914140134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 631db7dcccd4a904f98e63afdeb49c5f, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a82e3c74-410c-47da-b81e-11ef558461b2
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 42aa2f36-8318-4965-bb3a-830fc1839011
+    m_ActionName: Player/Dodge[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1136134665}
+        m_TargetAssemblyTypeName: CombatManager, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5d4950ae-791c-40a8-8415-c15e246c5b96
+    m_ActionName: Player_Map/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4ed01d3f-7e2c-4984-8eb6-e9a688f85941
+    m_ActionName: Player_Map/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9d2617cd-28c7-4d97-8fbf-94343d368b6c
+    m_ActionName: Player_Map/MousePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f757b647-c694-40d6-a42d-ccdfc68b9cf3
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 889ad2eb-8068-40c4-9709-258df1960c6e
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b5eec882-35e6-4fff-b8b8-53a08ea30a8e
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b0e9989d-bb34-4495-a715-1ec885f1dd6f
+    m_ActionName: UI/Point[/Mouse/position,/Pen/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 52fce6e0-4473-4c56-8a52-eedb6d894743
+    m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a7bbd147-1993-4995-a1b5-5228ff7dd97a
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 621fe91a-012d-4283-af2d-a3fbe11598d3
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 24e183c1-b9da-4cc6-97f3-98b735ec35b2
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e2ff6b1f-97ad-41c2-95c9-66ebc570c7a2
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 76bff977-30d1-41a6-b679-17ef08a74cba
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 00de9191-d5bb-49d2-b5dd-9be931a471be
+    m_ActionName: UI/Menu[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 64d7a8e1-8455-43b2-8716-27b6baf5ed25
+    m_ActionName: UI/Map[/Keyboard/m]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ff6b0fa1-5b6e-4be7-b1f4-9c31f3590b57
+    m_ActionName: Player_Map/Fire[/Keyboard/f]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player_Map
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &2500098135770761205
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +398,7 @@ GameObject:
   - component: {fileID: 1301120344281204762}
   m_Layer: 10
   m_Name: Map Marker
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -280,7 +411,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2500098135770761205}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -30,6 +30,7 @@ public class CombatManager : MonoBehaviour
         {
             if(canReceiveInput)
             {
+                _anim.SetBool("Idle", true);
                 inputReceived = true;
                 canReceiveInput = false;
                 Debug.Log("called");

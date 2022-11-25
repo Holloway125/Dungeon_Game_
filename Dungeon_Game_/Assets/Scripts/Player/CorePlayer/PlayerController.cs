@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _playerActions.Player_Map.Attack.performed += context => CombatManager.instance.Attack(context);
+        _playerActions.Player_Map.Movement.performed += context => Movement(context);
+        _playerActions.Player_Map.Movement.canceled += context => CancelMovement(context);
         _anim = GetComponent<Animator>();
     }
 
@@ -55,28 +57,42 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate() 
     {
-        _moveInput = _playerActions.Player_Map.Movement.ReadValue<Vector2>();
+            if(_rBody.velocity.x != 0f && isMoving == false)
+            {
+                isMoving = true;
+                _anim.SetBool("isMoving", isMoving);
+                Debug.Log("something");
+            }
+            else if (_rBody.velocity.y != 0f && isMoving == false)
+            {
+                isMoving = true;
+                _anim.SetBool("isMoving", isMoving);
+            }
+            else if (_rBody.velocity.y == 0 && _rBody.velocity.x == 0)
+            {
+                isMoving = false;
+                _anim.SetBool("isMoving", isMoving);
+            }
+
+     
+    }
+
+    private void Movement(InputAction.CallbackContext context)
+    {
+        _anim.SetBool("isMoving", true);
+        _moveInput = _playerActions.Player_Map.Movement.ReadValue<Vector2>(); 
         _rBody.velocity = _moveInput * currentSpeed;
         _anim.SetFloat("Horizontal",_rBody.velocity.x);
         _anim.SetFloat("Vertical",_rBody.velocity.y);
-
-        if(_rBody.velocity.x != 0f)
-        {
-            isMoving = true;
-        }
-        else if (_rBody.velocity.y != 0f)
-        {
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
-        }
-        _anim.SetBool("isMoving", isMoving);
-        if (isMoving)
-        {
-            CombatManager.instance.InputManager();
-        }
+    }
+    
+    private void CancelMovement(InputAction.CallbackContext context)
+    {
+        _anim.SetBool("isMoving", false);
+        _moveInput = _playerActions.Player_Map.Movement.ReadValue<Vector2>(); 
+        _rBody.velocity = _moveInput * 0;
+        _anim.SetFloat("Horizontal",_rBody.velocity.x);
+        _anim.SetFloat("Vertical",_rBody.velocity.y); 
     }
 
     public void SetCurrentSpeed(float i)
