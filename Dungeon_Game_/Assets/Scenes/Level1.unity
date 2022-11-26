@@ -650,6 +650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canReceiveInput: 0
   inputReceived: 0
+  _camera: {fileID: 0}
 --- !u!50 &76050287
 Rigidbody2D:
   serializedVersion: 4
@@ -9375,6 +9376,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1685212084}
+    - target: {fileID: 1136134665, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 1685212084}
     - target: {fileID: 2346509203010142849, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -9427,6 +9432,10 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 1685212084}
+    - target: {fileID: 3995036121498226227, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
+      propertyPath: currentSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
 --- !u!4 &744759851 stripped

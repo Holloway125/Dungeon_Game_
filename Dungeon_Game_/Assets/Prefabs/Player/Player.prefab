@@ -56,11 +56,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1041950ec290c4c4abd839a39a0fc937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
   player: {fileID: 2466084335914140134}
   currentSpeed: 0
   isMoving: 0
-  actionPerformed: 0
 --- !u!114 &1136134665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canReceiveInput: 0
   inputReceived: 0
+  _camera: {fileID: 0}
 --- !u!114 &1489136273
 MonoBehaviour:
   m_ObjectHideFlags: 0

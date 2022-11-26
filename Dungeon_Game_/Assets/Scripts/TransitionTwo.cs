@@ -16,7 +16,7 @@ public class TransitionTwo : StateMachineBehaviour
     {
         if (CombatManager.instance.inputReceived)
         {
-            animator.SetTrigger("AttackThree");
+            animator.SetTrigger($"{CombatManager.instance.MouseRotation()}AttackThree");
             CombatManager.instance.InputManager();
             CombatManager.instance.inputReceived = false;
         }

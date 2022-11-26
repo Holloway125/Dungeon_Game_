@@ -23,7 +23,7 @@ public class TransitionOneBehavior : StateMachineBehaviour
     {
         if (CombatManager.instance.inputReceived)
         {
-            animator.SetTrigger("AttackTwo");
+            animator.SetTrigger($"{CombatManager.instance.MouseRotation()}AttackTwo");
             CombatManager.instance.InputManager();
             CombatManager.instance.inputReceived = false;
         }
