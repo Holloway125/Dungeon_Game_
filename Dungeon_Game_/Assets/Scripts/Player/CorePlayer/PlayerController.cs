@@ -96,5 +96,9 @@ public class PlayerController : MonoBehaviour
             monster.TakeDamage((int)_characterStats.Damage.Value);
         }
     }
+    public void SetTransitionAnimation()
+    {
+        
+    }
 
 }

@@ -13,7 +13,7 @@ public class TransitionOneBehavior : StateMachineBehaviour
         player = GameObject.FindWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         DataStorage.SetDefaultSpeed(playerController.GetCurrentSpeed());
-        playerController.SetCurrentSpeed(DataStorage.GetDefaultSpeed()/2);
+        playerController.SetCurrentSpeed(DataStorage.GetDefaultSpeed()*0.3f);
         CombatManager.instance.canReceiveInput = true;
         CombatManager.instance.inputReceived = false;
     }

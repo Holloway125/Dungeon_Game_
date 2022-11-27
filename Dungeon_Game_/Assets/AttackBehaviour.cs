@@ -13,7 +13,7 @@ public class AttackBehaviour : StateMachineBehaviour
         player = GameObject.FindWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         DataStorage.SetDefaultSpeed(playerController.GetCurrentSpeed());
-        playerController.SetCurrentSpeed(0); 
+        playerController.SetCurrentSpeed(0);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
