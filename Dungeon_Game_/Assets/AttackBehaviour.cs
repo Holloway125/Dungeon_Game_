@@ -9,7 +9,6 @@ public class AttackBehaviour : StateMachineBehaviour
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
         player = GameObject.FindWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         DataStorage.SetDefaultSpeed(playerController.GetCurrentSpeed());
@@ -19,7 +18,7 @@ public class AttackBehaviour : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-              if (CombatManager.instance.inputReceived)
+              if (CombatManager.instance.    inputReceived)
         {
             CombatManager.instance.InputManager();
             CombatManager.instance.inputReceived = false;
@@ -29,7 +28,7 @@ public class AttackBehaviour : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        playerController.SetCurrentSpeed(DataStorage.GetDefaultSpeed());  
+        playerController.SetCurrentSpeed(DataStorage.GetDefaultSpeed()); 
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

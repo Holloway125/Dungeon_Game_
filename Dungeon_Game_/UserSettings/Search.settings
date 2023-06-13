@@ -10,12 +10,15 @@ scopes = {
 	"last_search.DD5CDD96" = ""
 	"OpenInspectorPreview.DD5CDD96" = "0"
 	"currentGroup.DD5CDD96" = "scene"
-	"last_search.DA949528" = "grid"
+	"last_search.DA949528" = "grid and snap setting"
 	"OpenInspectorPreview.DA949528" = "0"
 	"currentGroup.DA949528" = "all"
 	"last_search.F8949528" = "dia"
 	"OpenInspectorPreview.F8949528" = "0"
 	"currentGroup.F8949528" = "all"
+	"last_search.DE949528" = "grid and sna"
+	"OpenInspectorPreview.DE949528" = "0"
+	"currentGroup.DE949528" = "menu"
 }
 providers = {
 	adb = {

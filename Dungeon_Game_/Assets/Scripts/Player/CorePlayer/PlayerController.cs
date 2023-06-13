@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
 
      
     }
+
     public void SetCurrentSpeed(float i)
     {
         if(i >= 0 && i <=25)
@@ -96,6 +97,7 @@ public class PlayerController : MonoBehaviour
             monster.TakeDamage((int)_characterStats.Damage.Value);
         }
     }
+
     public void SetTransitionAnimation()
     {
         

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
-
     private PlayerActions _playerActions;
 
     [SerializeField] private GameObject pauseMenu;
