@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2466084335914140134}
-  currentSpeed: 0
+  currentSpeed: 5
   isMoving: 0
 --- !u!114 &1136134665
 MonoBehaviour:
