@@ -5,15 +5,13 @@ using UnityEngine;
 public class TransitionOneBehavior : StateMachineBehaviour
 {
     GameObject player;
-    PlayerController playerController;
+    CharacterStats playerStats;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-                
+    {         
         player = GameObject.FindWithTag("Player");
-        playerController = player.GetComponent<PlayerController>();
-        DataStorage.SetDefaultSpeed(playerController.GetCurrentSpeed());
-        playerController.SetCurrentSpeed(DataStorage.GetDefaultSpeed()*0.3f);
+        playerStats = player.GetComponent<CharacterStats>();
+        playerStats.SetSpeed(0*0.3f);
         CombatManager.instance.canReceiveInput = true;
         CombatManager.instance.inputReceived = false;
     }
@@ -32,7 +30,7 @@ public class TransitionOneBehavior : StateMachineBehaviour
     //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        playerController.SetCurrentSpeed(DataStorage.GetDefaultSpeed());
+        playerStats.SetSpeed(playerStats.GetDefaultSpeed());
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

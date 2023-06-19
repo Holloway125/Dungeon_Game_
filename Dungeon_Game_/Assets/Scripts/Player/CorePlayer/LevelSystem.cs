@@ -19,6 +19,7 @@ public class LevelSystem : MonoBehaviour
 
     private GameObject player; 
     private PlayerResource playerResource;
+    private CharacterStats playerStats;
 
     private void Awake()
     {
@@ -26,7 +27,7 @@ public class LevelSystem : MonoBehaviour
         playerResource = player.GetComponent<PlayerResource>();
         expBar = GameObject.Find("/PlayerUI/Exp/Background/FillMask").GetComponent<Image>();
         lvlText = GameObject.Find("/PlayerUI/Level").GetComponent<Text>();
-
+        playerStats = player.GetComponent<CharacterStats>();
     }
 
     private void Start()
@@ -40,14 +41,35 @@ public class LevelSystem : MonoBehaviour
     private void LevelUP()
     {
         playerLvl++;
-        playerResource.maxHealth = 100+(playerLvl*25);
-        playerResource.healthText.text = ($"{playerResource.maxHealth.ToString()}");          
-        playerResource.healthSlider.fillAmount = 1;
-        playerResource.currentHealth = playerResource.maxHealth;
+        Debug. Log("Leveled Up!");
+
+        //Health Modifier
+        playerStats.SetMaxHP(100+(playerLvl*25));
+        playerResource._healthText.text = ($"{playerStats.GetMaxHP().ToString()}");          
+        playerResource._healthSlider.fillAmount = 1;
+        playerStats.SetCurrentHP(playerStats.GetMaxHP());
+        Debug.Log("New Max HP " + playerStats.GetMaxHP());
+
+        //Attack Modifier
+        playerStats.SetAttack(playerStats.GetAttack() + 2);
+        Debug.Log("New Attack " + playerStats.GetAttack());
+
+        //Defense Modifier
+        playerStats.SetDefense(playerStats.GetDefense() + 1);
+        Debug.Log("New Defense " + playerStats.GetDefense());
+
+        //AttackSpeed Modifier
+        playerStats.SetAttackSpeed(playerStats.GetAttackSpeed() + 1);
+        Debug.Log("New AttackSpeed " + playerStats.GetAttackSpeed());
+
+        //Crit Modifier
+        playerStats.SetCrit(playerStats.GetCrit() + 1);
+        Debug.Log("New Crit " + playerStats.GetCrit());
+
         playerXp = playerXp - totalXp;
         lvlText.text = (playerLvl.ToString());
 
-        //EXP CURVE NEEDS UPDATE
+        //Exp Curve
         totalXp = totalXp * 2;
 
         if(playerXp>=totalXp)
@@ -72,6 +94,6 @@ public class LevelSystem : MonoBehaviour
             {
             expBar.fillAmount = (float)playerXp / (float)totalXp;
             }
-        Debug.Log("xp gained");
+            Debug.Log("Gained " + exp + "XP!");
     }
 }

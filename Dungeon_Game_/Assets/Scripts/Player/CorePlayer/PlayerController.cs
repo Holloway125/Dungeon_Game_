@@ -10,14 +10,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rBody;
     private Vector2 _moveInput;
     private CircleCollider2D _weaponCollider;
-    private CharacterStats _characterStats;
+    private CharacterStats playerStats;
     [SerializeField] private GameObject player;
     private Animator _anim;
 
     //PlayerStats and Conditions
-    
-    [SerializeField] private float currentSpeed;
-
     [SerializeField] private bool isMoving;
 
     private void Awake()
@@ -26,7 +23,7 @@ public class PlayerController : MonoBehaviour
         _rBody = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _weaponCollider = GetComponent<CircleCollider2D>();
-        _characterStats = GetComponent<CharacterStats>();
+        playerStats = GetComponent<CharacterStats>();
     }
 
     private void Start()
@@ -48,7 +45,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate() 
     {
         _moveInput = _playerActions.Player_Map.Movement.ReadValue<Vector2>(); 
-        _rBody.velocity = _moveInput * currentSpeed;
+        _rBody.velocity = _moveInput * playerStats.GetSpeed();
         _anim.SetFloat("Horizontal",_rBody.velocity.x);
         _anim.SetFloat("Vertical",_rBody.velocity.y);
 
@@ -76,25 +73,13 @@ public class PlayerController : MonoBehaviour
      
     }
 
-    public void SetCurrentSpeed(float i)
-    {
-        if(i >= 0 && i <=25)
-        {
-            currentSpeed = i;
-        }
-    }
-
-    public float GetCurrentSpeed()
-    {
-        return currentSpeed;
-    }
-
     //Deals Damage to Monsters
     private void OnTriggerEnter2D(Collider2D _collider)
     {
         if (_collider.gameObject.TryGetComponent<BaseEnemy>(out BaseEnemy monster))
         {
-            monster.TakeDamage((int)_characterStats.Damage.Value);
+            monster.TakeDamage((int)playerStats.GetAttack());
+            Debug.Log("Monster took " + playerStats.GetAttack() + " damage!");
         }
     }
 

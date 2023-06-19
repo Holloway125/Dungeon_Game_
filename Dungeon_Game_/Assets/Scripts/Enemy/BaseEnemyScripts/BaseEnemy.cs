@@ -371,7 +371,6 @@ public abstract class BaseEnemy : MonoBehaviour
     public virtual void MonsterExp()
     {
         LevelSystem.GainExperience(expGiven);
-        Debug.Log("monsterexp");
     }
 
 

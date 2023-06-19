@@ -12,17 +12,20 @@ public class Dash : Ability
    ParticleSystem effect;
    AbilityHolder _abilityHolder;
    GameObject parent;
+   CharacterStats playerStats;
 
    public override void Activate(GameObject parent)
    {  
+      //movement and playerController are the same reference?
       parent = GameObject.Find("Player");
       playerController = parent.GetComponent<PlayerController>();
       playerResource = parent.GetComponent<PlayerResource>();
       movement = parent.GetComponent<PlayerController>();
+      playerStats = parent.GetComponent<CharacterStats>();
 
       if(playerResource.staminaSlider.fillAmount >= .4f)
       {
-      playerController.SetCurrentSpeed(15);
+      playerStats.SetSpeed(15);
       playerResource.staminaSlider.fillAmount -= .4f;
       //Play Animation
       }
@@ -33,6 +36,6 @@ public class Dash : Ability
       ParticleSystem effect = player.GetComponent<ParticleSystem>(); 
       TrailRenderer dashEffect = player.GetComponent<TrailRenderer>();
       PlayerController movement = player.GetComponent<PlayerController>();
-      playerController.SetCurrentSpeed(DataStorage.GetDefaultSpeed());
+      playerStats.SetSpeed(playerStats.GetDefaultSpeed());
    }
 }
