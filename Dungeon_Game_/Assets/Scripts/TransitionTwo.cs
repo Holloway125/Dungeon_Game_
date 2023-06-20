@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class TransitionTwo : StateMachineBehaviour
 {
+    GameObject player;
+    CharacterStats playerStats;
+    PlayerController playerController;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        CombatManager.instance.canReceiveInput = true;
-        CombatManager.instance.inputReceived = false;
+        player = GameObject.FindWithTag("Player");
+        playerStats = player.GetComponent<CharacterStats>();
+        playerController = player.GetComponent<PlayerController>();
+        playerController.canReceiveInput = true;
+        playerController.inputReceived = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (CombatManager.instance.inputReceived)
+        if (playerController.inputReceived)
         {
-            animator.SetTrigger($"{CombatManager.instance.MouseRotation()}AttackThree");
-            CombatManager.instance.InputManager();
-            CombatManager.instance.inputReceived = false;
+            animator.SetTrigger($"{playerController.AttackDir()}AttackThree");
+            playerController.InputManager();
+            playerController.inputReceived = false;
         }
     }
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

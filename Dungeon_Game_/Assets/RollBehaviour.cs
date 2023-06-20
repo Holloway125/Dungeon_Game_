@@ -2,20 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TransitionOneBehavior : StateMachineBehaviour
+public class RollBehaviour : StateMachineBehaviour
 {
     GameObject player;
     CharacterStats playerStats;
     PlayerController playerController;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {         
+    {
         player = GameObject.FindWithTag("Player");
         playerStats = player.GetComponent<CharacterStats>();
         playerController = player.GetComponent<PlayerController>();
-        playerStats.SetSpeed(0*0.3f);
-        playerController.canReceiveInput = true;
-        playerController.inputReceived = false;
+        playerStats.SetSpeed(0);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -23,16 +21,16 @@ public class TransitionOneBehavior : StateMachineBehaviour
     {
         if (playerController.inputReceived)
         {
-            animator.SetTrigger($"{playerController.AttackDir()}AttackTwo");
             playerController.InputManager();
             playerController.inputReceived = false;
         }
     }
 
-    //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+
+    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        playerStats.SetSpeed(playerStats.GetDefaultSpeed());
+        playerStats.SetSpeed(playerStats.GetDefaultSpeed()); 
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

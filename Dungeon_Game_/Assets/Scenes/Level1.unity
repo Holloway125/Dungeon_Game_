@@ -9460,6 +9460,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2500098135770761205, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3995036121498226227, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 1685212084}
     - target: {fileID: 3995036121498226227, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: _camera
       value: 

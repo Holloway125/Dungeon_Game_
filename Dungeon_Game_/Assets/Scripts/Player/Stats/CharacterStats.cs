@@ -12,7 +12,7 @@ public class CharacterStats : MonoBehaviour
     [SerializeField] private int AttackSpeed = 1;
     [SerializeField] private int Crit = 0;
     [SerializeField] private int Defense = 10;
-    [SerializeField] private static float DefaultSpeed = 5;
+    [SerializeField] private static float DefaultSpeed = 3;
     [SerializeField] private float Speed;
 
     public float GetDefaultSpeed()

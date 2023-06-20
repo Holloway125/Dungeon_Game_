@@ -29,7 +29,7 @@ public class AbilityHolder : MonoBehaviour
 
     private void Start()
     {
-        _playerActions.Player_Map.Dodge.performed += state => AbilityActivate();
+        _playerActions.Player_Map.Roll.performed += state => AbilityActivate();
         _playerActions.Player_Map.Fire.performed += stateTwo => AbilityActivateTwo();
     }
 

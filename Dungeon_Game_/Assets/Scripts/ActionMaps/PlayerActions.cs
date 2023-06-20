@@ -37,7 +37,7 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Dodge"",
+                    ""name"": ""Roll"",
                     ""type"": ""Button"",
                     ""id"": ""42aa2f36-8318-4965-bb3a-830fc1839011"",
                     ""expectedControlType"": ""Button"",
@@ -222,7 +222,7 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Dodge"",
+                    ""action"": ""Roll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -233,7 +233,7 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Dodge"",
+                    ""action"": ""Roll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -244,7 +244,7 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Dodge"",
+                    ""action"": ""Roll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -856,7 +856,7 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
         // Player_Map
         m_Player_Map = asset.FindActionMap("Player_Map", throwIfNotFound: true);
         m_Player_Map_Movement = m_Player_Map.FindAction("Movement", throwIfNotFound: true);
-        m_Player_Map_Dodge = m_Player_Map.FindAction("Dodge", throwIfNotFound: true);
+        m_Player_Map_Roll = m_Player_Map.FindAction("Roll", throwIfNotFound: true);
         m_Player_Map_Attack = m_Player_Map.FindAction("Attack", throwIfNotFound: true);
         m_Player_Map_Interact = m_Player_Map.FindAction("Interact", throwIfNotFound: true);
         m_Player_Map_MousePosition = m_Player_Map.FindAction("MousePosition", throwIfNotFound: true);
@@ -935,7 +935,7 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player_Map;
     private IPlayer_MapActions m_Player_MapActionsCallbackInterface;
     private readonly InputAction m_Player_Map_Movement;
-    private readonly InputAction m_Player_Map_Dodge;
+    private readonly InputAction m_Player_Map_Roll;
     private readonly InputAction m_Player_Map_Attack;
     private readonly InputAction m_Player_Map_Interact;
     private readonly InputAction m_Player_Map_MousePosition;
@@ -945,7 +945,7 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
         private @PlayerActions m_Wrapper;
         public Player_MapActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Map_Movement;
-        public InputAction @Dodge => m_Wrapper.m_Player_Map_Dodge;
+        public InputAction @Roll => m_Wrapper.m_Player_Map_Roll;
         public InputAction @Attack => m_Wrapper.m_Player_Map_Attack;
         public InputAction @Interact => m_Wrapper.m_Player_Map_Interact;
         public InputAction @MousePosition => m_Wrapper.m_Player_Map_MousePosition;
@@ -962,9 +962,9 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                 @Movement.started -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnMovement;
-                @Dodge.started -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnDodge;
-                @Dodge.performed -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnDodge;
-                @Dodge.canceled -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnDodge;
+                @Roll.started -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnRoll;
+                @Roll.performed -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnRoll;
+                @Roll.canceled -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnRoll;
                 @Attack.started -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_Player_MapActionsCallbackInterface.OnAttack;
@@ -984,9 +984,9 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
-                @Dodge.started += instance.OnDodge;
-                @Dodge.performed += instance.OnDodge;
-                @Dodge.canceled += instance.OnDodge;
+                @Roll.started += instance.OnRoll;
+                @Roll.performed += instance.OnRoll;
+                @Roll.canceled += instance.OnRoll;
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
@@ -1127,7 +1127,7 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
     public interface IPlayer_MapActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnDodge(InputAction.CallbackContext context);
+        void OnRoll(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);

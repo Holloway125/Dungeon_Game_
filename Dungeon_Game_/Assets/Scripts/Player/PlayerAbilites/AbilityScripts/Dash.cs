@@ -5,7 +5,6 @@ using UnityEngine;
 public class Dash : Ability
 {
    
-   PlayerController movement;
    PlayerController playerController;
    PlayerResource playerResource;
    PlayerActions _playerActions;
@@ -13,21 +12,23 @@ public class Dash : Ability
    AbilityHolder _abilityHolder;
    GameObject parent;
    CharacterStats playerStats;
+   Animator _anim;
 
    public override void Activate(GameObject parent)
    {  
-      //movement and playerController are the same reference?
       parent = GameObject.Find("Player");
       playerController = parent.GetComponent<PlayerController>();
       playerResource = parent.GetComponent<PlayerResource>();
-      movement = parent.GetComponent<PlayerController>();
+      playerController = parent.GetComponent<PlayerController>();
       playerStats = parent.GetComponent<CharacterStats>();
+      _anim = parent.GetComponent<Animator>();
 
       if(playerResource.staminaSlider.fillAmount >= .4f)
       {
-      playerStats.SetSpeed(15);
-      playerResource.staminaSlider.fillAmount -= .4f;
-      //Play Animation
+         playerStats.SetSpeed(15);
+         playerResource.staminaSlider.fillAmount -= .4f;
+         _anim.SetTrigger($"{playerController.RollDir()}Roll");
+         Debug.Log($"{playerController.RollDir()} Roll");
       }
    }
 
@@ -35,7 +36,7 @@ public class Dash : Ability
    {
       ParticleSystem effect = player.GetComponent<ParticleSystem>(); 
       TrailRenderer dashEffect = player.GetComponent<TrailRenderer>();
-      PlayerController movement = player.GetComponent<PlayerController>();
+      PlayerController playerController = player.GetComponent<PlayerController>();
       playerStats.SetSpeed(playerStats.GetDefaultSpeed());
    }
 }

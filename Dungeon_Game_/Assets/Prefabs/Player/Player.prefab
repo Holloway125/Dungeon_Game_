@@ -10,11 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2346509203010142849}
   - component: {fileID: 3995036121498226227}
-  - component: {fileID: 1136134665}
   - component: {fileID: 1489136273}
   - component: {fileID: 5896024090619803072}
   - component: {fileID: 3448304651373937805}
-  - component: {fileID: 5691024010143345621}
   - component: {fileID: 720812701271881332}
   - component: {fileID: 1241004066464497434}
   - component: {fileID: 4358859265416030546}
@@ -57,23 +55,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2466084335914140134}
-  currentSpeed: 5
-  isMoving: 0
---- !u!114 &1136134665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2466084335914140134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08abca577945b4544b85fe6ba1f7c3b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  mouseDir: {x: 0, y: 0, z: 0}
+  Camera: {fileID: 0}
   canReceiveInput: 0
   inputReceived: 0
-  _camera: {fileID: 0}
+  state: 0
+  isMoving: 0
 --- !u!114 &1489136273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,16 +73,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb010c8351988f14faea35bae41e6b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage:
-    BaseValue: 17
-  CritalChance:
-    BaseValue: 0
-  CritalDamage:
-    BaseValue: 0
-  AttackSpeed:
-    BaseValue: 0
-  Defense:
-    BaseValue: 0
+  MaxHP: 100
+  CurrentHP: 0
+  Attack: 10
+  AttackSpeed: 1
+  Crit: 0
+  Defense: 10
+  Speed: 0
 --- !u!114 &5896024090619803072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,10 +95,10 @@ MonoBehaviour:
   rb: {fileID: 1241004066464497434}
   _animator: {fileID: 4358859265416030546}
   _youLose: {fileID: 0}
-  maxHealth: 100
-  currentHealth: 100
-  healthSlider: {fileID: 0}
-  healthText: {fileID: 0}
+  player: {fileID: 0}
+  playerStats: {fileID: 0}
+  _healthSlider: {fileID: 0}
+  _healthText: {fileID: 0}
   staminaSlider: {fileID: 0}
   staminaText: {fileID: 0}
 --- !u!114 &3448304651373937805
@@ -131,20 +115,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerXp: 0
   totalXp: 0
---- !u!114 &5691024010143345621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2466084335914140134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32d2cb0d287b5794e9a81ac514e3a1c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: b6c9fd313e773484c970303946392c19, type: 2}
-  abilityTwo: {fileID: 11400000, guid: b391167fe030cd640a3f6c38640aca3c, type: 2}
 --- !u!212 &720812701271881332
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -305,7 +275,7 @@ MonoBehaviour:
     m_ActionName: Player/Dodge[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1136134665}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CombatManager, Assembly-CSharp
         m_MethodName: Attack
         m_Mode: 0
