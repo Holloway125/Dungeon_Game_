@@ -7,19 +7,20 @@ public class PlayerController : MonoBehaviour
 {
     //GameObject and Component References
     private PlayerActions playerControls;
+    private PlayerResource playerResource;
+    private CharacterStats playerStats;
     private Rigidbody2D _rBody;
     private Vector2 _moveInput;
     private CircleCollider2D _weaponCollider;
-    private CharacterStats playerStats;
+    private CapsuleCollider2D _capsuleCollider;
     [SerializeField] private GameObject player;
-    private Animator _anim;
-    private float rollSpeed;
+    [SerializeField] private Camera Camera;
+    [SerializeField] private Animator _anim;
     private Vector3 mousePosition;
     private Vector3 mouseWorldPosition;
-    public Vector3 mouseDir;
+    private Vector3 mouseDir;
+    private float rollSpeed;
     private Vector3 rollDir;
-    PlayerResource playerResource;
-    [SerializeField] private Camera Camera;
     public bool canReceiveInput;
     public bool inputReceived;
     private float angle;
@@ -29,8 +30,8 @@ public class PlayerController : MonoBehaviour
     private InputAction roll;
     private InputAction move;
 
-    public State state;
-    public enum State
+    [SerializeField] private State state;
+    private enum State
     {
         Normal,
         Attacking,
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
         _rBody = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _weaponCollider = GetComponent<CircleCollider2D>();
+        _capsuleCollider = GetComponent<CapsuleCollider2D>();
         playerStats = GetComponent<CharacterStats>();
         playerResource = GetComponent<PlayerResource>();
     }
@@ -93,9 +95,9 @@ public class PlayerController : MonoBehaviour
             Move();
             break;
 
-            case State.Attacking:
-            Attacking();
-            break;
+            // case State.Attacking:
+
+            // break;
 
             case State.Rolling:
             Rolling();
@@ -127,18 +129,15 @@ public class PlayerController : MonoBehaviour
 
     private void Attack(InputAction.CallbackContext context)
     {
-            state = State.Attacking;
+            if(canReceiveInput)
+            {
+                inputReceived = true;
+            }
+            else if(!canReceiveInput)
+            {   
             _anim.SetTrigger($"{AttackDir()}AttackOne");
             Debug.Log($"{AttackDir()}Attack");
-            InputManager();
-            inputReceived = false;
-            state = State.Attacking;
-    }
-
-    private void Attacking()
-    {
-        //playerStats.SetSpeed(0);
-        state = State.Normal;
+            }
     }
 
     private void Roll(InputAction.CallbackContext context)
@@ -162,9 +161,12 @@ public class PlayerController : MonoBehaviour
     {
         transform.position += rollDir * rollSpeed * Time.deltaTime;
         rollSpeed -= rollSpeed * 10f * Time.deltaTime;
+        _capsuleCollider.enabled = false;
 
         if(rollSpeed < 5f)
         {
+            playerStats.SetSpeed(playerStats.GetDefaultSpeed());
+            _capsuleCollider.enabled = true;
             state = State.Normal;
         }
     }
@@ -175,7 +177,7 @@ public class PlayerController : MonoBehaviour
         {
             canReceiveInput = true;
         }
-        else
+        else if (canReceiveInput)
         {
             canReceiveInput = false;
         }
@@ -271,6 +273,7 @@ public class PlayerController : MonoBehaviour
         }    
         else return "NoMouse";
     }
+
     //Deals Damage to Monsters
     private void OnTriggerEnter2D(Collider2D _collider)
     {
