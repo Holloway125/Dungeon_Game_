@@ -9402,7 +9402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1489136273, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: AttackSpeed
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2346509203010142849, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: m_RootOrder
@@ -9484,6 +9484,10 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 1254892956}
+    - target: {fileID: 5896024090619803072, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
+      propertyPath: staminaRegenRate
+      value: 0.0015
+      objectReference: {fileID: 0}
     - target: {fileID: 5943964512751037709, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: m_Enabled
       value: 0

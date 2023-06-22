@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2346509203010142849}
   - component: {fileID: 3995036121498226227}
   - component: {fileID: 1489136273}
-  - component: {fileID: 5896024090619803072}
   - component: {fileID: 3448304651373937805}
+  - component: {fileID: 5896024090619803072}
   - component: {fileID: 720812701271881332}
   - component: {fileID: 1241004066464497434}
   - component: {fileID: 4358859265416030546}
@@ -55,8 +55,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2466084335914140134}
-  mouseDir: {x: 0, y: 0, z: 0}
   Camera: {fileID: 0}
+  _anim: {fileID: 0}
   canReceiveInput: 0
   inputReceived: 0
   state: 0
@@ -80,6 +80,26 @@ MonoBehaviour:
   Crit: 0
   Defense: 10
   Speed: 0
+--- !u!114 &3448304651373937805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2466084335914140134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b68e33b756b164496621ad95ed8338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalXp: 100
+  expGrowth: 0.12
+  playerXp: 0
+  playerLvl: 1
+  attackIncrease: 2
+  defenseIncrease: 1
+  attackSpeedIncrease: 0.05
+  critIncrease: 0.05
 --- !u!114 &5896024090619803072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,22 +119,12 @@ MonoBehaviour:
   playerStats: {fileID: 0}
   _healthSlider: {fileID: 0}
   _healthText: {fileID: 0}
+  rollCost: 0.25
+  attackCost: 0.15
+  staminaRegenRate: 0.0015
   staminaSlider: {fileID: 0}
   staminaText: {fileID: 0}
---- !u!114 &3448304651373937805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2466084335914140134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7b68e33b756b164496621ad95ed8338, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerXp: 0
-  totalXp: 0
+  m_MySliderValue: 0
 --- !u!212 &720812701271881332
 SpriteRenderer:
   m_ObjectHideFlags: 0

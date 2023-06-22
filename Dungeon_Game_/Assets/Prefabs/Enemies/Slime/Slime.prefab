@@ -268,7 +268,7 @@ MonoBehaviour:
   EnemyMaxHealth: 50
   CurrentHealth: 50
   Speed: 1
-  expGiven: 75
+  expGiven: 10000
   Anim: {fileID: 0}
   Player: {fileID: 0}
   PlayerResource: {fileID: 0}

@@ -7,13 +7,17 @@ public class AttackBehaviour : StateMachineBehaviour
     GameObject player;
     CharacterStats playerStats;
     PlayerController playerController;
+    PlayerResource playerResource;
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.FindWithTag("Player");
         playerStats = player.GetComponent<CharacterStats>();
         playerController = player.GetComponent<PlayerController>();
+        playerResource = player.GetComponent<PlayerResource>();
         playerStats.SetSpeed(0);
+        playerResource.staminaSlider.fillAmount -= playerResource.attackCost;
+        animator.speed = (playerStats.GetAttackSpeed()+1);
         playerController.canReceiveInput = true;
     }
 

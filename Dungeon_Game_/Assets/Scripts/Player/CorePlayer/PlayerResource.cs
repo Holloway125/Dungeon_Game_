@@ -12,17 +12,25 @@ public class PlayerResource : MonoBehaviour
 
     //UI_Elements
     private GameObject _UI;
+    [Header ("UI Elements")]
     public GameObject _youLose;
     public GameObject player;
     public CharacterStats playerStats;
 
     //health properties
+    [Header ("Health Bar")]
     public Image _healthSlider;
     public Text _healthText;
 
     //stamina properties
+    [Header ("Stamina Settings")]
+    [SerializeField]public float rollCost = .25f;
+    [SerializeField]public float attackCost = .15f;
+    [SerializeField]private float staminaRegenRate =   .0015f;
     public Image staminaSlider;
     public Text staminaText;
+
+    [SerializeField] private float m_MySliderValue;
 
     private void Awake()
     {
@@ -45,7 +53,7 @@ public class PlayerResource : MonoBehaviour
 
     private void FixedUpdate()
     {
-        staminaSlider.fillAmount += .002f;
+        staminaSlider.fillAmount += staminaRegenRate;
         int currentStamina = Mathf.RoundToInt(staminaSlider.fillAmount*100);
         staminaText.text = ($"{currentStamina.ToString()}");
         _healthSlider.fillAmount = playerStats.GetCurrentHP()/playerStats.GetMaxHP();

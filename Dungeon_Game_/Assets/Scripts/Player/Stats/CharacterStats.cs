@@ -8,10 +8,10 @@ public class CharacterStats : MonoBehaviour
     // public BaseStats "with your stat"; this will allow you to add this stat to the BaseStats value List and set its basevalue
     [SerializeField] private float MaxHP = 100;
     [SerializeField] private float CurrentHP;
-    [SerializeField] private int Attack = 10;
-    [SerializeField] private int AttackSpeed = 1;
-    [SerializeField] private int Crit = 0;
-    [SerializeField] private int Defense = 10;
+    [SerializeField] private float Attack = 10;
+    [SerializeField] private float AttackSpeed = 1;
+    [SerializeField] private float Crit = 0;
+    [SerializeField] private float Defense = 10;
     [SerializeField] private static float DefaultSpeed = 3;
     [SerializeField] private float Speed;
 
@@ -46,48 +46,51 @@ public class CharacterStats : MonoBehaviour
         return CurrentHP;
     }
 
-    public void SetAttack(int i)
+    public void SetAttack(float i)
     {
-        if(i >= 0 && i <=25)
+        if(i >= 0 && i <=250)
         {
             Attack = i;
         }
     }
 
-    public int GetAttack()
+    public float GetAttack()
     {
         return Attack;
     }
 
-    public void SetAttackSpeed(int i)
+    public void SetAttackSpeed(float i)
     {
-        if(i >= 0 && i <=25)
+        if(i >= 0 && i <=.51f)
         {
             AttackSpeed = i;
         }
     }
 
-    public int GetAttackSpeed()
+    public float GetAttackSpeed()
     {
         return AttackSpeed;
     }
 
-    public void SetCrit(int i)
+    public void SetCrit(float i)
     {
+        if(i >= 0 && i <=.51f)
+        {
         Crit = i;
+        }
     }
 
-    public int GetCrit()
+    public float GetCrit()
     {
         return Crit;
     }
 
-    public void SetDefense(int i)
+    public void SetDefense(float i)
     {
         Defense = i;
     }
 
-    public int GetDefense()
+    public float GetDefense()
     {
         return Defense;
     }

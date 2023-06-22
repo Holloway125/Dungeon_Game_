@@ -7,19 +7,27 @@ using TMPro;
 
 public class LevelSystem : MonoBehaviour
 {
-    //current running total
-    public int playerXp;
 
     //total xp needed to lvl
-    public int totalXp;
+    [SerializeField] private float totalXp;
+    [SerializeField] float expGrowth = .12f;
+    
+    //current running total
+    [SerializeField] private float playerXp;
 
-    private int playerLvl;
+    [SerializeField] private float playerLvl;
     private Text lvlText;
     private Image expBar;
 
     private GameObject player; 
     private PlayerResource playerResource;
     private CharacterStats playerStats;
+
+    [SerializeField] private float attackIncrease = 1;
+    [SerializeField] private float defenseIncrease = 1;
+    [SerializeField] private float attackSpeedIncrease = .05f;
+    [SerializeField] private float critIncrease = .05f;
+
 
     private void Awake()
     {
@@ -38,6 +46,10 @@ public class LevelSystem : MonoBehaviour
         playerLvl = 1;
     }
 
+    private void SetTotalXP(float xp)
+    {
+        totalXp = xp;
+    }
     private void LevelUP()
     {
         playerLvl++;
@@ -51,26 +63,26 @@ public class LevelSystem : MonoBehaviour
         Debug.Log("New Max HP " + playerStats.GetMaxHP());
 
         //Attack Modifier
-        playerStats.SetAttack(playerStats.GetAttack() + 2);
+        playerStats.SetAttack(playerStats.GetAttack() + attackIncrease);
         Debug.Log("New Attack " + playerStats.GetAttack());
 
         //Defense Modifier
-        playerStats.SetDefense(playerStats.GetDefense() + 1);
+        playerStats.SetDefense(playerStats.GetDefense() + defenseIncrease);
         Debug.Log("New Defense " + playerStats.GetDefense());
 
         //AttackSpeed Modifier
-        playerStats.SetAttackSpeed(playerStats.GetAttackSpeed() + 1);
+        playerStats.SetAttackSpeed(playerStats.GetAttackSpeed() + attackSpeedIncrease);
         Debug.Log("New AttackSpeed " + playerStats.GetAttackSpeed());
 
         //Crit Modifier
-        playerStats.SetCrit(playerStats.GetCrit() + 1);
+        playerStats.SetCrit(playerStats.GetCrit() + critIncrease);
         Debug.Log("New Crit " + playerStats.GetCrit());
 
         playerXp = playerXp - totalXp;
         lvlText.text = (playerLvl.ToString());
 
         //Exp Curve
-        totalXp = totalXp * 2;
+        SetTotalXP((1+expGrowth) * 100 *playerLvl);
 
         if(playerXp>=totalXp)
         {
