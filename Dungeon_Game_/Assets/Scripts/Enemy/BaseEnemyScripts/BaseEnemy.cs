@@ -215,17 +215,20 @@ public abstract class BaseEnemy : MonoBehaviour
         if (!AttackAnimPlaying)
         {
             Animate("Attack");
+            Debug.Log("Attacking Player!");
         }
     }
 
     public void UpdateTarget()
     {
         AIDestinationSetterScript.target = Player.transform.position;
+        Debug.Log("Targetting");
     }
 
     public void UpdateTarget(Vector3 target)
     {
         AIDestinationSetterScript.target = target;
+        Debug.Log("Targeting Vector");
     }
 
     public void EnemyDirection()

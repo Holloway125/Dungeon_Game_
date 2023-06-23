@@ -12,12 +12,14 @@ public class PlayerResource : MonoBehaviour
 
     //UI_Elements
     private GameObject _UI;
+    [Space]
     [Header ("UI Elements")]
     public GameObject _youLose;
     public GameObject player;
     public CharacterStats playerStats;
 
     //health properties
+    [Space]
     [Header ("Health Bar")]
     public Image _healthSlider;
     public Text _healthText;
