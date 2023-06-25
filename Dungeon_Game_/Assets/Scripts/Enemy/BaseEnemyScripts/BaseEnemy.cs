@@ -246,7 +246,7 @@ public abstract class BaseEnemy : MonoBehaviour
 
         if(angleDegree <= 360)
         {       
-            if (angleDegree <= 300 &&angleDegree >= 240)
+            if (angleDegree <= 300 && angleDegree >= 240)
             {
                 Anim.SetBool("up",false);
                 Anim.SetBool("down",true);
@@ -254,7 +254,7 @@ public abstract class BaseEnemy : MonoBehaviour
                 Anim.SetBool("right",false);
             }
 
-            else if (angleDegree <= 120 &&angleDegree >= 60)
+            else if (angleDegree <= 120 && angleDegree >= 60)
             {
                 Anim.SetBool("up",true);
                 Anim.SetBool("down",false);
@@ -262,7 +262,7 @@ public abstract class BaseEnemy : MonoBehaviour
                 Anim.SetBool("right",false);
             }
 
-            else if (angleDegree <= 360 &&angleDegree >= 299 ||angleDegree <= 59 &&angleDegree >= 0)
+            else if (angleDegree <= 360 && angleDegree >= 299 ||angleDegree <= 59 &&angleDegree >= 0)
             {
                 Anim.SetBool("up",false);
                 Anim.SetBool("down",false);
@@ -270,7 +270,7 @@ public abstract class BaseEnemy : MonoBehaviour
                 Anim.SetBool("right",true);
             }  
 
-            else if (angleDegree <= 241 &&angleDegree >= 121)
+            else if (angleDegree <= 241 && angleDegree >= 121)
             {
                 Anim.SetBool("up",false);
                 Anim.SetBool("down",false);

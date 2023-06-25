@@ -15,7 +15,7 @@ public class TransitionOneBehavior : StateMachineBehaviour
         playerStats = player.GetComponent<CharacterStats>();
         playerController = player.GetComponent<PlayerController>();
         playerResource = player.GetComponent<PlayerResource>();
-        playerStats.SetSpeed(0*0.3f);
+        playerStats.SetSpeed(playerStats.GetDefaultSpeed());
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
