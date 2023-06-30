@@ -1,0 +1,596 @@
+fileFormatVersion: 2
+guid: 44d919e3979032541b1e58627b2c23fe
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_0
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 398
+        width: 30
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5969febd3155f9f489a52f0141133f55
+      internalID: -982233202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_1
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 398
+        width: 32
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a32ceb8d0b1c944ab304a576f4bb3a0
+      internalID: 1981888258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_2
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 400
+        width: 25
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64d37ef1d372167489230f6967e9d2dc
+      internalID: -1441665483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 242
+        width: 32
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9606c29b2f6c614c9e16098bf51cc57
+      internalID: 9079072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_4
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 242
+        width: 30
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47a0f747cf9155b4283ef7c2b5cff6b8
+      internalID: 99370537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_5
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 244
+        width: 28
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2d5c6f7441fe0542a38137752a7d212
+      internalID: 1951978809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_6
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 245
+        width: 29
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93ccfbf8742a0548b2cf16ebe55b205
+      internalID: 548578233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_7
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 245
+        width: 29
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecde9a8ee7654d5449738eaeedc107fb
+      internalID: -1608713454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_8
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 245
+        width: 31
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f1ad05ca6236a84db992dd105472d69
+      internalID: 53509801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_9
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 166
+        width: 27
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19b2caa103962524b8035ab89c124c89
+      internalID: -553390637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_10
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 165
+        width: 23
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f980a57998f6e240acc5402c81ab62c
+      internalID: -199080016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_11
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 165
+        width: 23
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a320cdbe0598c469a9b48f71a4cb12
+      internalID: -873301047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_12
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 165
+        width: 26
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dd46aa02a988f44197a9e5dc6274f58
+      internalID: 1155483628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_13
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 167
+        width: 23
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c89c9c964d751494783a348952d2f7d2
+      internalID: -1671206330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_14
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 168
+        width: 26
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a3b9b471ace804fb923803c1fd9de1
+      internalID: -1143571349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_15
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 88
+        width: 33
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a1a1a8df079aa743bab107a75fa1b77
+      internalID: -1138491669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_16
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 90
+        width: 29
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a473d528f2a84654fb1cfbb7726c793d
+      internalID: 277730457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_17
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 91
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa80754f878e114c9140a033d05b691
+      internalID: 1716206610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_18
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 91
+        width: 33
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e45e2bcfb7e6b634e8705fdb335c0ad2
+      internalID: 1352037192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_19
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 88
+        width: 26
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 047c3280af993ef49a3d7658d5b602a5
+      internalID: -589246270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dire-hero-sprite-alpha-flip2_20
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 86
+        width: 26
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e698819ec4892d64686793bfdabc6b08
+      internalID: -604614871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      dire-hero-sprite-alpha-flip2_10: -199080016
+      dire-hero-sprite-alpha-flip2_18: 1352037192
+      dire-hero-sprite-alpha-flip2_14: -1143571349
+      dire-hero-sprite-alpha-flip2_5: 1951978809
+      dire-hero-sprite-alpha-flip2_19: -589246270
+      dire-hero-sprite-alpha-flip2_16: 277730457
+      dire-hero-sprite-alpha-flip2_7: -1608713454
+      dire-hero-sprite-alpha-flip2_20: -604614871
+      dire-hero-sprite-alpha-flip2_13: -1671206330
+      dire-hero-sprite-alpha-flip2_0: -982233202
+      dire-hero-sprite-alpha-flip2_1: 1981888258
+      dire-hero-sprite-alpha-flip2_2: -1441665483
+      dire-hero-sprite-alpha-flip2_17: 1716206610
+      dire-hero-sprite-alpha-flip2_4: 99370537
+      dire-hero-sprite-alpha-flip2_8: 53509801
+      dire-hero-sprite-alpha-flip2_9: -553390637
+      dire-hero-sprite-alpha-flip2_12: 1155483628
+      dire-hero-sprite-alpha-flip2_11: -873301047
+      dire-hero-sprite-alpha-flip2_15: -1138491669
+      dire-hero-sprite-alpha-flip2_3: 9079072
+      dire-hero-sprite-alpha-flip2_6: 548578233
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
