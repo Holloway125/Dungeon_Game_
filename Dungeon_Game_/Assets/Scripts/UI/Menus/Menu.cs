@@ -9,7 +9,7 @@ public class Menu : MonoBehaviour
 
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject settingsPanel;
-    //[SerializeField] private GameObject charPanel;
+    [SerializeField] private GameObject charPanel;
     //[SerializeField] private GameObject invPanel;
     [SerializeField] private GameObject _map;
     private GameObject _player;
@@ -30,7 +30,7 @@ public class Menu : MonoBehaviour
         _playerActions.UI.Map.performed += context => MapOpenandClose();
         pauseMenu.SetActive(false);
         settingsPanel.SetActive(false);
-        //charPanel.SetActive(false);
+        charPanel.SetActive(false);
         //invPanel.SetActive(false);
         _map.SetActive(false);
 
@@ -51,7 +51,7 @@ public class Menu : MonoBehaviour
         settingsPanel.SetActive(false);
         pauseMenu.SetActive(false);
         // invPanel.SetActive(false);
-        // charPanel.SetActive(false);
+        charPanel.SetActive(false);
         // logPanel.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
