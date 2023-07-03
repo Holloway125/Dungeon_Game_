@@ -73,16 +73,16 @@ public class LevelSystem : MonoBehaviour
 
         //AttackSpeed Modifier
         playerStats.SetAttackSpeed(playerStats.GetAttackSpeed() + attackSpeedIncrease);
-
+        
         //Crit Modifier
         playerStats.SetCrit(playerStats.GetCrit() + critIncrease);
 
         playerXp = playerXp - totalXp;
         lvlText.text = (playerLvl.ToString());
+        UIPlayerStats.UpdateValues();
 
         //Exp Curve
         SetTotalXP((1+expGrowth) * 100 *playerLvl);
-        UIPlayerStats.UpdateValues();
 
         if(playerXp>=totalXp)
         {

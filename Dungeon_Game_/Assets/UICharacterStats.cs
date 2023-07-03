@@ -1,47 +1,191 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UIElements;
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 
 public class UICharacterStats : MonoBehaviour
 {
+    [SerializeField] private UIDocument _doc;
+    private VisualElement _pause;
+    private VisualElement _stats;
+    private VisualElement _map;
+    private GameObject scenemanager;
+    [SerializeField] private Label HealthValue;
+    [SerializeField] private Label AttackValue;
+    [SerializeField] private Label DefenseValue;
+    [SerializeField] private Label AttackSpeedValue;
+    [SerializeField] private Label CritValue;
+
     [SerializeField] private GameObject player;
     [SerializeField] private CharacterStats playerStats;
+    [SerializeField] private Menu Menu;
 
-    [SerializeField] private UIDocument _doc;
+    private PlayerActions playerControls;
+    private bool _statsOpen;
+    private bool _pauseOpen;
+    private bool _mapOpen = false;
+    private bool _UIElementOpen;
 
-    [SerializeField] private Label Health;
-    [SerializeField] private Label Attack;
-    [SerializeField] private Label Defense;
-    [SerializeField] private Label AttackSpeed;
-    [SerializeField] private Label Crit;
-
-    void Awake()
+    // private PlayerInput playerInput;
+    // private InputAction stats;
+    // private InputAction pause;
+    // private InputAction map;
+    
+    private void OnEnable()
     {
+        playerControls.UI.Enable();
+        // playerControls.UI.MenuToggle.performed += MenuToggle;
+        playerControls.UI.Map.performed += MapToggle;
+        playerControls.UI.Stats.performed += StatsToggle;
+        playerControls.UI.Pause.performed += PauseToggle;
+    }
+
+    private void OnDisable()
+    {
+        playerControls.UI.Disable();
+        // playerControls.UI.MenuToggle.performed -= MenuToggle;
+        playerControls.UI.Map.performed -= MapToggle;
+        playerControls.UI.Stats.performed -= StatsToggle;
+        playerControls.UI.Pause.performed -= PauseToggle;
+    }
+
+    private void Awake()
+    {
+        playerControls = new PlayerActions();
         player = GameObject.FindWithTag("Player");
         playerStats = player.GetComponent<CharacterStats>();
         _doc = GetComponent<UIDocument>();
-        Health = _doc.rootVisualElement.Q<Label>("HealthValue");
-        Attack = _doc.rootVisualElement.Q<Label>("AttackValue");
-        Defense = _doc.rootVisualElement.Q<Label>("DefenseValue");
-        AttackSpeed = _doc.rootVisualElement.Q<Label>("AttackSpeedValue");
-        Crit = _doc.rootVisualElement.Q<Label>("CritValue");
+        _pause = _doc.rootVisualElement.Q("Pause");
+        _stats = _doc.rootVisualElement.Q("CharacterStats");
+        _map = _doc.rootVisualElement.Q("Map");
+        scenemanager = GameObject.Find("SceneManager");
+        Menu = scenemanager.GetComponent<Menu>();
+        HealthValue = _doc.rootVisualElement.Q<Label>("HealthValue");
+        AttackValue = _doc.rootVisualElement.Q<Label>("AttackValue");
+        DefenseValue = _doc.rootVisualElement.Q<Label>("DefenseValue");
+        AttackSpeedValue = _doc.rootVisualElement.Q<Label>("AttackSpeedValue");
+        CritValue = _doc.rootVisualElement.Q<Label>("CritValue");
     }
 
-    void Start()
+        // playerInput = player.GetComponent<PlayerInput>();
+        // pause = playerInput.actions["Pause"];
+        // map = playerInput.actions["Map"];
+        // stats = playerInput.actions["Stats"];
+
+    private void Start()
     {
         UpdateValues();
+        _statsOpen = false;
+        _pauseOpen = false;
+        _mapOpen = false;
+        _UIElementOpen = false;
+        _stats.style.display = DisplayStyle.None;
+        _pause.style.display = DisplayStyle.None;
+        _map.style.display = DisplayStyle.None;
+    }
+
+    private void StatsToggle(InputAction.CallbackContext context)
+    {
+
+        if(_statsOpen == true && _UIElementOpen == true)
+        {
+            _stats.style.display = DisplayStyle.None;
+            _statsOpen = false;
+            _UIElementOpen = false;
+            Menu.Resume();
+            Debug.Log("Close Stats");
+        }
+
+        else if(_statsOpen == false && _UIElementOpen == false)
+        {
+            UpdateValues();
+            _stats.style.display = DisplayStyle.Flex;
+            _statsOpen = true;
+            _UIElementOpen = true;
+            Menu.Pause();
+            Debug.Log("Open Stats");
+        }
+
+        else if(_statsOpen == true && _UIElementOpen == false)
+        {
+            return;
+        }
+
+        else if(_statsOpen == false && _UIElementOpen == true)
+        {
+            return;
+        }
     }
 
     public void UpdateValues()
     {
-
-    Attack.text = playerStats.GetAttack().ToString();
-    Health.text = playerStats.GetMaxHP().ToString();
-    AttackSpeed.text = playerStats.GetAttackSpeed().ToString();
-    Crit.text = playerStats.GetCrit().ToString();
-    Defense.text = playerStats.GetDefense().ToString();
-
+    HealthValue.text = playerStats.GetMaxHP().ToString();
+    AttackValue.text = playerStats.GetAttack().ToString();
+    DefenseValue.text = playerStats.GetDefense().ToString();
+    AttackSpeedValue.text = playerStats.GetAttackSpeed().ToString(playerStats.GetAttackSpeed()*100 + "%");
+    CritValue.text = playerStats.GetCrit().ToString(playerStats.GetCrit()*100 + "%");
     }
 
+    private void PauseToggle(InputAction.CallbackContext context)
+    {
+        if(_pauseOpen == true && _UIElementOpen == true)
+        {
+            _pause.style.display = DisplayStyle.None;
+            _pauseOpen = false;
+            _UIElementOpen = false;
+            Menu.Resume();
+            Debug.Log("Close Stats");
+        }
+
+        else if(_pauseOpen == false && _UIElementOpen == false)
+        {
+            _pause.style.display = DisplayStyle.Flex;
+            _pauseOpen = true;
+            _UIElementOpen = true;
+            Menu.Pause();
+            Debug.Log("Open Stats");
+        }
+
+        else if(_pauseOpen == true && _UIElementOpen == false)
+        {
+            return;
+        }
+
+        else if(_pauseOpen == false && _UIElementOpen == true)
+        {
+            return;
+        }
+    }
+
+        private void MapToggle(InputAction.CallbackContext context)
+    {
+        if(_mapOpen == true && _UIElementOpen == true)
+        {
+            _map.style.display = DisplayStyle.None;
+            _mapOpen = false;
+            _UIElementOpen = false;
+            Menu.Resume();
+            Debug.Log("Close Map");
+        }
+
+        else if(_mapOpen == false && _UIElementOpen == false)
+        {
+            _map.style.display = DisplayStyle.Flex;
+            _mapOpen = true;
+            _UIElementOpen = true;
+            Menu.Pause();
+            Debug.Log("Open Map");
+        }
+
+        else if (_mapOpen == true && _UIElementOpen == false)
+        {
+            return;
+        }
+
+        else if (_mapOpen == false && _UIElementOpen == true)
+        {
+            return;
+        }
+    }
 }

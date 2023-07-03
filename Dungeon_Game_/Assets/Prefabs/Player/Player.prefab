@@ -76,7 +76,7 @@ MonoBehaviour:
   MaxHP: 100
   CurrentHP: 0
   Attack: 10
-  AttackSpeed: 1
+  AttackSpeed: 0
   Crit: 0
   Defense: 10
   Speed: 0

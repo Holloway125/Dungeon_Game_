@@ -376,7 +376,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MapToggle",
+                    "name": "Map",
                     "type": "Button",
                     "id": "64d7a8e1-8455-43b2-8716-27b6baf5ed25",
                     "expectedControlType": "Button",
@@ -385,9 +385,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "CharacterStatsToggle",
+                    "name": "Stats",
                     "type": "Button",
                     "id": "63d9aa40-9974-4b32-af02-915aeec9c0dd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "c5b0bc9c-72c1-4826-aa58-aeb9ced81c58",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -831,7 +840,7 @@
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "MapToggle",
+                    "action": "Map",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -839,10 +848,21 @@
                     "name": "",
                     "id": "39ea393f-4415-491b-9456-af38acde34b3",
                     "path": "<Keyboard>/c",
-                    "interactions": "Press",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "CharacterStatsToggle",
+                    "action": "Stats",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "889c09bb-0e5b-4474-a1fa-47d592896a7b",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

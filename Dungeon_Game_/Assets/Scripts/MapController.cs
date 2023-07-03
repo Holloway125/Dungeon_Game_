@@ -6,14 +6,9 @@ public class MapController : MonoBehaviour
 {
     public Transform targetToFollow;
 
-    private void Awake()
+    private void LateUpdate()
     {
-        targetToFollow = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        Vector3 targetPosition = targetToFollow.transform.position;
+        transform.position = new Vector3 (targetPosition.x, targetPosition.y, -20);
     }
-
-    // private void LateUpdate()
-    // {
-    //     Vector3 targetPosition = targetToFollow.transform.position;
-    //     transform.position = new Vector3 (targetPosition.x, targetPosition.y, -20);
-    // }
 }

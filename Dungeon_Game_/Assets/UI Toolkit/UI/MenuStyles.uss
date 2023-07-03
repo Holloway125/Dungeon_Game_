@@ -1,13 +1,14 @@
 .menu-button {
+    -unity-font: url('project://database/Assets/Sprites/Z_Imported/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans');
 }
 
 .header {
-    background-color: rgba(60, 30, 30, 255);
-    color: rgba(237, 190, 190, 255);
-    border-left-color: rgba(153, 59, 59, 255);
-    border-right-color: rgba(153, 59, 59, 255);
-    border-top-color: rgba(153, 59, 59, 255);
-    border-bottom-color: rgba(153, 59, 59, 255);
+    background-color: rgb(60, 30, 30);
+    color: rgb(237, 190, 190);
+    border-left-color: rgb(153, 59, 59);
+    border-right-color: rgb(153, 59, 59);
+    border-top-color: rgb(153, 59, 59);
+    border-bottom-color: rgb(153, 59, 59);
     border-left-width: 6px;
     border-right-width: 6px;
     border-top-width: 6px;
@@ -16,4 +17,17 @@
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+.background-containers {
+    background-color: rgba(56, 56, 56, 0.5);
+    flex-grow: 1;
+}
+
+.unity-button {
+    -unity-font: url('project://database/Assets/Sprites/Z_Imported/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans');
+    color: rgba(255, 255, 255, 255);
+    font-size: 48px;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
 }

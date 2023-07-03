@@ -9,7 +9,7 @@ public class CharacterStats : MonoBehaviour
     [SerializeField] private float MaxHP = 100;
     [SerializeField] private float CurrentHP;
     [SerializeField] private float Attack = 10;
-    [SerializeField] private float AttackSpeed = 1;
+    [SerializeField] private float AttackSpeed = 0;
     [SerializeField] private float Crit = 0;
     [SerializeField] private float Defense = 10;
     [SerializeField] private static float DefaultSpeed = 3;

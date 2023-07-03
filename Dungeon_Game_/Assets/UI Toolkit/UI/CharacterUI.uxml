@@ -1,29 +1,41 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/UI/MenuStyles.uss?fileID=7433441132597879392&amp;guid=de02f41f5e30fe4458116ec26939390a&amp;type=3#MenuStyles" />
-    <ui:VisualElement name="CaracterStats" style="width: 695px; height: 68%; justify-content: flex-start; align-items: auto; top: 10%; background-color: rgba(144, 96, 91, 0.69); border-left-color: rgb(24, 24, 24); border-right-color: rgb(24, 24, 24); border-top-color: rgb(24, 24, 24); border-bottom-color: rgb(24, 24, 24); border-left-width: 10px; border-right-width: 10px; border-top-width: 10px; border-bottom-width: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-left: 5%; margin-right: 5%; margin-top: 1%; margin-bottom: 1%;">
-        <ui:VisualElement name="Header" style="width: 100%; height: 10%; flex-direction: column; flex-wrap: nowrap; -unity-text-align: upper-left; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
-            <ui:Label text="Character Stats" display-tooltip-when-elided="true" name="HeaderText" class="header" style="height: 100%; justify-content: flex-start; align-items: auto; -unity-text-align: middle-left; font-size: 36px; -unity-font-definition: none; -unity-font: url(&apos;project://database/Assets/Sprites/Enemy_Sprites/Font/Alata-Regular.ttf?fileID=12800000&amp;guid=cbef7eefd49444c2381384e8be8f865f&amp;type=3#Alata-Regular&apos;); padding-left: 13px; background-color: rgba(60, 30, 30, 0.88); border-left-color: rgba(231, 84, 84, 0.55); border-right-color: rgba(231, 84, 84, 0.55); border-top-color: rgba(231, 84, 84, 0.55); border-bottom-color: rgba(231, 84, 84, 0.55); border-left-width: 6px; border-right-width: 6px; border-top-width: 6px; border-bottom-width: 6px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; color: rgb(255, 206, 206);" />
-        </ui:VisualElement>
-        <ui:GroupBox name="Stats" style="flex-grow: 1; flex-direction: row; flex-shrink: 1; width: 100%; height: 100%; padding-left: 15px; padding-right: 15px; padding-top: 15px; padding-bottom: 15px;">
-            <ui:IMGUIContainer name="CharacterImage" style="width: 50%; height: 100%; background-image: url(&apos;project://database/Assets/Sprites/UI/Alpha_theguy.png?fileID=2800000&amp;guid=81d3c2aa515750945865f95888710e40&amp;type=3#Alpha_theguy&apos;); -unity-background-scale-mode: scale-to-fit;" />
-            <ui:VisualElement name="StatValues" class="header" style="width: 50%; flex-direction: row; align-items: auto; justify-content: flex-start; height: 40%; top: 0; flex-grow: 1; opacity: 1; flex-wrap: nowrap; flex-basis: auto; margin-left: 50px; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 4px; padding-right: 4px; padding-top: 4px; padding-bottom: 4px;">
-                <ui:GroupBox name="StatNames" style="width: 50%; height: 100%; -unity-text-align: upper-left; white-space: normal; justify-content: space-between; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0;">
-                    <ui:Label text="Health" display-tooltip-when-elided="true" name="Health" style="justify-content: flex-start; padding-top: 10px;" />
-                    <ui:Label text="Attack" display-tooltip-when-elided="true" name="Attack" />
-                    <ui:Label text="Defense" display-tooltip-when-elided="true" name="Defense" />
-                    <ui:Label display-tooltip-when-elided="true" name="Defense" />
-                    <ui:Label text="Attack Speed" display-tooltip-when-elided="true" name="AttackSpeed" />
-                    <ui:Label text="Critical Chance" display-tooltip-when-elided="true" name="CritcalChance" style="padding-bottom: 10px;" />
-                </ui:GroupBox>
-                <ui:GroupBox name="StatValues" style="width: 50%; height: 100%; -unity-text-align: upper-right; padding-right: 0; justify-content: space-between; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-top: 0; padding-bottom: 0;">
-                    <ui:Label text="100" display-tooltip-when-elided="true" name="HealthValue" style="justify-content: flex-start; padding-top: 10px;" />
-                    <ui:Label text="16" display-tooltip-when-elided="true" name="AttackValue" />
-                    <ui:Label text="10" display-tooltip-when-elided="true" name="DefenseValue" />
-                    <ui:Label display-tooltip-when-elided="true" name="spacer" />
-                    <ui:Label text="5%" display-tooltip-when-elided="true" name="AttackSpeedValue" />
-                    <ui:Label text="5%" display-tooltip-when-elided="true" name="CritValue" style="padding-bottom: 10px;" />
-                </ui:GroupBox>
+    <ui:VisualElement name="CharacterStats" class="background-containers" style="display: none; background-color: rgba(56, 56, 56, 0.5);">
+        <ui:VisualElement name="CharacterStatsContainer" usage-hints="None" class="background-containers" style="width: 695px; height: 68%; justify-content: flex-end; align-items: auto; top: 10%; background-color: rgba(144, 96, 91, 0.69); border-left-color: rgb(24, 24, 24); border-right-color: rgb(24, 24, 24); border-top-color: rgb(24, 24, 24); border-bottom-color: rgb(24, 24, 24); border-left-width: 10px; border-right-width: 10px; border-top-width: 10px; border-bottom-width: 10px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-left: 5%; margin-right: 5%; margin-top: 1%; margin-bottom: 1%; display: flex; visibility: flex-start; overflow: visible; opacity: 1; flex-grow: 0;">
+            <ui:VisualElement name="Header" style="width: 100%; height: 10%; flex-direction: column; flex-wrap: nowrap; -unity-text-align: upper-left; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
+                <ui:Label text="Character Stats" display-tooltip-when-elided="true" name="HeaderText" class="header" style="height: 100%; justify-content: flex-start; align-items: auto; -unity-text-align: middle-left; font-size: 36px; -unity-font-definition: none; -unity-font: url(&apos;project://database/Assets/Sprites/Enemy_Sprites/Font/Alata-Regular.ttf?fileID=12800000&amp;guid=cbef7eefd49444c2381384e8be8f865f&amp;type=3#Alata-Regular&apos;); padding-left: 13px; background-color: rgba(60, 30, 30, 0.88); border-left-color: rgba(231, 84, 84, 0.55); border-right-color: rgba(231, 84, 84, 0.55); border-top-color: rgba(231, 84, 84, 0.55); border-bottom-color: rgba(231, 84, 84, 0.55); border-left-width: 6px; border-right-width: 6px; border-top-width: 6px; border-bottom-width: 6px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; color: rgb(255, 206, 206);" />
             </ui:VisualElement>
-        </ui:GroupBox>
+            <ui:GroupBox name="Stats" style="flex-grow: 1; flex-direction: row; flex-shrink: 1; width: 100%; height: 100%; padding-left: 15px; padding-right: 15px; padding-top: 15px; padding-bottom: 15px;">
+                <ui:IMGUIContainer name="CharacterImage" style="width: 50%; height: 100%; background-image: url(&apos;project://database/Assets/Sprites/UI/Alpha_theguy.png?fileID=2800000&amp;guid=81d3c2aa515750945865f95888710e40&amp;type=3#Alpha_theguy&apos;); -unity-background-scale-mode: scale-to-fit;" />
+                <ui:VisualElement name="StatValues" class="header" style="width: 50%; flex-direction: row; align-items: auto; justify-content: flex-start; height: 40%; top: 0; flex-grow: 1; opacity: 1; flex-wrap: nowrap; flex-basis: auto; margin-left: 50px; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 4px; padding-right: 4px; padding-top: 4px; padding-bottom: 4px;">
+                    <ui:GroupBox name="StatNames" style="width: 50%; height: 100%; -unity-text-align: upper-left; white-space: normal; justify-content: space-between; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0;">
+                        <ui:Label text="Health" display-tooltip-when-elided="true" name="Health" style="justify-content: flex-start; padding-top: 10px;" />
+                        <ui:Label text="Attack" display-tooltip-when-elided="true" name="Attack" />
+                        <ui:Label text="Defense" display-tooltip-when-elided="true" name="Defense" />
+                        <ui:Label display-tooltip-when-elided="true" name="Defense" />
+                        <ui:Label text="Attack Speed" display-tooltip-when-elided="true" name="AttackSpeed" />
+                        <ui:Label text="Critical Chance" display-tooltip-when-elided="true" name="CritcalChance" style="padding-bottom: 10px;" />
+                    </ui:GroupBox>
+                    <ui:GroupBox name="StatValues" style="width: 50%; height: 100%; -unity-text-align: upper-right; padding-right: 0; justify-content: space-between; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-top: 0; padding-bottom: 0;">
+                        <ui:Label display-tooltip-when-elided="true" name="HealthValue" text="?" style="justify-content: flex-start; padding-top: 10px; display: flex;" />
+                        <ui:Label text="?" display-tooltip-when-elided="true" name="AttackValue" />
+                        <ui:Label text="?" display-tooltip-when-elided="false" name="DefenseValue" />
+                        <ui:Label display-tooltip-when-elided="true" name="spacer" />
+                        <ui:Label text="?" display-tooltip-when-elided="true" name="AttackSpeedValue" />
+                        <ui:Label text="?" display-tooltip-when-elided="false" name="CritValue" enable-rich-text="false" style="padding-bottom: 10px;" />
+                    </ui:GroupBox>
+                </ui:VisualElement>
+            </ui:GroupBox>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="Pause" class="background-containers" style="flex-grow: 1; align-items: center; justify-content: center; background-color: rgba(56, 56, 56, 0.5); display: none;">
+        <ui:VisualElement name="ButtonWrap" style="height: 25%; align-items: stretch; width: 15%; justify-content: center; right: auto; top: auto; left: auto; bottom: auto; position: relative; flex-direction: column; flex-wrap: nowrap;">
+            <ui:Button text="Resume" display-tooltip-when-elided="true" name="Resume" class="unity-button" style="overflow: hidden;" />
+            <ui:Button text="Settings" display-tooltip-when-elided="true" name="Settings" class="unity-button" style="overflow: hidden;" />
+            <ui:Button text="Exit" display-tooltip-when-elided="true" name="Exit" class="unity-button" style="overflow: visible;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="Map" class="background-containers" style="justify-content: center; align-items: center; background-color: rgba(56, 56, 56, 0.44); display: none;">
+        <ui:VisualElement name="MapCamera" class="background-containers" style="flex-grow: 1; -unity-background-scale-mode: stretch-to-fill; background-image: url(&apos;project://database/Assets/Prefabs/GameObjects/MiniMapRenderTexture.renderTexture?fileID=8400000&amp;guid=30362603cb4230142845a8f442f82237&amp;type=2#MiniMapRenderTexture&apos;); display: flex; width: 75%; height: 75%; max-height: 75%; max-width: 75%; justify-content: center; align-items: auto; border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 5px; border-left-color: rgba(166, 1, 1, 255); border-right-color: rgba(166, 1, 1, 255); border-top-color: rgba(166, 1, 1, 255); border-bottom-color: rgba(166, 1, 1, 255); border-top-left-radius: 23px; border-bottom-left-radius: 23px; border-top-right-radius: 23px; border-bottom-right-radius: 23px;" />
     </ui:VisualElement>
 </ui:UXML>
