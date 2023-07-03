@@ -22,6 +22,8 @@ public class LevelSystem : MonoBehaviour
     private GameObject player; 
     private PlayerResource playerResource;
     private CharacterStats playerStats;
+    private GameObject UICharacterStats;
+    private UICharacterStats UIPlayerStats;
 
     [SerializeField] private float attackIncrease = 1;
     [SerializeField] private float defenseIncrease = 1;
@@ -36,6 +38,8 @@ public class LevelSystem : MonoBehaviour
         expBar = GameObject.Find("/PlayerUI/Exp/Background/FillMask").GetComponent<Image>();
         lvlText = GameObject.Find("/PlayerUI/Level").GetComponent<Text>();
         playerStats = player.GetComponent<CharacterStats>();
+        UICharacterStats = GameObject.Find("UI_Character Stats");
+        UIPlayerStats = UICharacterStats.GetComponent<UICharacterStats>();
     }
 
     private void Start()
@@ -60,29 +64,25 @@ public class LevelSystem : MonoBehaviour
         playerResource._healthText.text = ($"{playerStats.GetMaxHP().ToString()}");          
         playerResource._healthSlider.fillAmount = 1;
         playerStats.SetCurrentHP(playerStats.GetMaxHP());
-        Debug.Log("New Max HP " + playerStats.GetMaxHP());
 
         //Attack Modifier
         playerStats.SetAttack(playerStats.GetAttack() + attackIncrease);
-        Debug.Log("New Attack " + playerStats.GetAttack());
 
         //Defense Modifier
         playerStats.SetDefense(playerStats.GetDefense() + defenseIncrease);
-        Debug.Log("New Defense " + playerStats.GetDefense());
 
         //AttackSpeed Modifier
         playerStats.SetAttackSpeed(playerStats.GetAttackSpeed() + attackSpeedIncrease);
-        Debug.Log("New AttackSpeed " + playerStats.GetAttackSpeed());
 
         //Crit Modifier
         playerStats.SetCrit(playerStats.GetCrit() + critIncrease);
-        Debug.Log("New Crit " + playerStats.GetCrit());
 
         playerXp = playerXp - totalXp;
         lvlText.text = (playerLvl.ToString());
 
         //Exp Curve
         SetTotalXP((1+expGrowth) * 100 *playerLvl);
+        UIPlayerStats.UpdateValues();
 
         if(playerXp>=totalXp)
         {

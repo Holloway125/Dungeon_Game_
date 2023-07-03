@@ -1,49 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class Menu : MonoBehaviour
 {
-    private PlayerActions _playerActions;
+    private PlayerActions playerControls;
+    private PlayerInput playerInput;
+    private InputAction characterStats;
 
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject settingsPanel;
-    [SerializeField] private GameObject charPanel;
+    [SerializeField] private GameObject playerStats;
     //[SerializeField] private GameObject invPanel;
-    [SerializeField] private GameObject _map;
+    [SerializeField] private GameObject _Map;
     private GameObject _player;
 
     public static bool GameIsPaused = false;
-    private bool _mapIsOpen = false;
+    private bool _MapIsOpen = false;
+    private bool _statsOpen = false;
 
     private void Awake()
     {
-        _playerActions = new PlayerActions();
+        playerControls = new PlayerActions();
+        playerInput = GetComponent<PlayerInput>();
         _player = GameObject.FindGameObjectWithTag("Player");
-        _map = GameObject.Find("/PlayerUI/Map");
+        playerStats = GameObject.Find("UI_Character Stats");
+        characterStats = playerControls.UI.CharacterStatsToggle;
     }
 
     private void Start()
     {
-        _playerActions.UI.Menu.performed += context => PauseMenu();
-        _playerActions.UI.Map.performed += context => MapOpenandClose();
         pauseMenu.SetActive(false);
         settingsPanel.SetActive(false);
-        charPanel.SetActive(false);
+        playerStats.SetActive(false);
         //invPanel.SetActive(false);
-        _map.SetActive(false);
+        _Map.SetActive(false);
 
     }
 
     private void OnEnable()
     {
-        _playerActions.UI.Enable();
+        playerControls.UI.Enable();
+        playerControls.UI.MenuToggle.performed += MenuToggle;
+        playerControls.UI.MapToggle.performed += MapToggle;
+        playerControls.UI.CharacterStatsToggle.performed += CharacterStatsToggle;
     }
 
     private void OnDisable()
     {
-        _playerActions.UI.Disable();
+        playerControls.UI.Disable();
+        playerControls.UI.MenuToggle.performed -= MenuToggle;
+        playerControls.UI.MapToggle.performed -= MapToggle;
+        playerControls.UI.CharacterStatsToggle.performed -= CharacterStatsToggle;
     }
 
     private void Resume()
@@ -51,13 +61,15 @@ public class Menu : MonoBehaviour
         settingsPanel.SetActive(false);
         pauseMenu.SetActive(false);
         // invPanel.SetActive(false);
-        charPanel.SetActive(false);
+        playerStats.SetActive(false);
         // logPanel.SetActive(false);
         Time.timeScale = 1f;
+        _statsOpen = false;
+        _MapIsOpen = false;
         GameIsPaused = false;
     }
 
-    private void PauseMenu()
+    private void MenuToggle(InputAction.CallbackContext context)
     {  
         if(GameIsPaused == false)
         {
@@ -71,19 +83,39 @@ public class Menu : MonoBehaviour
         }
     }
 
-    private void MapOpenandClose()
+    private void CharacterStatsToggle(InputAction.CallbackContext context)
     {
-        if(_mapIsOpen == true)
+        Debug.Log("StatsToggleCalled");
+        if(_statsOpen == true)
         {
-            _map.SetActive(false);
-            _mapIsOpen = false;
+            playerStats.SetActive(false);
+            _statsOpen = false;
             Resume();
         }
 
-        else if(_mapIsOpen == false)
+        else if(_statsOpen == false)
         {
-            _map.SetActive(true);
-            _mapIsOpen = true;
+            playerStats.SetActive(true);
+            _statsOpen = true;
+            Time.timeScale = 0f;
+            GameIsPaused = true;
+        }
+    }
+
+    private void MapToggle(InputAction.CallbackContext context)
+    {
+        Debug.Log("MapToggleToggleCalled");
+        if(_MapIsOpen == true)
+        {
+            _Map.SetActive(false);
+            _MapIsOpen = false;
+            Resume();
+        }
+
+        else if(_MapIsOpen == false)
+        {
+            _Map.SetActive(true);
+            _MapIsOpen = true;
             Time.timeScale = 0f;
             GameIsPaused = true;
         }
@@ -100,7 +132,7 @@ public class Menu : MonoBehaviour
 
     // public void PauseChar()
     // {
-    //     charPanel.SetActive(true);
+    //     playerStats.SetActive(true);
     //     Time.timeScale = 0f;
     //     GameIsPaused = true;
     // }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -43,11 +44,11 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        playerControls = new PlayerActions();
         playerInput = GetComponent<PlayerInput>();
         attack = playerInput.actions["Attack"];
         roll = playerInput.actions["Roll"];
         move = playerInput.actions["Movement"];
-        playerControls = new PlayerActions();
         _rBody = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _weaponCollider = GetComponent<CircleCollider2D>();
@@ -69,7 +70,6 @@ public class PlayerController : MonoBehaviour
         playerControls.Player_Map.Enable();
         playerControls.Player_Map.Attack.performed += Attack;
         playerControls.Player_Map.Roll.performed += Roll;
-
     }
 
     private void OnDisable()

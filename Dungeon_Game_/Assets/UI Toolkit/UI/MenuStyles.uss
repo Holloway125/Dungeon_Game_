@@ -1,0 +1,19 @@
+.menu-button {
+}
+
+.header {
+    background-color: rgba(60, 30, 30, 255);
+    color: rgba(237, 190, 190, 255);
+    border-left-color: rgba(153, 59, 59, 255);
+    border-right-color: rgba(153, 59, 59, 255);
+    border-top-color: rgba(153, 59, 59, 255);
+    border-bottom-color: rgba(153, 59, 59, 255);
+    border-left-width: 6px;
+    border-right-width: 6px;
+    border-top-width: 6px;
+    border-bottom-width: 6px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
