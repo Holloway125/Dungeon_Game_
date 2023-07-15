@@ -8,6 +8,8 @@ public class CharacterStats : MonoBehaviour
     // public BaseStats "with your stat"; this will allow you to add this stat to the BaseStats value List and set its basevalue
     [SerializeField] private float MaxHP = 100;
     [SerializeField] private float CurrentHP;
+    [SerializeField] private float MaxStam = 100;
+    [SerializeField] private float CurrentStam;
     [SerializeField] private float Attack = 10;
     [SerializeField] private float AttackSpeed = 0;
     [SerializeField] private float Crit = 0;
@@ -32,6 +34,26 @@ public class CharacterStats : MonoBehaviour
             Speed = i;
         }
     }
+    public float GetMaxStam()
+    {
+        return MaxStam;
+    }
+    public void SetMaxStam(float i)
+    {
+        MaxStam = i;
+    }
+    public float GetCurrentStam()
+    {
+        return CurrentStam;
+    }
+    public void SetCurrentStam(float i)
+    {
+        if(Mathf.FloorToInt(i) <= MaxStam)
+        {
+            CurrentStam = i;
+        }
+    }
+
 
     public void SetCurrentHP(float i)
     {

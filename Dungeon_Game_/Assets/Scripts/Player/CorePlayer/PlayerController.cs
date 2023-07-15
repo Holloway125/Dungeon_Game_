@@ -133,20 +133,19 @@ public class PlayerController : MonoBehaviour
             {
                 inputReceived = true;
             }
-            else if(!canReceiveInput && playerResource.staminaSlider.fillAmount >= playerResource.attackCost)
+            else if(!canReceiveInput && playerStats.GetCurrentStam() >= playerResource.attackCost)
             {   
             _anim.SetTrigger($"{AttackDir()}AttackOne");
             Debug.Log($"{AttackDir()}Attack");
             }
     }
-
     private void Roll(InputAction.CallbackContext context)
     {
-        if(playerResource.staminaSlider.fillAmount >= playerResource.rollCost)
+        if(playerStats.GetCurrentStam() >= playerResource.rollCost)
         {
         rollDir = mouseDir;
         rollSpeed = 10;
-        playerResource.staminaSlider.fillAmount -= playerResource.rollCost;
+        playerStats.SetCurrentStam(playerStats.GetCurrentStam() - playerResource.rollCost);
         _anim.SetTrigger($"{RollDir()}Roll");
         Debug.Log($"{RollDir()} Roll");            
         state = State.Rolling;

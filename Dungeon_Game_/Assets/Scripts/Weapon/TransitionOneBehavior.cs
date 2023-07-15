@@ -21,13 +21,13 @@ public class TransitionOneBehavior : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (playerController.inputReceived && playerResource.staminaSlider.fillAmount >= playerResource.attackCost)
+        if (playerController.inputReceived && playerStats.GetCurrentStam() >= playerResource.attackCost)
         {
             animator.SetTrigger($"{playerController.AttackDir()}AttackTwo");
             playerController.InputManager();
             playerController.inputReceived = false;
         }
-        else if(playerResource.staminaSlider.fillAmount <= playerResource.attackCost)
+        else if(playerStats.GetCurrentStam() <= playerResource.attackCost)
         {
             playerController.inputReceived = false;
         }

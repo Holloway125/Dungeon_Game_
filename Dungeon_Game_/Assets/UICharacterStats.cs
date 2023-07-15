@@ -10,18 +10,23 @@ public class UICharacterStats : MonoBehaviour
     private VisualElement _pause;
     private VisualElement _stats;
     private VisualElement _map;
+    private VisualElement _HUD;
     private GameObject scenemanager;
     [SerializeField] private Label HealthValue;
     [SerializeField] private Label AttackValue;
     [SerializeField] private Label DefenseValue;
     [SerializeField] private Label AttackSpeedValue;
     [SerializeField] private Label CritValue;
+    [SerializeField] private Label Lvl;
 
+    [SerializeField] private IMGUIContainer HealthFill;
+    [SerializeField] private IMGUIContainer StaminaFill;
     [SerializeField] private GameObject player;
     [SerializeField] private CharacterStats playerStats;
     [SerializeField] private Menu Menu;
 
     private PlayerActions playerControls;
+    private LevelSystem LevelSystem;
     private bool _statsOpen;
     private bool _pauseOpen;
     private bool _mapOpen = false;
@@ -55,17 +60,25 @@ public class UICharacterStats : MonoBehaviour
         playerControls = new PlayerActions();
         player = GameObject.FindWithTag("Player");
         playerStats = player.GetComponent<CharacterStats>();
+        LevelSystem = player.GetComponent<LevelSystem>();
         _doc = GetComponent<UIDocument>();
         _pause = _doc.rootVisualElement.Q("Pause");
         _stats = _doc.rootVisualElement.Q("CharacterStats");
         _map = _doc.rootVisualElement.Q("Map");
+        _HUD = _doc.rootVisualElement.Q("HUD");
         scenemanager = GameObject.Find("SceneManager");
         Menu = scenemanager.GetComponent<Menu>();
+
         HealthValue = _doc.rootVisualElement.Q<Label>("HealthValue");
+        HealthFill = _doc.rootVisualElement.Q<IMGUIContainer>("HealthFill");
+
+        StaminaFill = _doc.rootVisualElement.Q<IMGUIContainer>("StamFill");
+
         AttackValue = _doc.rootVisualElement.Q<Label>("AttackValue");
         DefenseValue = _doc.rootVisualElement.Q<Label>("DefenseValue");
         AttackSpeedValue = _doc.rootVisualElement.Q<Label>("AttackSpeedValue");
         CritValue = _doc.rootVisualElement.Q<Label>("CritValue");
+        Lvl = _doc.rootVisualElement.Q<Label>("Lvl");
     }
 
         // playerInput = player.GetComponent<PlayerInput>();
@@ -83,6 +96,12 @@ public class UICharacterStats : MonoBehaviour
         _stats.style.display = DisplayStyle.None;
         _pause.style.display = DisplayStyle.None;
         _map.style.display = DisplayStyle.None;
+    }
+
+    private void Update()
+    {
+    HealthFill.style.width = Length.Percent(playerStats.GetCurrentHP()/playerStats.GetMaxHP() * 100);
+    StaminaFill.style.width = Length.Percent(playerStats.GetCurrentStam()/playerStats.GetMaxStam() * 100);
     }
 
     private void StatsToggle(InputAction.CallbackContext context)
@@ -120,6 +139,7 @@ public class UICharacterStats : MonoBehaviour
 
     public void UpdateValues()
     {
+    Lvl.text = LevelSystem.GetPlayerLvl().ToString();
     HealthValue.text = playerStats.GetMaxHP().ToString();
     AttackValue.text = playerStats.GetAttack().ToString();
     DefenseValue.text = playerStats.GetDefense().ToString();

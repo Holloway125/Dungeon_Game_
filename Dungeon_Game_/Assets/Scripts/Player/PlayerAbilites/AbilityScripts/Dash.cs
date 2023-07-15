@@ -23,10 +23,10 @@ public class Dash : Ability
       playerStats = parent.GetComponent<CharacterStats>();
       _anim = parent.GetComponent<Animator>();
 
-      if(playerResource.staminaSlider.fillAmount >= .4f)
+      if(playerStats.GetCurrentStam() >= 20)
       {
          playerStats.SetSpeed(15);
-         playerResource.staminaSlider.fillAmount -= .4f;
+         playerStats.SetCurrentStam(playerStats.GetCurrentStam() - 20);
          _anim.SetTrigger($"{playerController.RollDir()}Roll");
          Debug.Log($"{playerController.RollDir()} Roll");
       }

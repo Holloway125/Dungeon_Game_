@@ -16,7 +16,7 @@ public class AttackBehaviour : StateMachineBehaviour
         playerController = player.GetComponent<PlayerController>();
         playerResource = player.GetComponent<PlayerResource>();
         playerStats.SetSpeed(0);
-        playerResource.staminaSlider.fillAmount -= playerResource.attackCost;
+        playerStats.SetCurrentStam(playerStats.GetCurrentStam() - playerResource.attackCost);
         animator.speed = (playerStats.GetAttackSpeed()+1);
         playerController.canReceiveInput = true;
     }

@@ -75,6 +75,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 100
   CurrentHP: 0
+  MaxStam: 100
+  CurrentStam: 100
   Attack: 10
   AttackSpeed: 0
   Crit: 0
@@ -117,14 +119,9 @@ MonoBehaviour:
   _youLose: {fileID: 0}
   player: {fileID: 0}
   playerStats: {fileID: 0}
-  _healthSlider: {fileID: 0}
-  _healthText: {fileID: 0}
-  rollCost: 0.25
-  attackCost: 0.15
-  staminaRegenRate: 0.0015
-  staminaSlider: {fileID: 0}
-  staminaText: {fileID: 0}
-  m_MySliderValue: 0
+  rollCost: 20
+  attackCost: 15
+  staminaRegenRate: 0.3
 --- !u!212 &720812701271881332
 SpriteRenderer:
   m_ObjectHideFlags: 0

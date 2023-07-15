@@ -15,7 +15,7 @@ public class LevelSystem : MonoBehaviour
     //current running total
     [SerializeField] private float playerXp;
 
-    [SerializeField] private float playerLvl;
+    [SerializeField] private int playerLvl;
     private Text lvlText;
     private Image expBar;
 
@@ -54,15 +54,19 @@ public class LevelSystem : MonoBehaviour
     {
         totalXp = xp;
     }
+
+    public int GetPlayerLvl()
+    {
+        return playerLvl;
+    }
     private void LevelUP()
     {
         playerLvl++;
         Debug. Log("Leveled Up!");
 
         //Health Modifier
-        playerStats.SetMaxHP(100+(playerLvl*25));
-        playerResource._healthText.text = ($"{playerStats.GetMaxHP().ToString()}");          
-        playerResource._healthSlider.fillAmount = 1;
+        playerStats.SetMaxHP(100+(playerLvl*25));   
+
         playerStats.SetCurrentHP(playerStats.GetMaxHP());
 
         //Attack Modifier
@@ -78,7 +82,6 @@ public class LevelSystem : MonoBehaviour
         playerStats.SetCrit(playerStats.GetCrit() + critIncrease);
 
         playerXp = playerXp - totalXp;
-        lvlText.text = (playerLvl.ToString());
         UIPlayerStats.UpdateValues();
 
         //Exp Curve
