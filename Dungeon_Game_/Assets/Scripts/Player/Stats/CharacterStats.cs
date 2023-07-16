@@ -45,7 +45,7 @@ public class CharacterStats : MonoBehaviour
         {
             CurrentStam = Mathf.FloorToInt(i);
         }
-        else if(Mathf.FloorToInt(i) > MaxStam)
+        else if(Mathf.FloorToInt(i) >= MaxStam)
         {
             CurrentStam = MaxStam;
         }

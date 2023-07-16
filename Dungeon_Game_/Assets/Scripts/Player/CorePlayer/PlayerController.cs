@@ -49,6 +49,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]public float rollCost = .25f;
     [SerializeField]public float attackCost = .15f;
     [SerializeField]private float staminaRegenRate = 1;
+    private Coroutine _staminaRegening;
+
+    [SerializeField] private bool StaminaRegening;
 
     private enum State
     {
@@ -83,6 +86,7 @@ public class PlayerController : MonoBehaviour
         _anim = GetComponent<Animator>();
         playerStats.SetSpeed(playerStats.GetDefaultSpeed());
         _anim.SetBool("Death", false);
+        playerStats.SetCurrentStam(playerStats.GetMaxStam());
     }
 
     private void OnEnable()
@@ -105,7 +109,11 @@ public class PlayerController : MonoBehaviour
         mousePos.z = Camera.nearClipPlane + 1;
         mouseWorldPosition = Camera.ScreenToWorldPoint(mousePos);
         mouseDir = mouseWorldPosition - player.transform.position;
-        StaminaRegenrating();
+        if(playerStats.GetCurrentStam() < playerStats.GetMaxStam() && StaminaRegening == false)
+        {
+            Debug.Log("Called StaminaRegen in Update!");
+            _staminaRegening = StartCoroutine(StaminaRegen());
+        }
     }
 
     private void FixedUpdate() 
@@ -127,17 +135,14 @@ public class PlayerController : MonoBehaviour
     }
     public IEnumerator StaminaRegen()
     {
-            Debug.Log("Called Stamina Regen");
-            playerStats.SetCurrentStam(playerStats.GetCurrentStam() + staminaRegenRate);
-            yield return new WaitForSeconds(2);
-    }
-
-    private void StaminaRegenrating()
-    {
-        if(playerStats.GetCurrentStam() < playerStats.GetMaxStam())
+        while (playerStats.GetCurrentStam() < playerStats.GetMaxStam())
         {
-            StartCoroutine(StaminaRegen());
+            Debug.Log("Called Stamina Regen");
+            StaminaRegening = true;
+            yield return new WaitForSeconds(2);
+            playerStats.SetCurrentStam(playerStats.GetCurrentStam() + staminaRegenRate);
         }
+        StaminaRegening = false;
     }
 
     public void TimeStop() // Needed for death Animation
@@ -145,7 +150,7 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-        public void TakeDamage(float damage) // input the amount of damage you want the player to take on each monster
+    public void TakeDamage(float damage) // input the amount of damage you want the player to take on each monster
     {
         if (_anim.GetBool("Death") == false)
         {
@@ -195,26 +200,30 @@ public class PlayerController : MonoBehaviour
 
     private void Attack(InputAction.CallbackContext context)
     {
-            if(canReceiveInput)
-            {
-                inputReceived = true;
-            }
-            else if(!canReceiveInput && playerStats.GetCurrentStam() >= attackCost)
-            {   
+        if(canReceiveInput)
+        {
+            inputReceived = true;
+        }
+        else if(!canReceiveInput && playerStats.GetCurrentStam() >= attackCost)
+        {
             _anim.SetTrigger($"{AttackDir()}AttackOne");
+            StopCoroutine(_staminaRegening);
+            StaminaRegening = false;
             Debug.Log($"{AttackDir()}Attack");
-            }
+        }
     }
     private void Roll(InputAction.CallbackContext context)
     {
         if(playerStats.GetCurrentStam() >= rollCost)
         {
-        rollDir = mouseDir;
-        rollSpeed = 10;
-        playerStats.SetCurrentStam(playerStats.GetCurrentStam() - rollCost);
-        _anim.SetTrigger($"{RollDir()}Roll");
-        Debug.Log($"{RollDir()} Roll");            
-        state = State.Rolling;
+            rollDir = mouseDir;
+            rollSpeed = 10;
+            playerStats.SetCurrentStam(playerStats.GetCurrentStam() - rollCost);
+            _anim.SetTrigger($"{RollDir()}Roll");
+            Debug.Log($"{RollDir()} Roll");            
+            state = State.Rolling;
+            StopCoroutine(_staminaRegening);
+            StaminaRegening = false;
         }
         else
         {
