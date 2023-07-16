@@ -6,16 +6,100 @@ using Stats;
 public class CharacterStats : MonoBehaviour
 {
     // public BaseStats "with your stat"; this will allow you to add this stat to the BaseStats value List and set its basevalue
-    [SerializeField] private float MaxHP = 100;
-    [SerializeField] private float CurrentHP;
-    [SerializeField] private float MaxStam = 100;
-    [SerializeField] private float CurrentStam;
+    [SerializeField] private int MaxHP = 100;
+    [SerializeField] private int CurrentHP;
+    [SerializeField] private int MaxStam = 100;
+    [SerializeField] private int CurrentStam;
     [SerializeField] private float Attack = 10;
     [SerializeField] private float AttackSpeed = 0;
     [SerializeField] private float Crit = 0;
     [SerializeField] private float Defense = 10;
     [SerializeField] private static float DefaultSpeed = 3;
     [SerializeField] private float Speed;
+
+
+
+
+
+    public int GetMaxStam()
+    {
+        return MaxStam;
+    }
+    public void SetMaxStam(int i)
+    {
+        MaxStam = i;
+    }
+
+
+
+
+
+
+    public float GetCurrentStam()
+    {
+        return CurrentStam;
+    }
+    public void SetCurrentStam(float i)
+    {
+        if(Mathf.FloorToInt(i) < MaxStam)
+        {
+            CurrentStam = Mathf.FloorToInt(i);
+        }
+        else if(Mathf.FloorToInt(i) > MaxStam)
+        {
+            CurrentStam = MaxStam;
+        }
+    }
+
+
+
+
+
+
+
+    public void SetMaxHP(float i)
+    {
+        if(i >= 0 && i <= 1000)
+        {
+            MaxHP = Mathf.FloorToInt(i);
+        }
+    }
+
+    public float GetMaxHP()
+    {
+        return MaxHP;
+    }
+
+
+
+
+
+
+    public void SetCurrentHP(float i)
+    {
+        if(Mathf.FloorToInt(i) <= MaxHP)
+        {
+            CurrentHP = Mathf.FloorToInt(i);
+        }
+    }
+
+    public float GetCurrentHP()
+    {
+        return CurrentHP;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public float GetDefaultSpeed()
     {
@@ -34,39 +118,8 @@ public class CharacterStats : MonoBehaviour
             Speed = i;
         }
     }
-    public float GetMaxStam()
-    {
-        return MaxStam;
-    }
-    public void SetMaxStam(float i)
-    {
-        MaxStam = i;
-    }
-    public float GetCurrentStam()
-    {
-        return CurrentStam;
-    }
-    public void SetCurrentStam(float i)
-    {
-        if(Mathf.FloorToInt(i) <= MaxStam)
-        {
-            CurrentStam = i;
-        }
-    }
 
 
-    public void SetCurrentHP(float i)
-    {
-        if(i <= MaxHP)
-        {
-            CurrentHP = i;
-        }
-    }
-
-    public float GetCurrentHP()
-    {
-        return CurrentHP;
-    }
 
     public void SetAttack(float i)
     {
@@ -117,17 +170,5 @@ public class CharacterStats : MonoBehaviour
         return Defense;
     }
 
-    public void SetMaxHP(float i)
-    {
-        if(i >= 0 && i <= 1000)
-        {
-            MaxHP = i;
-        }
-    }
-
-    public float GetMaxHP()
-    {
-        return MaxHP;
-    }
 
 }

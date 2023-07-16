@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
 {
     //GameObject and Component References
     private PlayerActions playerControls;
-    private PlayerResource playerResource;
     private CharacterStats playerStats;
     private Rigidbody2D _rBody;
     private Vector2 _moveInput;
@@ -32,6 +31,25 @@ public class PlayerController : MonoBehaviour
     private InputAction move;
 
     [SerializeField] private State state;
+
+    [SerializeField] private Rigidbody2D rb;
+
+    //UI_Elements
+    private GameObject _UI;
+    [Space]
+    [Header ("UI Elements")]
+    public GameObject _youLose;
+
+    //health properties
+    [Space]
+    [Header ("Health Bar")]
+
+    //stamina properties
+    [Header ("Stamina Settings")]
+    [SerializeField]public float rollCost = .25f;
+    [SerializeField]public float attackCost = .15f;
+    [SerializeField]private float staminaRegenRate = 1;
+
     private enum State
     {
         Normal,
@@ -54,7 +72,8 @@ public class PlayerController : MonoBehaviour
         _weaponCollider = GetComponent<CircleCollider2D>();
         _capsuleCollider = GetComponent<CapsuleCollider2D>();
         playerStats = GetComponent<CharacterStats>();
-        playerResource = GetComponent<PlayerResource>();
+        _UI = GameObject.FindGameObjectWithTag("UI");
+        _youLose = GameObject.Find("/PlayerUI/GameSettings/YouLoseCanvas/YouLosePanel");
     }
 
     private void Start()
@@ -63,6 +82,7 @@ public class PlayerController : MonoBehaviour
         playerControls.Player_Map.Roll.performed += Roll;
         _anim = GetComponent<Animator>();
         playerStats.SetSpeed(playerStats.GetDefaultSpeed());
+        _anim.SetBool("Death", false);
     }
 
     private void OnEnable()
@@ -85,6 +105,7 @@ public class PlayerController : MonoBehaviour
         mousePos.z = Camera.nearClipPlane + 1;
         mouseWorldPosition = Camera.ScreenToWorldPoint(mousePos);
         mouseDir = mouseWorldPosition - player.transform.position;
+        StaminaRegenrating();
     }
 
     private void FixedUpdate() 
@@ -103,6 +124,51 @@ public class PlayerController : MonoBehaviour
             Rolling();
             break;
         }
+    }
+    public IEnumerator StaminaRegen()
+    {
+            Debug.Log("Called Stamina Regen");
+            playerStats.SetCurrentStam(playerStats.GetCurrentStam() + staminaRegenRate);
+            yield return new WaitForSeconds(2);
+    }
+
+    private void StaminaRegenrating()
+    {
+        if(playerStats.GetCurrentStam() < playerStats.GetMaxStam())
+        {
+            StartCoroutine(StaminaRegen());
+        }
+    }
+
+    public void TimeStop() // Needed for death Animation
+    {
+        Time.timeScale = 0f;
+    }
+
+        public void TakeDamage(float damage) // input the amount of damage you want the player to take on each monster
+    {
+        if (_anim.GetBool("Death") == false)
+        {
+            if(playerStats.GetCurrentHP() > damage)
+            {
+            playerStats.SetCurrentHP(playerStats.GetCurrentHP()-damage);
+            }
+
+            else if (playerStats.GetCurrentHP() <= damage)
+            {
+                Death();
+            }
+        }
+    }
+
+    public void Death() //sets current health to 0 plays death animation puts up return to title canvas and stops all movement
+    {
+        _anim.Play("death");
+        _anim.SetBool("Death", true);
+        playerStats.SetCurrentHP(0);
+        //play death animation
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        //_youLose.SetActive(true);
     }
 
     private void Move()
@@ -133,7 +199,7 @@ public class PlayerController : MonoBehaviour
             {
                 inputReceived = true;
             }
-            else if(!canReceiveInput && playerStats.GetCurrentStam() >= playerResource.attackCost)
+            else if(!canReceiveInput && playerStats.GetCurrentStam() >= attackCost)
             {   
             _anim.SetTrigger($"{AttackDir()}AttackOne");
             Debug.Log($"{AttackDir()}Attack");
@@ -141,11 +207,11 @@ public class PlayerController : MonoBehaviour
     }
     private void Roll(InputAction.CallbackContext context)
     {
-        if(playerStats.GetCurrentStam() >= playerResource.rollCost)
+        if(playerStats.GetCurrentStam() >= rollCost)
         {
         rollDir = mouseDir;
         rollSpeed = 10;
-        playerStats.SetCurrentStam(playerStats.GetCurrentStam() - playerResource.rollCost);
+        playerStats.SetCurrentStam(playerStats.GetCurrentStam() - rollCost);
         _anim.SetTrigger($"{RollDir()}Roll");
         Debug.Log($"{RollDir()} Roll");            
         state = State.Rolling;

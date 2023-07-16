@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3995036121498226227}
   - component: {fileID: 1489136273}
   - component: {fileID: 3448304651373937805}
-  - component: {fileID: 5896024090619803072}
   - component: {fileID: 720812701271881332}
   - component: {fileID: 1241004066464497434}
   - component: {fileID: 4358859265416030546}
@@ -60,6 +59,11 @@ MonoBehaviour:
   canReceiveInput: 0
   inputReceived: 0
   state: 0
+  rb: {fileID: 0}
+  _youLose: {fileID: 0}
+  rollCost: 20
+  attackCost: 15
+  staminaRegenRate: 15
   isMoving: 0
 --- !u!114 &1489136273
 MonoBehaviour:
@@ -102,26 +106,6 @@ MonoBehaviour:
   defenseIncrease: 1
   attackSpeedIncrease: 0.05
   critIncrease: 0.05
---- !u!114 &5896024090619803072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2466084335914140134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133318a436ada4e4388691340d1116a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 1241004066464497434}
-  _animator: {fileID: 4358859265416030546}
-  _youLose: {fileID: 0}
-  player: {fileID: 0}
-  playerStats: {fileID: 0}
-  rollCost: 20
-  attackCost: 15
-  staminaRegenRate: 0.3
 --- !u!212 &720812701271881332
 SpriteRenderer:
   m_ObjectHideFlags: 0

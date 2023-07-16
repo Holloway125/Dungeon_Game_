@@ -6,7 +6,6 @@ public class Dash : Ability
 {
    
    PlayerController playerController;
-   PlayerResource playerResource;
    PlayerActions _playerActions;
    ParticleSystem effect;
    AbilityHolder _abilityHolder;
@@ -17,8 +16,6 @@ public class Dash : Ability
    public override void Activate(GameObject parent)
    {  
       parent = GameObject.Find("Player");
-      playerController = parent.GetComponent<PlayerController>();
-      playerResource = parent.GetComponent<PlayerResource>();
       playerController = parent.GetComponent<PlayerController>();
       playerStats = parent.GetComponent<CharacterStats>();
       _anim = parent.GetComponent<Animator>();

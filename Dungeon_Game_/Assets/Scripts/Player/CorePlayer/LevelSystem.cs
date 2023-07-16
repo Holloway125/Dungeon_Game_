@@ -20,7 +20,7 @@ public class LevelSystem : MonoBehaviour
     private Image expBar;
 
     private GameObject player; 
-    private PlayerResource playerResource;
+    private PlayerController PlayerController;
     private CharacterStats playerStats;
     private GameObject UICharacterStats;
     private UICharacterStats UIPlayerStats;
@@ -34,7 +34,7 @@ public class LevelSystem : MonoBehaviour
     private void Awake()
     {
         player = GameObject.Find("Player");
-        playerResource = player.GetComponent<PlayerResource>();
+        PlayerController = player.GetComponent<PlayerController>();
         expBar = GameObject.Find("/PlayerUI/Exp/Background/FillMask").GetComponent<Image>();
         lvlText = GameObject.Find("/PlayerUI/Level").GetComponent<Text>();
         playerStats = player.GetComponent<CharacterStats>();
