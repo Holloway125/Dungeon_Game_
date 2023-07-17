@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private float staminaRegenRate = 1;
     private Coroutine _staminaRegening;
 
-    [SerializeField] private bool StaminaRegening;
+    [SerializeField] private bool StaminaRegenBool;
 
     private enum State
     {
@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour
         playerStats.SetSpeed(playerStats.GetDefaultSpeed());
         _anim.SetBool("Death", false);
         playerStats.SetCurrentStam(playerStats.GetMaxStam());
+        playerStats.SetCurrentHP(playerStats.GetMaxHP());
     }
 
     private void OnEnable()
@@ -109,11 +110,6 @@ public class PlayerController : MonoBehaviour
         mousePos.z = Camera.nearClipPlane + 1;
         mouseWorldPosition = Camera.ScreenToWorldPoint(mousePos);
         mouseDir = mouseWorldPosition - player.transform.position;
-        if(playerStats.GetCurrentStam() < playerStats.GetMaxStam() && StaminaRegening == false)
-        {
-            Debug.Log("Called StaminaRegen in Update!");
-            _staminaRegening = StartCoroutine(StaminaRegen());
-        }
     }
 
     private void FixedUpdate() 
@@ -132,17 +128,21 @@ public class PlayerController : MonoBehaviour
             Rolling();
             break;
         }
+        if(playerStats.GetCurrentStam() < playerStats.GetMaxStam() && StaminaRegenBool == false)
+        {
+            _staminaRegening = StartCoroutine(StaminaRegen());
+        }
     }
     public IEnumerator StaminaRegen()
     {
+        StaminaRegenBool = true;
+        yield return new WaitForSeconds(2);
         while (playerStats.GetCurrentStam() < playerStats.GetMaxStam())
         {
-            Debug.Log("Called Stamina Regen");
-            StaminaRegening = true;
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(.05f);
             playerStats.SetCurrentStam(playerStats.GetCurrentStam() + staminaRegenRate);
         }
-        StaminaRegening = false;
+        StaminaRegenBool = false;
     }
 
     public void TimeStop() // Needed for death Animation
@@ -208,7 +208,7 @@ public class PlayerController : MonoBehaviour
         {
             _anim.SetTrigger($"{AttackDir()}AttackOne");
             StopCoroutine(_staminaRegening);
-            StaminaRegening = false;
+            StaminaRegenBool = false;
             Debug.Log($"{AttackDir()}Attack");
         }
     }
@@ -223,7 +223,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log($"{RollDir()} Roll");            
             state = State.Rolling;
             StopCoroutine(_staminaRegening);
-            StaminaRegening = false;
+            StaminaRegenBool = false;
         }
         else
         {
