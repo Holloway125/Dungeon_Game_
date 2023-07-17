@@ -55,11 +55,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2466084335914140134}
   Camera: {fileID: 0}
-  _anim: {fileID: 0}
+  _anim: {fileID: 4358859265416030546}
   canReceiveInput: 0
   inputReceived: 0
   state: 0
-  rb: {fileID: 0}
+  rb: {fileID: 1241004066464497434}
   _youLose: {fileID: 0}
   rollCost: 15
   attackCost: 10

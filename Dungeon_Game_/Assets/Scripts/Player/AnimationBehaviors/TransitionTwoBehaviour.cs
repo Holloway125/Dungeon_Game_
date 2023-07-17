@@ -7,35 +7,38 @@ public class TransitionTwoBehaviour : StateMachineBehaviour
     GameObject player;
     CharacterStats playerStats;
     PlayerController playerController;
+    Animator _anim;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {         
         player = GameObject.FindWithTag("Player");
         playerStats = player.GetComponent<CharacterStats>();
         playerController = player.GetComponent<PlayerController>();
-        playerStats.SetSpeed(0*0.3f);
+        _anim = player.GetComponent<Animator>();
+        playerStats.SetSpeed(playerStats.GetDefaultSpeed());
+        playerController.canReceiveInput = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (playerController.inputReceived && playerStats.GetCurrentStam() >= playerController.attackCost)
+        if (playerController.inputReceived && playerStats.GetCurrentStam() > 0)
         {
-            animator.SetTrigger($"{playerController.AttackDir()}AttackThree");
-            playerController.InputManager();
+            playerController.canReceiveInput = false;
             playerController.inputReceived = false;
-        }
-        else if(playerStats.GetCurrentStam() <= playerController.attackCost)
-        {
-            playerController.inputReceived = false;
+            _anim.SetFloat("MouseX",playerController.diffPos.x);
+            _anim.SetFloat("MouseY",playerController.diffPos.y);
+            _anim.SetTrigger("FinalAttack");
         }
     }
 
     //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        playerStats.SetSpeed(playerStats.GetDefaultSpeed());
+        playerController.canReceiveInput = false;
+        playerController.inputReceived = false;
     }
+
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
