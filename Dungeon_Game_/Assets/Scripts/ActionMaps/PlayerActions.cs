@@ -98,7 +98,7 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                     ""name"": ""WASD"",
                     ""id"": ""05bc2a92-73bd-4352-93f6-a529b989e2a3"",
                     ""path"": ""2DVector"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Movement"",

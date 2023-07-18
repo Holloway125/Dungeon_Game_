@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FinalAttack : StateMachineBehaviour
+public class SecondAttackBehaviour : StateMachineBehaviour
 {
     GameObject player;
     CharacterStats playerStats;
@@ -36,7 +36,6 @@ public class FinalAttack : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {   
         playerController.canReceiveInput = false;
-        playerController.inputReceived = false;
         playerStats.SetSpeed(playerStats.GetDefaultSpeed());
     }
 

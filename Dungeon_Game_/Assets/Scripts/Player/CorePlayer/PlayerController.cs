@@ -201,6 +201,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Not enough Stamina!");
         }
     }
+
     private void Move()
     {
         _moveInput = playerControls.Player_Map.Movement.ReadValue<Vector2>(); 
