@@ -7,13 +7,16 @@ public class RollBehaviour : StateMachineBehaviour
     GameObject player;
     CharacterStats playerStats;
     PlayerController playerController;
+    Animator _anim;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.FindWithTag("Player");
+        _anim = player.GetComponent<Animator>();
         playerStats = player.GetComponent<CharacterStats>();
         playerController = player.GetComponent<PlayerController>();
         playerStats.SetSpeed(0);
+        _anim.SetBool("IsRolling", true);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -28,7 +31,8 @@ public class RollBehaviour : StateMachineBehaviour
      override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         playerController._capsuleCollider.enabled = true;
-        playerStats.SetSpeed(playerStats.GetDefaultSpeed()); 
+        playerStats.SetSpeed(playerStats.GetDefaultSpeed());
+        _anim.SetBool("IsRolling", false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

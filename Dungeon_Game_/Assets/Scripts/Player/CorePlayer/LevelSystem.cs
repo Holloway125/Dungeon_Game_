@@ -9,11 +9,11 @@ public class LevelSystem : MonoBehaviour
 {
 
     //total xp needed to lvl
-    [SerializeField] private float totalXp;
+    [SerializeField] private float XpToNextLvl;
     [SerializeField] float expGrowth = .12f;
     
     //current running total
-    [SerializeField] private float playerXp;
+    [SerializeField] private float TotalXp;
 
     [SerializeField] private int playerLvl;
     private Text lvlText;
@@ -45,16 +45,27 @@ public class LevelSystem : MonoBehaviour
     private void Start()
     {
         expBar.fillAmount = 0;
-        totalXp = 100;  
-        playerXp = 0;
+        XpToNextLvl = 100;  
+        TotalXp = 0;
         playerLvl = 1;
     }
 
-    private void SetTotalXP(float xp)
+    public float GetXpToNextLvl()
     {
-        totalXp = xp;
+        return XpToNextLvl;
     }
-
+    public void SetXpToNextLvl(float xp)
+    {
+        XpToNextLvl = xp;
+    }
+    public float GetTotalXp()
+    {
+        return TotalXp;
+    }
+    public void SetTotalXp(float i)
+    {
+        TotalXp = i;
+    }
     public int GetPlayerLvl()
     {
         return playerLvl;
@@ -81,33 +92,34 @@ public class LevelSystem : MonoBehaviour
         //Crit Modifier
         playerStats.SetCrit(playerStats.GetCrit() + critIncrease);
 
-        playerXp = playerXp - totalXp;
+        TotalXp = TotalXp - XpToNextLvl;
+        //Exp Curve
+        SetXpToNextLvl((1+expGrowth) * 100 *playerLvl);
+
         UIPlayerStats.UpdateValues();
 
-        //Exp Curve
-        SetTotalXP((1+expGrowth) * 100 *playerLvl);
 
-        if(playerXp>=totalXp)
+        if(TotalXp>=XpToNextLvl)
         {
             LevelUP();
         }
         else
         {
-        expBar.fillAmount = (float)playerXp / (float)totalXp;
+        expBar.fillAmount = (float)TotalXp / (float)XpToNextLvl;
         }
     }
 
     public void GainExperience(int exp)
     {
-        playerXp += exp;
+        TotalXp += exp;
 
-        if (playerXp >= totalXp)
+        if (TotalXp >= XpToNextLvl)
             {    
                 LevelUP();
             }
         else 
             {
-            expBar.fillAmount = (float)playerXp / (float)totalXp;
+            expBar.fillAmount = (float)TotalXp / (float)XpToNextLvl;
             }
             Debug.Log("Gained " + exp + "XP!");
     }

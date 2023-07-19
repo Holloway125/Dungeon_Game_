@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
+using MyUILibrary;
 
 public class UICharacterStats : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class UICharacterStats : MonoBehaviour
     [SerializeField] private Label AttackSpeedValue;
     [SerializeField] private Label CritValue;
     [SerializeField] private Label Lvl;
+    [SerializeField] private RadialProgress ExpBar;
 
     [SerializeField] private IMGUIContainer HealthFill;
     [SerializeField] private IMGUIContainer StaminaFill;
@@ -139,6 +141,7 @@ public class UICharacterStats : MonoBehaviour
 
     public void UpdateValues()
     {
+    ExpBar.progress = (float)LevelSystem.GetXpToNextLvl() / (float)LevelSystem.GetTotalXp();
     Lvl.text = LevelSystem.GetPlayerLvl().ToString();
     HealthValue.text = playerStats.GetMaxHP().ToString();
     AttackValue.text = playerStats.GetAttack().ToString();
