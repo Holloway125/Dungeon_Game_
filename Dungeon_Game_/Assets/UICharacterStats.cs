@@ -19,8 +19,7 @@ public class UICharacterStats : MonoBehaviour
     [SerializeField] private Label AttackSpeedValue;
     [SerializeField] private Label CritValue;
     [SerializeField] private Label Lvl;
-    [SerializeField] private RadialProgress ExpBar;
-
+    [SerializeField] private IMGUIContainer ExpFill;
     [SerializeField] private IMGUIContainer HealthFill;
     [SerializeField] private IMGUIContainer StaminaFill;
     [SerializeField] private GameObject player;
@@ -75,6 +74,8 @@ public class UICharacterStats : MonoBehaviour
         HealthFill = _doc.rootVisualElement.Q<IMGUIContainer>("HealthFill");
 
         StaminaFill = _doc.rootVisualElement.Q<IMGUIContainer>("StamFill");
+
+        ExpFill = _doc.rootVisualElement.Q<IMGUIContainer>("ExpFill");
 
         AttackValue = _doc.rootVisualElement.Q<Label>("AttackValue");
         DefenseValue = _doc.rootVisualElement.Q<Label>("DefenseValue");
@@ -141,7 +142,7 @@ public class UICharacterStats : MonoBehaviour
 
     public void UpdateValues()
     {
-    ExpBar.progress = (float)LevelSystem.GetXpToNextLvl() / (float)LevelSystem.GetTotalXp();
+    ExpFill.style.width = Length.Percent((float)LevelSystem.GetTotalXp()/(float)LevelSystem.GetXpToNextLvl()*100);
     Lvl.text = LevelSystem.GetPlayerLvl().ToString();
     HealthValue.text = playerStats.GetMaxHP().ToString();
     AttackValue.text = playerStats.GetAttack().ToString();

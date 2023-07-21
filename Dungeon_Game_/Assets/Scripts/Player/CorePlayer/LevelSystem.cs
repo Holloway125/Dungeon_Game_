@@ -10,7 +10,7 @@ public class LevelSystem : MonoBehaviour
 
     //total xp needed to lvl
     [SerializeField] private float XpToNextLvl;
-    [SerializeField] float expGrowth = .12f;
+    [SerializeField] float expGrowth = .25f;
     
     //current running total
     [SerializeField] private float TotalXp;
@@ -92,7 +92,6 @@ public class LevelSystem : MonoBehaviour
         //Crit Modifier
         playerStats.SetCrit(playerStats.GetCrit() + critIncrease);
 
-        TotalXp = TotalXp - XpToNextLvl;
         //Exp Curve
         SetXpToNextLvl((1+expGrowth) * 100 *playerLvl);
 
@@ -105,7 +104,7 @@ public class LevelSystem : MonoBehaviour
         }
         else
         {
-        expBar.fillAmount = (float)TotalXp / (float)XpToNextLvl;
+        UIPlayerStats.UpdateValues();
         }
     }
 
@@ -119,7 +118,7 @@ public class LevelSystem : MonoBehaviour
             }
         else 
             {
-            expBar.fillAmount = (float)TotalXp / (float)XpToNextLvl;
+            UIPlayerStats.UpdateValues();
             }
             Debug.Log("Gained " + exp + "XP!");
     }
