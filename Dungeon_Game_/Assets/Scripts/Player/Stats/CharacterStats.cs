@@ -69,12 +69,6 @@ public class CharacterStats : MonoBehaviour
     {
         return MaxHP;
     }
-
-
-
-
-
-
     public void SetCurrentHP(float i)
     {
         if(Mathf.FloorToInt(i) <= MaxHP)
@@ -87,19 +81,6 @@ public class CharacterStats : MonoBehaviour
     {
         return CurrentHP;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public float GetDefaultSpeed()
     {
@@ -169,6 +150,4 @@ public class CharacterStats : MonoBehaviour
     {
         return Defense;
     }
-
-
 }

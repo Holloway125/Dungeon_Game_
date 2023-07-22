@@ -43,6 +43,7 @@ public class MoveCameraRight : MonoBehaviour
         if(playerInRange == true)
         {
             cameraController.MoveRight(x,y,z);
+            cameraController.CameraCoordinator();
         }
     }
 

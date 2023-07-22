@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,24 +8,27 @@ using MyUILibrary;
 
 public class UICharacterStats : MonoBehaviour
 {
-    [SerializeField] private UIDocument _doc;
+    private UIDocument _doc;
     private VisualElement _pause;
     private VisualElement _stats;
     private VisualElement _map;
     private VisualElement _HUD;
     private GameObject scenemanager;
-    [SerializeField] private Label HealthValue;
-    [SerializeField] private Label AttackValue;
-    [SerializeField] private Label DefenseValue;
-    [SerializeField] private Label AttackSpeedValue;
-    [SerializeField] private Label CritValue;
-    [SerializeField] private Label Lvl;
-    [SerializeField] private IMGUIContainer ExpFill;
-    [SerializeField] private IMGUIContainer HealthFill;
-    [SerializeField] private IMGUIContainer StaminaFill;
-    [SerializeField] private GameObject player;
-    [SerializeField] private CharacterStats playerStats;
-    [SerializeField] private Menu Menu;
+    private IMGUIContainer ExpFill;
+    private IMGUIContainer HealthFill;
+    private IMGUIContainer StaminaFill;
+    private Label _healthValue;
+    private Label _attackValue;
+    private Label _defenseValue;
+    private Label _attackSpeedValue;
+    private Label _critValue;
+    private Label _lvl;
+    private Label _mapCoords;
+    private GameObject player;
+    private CharacterStats playerStats;
+    private GameObject _camera;
+    private CameraController CameraController;
+    private Menu Menu;
 
     private PlayerActions playerControls;
     private LevelSystem LevelSystem;
@@ -40,7 +44,7 @@ public class UICharacterStats : MonoBehaviour
     
     private void OnEnable()
     {
-        playerControls.UI.Enable();
+        //playerControls.UI.Enable();
         // playerControls.UI.MenuToggle.performed += MenuToggle;
         playerControls.UI.Map.performed += MapToggle;
         playerControls.UI.Stats.performed += StatsToggle;
@@ -49,7 +53,7 @@ public class UICharacterStats : MonoBehaviour
 
     private void OnDisable()
     {
-        playerControls.UI.Disable();
+        //playerControls.UI.Disable();
         // playerControls.UI.MenuToggle.performed -= MenuToggle;
         playerControls.UI.Map.performed -= MapToggle;
         playerControls.UI.Stats.performed -= StatsToggle;
@@ -60,8 +64,10 @@ public class UICharacterStats : MonoBehaviour
     {
         playerControls = new PlayerActions();
         player = GameObject.FindWithTag("Player");
+        _camera = GameObject.FindWithTag("Camera");
         playerStats = player.GetComponent<CharacterStats>();
         LevelSystem = player.GetComponent<LevelSystem>();
+        CameraController = _camera.GetComponent<CameraController>();
         _doc = GetComponent<UIDocument>();
         _pause = _doc.rootVisualElement.Q("Pause");
         _stats = _doc.rootVisualElement.Q("CharacterStats");
@@ -70,24 +76,21 @@ public class UICharacterStats : MonoBehaviour
         scenemanager = GameObject.Find("SceneManager");
         Menu = scenemanager.GetComponent<Menu>();
 
-        HealthValue = _doc.rootVisualElement.Q<Label>("HealthValue");
+        _healthValue = _doc.rootVisualElement.Q<Label>("_healthValue");
         HealthFill = _doc.rootVisualElement.Q<IMGUIContainer>("HealthFill");
 
         StaminaFill = _doc.rootVisualElement.Q<IMGUIContainer>("StamFill");
 
         ExpFill = _doc.rootVisualElement.Q<IMGUIContainer>("ExpFill");
 
-        AttackValue = _doc.rootVisualElement.Q<Label>("AttackValue");
-        DefenseValue = _doc.rootVisualElement.Q<Label>("DefenseValue");
-        AttackSpeedValue = _doc.rootVisualElement.Q<Label>("AttackSpeedValue");
-        CritValue = _doc.rootVisualElement.Q<Label>("CritValue");
-        Lvl = _doc.rootVisualElement.Q<Label>("Lvl");
-    }
+        _mapCoords = _doc.rootVisualElement.Q<Label>("MapCoords");
 
-        // playerInput = player.GetComponent<PlayerInput>();
-        // pause = playerInput.actions["Pause"];
-        // map = playerInput.actions["Map"];
-        // stats = playerInput.actions["Stats"];
+        _attackValue = _doc.rootVisualElement.Q<Label>("AttackValue");
+        _defenseValue = _doc.rootVisualElement.Q<Label>("DefenseValue");
+        _attackSpeedValue = _doc.rootVisualElement.Q<Label>("AttackSpeedValue");
+        _critValue = _doc.rootVisualElement.Q<Label>("CritValue");
+        _lvl = _doc.rootVisualElement.Q<Label>("Lvl");
+    }
 
     private void Start()
     {
@@ -143,12 +146,22 @@ public class UICharacterStats : MonoBehaviour
     public void UpdateValues()
     {
     ExpFill.style.width = Length.Percent((float)LevelSystem.GetTotalXp()/(float)LevelSystem.GetXpToNextLvl()*100);
-    Lvl.text = LevelSystem.GetPlayerLvl().ToString();
-    HealthValue.text = playerStats.GetMaxHP().ToString();
-    AttackValue.text = playerStats.GetAttack().ToString();
-    DefenseValue.text = playerStats.GetDefense().ToString();
-    AttackSpeedValue.text = playerStats.GetAttackSpeed().ToString(playerStats.GetAttackSpeed()*100 + "%");
-    CritValue.text = playerStats.GetCrit().ToString(playerStats.GetCrit()*100 + "%");
+    _lvl.text = LevelSystem.GetPlayerLvl().ToString();
+    _healthValue.text = playerStats.GetMaxHP().ToString();
+    _attackValue.text = playerStats.GetAttack().ToString();
+    _defenseValue.text = playerStats.GetDefense().ToString();
+    _attackSpeedValue.text = playerStats.GetAttackSpeed().ToString(playerStats.GetAttackSpeed()*100 + "%");
+    _critValue.text = playerStats.GetCrit().ToString(playerStats.GetCrit()*100 + "%");
+    }
+
+    public void UpdateMapCoords(double x, double y)
+    {
+        string x_coord;
+        string y_coord;
+        x_coord = Convert.ToInt32(x).ToString();
+        y_coord = Convert.ToInt32(y).ToString();
+        _mapCoords.text = "( "+x_coord+","+y_coord+" )";
+       
     }
 
     private void PauseToggle(InputAction.CallbackContext context)

@@ -43,6 +43,7 @@ public class MoveCameraLeft : MonoBehaviour
         if(playerInRange == true)
         {
             cameraController.MoveLeft(x,y,z);
+            cameraController.CameraCoordinator();
         }
     }
 

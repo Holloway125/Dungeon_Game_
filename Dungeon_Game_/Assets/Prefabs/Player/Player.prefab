@@ -53,18 +53,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1041950ec290c4c4abd839a39a0fc937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _capsuleCollider: {fileID: 0}
   player: {fileID: 2466084335914140134}
-  Camera: {fileID: 0}
+  _camera: {fileID: 0}
   _anim: {fileID: 4358859265416030546}
-  canReceiveInput: 0
-  inputReceived: 0
-  state: 0
-  rb: {fileID: 1241004066464497434}
-  _youLose: {fileID: 0}
-  rollCost: 15
-  attackCost: 10
-  staminaRegenRate: 1
-  StaminaRegenBool: 0
+  MousePosition: {x: 0, y: 0, z: 0}
+  MouseWorldPosition: {x: 0, y: 0, z: 0}
+  DiffPos: {x: 0, y: 0, z: 0}
+  RollSpeed: 0
+  CanReceiveInput: 0
+  InputReceived: 0
+  _rb: {fileID: 0}
+  YouLose: {fileID: 0}
+  RollCost: 25
+  AttackCost: 15
+  _staminaRegenRate: 1
+  _staminaRegenBool: 0
   isMoving: 0
 --- !u!114 &1489136273
 MonoBehaviour:
@@ -99,14 +103,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b68e33b756b164496621ad95ed8338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalXp: 100
-  expGrowth: 0.12
-  playerXp: 0
-  playerLvl: 1
-  attackIncrease: 2
-  defenseIncrease: 1
-  attackSpeedIncrease: 0.05
-  critIncrease: 0.05
+  _xpToNextLvl: 0
+  _expGrowth: 0.12
+  _currentXP: 0
+  _playerLvl: 0
+  _attackIncrease: 1
+  _defenseIncrease: 1
+  _attackSpeedIncrease: 0.05
+  _critIncrease: 0.05
 --- !u!212 &720812701271881332
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -45,6 +45,7 @@ public class MoveCameraUp : MonoBehaviour
         if(playerInRange == true)
         {
             cameraController.MoveUp(x,y,z);
+            cameraController.CameraCoordinator();
         }
     }
 

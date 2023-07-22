@@ -22,8 +22,8 @@ public class RollBehaviour : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        player.transform.position += playerController.diffPos * playerController.rollSpeed * Time.deltaTime;
-        playerController.rollSpeed -= playerController.rollSpeed * 10f * Time.deltaTime;
+        player.transform.position += playerController.DiffPos * playerController.RollSpeed * Time.deltaTime;
+        playerController.RollSpeed -= playerController.RollSpeed * 10f * Time.deltaTime;
         playerController._capsuleCollider.enabled = false;
     }
 

@@ -24,7 +24,6 @@ public class MixerController : MonoBehaviour
 //to load playerprefs of audio
     private void Start()
     {
-//Master load methods on start
             masterVolumeSlider.onValueChanged.AddListener((mv) => {
             masterVolumeValue.text = mv.ToString("0.0");
         });

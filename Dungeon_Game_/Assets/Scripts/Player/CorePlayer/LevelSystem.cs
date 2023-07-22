@@ -9,96 +9,91 @@ public class LevelSystem : MonoBehaviour
 {
 
     //total xp needed to lvl
-    [SerializeField] private float XpToNextLvl;
-    [SerializeField] float expGrowth = .25f;
+    [SerializeField] private float _xpToNextLvl;
+    [SerializeField] float _expGrowth = .12f;
     
     //current running total
-    [SerializeField] private float TotalXp;
+    [SerializeField] private float _currentXP;
 
-    [SerializeField] private int playerLvl;
-    private Text lvlText;
-    private Image expBar;
+    [SerializeField] private int _playerLvl;
 
-    private GameObject player; 
+    private GameObject _player; 
     private PlayerController PlayerController;
-    private CharacterStats playerStats;
+    private CharacterStats PlayerStats;
     private GameObject UICharacterStats;
     private UICharacterStats UIPlayerStats;
 
-    [SerializeField] private float attackIncrease = 1;
-    [SerializeField] private float defenseIncrease = 1;
-    [SerializeField] private float attackSpeedIncrease = .05f;
-    [SerializeField] private float critIncrease = .05f;
+    [SerializeField] private float _attackIncrease = 1;
+    [SerializeField] private float _defenseIncrease = 1;
+    [SerializeField] private float _attackSpeedIncrease = .05f;
+    [SerializeField] private float _critIncrease = .05f;
 
 
     private void Awake()
     {
-        player = GameObject.Find("Player");
-        PlayerController = player.GetComponent<PlayerController>();
-        expBar = GameObject.Find("/PlayerUI/Exp/Background/FillMask").GetComponent<Image>();
-        lvlText = GameObject.Find("/PlayerUI/Level").GetComponent<Text>();
-        playerStats = player.GetComponent<CharacterStats>();
+        _player = GameObject.Find("Player");
+        PlayerController = _player.GetComponent<PlayerController>();
+        PlayerStats = _player.GetComponent<CharacterStats>();
         UICharacterStats = GameObject.Find("UI_Character Stats");
         UIPlayerStats = UICharacterStats.GetComponent<UICharacterStats>();
     }
 
     private void Start()
     {
-        expBar.fillAmount = 0;
-        XpToNextLvl = 100;  
-        TotalXp = 0;
-        playerLvl = 1;
+        _xpToNextLvl = 100;  
+        _currentXP = 0;
+        _playerLvl = 1;
     }
 
     public float GetXpToNextLvl()
     {
-        return XpToNextLvl;
+        return _xpToNextLvl;
     }
     public void SetXpToNextLvl(float xp)
     {
-        XpToNextLvl = xp;
+        _xpToNextLvl = xp;
     }
     public float GetTotalXp()
     {
-        return TotalXp;
+        return _currentXP;
     }
     public void SetTotalXp(float i)
     {
-        TotalXp = i;
+        _currentXP = i;
     }
     public int GetPlayerLvl()
     {
-        return playerLvl;
+        return _playerLvl;
     }
     private void LevelUP()
     {
-        playerLvl++;
+        _playerLvl++;
         Debug. Log("Leveled Up!");
 
         //Health Modifier
-        playerStats.SetMaxHP(100+(playerLvl*25));   
+        PlayerStats.SetMaxHP(100+(_playerLvl*25));   
 
-        playerStats.SetCurrentHP(playerStats.GetMaxHP());
+        PlayerStats.SetCurrentHP(PlayerStats.GetMaxHP());
 
         //Attack Modifier
-        playerStats.SetAttack(playerStats.GetAttack() + attackIncrease);
+        PlayerStats.SetAttack(PlayerStats.GetAttack() + _attackIncrease);
 
         //Defense Modifier
-        playerStats.SetDefense(playerStats.GetDefense() + defenseIncrease);
+        PlayerStats.SetDefense(PlayerStats.GetDefense() + _defenseIncrease);
 
         //AttackSpeed Modifier
-        playerStats.SetAttackSpeed(playerStats.GetAttackSpeed() + attackSpeedIncrease);
+        PlayerStats.SetAttackSpeed(PlayerStats.GetAttackSpeed() + _attackSpeedIncrease);
         
         //Crit Modifier
-        playerStats.SetCrit(playerStats.GetCrit() + critIncrease);
+        PlayerStats.SetCrit(PlayerStats.GetCrit() + _critIncrease);
 
         //Exp Curve
-        SetXpToNextLvl((1+expGrowth) * 100 *playerLvl);
+        SetXpToNextLvl((1+_expGrowth) * 100 * _playerLvl - 100);
 
         UIPlayerStats.UpdateValues();
 
 
-        if(TotalXp>=XpToNextLvl)
+        if(_currentXP>=_xpToNextLvl)
         {
             LevelUP();
         }
@@ -110,10 +105,11 @@ public class LevelSystem : MonoBehaviour
 
     public void GainExperience(int exp)
     {
-        TotalXp += exp;
+        _currentXP += exp;
 
-        if (TotalXp >= XpToNextLvl)
-            {    
+        if (_currentXP >= _xpToNextLvl)
+            {
+                _currentXP = _currentXP - _xpToNextLvl;
                 LevelUP();
             }
         else 

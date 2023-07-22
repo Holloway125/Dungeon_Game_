@@ -16,18 +16,18 @@ public class TransitionTwoBehaviour : StateMachineBehaviour
         playerController = player.GetComponent<PlayerController>();
         _anim = player.GetComponent<Animator>();
         playerStats.SetSpeed(playerStats.GetDefaultSpeed());
-        playerController.canReceiveInput = true;
+        playerController.CanReceiveInput = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (playerController.inputReceived && playerStats.GetCurrentStam() > 0)
+        if (playerController.InputReceived && playerStats.GetCurrentStam() > 0)
         {
-            playerController.canReceiveInput = false;
-            playerController.inputReceived = false;
-            _anim.SetFloat("MouseX",playerController.diffPos.x);
-            _anim.SetFloat("MouseY",playerController.diffPos.y);
+            playerController.CanReceiveInput = false;
+            playerController.InputReceived = false;
+            _anim.SetFloat("MouseX",playerController.DiffPos.x);
+            _anim.SetFloat("MouseY",playerController.DiffPos.y);
             _anim.SetTrigger("FinalAttack");
         }
     }
@@ -35,8 +35,8 @@ public class TransitionTwoBehaviour : StateMachineBehaviour
     //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        playerController.canReceiveInput = false;
-        playerController.inputReceived = false;
+        playerController.CanReceiveInput = false;
+        playerController.InputReceived = false;
     }
 
 

@@ -43,6 +43,7 @@ public class MoveCameraDown : MonoBehaviour
         if(playerInRange == true)
         {
             cameraController.MoveDown(x,y,z);
+            cameraController.CameraCoordinator();
         }
     }
 
