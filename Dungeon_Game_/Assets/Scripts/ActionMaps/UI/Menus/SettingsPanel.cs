@@ -9,7 +9,7 @@
      
      private const string resolutionWidthPlayerPrefKey = "ResolutionWidth";
      private const string resolutionHeightPlayerPrefKey = "ResolutionHeight";
-     private const string resolutionRefreshRatePlayerPrefKey = "RefreshRate";
+     private const string resolutionrefreshRateRatioPlayerPrefKey = "refreshRateRatio";
      private const string fullScreenPlayerPrefKey = "FullScreen";
      public Toggle fullScreenToggle;
      public TMP_Dropdown resolutionDropdown;
@@ -30,7 +30,7 @@
          selectedResolution = new Resolution();
          selectedResolution.width = PlayerPrefs.GetInt(resolutionWidthPlayerPrefKey, Screen.currentResolution.width);
          selectedResolution.height = PlayerPrefs.GetInt(resolutionHeightPlayerPrefKey, Screen.currentResolution.height);
-         selectedResolution.refreshRate = PlayerPrefs.GetInt(resolutionRefreshRatePlayerPrefKey, Screen.currentResolution.refreshRate);
+         //selectedResolution.refreshRateRatio = PlayerPrefs.GetInt(resolutionrefreshRateRatioPlayerPrefKey, Screen.currentResolution);
          
          fullScreenToggle.isOn = PlayerPrefs.GetInt(fullScreenPlayerPrefKey, Screen.fullScreen ? 1 : 0) > 0;
  
@@ -48,7 +48,7 @@
          int currentResolutionIndex = 0;
          for (int i = 0; i < resolutions.Length; i++)
          {
-             string option = resolutions[i].width + " x " + resolutions[i].height + "\nRefresh Rate: " + resolutions[i].refreshRate;
+             string option = resolutions[i].width + " x " + resolutions[i].height + "\nRefresh Rate: " + resolutions[i].refreshRateRatio;
              options.Add(option);
              if (Mathf.Approximately(resolutions[i].width, selectedResolution.width) && Mathf.Approximately(resolutions[i].height, selectedResolution.height))
              {
@@ -71,6 +71,6 @@
          Screen.SetResolution(selectedResolution.width, selectedResolution.height, Screen.fullScreen);
          PlayerPrefs.SetInt(resolutionWidthPlayerPrefKey, selectedResolution.width);
          PlayerPrefs.SetInt(resolutionHeightPlayerPrefKey, selectedResolution.height);
-         PlayerPrefs.SetInt(resolutionRefreshRatePlayerPrefKey, selectedResolution.refreshRate);
+         //PlayerPrefs.SetInt(resolutionrefreshRateRatioPlayerPrefKey, selectedResolution.refreshRateRatio);
      }
  }
