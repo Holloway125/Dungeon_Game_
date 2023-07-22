@@ -10,7 +10,6 @@ public class TimeWizard : BaseNPC
         {
             dialogBox.SetActive(true);
             DataStorage._TimeLeft = 120f;
-            _timer.timerIsRunning = true;
         }
         else
         {

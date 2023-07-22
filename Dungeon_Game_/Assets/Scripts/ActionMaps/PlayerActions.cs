@@ -389,7 +389,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""MenuToggle"",
+                    ""name"": ""Menu"",
                     ""type"": ""Button"",
                     ""id"": ""00de9191-d5bb-49d2-b5dd-9be931a471be"",
                     ""expectedControlType"": ""Button"",
@@ -851,7 +851,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MenuToggle"",
+                    ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -887,6 +887,17 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9e500762-363d-4d1a-9a19-13fc3f15db76"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -913,7 +924,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
-        m_UI_MenuToggle = m_UI.FindAction("MenuToggle", throwIfNotFound: true);
+        m_UI_Menu = m_UI.FindAction("Menu", throwIfNotFound: true);
         m_UI_Map = m_UI.FindAction("Map", throwIfNotFound: true);
         m_UI_Stats = m_UI.FindAction("Stats", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -1074,7 +1085,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_RightClick;
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
-    private readonly InputAction m_UI_MenuToggle;
+    private readonly InputAction m_UI_Menu;
     private readonly InputAction m_UI_Map;
     private readonly InputAction m_UI_Stats;
     private readonly InputAction m_UI_Pause;
@@ -1092,7 +1103,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         public InputAction @RightClick => m_Wrapper.m_UI_RightClick;
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
-        public InputAction @MenuToggle => m_Wrapper.m_UI_MenuToggle;
+        public InputAction @Menu => m_Wrapper.m_UI_Menu;
         public InputAction @Map => m_Wrapper.m_UI_Map;
         public InputAction @Stats => m_Wrapper.m_UI_Stats;
         public InputAction @Pause => m_Wrapper.m_UI_Pause;
@@ -1135,9 +1146,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @TrackedDeviceOrientation.started += instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.performed += instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.canceled += instance.OnTrackedDeviceOrientation;
-            @MenuToggle.started += instance.OnMenuToggle;
-            @MenuToggle.performed += instance.OnMenuToggle;
-            @MenuToggle.canceled += instance.OnMenuToggle;
+            @Menu.started += instance.OnMenu;
+            @Menu.performed += instance.OnMenu;
+            @Menu.canceled += instance.OnMenu;
             @Map.started += instance.OnMap;
             @Map.performed += instance.OnMap;
             @Map.canceled += instance.OnMap;
@@ -1181,9 +1192,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @TrackedDeviceOrientation.started -= instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.performed -= instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.canceled -= instance.OnTrackedDeviceOrientation;
-            @MenuToggle.started -= instance.OnMenuToggle;
-            @MenuToggle.performed -= instance.OnMenuToggle;
-            @MenuToggle.canceled -= instance.OnMenuToggle;
+            @Menu.started -= instance.OnMenu;
+            @Menu.performed -= instance.OnMenu;
+            @Menu.canceled -= instance.OnMenu;
             @Map.started -= instance.OnMap;
             @Map.performed -= instance.OnMap;
             @Map.canceled -= instance.OnMap;
@@ -1231,7 +1242,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
-        void OnMenuToggle(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
         void OnMap(InputAction.CallbackContext context);
         void OnStats(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);

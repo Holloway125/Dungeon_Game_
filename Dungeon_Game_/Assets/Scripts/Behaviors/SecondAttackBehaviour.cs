@@ -2,37 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RollBehaviour : StateMachineBehaviour
+public class SecondAttackBehaviour : StateMachineBehaviour
 {
     GameObject player;
-    CharacterStats playerStats;
     PlayerController playerController;
-    Animator _anim;
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.FindWithTag("Player");
-        _anim = player.GetComponent<Animator>();
-        playerStats = player.GetComponent<CharacterStats>();
         playerController = player.GetComponent<PlayerController>();
-        playerStats.SetSpeed(0);
-        _anim.SetBool("IsRolling", true);
+        playerController.CanReceiveInput = true;
+        playerController.InputReceived = false;
+        PlayerStats.SetSpeed(0);
+        if(PlayerStats.GetCurrentStam() >= playerController.AttackCost)
+        {
+            PlayerStats.SetCurrentStam(PlayerStats.GetCurrentStam() - playerController.AttackCost);
+        }
+        else if(PlayerStats.GetCurrentStam() < playerController.AttackCost && PlayerStats.GetCurrentStam() > 0)
+        {
+            PlayerStats.SetCurrentStam(0);
+        }
+        animator.speed = (PlayerStats.GetAttackSpeed()+1);
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        player.transform.position += playerController.DiffPos * playerController.RollSpeed * Time.deltaTime;
-        playerController.RollSpeed -= playerController.RollSpeed * 10f * Time.deltaTime;
-        playerController._capsuleCollider.enabled = false;
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        playerController._capsuleCollider.enabled = true;
-        playerStats.SetSpeed(playerStats.GetDefaultSpeed());
-        _anim.SetBool("IsRolling", false);
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {   
+        playerController.CanReceiveInput = false;
+        PlayerStats.SetSpeed(PlayerStats.GetDefaultSpeed());
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

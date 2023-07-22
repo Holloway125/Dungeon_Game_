@@ -28,17 +28,4 @@ public class Menu : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
-
-    // private void MenuToggle(InputAction.CallbackContext context)
-    // {  
-    //     if(GameIsPaused == false)
-    //     {
-    //         pauseMenu.SetActive(true);
-    //         Pause();
-    //     }
-    //     else if(GameIsPaused == true)
-    //     {
-    //         Resume();
-    //     }
-    // }
 }

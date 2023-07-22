@@ -367,7 +367,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MenuToggle",
+                    "name": "Menu",
                     "type": "Button",
                     "id": "00de9191-d5bb-49d2-b5dd-9be931a471be",
                     "expectedControlType": "Button",
@@ -829,7 +829,7 @@
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "MenuToggle",
+                    "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -859,6 +859,17 @@
                     "name": "",
                     "id": "889c09bb-0e5b-4474-a1fa-47d592896a7b",
                     "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9e500762-363d-4d1a-9a19-13fc3f15db76",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

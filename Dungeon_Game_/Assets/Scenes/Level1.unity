@@ -9471,7 +9471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2500098135770761205, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3995036121498226227, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: Camera
@@ -9509,7 +9509,8 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.003618002
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1489136273, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11107,7 +11108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72bc63a5591390499eba96d2a35f754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timer: {fileID: 0}
   playerInRange: 0
   dialogBox: {fileID: 1914122396}
 --- !u!4 &1242587524 stripped
@@ -12115,9 +12115,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1611334575}
   - component: {fileID: 1611334574}
-  - component: {fileID: 1611334576}
+  - component: {fileID: 1611334577}
+  - component: {fileID: 1611334578}
   m_Layer: 0
-  m_Name: UI_Character Stats
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12154,7 +12155,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1611334576
+--- !u!114 &1611334577
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12163,10 +12164,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1611334573}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49b455adf336d0b4a93632fab85cb253, type: 3}
+  m_Script: {fileID: 11500000, guid: 832def4c117643e4892a9ef53cf67b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _UIElementOpen: 0
+  timerIsRunning: 0
+  bossAlive: 1
+--- !u!114 &1611334578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611334573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22075e2e129845f4c99fd64ee06937ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1637625140 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1138774080251202267, guid: 3e39a221a152bf24fa97b2288b2d64f5, type: 3}
@@ -13119,7 +13133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb0503d9a65904c8160197eff62d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timer: {fileID: 0}
   playerInRange: 0
   dialogBox: {fileID: 1827724169}
 --- !u!1001 &1823951959
@@ -90584,7 +90597,7 @@ PrefabInstance:
     - target: {fileID: 1201754116578076860, guid: 928b53a17a6367e4aa1cf962955c1124, type: 3}
       propertyPath: UICharacterStats
       value: 
-      objectReference: {fileID: 1611334576}
+      objectReference: {fileID: 0}
     - target: {fileID: 1201754116578076861, guid: 928b53a17a6367e4aa1cf962955c1124, type: 3}
       propertyPath: m_Name
       value: Camera
@@ -90866,6 +90879,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5529740124095371644, guid: 4f7be39ddea830a4685da12a909f1853, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5605203294853487783, guid: 4f7be39ddea830a4685da12a909f1853, type: 3}
       propertyPath: _Map
       value: 
@@ -91026,7 +91043,8 @@ PrefabInstance:
       propertyPath: timeRemaining
       value: 500
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3028755755316157016, guid: 4f7be39ddea830a4685da12a909f1853, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1378346844075222205, guid: 4f7be39ddea830a4685da12a909f1853, type: 3}
     m_AddedGameObjects: []

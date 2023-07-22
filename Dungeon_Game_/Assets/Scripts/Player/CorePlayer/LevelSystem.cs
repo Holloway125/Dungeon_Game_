@@ -19,23 +19,16 @@ public class LevelSystem : MonoBehaviour
 
     private GameObject _player; 
     private PlayerController PlayerController;
-    private CharacterStats PlayerStats;
-    private GameObject UICharacterStats;
-    private UICharacterStats UIPlayerStats;
 
     [SerializeField] private float _attackIncrease = 1;
     [SerializeField] private float _defenseIncrease = 1;
     [SerializeField] private float _attackSpeedIncrease = .05f;
     [SerializeField] private float _critIncrease = .05f;
 
-
     private void Awake()
     {
         _player = GameObject.Find("Player");
         PlayerController = _player.GetComponent<PlayerController>();
-        PlayerStats = _player.GetComponent<CharacterStats>();
-        UICharacterStats = GameObject.Find("UI_Character Stats");
-        UIPlayerStats = UICharacterStats.GetComponent<UICharacterStats>();
     }
 
     private void Start()
@@ -73,8 +66,6 @@ public class LevelSystem : MonoBehaviour
         //Health Modifier
         PlayerStats.SetMaxHP(100+(_playerLvl*25));   
 
-        PlayerStats.SetCurrentHP(PlayerStats.GetMaxHP());
-
         //Attack Modifier
         PlayerStats.SetAttack(PlayerStats.GetAttack() + _attackIncrease);
 
@@ -90,7 +81,7 @@ public class LevelSystem : MonoBehaviour
         //Exp Curve
         SetXpToNextLvl((1+_expGrowth) * 100 * _playerLvl - 100);
 
-        UIPlayerStats.UpdateValues();
+        UIManager.Instance.UpdateValues();
 
 
         if(_currentXP>=_xpToNextLvl)
@@ -99,7 +90,7 @@ public class LevelSystem : MonoBehaviour
         }
         else
         {
-        UIPlayerStats.UpdateValues();
+        UIManager.Instance.UpdateValues();
         }
     }
 
@@ -114,7 +105,7 @@ public class LevelSystem : MonoBehaviour
             }
         else 
             {
-            UIPlayerStats.UpdateValues();
+            UIManager.Instance.UpdateExpBar();
             }
             Debug.Log("Gained " + exp + "XP!");
     }

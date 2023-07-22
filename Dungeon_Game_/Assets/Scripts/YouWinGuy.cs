@@ -16,7 +16,6 @@ public class YouWinGuy : BaseNPC
     {
         if(playerInRange == true)
         {
-            _timer.PauseTimer();
             SceneManager.LoadScene("YouWin");
         }
         else

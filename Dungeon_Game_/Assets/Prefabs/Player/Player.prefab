@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2346509203010142849}
   - component: {fileID: 3995036121498226227}
-  - component: {fileID: 1489136273}
   - component: {fileID: 3448304651373937805}
   - component: {fileID: 720812701271881332}
   - component: {fileID: 1241004066464497434}
@@ -18,6 +17,7 @@ GameObject:
   - component: {fileID: 7786453153001808674}
   - component: {fileID: 5943964512751037709}
   - component: {fileID: 1136134653}
+  - component: {fileID: 5830623678404371054}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -61,35 +61,11 @@ MonoBehaviour:
   MouseWorldPosition: {x: 0, y: 0, z: 0}
   DiffPos: {x: 0, y: 0, z: 0}
   RollSpeed: 0
-  CanReceiveInput: 0
-  InputReceived: 0
-  YouLose: {fileID: 0}
   RollCost: 15
   AttackCost: 10
   _staminaRegenRate: 1
-  _staminaRegenBool: 0
-  isMoving: 0
---- !u!114 &1489136273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2466084335914140134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb010c8351988f14faea35bae41e6b97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHP: 100
-  CurrentHP: 0
-  MaxStam: 100
-  CurrentStam: 100
-  Attack: 10
-  AttackSpeed: 0
-  Crit: 0
-  Defense: 10
-  Speed: 0
+  CanReceiveInput: 0
+  InputReceived: 0
 --- !u!114 &3448304651373937805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,6 +370,18 @@ MonoBehaviour:
   m_DefaultActionMap: Player_Map
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &5830623678404371054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2466084335914140134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e13851d087e2dd54299c4dc00d86d7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2500098135770761205
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,21 +8,13 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
     public bool timerIsRunning = false;
-    public TextMeshProUGUI timeText;
     public bool bossAlive = true;
-
-    // PlayerResource PlayerResource;
-    GameObject Player;
-
-    private void Awake()
-    {
-        Player = GameObject.FindWithTag("Player");
-        // PlayerResource = Player.GetComponent<PlayerResource>();
-    }
 
     private void Start()
     {
         bossAlive = true;
+        DisplayTime(180f);
+        timerIsRunning = true;
     }
 
     private void Update()
@@ -52,10 +44,11 @@ public class Timer : MonoBehaviour
 
     public void DisplayTime(float timeToDisplay)
     {
+        DataStorage._TimeLeft = timeToDisplay;
         timeToDisplay += 1;
         float minutes = Mathf.FloorToInt(timeToDisplay / 60); 
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        UIManager.Instance._timer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     public void PauseTimer()

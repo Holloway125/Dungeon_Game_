@@ -8,8 +8,6 @@ public class CameraController : MonoBehaviour
     GameObject Player;
     double x_coord;
     double y_coord;
-    
-    [SerializeField] private UICharacterStats UICharacterStats;
 
     private void Awake()
     {
@@ -67,6 +65,6 @@ public class CameraController : MonoBehaviour
             y_coord = transform.position.y;
             y_coord = transform.position.y/11.25;
         }
-        UICharacterStats.UpdateMapCoords(x_coord, y_coord);
+        UIManager.Instance.UpdateMapCoords(x_coord, y_coord);
     }
 }
