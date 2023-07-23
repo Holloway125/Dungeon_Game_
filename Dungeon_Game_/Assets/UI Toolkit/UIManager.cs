@@ -25,6 +25,8 @@ public class UIManager : MonoBehaviour
     private Label _critValue;
     private Label _lvl;
     private Label _mapCoords;
+    private VisualElement _playerChatBox;
+    private VisualElement _npcChatBox;
     public Label _timer;
     private GameObject player;
     private GameObject _camera;
@@ -72,6 +74,8 @@ public class UIManager : MonoBehaviour
         _mapCoords = _doc.rootVisualElement.Q<Label>("MapCoords");
 
         _timer = _doc.rootVisualElement.Q<Label>("TimeLeft");
+        _playerChatBox = _doc.rootVisualElement.Q("PlayerChatBox");
+        _npcChatBox = _doc.rootVisualElement.Q("NpcChatBox");
 
         _attackValue = _doc.rootVisualElement.Q<Label>("AttackValue");
         _defenseValue = _doc.rootVisualElement.Q<Label>("DefenseValue");
@@ -114,6 +118,10 @@ public class UIManager : MonoBehaviour
         _attackSpeedValue.text = PlayerStats.GetAttackSpeed().ToString(PlayerStats.GetAttackSpeed()*100 + "%");
         _critValue.text = PlayerStats.GetCrit().ToString(PlayerStats.GetCrit()*100 + "%");
         ExpFill.style.width = Length.Percent((float)LevelSystem.GetTotalXp()/(float)LevelSystem.GetXpToNextLvl()*100);
+    }
+    public void NpcDialogue()
+    {
+        _npcChatBox.style.display = DisplayStyle.Flex;
     }
 
     public void UpdateStamBar()

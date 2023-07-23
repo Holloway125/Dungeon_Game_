@@ -7,7 +7,7 @@ public class MoveCameraLeft : MonoBehaviour
 {
     GameObject _Camera;
     CameraController cameraController;
-    GameObject Interactable;    
+    //GameObject Interactable;    
     bool playerInRange = false;
     private PlayerActions _playerActions;
 
@@ -20,7 +20,7 @@ public class MoveCameraLeft : MonoBehaviour
         _playerActions = new PlayerActions();
         _Camera = GameObject.FindGameObjectWithTag("Camera");
         cameraController = _Camera.GetComponent<CameraController>();
-        Interactable = GameObject.Find("/PlayerUI/Interactable");
+        //Interactable = GameObject.Find("/PlayerUI/Interactable");
     }
 
     private void Start()
@@ -52,7 +52,7 @@ public class MoveCameraLeft : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             playerInRange = true;
-            Interactable.SetActive(true);
+            //Interactable.SetActive(true);
         }
     }
 
@@ -61,7 +61,7 @@ public class MoveCameraLeft : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            Interactable.SetActive(false);
+            //Interactable.SetActive(false);
         }
     }
 }

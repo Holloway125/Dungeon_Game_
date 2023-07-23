@@ -39,7 +39,7 @@ public abstract class BaseNPC : MonoBehaviour
     {
         if(playerInRange == true)
         {
-            dialogBox.SetActive(true);
+            UIManager.Instance.NpcDialogue();
         }
         else
         {

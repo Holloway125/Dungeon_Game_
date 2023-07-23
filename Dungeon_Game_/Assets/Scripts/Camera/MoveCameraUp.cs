@@ -8,7 +8,7 @@ public class MoveCameraUp : MonoBehaviour
     private CameraController cameraController;
     private PlayerActions _playerActions;
     private GameObject _Camera;
-    [SerializeField] private GameObject Interactable;    
+    //[SerializeField] private GameObject Interactable;    
     private bool playerInRange = false;
 
     public float x;
@@ -21,13 +21,13 @@ public class MoveCameraUp : MonoBehaviour
         _Camera = GameObject.FindGameObjectWithTag("Camera");
         cameraController = _Camera.GetComponent<CameraController>();
         //A GameObject has to be Active in Hierarchy for GameObject.Find() to work so interactable is active by default and is set to false in Start()
-        Interactable = GameObject.Find("/PlayerUI/Interactable");
+        //Interactable = GameObject.Find("/PlayerUI/Interactable");
     }
 
     private void Start()
     {
         _playerActions.Player_Map.Interact.performed += context => Interact();
-        Interactable.SetActive(false);
+        //Interactable.SetActive(false);
     }
 
     private void OnEnable()
@@ -54,7 +54,7 @@ public class MoveCameraUp : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             playerInRange = true;
-            Interactable.SetActive(true);
+            //Interactable.SetActive(true);
         }
     }
 
@@ -63,7 +63,7 @@ public class MoveCameraUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            Interactable.SetActive(false);
+            //Interactable.SetActive(false);
         }
     }
 }
