@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SecondAttackBehaviour : StateMachineBehaviour
+public class FirstAttack : StateMachineBehaviour
 {
     GameObject player;
     PlayerController playerController;

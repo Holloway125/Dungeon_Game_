@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : ScriptableObject
 {
     // public static BaseStats "with your stat"; this will allow you to add this stat to the BaseStats value List and set its basevalue
     [SerializeField] private static int MaxHP = 100;
