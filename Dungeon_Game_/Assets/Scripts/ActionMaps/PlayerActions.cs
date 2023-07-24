@@ -693,8 +693,8 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""29561cee-b292-4dbe-b3af-ec86dcd499c0"",
-                    ""path"": ""*/{Submit}"",
-                    ""interactions"": """",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Submit"",
@@ -704,8 +704,8 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d522f1c7-e195-40b4-a5d8-0cb17c9bd33e"",
-                    ""path"": ""*/{Cancel}"",
-                    ""interactions"": """",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Cancel"",

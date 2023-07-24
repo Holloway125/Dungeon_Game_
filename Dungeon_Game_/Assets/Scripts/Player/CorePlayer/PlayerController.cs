@@ -20,9 +20,6 @@ public class PlayerController : MonoBehaviour
     public Vector3 DiffPos;
     public float RollSpeed;
     private PlayerInput playerInput;
-    private InputAction attack;
-    private InputAction roll;
-    private InputAction move;
 
     //health properties
     [Space]
@@ -43,10 +40,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerActions();
-        playerInput = GetComponent<PlayerInput>();
-        attack = playerInput.actions["Attack"];
-        roll = playerInput.actions["Roll"];
-        move = playerInput.actions["Movement"];
+        playerInput = InputManager.GetInstance().GetComponent<PlayerInput>();
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _weaponCollider = GetComponent<CircleCollider2D>();
@@ -54,8 +48,6 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        playerControls.Player_Map.Attack.performed += Attack;
-        playerControls.Player_Map.Roll.performed += Roll;
         _anim = GetComponent<Animator>();
         PlayerStats.SetSpeed(PlayerStats.GetDefaultSpeed());
         _anim.SetBool("Death", false);
@@ -67,19 +59,21 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         playerControls.Player_Map.Enable();
-        playerControls.Player_Map.Attack.performed += Attack;
-        playerControls.Player_Map.Roll.performed += Roll;
     }
     private void OnDisable()
     {
         playerControls.Player_Map.Disable();
-        playerControls.Player_Map.Attack.performed -= Attack;
-        playerControls.Player_Map.Roll.performed -= Roll;
     }
 
     private void FixedUpdate() 
     {
+        if(DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            return;
+        }
         Move();
+        Attack();
+        Roll();
         if(PlayerStats.GetCurrentStam() < PlayerStats.GetMaxStam() && _staminaRegenBool == false)
         {
             _staminaRegening = StartCoroutine(StaminaRegen());
@@ -115,38 +109,70 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    public void Death()
+    private void Attack()
     {
-        _anim.Play("death");
-        _anim.SetBool("Death", true);
-        PlayerStats.SetCurrentHP(0);
-        //play death animation
-        _rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        //YouLose.SetActive(true);
-    }
-    private void Attack(InputAction.CallbackContext context)
-    {
-        if(CanReceiveInput == true)
+        if(InputManager.GetInstance().GetAttackPressed())
         {
-            InputReceived = true;
-            MousePosition = Mouse.current.position.ReadValue();
-            MousePosition.z = _camera.nearClipPlane + 1;
-            MouseWorldPosition = _camera.ScreenToWorldPoint(MousePosition);
-            DiffPos = MouseWorldPosition - player.transform.position;
-        }
-        else if(CanReceiveInput == false && InputReceived == false)
-        {
-            if(PlayerStats.GetCurrentStam() > 0)
+            if(CanReceiveInput == true)
             {
-            StopCoroutine(_staminaRegening);
-            _staminaRegenBool = false;
-            MousePosition = Mouse.current.position.ReadValue();
-            MousePosition.z = _camera.nearClipPlane + 1;
-            MouseWorldPosition = _camera.ScreenToWorldPoint(MousePosition);
-            DiffPos = MouseWorldPosition - player.transform.position;
-            _anim.SetFloat("MouseX",DiffPos.x);
-            _anim.SetFloat("MouseY",DiffPos.y);
-            _anim.SetTrigger("FirstAttack");
+                InputReceived = true;
+                MousePosition = Mouse.current.position.ReadValue();
+                MousePosition.z = _camera.nearClipPlane + 1;
+                MouseWorldPosition = _camera.ScreenToWorldPoint(MousePosition);
+                DiffPos = MouseWorldPosition - player.transform.position;
+            }
+            else if(CanReceiveInput == false && InputReceived == false)
+            {
+                if(PlayerStats.GetCurrentStam() > 0)
+                {
+                StopCoroutine(_staminaRegening);
+                _staminaRegenBool = false;
+                MousePosition = Mouse.current.position.ReadValue();
+                MousePosition.z = _camera.nearClipPlane + 1;
+                MouseWorldPosition = _camera.ScreenToWorldPoint(MousePosition);
+                DiffPos = MouseWorldPosition - player.transform.position;
+                _anim.SetFloat("MouseX",DiffPos.x);
+                _anim.SetFloat("MouseY",DiffPos.y);
+                _anim.SetTrigger("FirstAttack");
+                }
+                else if(PlayerStats.GetCurrentStam() == 0)
+                {
+                    Debug.Log("Not enough Stamina!");
+                }
+            }
+        }
+    }
+    private void Roll()
+    {
+        if(InputManager.GetInstance().GetRollPressed())
+        {
+            if(PlayerStats.GetCurrentStam() >= RollCost)
+            {
+                MousePosition = Mouse.current.position.ReadValue();
+                MousePosition.z = _camera.nearClipPlane + 1;
+                MouseWorldPosition = _camera.ScreenToWorldPoint(MousePosition);
+                DiffPos = MouseWorldPosition - player.transform.position;
+                RollSpeed = 10;
+                StopCoroutine(_staminaRegening);
+                _staminaRegenBool = false;
+                PlayerStats.SetCurrentStam(PlayerStats.GetCurrentStam() - RollCost);
+                _anim.SetFloat("MouseX",DiffPos.x);
+                _anim.SetFloat("MouseY",DiffPos.y);
+                _anim.SetTrigger("Roll");         
+            }
+            else if(PlayerStats.GetCurrentStam() < RollCost && PlayerStats.GetCurrentStam() > 0)
+            {
+                MousePosition = Mouse.current.position.ReadValue();
+                MousePosition.z = _camera.nearClipPlane + 1;
+                MouseWorldPosition = _camera.ScreenToWorldPoint(MousePosition);
+                DiffPos = MouseWorldPosition - player.transform.position;
+                RollSpeed = 10;
+                StopCoroutine(_staminaRegening);
+                _staminaRegenBool = false;
+                PlayerStats.SetCurrentStam(0);
+                _anim.SetFloat("MouseX",DiffPos.x);
+                _anim.SetFloat("MouseY",DiffPos.y);
+                _anim.SetTrigger("Roll");          
             }
             else if(PlayerStats.GetCurrentStam() == 0)
             {
@@ -154,43 +180,8 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    private void Roll(InputAction.CallbackContext context)
-    {
-        if(PlayerStats.GetCurrentStam() >= RollCost)
-        {
-            MousePosition = Mouse.current.position.ReadValue();
-            MousePosition.z = _camera.nearClipPlane + 1;
-            MouseWorldPosition = _camera.ScreenToWorldPoint(MousePosition);
-            DiffPos = MouseWorldPosition - player.transform.position;
-            RollSpeed = 10;
-            StopCoroutine(_staminaRegening);
-            _staminaRegenBool = false;
-            PlayerStats.SetCurrentStam(PlayerStats.GetCurrentStam() - RollCost);
-            _anim.SetFloat("MouseX",DiffPos.x);
-            _anim.SetFloat("MouseY",DiffPos.y);
-            _anim.SetTrigger("Roll");         
-        }
-        else if(PlayerStats.GetCurrentStam() < RollCost && PlayerStats.GetCurrentStam() > 0)
-        {
-            MousePosition = Mouse.current.position.ReadValue();
-            MousePosition.z = _camera.nearClipPlane + 1;
-            MouseWorldPosition = _camera.ScreenToWorldPoint(MousePosition);
-            DiffPos = MouseWorldPosition - player.transform.position;
-            RollSpeed = 10;
-            StopCoroutine(_staminaRegening);
-            _staminaRegenBool = false;
-            PlayerStats.SetCurrentStam(0);
-            _anim.SetFloat("MouseX",DiffPos.x);
-            _anim.SetFloat("MouseY",DiffPos.y);
-            _anim.SetTrigger("Roll");          
-        }
-        else if(PlayerStats.GetCurrentStam() == 0)
-        {
-            Debug.Log("Not enough Stamina!");
-        }
-    }
 
-    private void Move()
+    public void Move()
     {
         _moveInput = playerControls.Player_Map.Movement.ReadValue<Vector2>(); 
         _rb.velocity = _moveInput * PlayerStats.GetSpeed();
@@ -211,14 +202,32 @@ public class PlayerController : MonoBehaviour
         }
         _anim.SetBool("isMoving", isMoving);
     }
-    private void OnTriggerEnter2D(Collider2D _collider)
+    public void Death()
     {
-        if (_collider.gameObject.TryGetComponent<BaseEnemy>(out BaseEnemy monster))
-        {
-            monster.TakeDamage((int)PlayerStats.GetAttack());
-            Debug.Log("Monster took " + PlayerStats.GetAttack() + " damage!");
-        }
+        _anim.Play("death");
+        _anim.SetBool("Death", true);
+        PlayerStats.SetCurrentHP(0);
+        //play death animation
+        _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        //YouLose.SetActive(true);
     }
+
+
+
+    // private void OnTriggerEnter2D(Collider2D _collider)
+    // {
+    //     if (_collider.gameObject.TryGetComponent<BaseEnemy>(out BaseEnemy monster))
+    //     {
+    //         monster.TakeDamage((int)PlayerStats.GetAttack());
+    //         Debug.Log("Monster took " + PlayerStats.GetAttack() + " damage!");
+    //     }
+    // }
+
+
+
+
+
+
     // public string AttackDir()
     // {
     //     //Gets mouse position and returns x,y value of the pixels mouse is on in current resolution
