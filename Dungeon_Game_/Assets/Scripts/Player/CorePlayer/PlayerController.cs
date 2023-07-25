@@ -19,13 +19,10 @@ public class PlayerController : MonoBehaviour
     public Vector3 MouseWorldPosition;
     public Vector3 DiffPos;
     public float RollSpeed;
-    private PlayerInput playerInput;
 
-    //health properties
     [Space]
     [Header ("Health Bar")]
 
-    //stamina properties
     [Header ("Stamina Settings")]
     [SerializeField]public float RollCost = 25;
     [SerializeField]public float AttackCost = 15;
@@ -40,7 +37,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerActions();
-        playerInput = InputManager.GetInstance().GetComponent<PlayerInput>();
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _weaponCollider = GetComponent<CircleCollider2D>();
