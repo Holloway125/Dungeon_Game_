@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Empty_4-way
+  m_Name: MiniMapSpriteSheet_16
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -2322768238638050188, guid: b1a3dd09080d7aa438222dc14873b019, type: 3}
+  m_Sprite: {fileID: 449663362978128319, guid: ea1f376016ac18647bdb6a6b6d2e7d7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

@@ -5,21 +5,23 @@ using UnityEngine.InputSystem;
 
 public class MoveCameraDown : MonoBehaviour
 {
-    GameObject _Camera;
+    GameObject _camera;
+    GameObject _miniMapCamera;
     CameraController cameraController;
     //GameObject Interactable;    
     bool playerInRange = false;
     private PlayerActions _playerActions;
 
-    public float x;
-    public float y;
-    public float z;
+    [SerializeField] private float x;
+    [SerializeField] private float y;
+    [SerializeField] private float z;
     
     private void Awake()
     {  
         _playerActions = new PlayerActions();
-        _Camera = GameObject.FindGameObjectWithTag("Camera");
-        cameraController = _Camera.GetComponent<CameraController>();
+        _camera = GameObject.FindGameObjectWithTag("Camera");
+        _miniMapCamera = GameObject.FindGameObjectWithTag("MiniMapCamera");
+        cameraController = _camera.GetComponent<CameraController>();
         //Interactable = GameObject.Find("/PlayerUI/Interactable");
     }
 

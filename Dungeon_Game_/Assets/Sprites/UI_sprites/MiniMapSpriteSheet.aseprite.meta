@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638258285049937146
+  platformSettingsDirtyTick: 638259184191953243
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -142,7 +142,7 @@ ScriptedImporter:
   spriteSheetImportData:
   - name: MiniMapSpriteSheet_0
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -162,7 +162,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: MiniMapSpriteSheet_1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -182,7 +182,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: MiniMapSpriteSheet_2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -202,7 +202,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: MiniMapSpriteSheet_3
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -222,13 +222,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: MiniMapSpriteSheet_4
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 68
+      x: 132
+      y: 100
       width: 32
       height: 32
     spriteID: 77c0c7eecc01ae9468c47c8eb6958cd9
@@ -242,12 +242,12 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: MiniMapSpriteSheet_5
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 36
+      x: 4
       y: 68
       width: 32
       height: 32
@@ -262,12 +262,12 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: MiniMapSpriteSheet_6
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 68
+      x: 36
       y: 68
       width: 32
       height: 32
@@ -282,12 +282,12 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: MiniMapSpriteSheet_7
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 100
+      x: 68
       y: 68
       width: 32
       height: 32
@@ -302,13 +302,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: MiniMapSpriteSheet_8
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 36
+      x: 100
+      y: 68
       width: 32
       height: 32
     spriteID: 718d427695579544ea6fc18ac7a3ee75
@@ -322,12 +322,12 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: MiniMapSpriteSheet_9
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 36
+      x: 4
       y: 36
       width: 32
       height: 32
@@ -342,12 +342,12 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: MiniMapSpriteSheet_10
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 68
+      x: 36
       y: 36
       width: 32
       height: 32
@@ -362,12 +362,12 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: MiniMapSpriteSheet_11
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 100
+      x: 68
       y: 36
       width: 32
       height: 32
@@ -382,13 +382,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: MiniMapSpriteSheet_12
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 4
+      x: 100
+      y: 36
       width: 32
       height: 32
     spriteID: 13888880d04fb6243a0a1ba4a4e8399f
@@ -402,12 +402,12 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: MiniMapSpriteSheet_13
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 36
+      x: 4
       y: 4
       width: 32
       height: 32
@@ -422,12 +422,12 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: MiniMapSpriteSheet_14
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 68
+      x: 36
       y: 4
       width: 32
       height: 32
@@ -442,6 +442,26 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: MiniMapSpriteSheet_15
     originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 4
+      width: 32
+      height: 32
+    spriteID: cd04be88e17999d42bb61c428bd417d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: MiniMapSpriteSheet_16
+    originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -451,7 +471,7 @@ ScriptedImporter:
       y: 4
       width: 32
       height: 32
-    spriteID: cd04be88e17999d42bb61c428bd417d7
+    spriteID: 8d395b013273e264cb4c248860a6c150
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -473,7 +493,7 @@ ScriptedImporter:
       cellRect:
         x: 0
         y: 32
-        width: 128
+        width: 160
         height: 128
       spriteId: c4a3771e2ccca194b86b32af9c5d79db
     linkedCells: []

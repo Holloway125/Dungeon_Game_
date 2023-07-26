@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
     GameObject Player;
     double x_coord;
     double y_coord;
+    [SerializeField] private Camera _miniMapCamera;
 
     private void Awake()
     {
@@ -21,26 +22,31 @@ public class CameraController : MonoBehaviour
     public void MoveUp(float x, float y, float z)
     {
         transform.position += new Vector3(x, y, z);
+        _miniMapCamera.transform.position += new Vector3(0,1,0);
         Player.transform.position += new Vector3(0, 3, 0);
     }
 
+    public void MoveDown(float x, float y, float z)
+    {
+        transform.position += new Vector3(x, y, z);
+        _miniMapCamera.transform.position += new Vector3(0,-1,0);
+        Player.transform.position += new Vector3(0, -3, 0);
+    }
+    
     public void MoveRight(float x, float y, float z)
     {  
         transform.position += new Vector3(x, y, z);
+        _miniMapCamera.transform.position += new Vector3(1,0,0);
         Player.transform.position += new Vector3(3, 0, 0);
     }
 
     public void MoveLeft(float x, float y, float z)
     {  
         transform.position += new Vector3(x, y, z);
+        _miniMapCamera.transform.position += new Vector3(-1,0,0);
         Player.transform.position += new Vector3(-3, 0, 0);
     }
 
-    public void MoveDown(float x, float y, float z)
-    {
-        transform.position += new Vector3(x, y, z);
-        Player.transform.position += new Vector3(0, -3, 0);
-    }
 
     public void CameraCoordinator()
     {

@@ -12,6 +12,7 @@ TagManager:
   - Boss
   - Camera
   - UI
+  - MiniMapCamera
   layers:
   - Default
   - TransparentFX
