@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     double x_coord;
     double y_coord;
     [SerializeField] private Camera _miniMapCamera;
+    [SerializeField] private Vector3 _newlocation;
 
     private void Awake()
     {
@@ -17,36 +18,54 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         CameraCoordinator();
+        _newlocation = _miniMapCamera.transform.localPosition;
+    }
+    private void FixedUpdate()
+    {
+        if(_newlocation == _miniMapCamera.transform.localPosition)
+        {
+            return;
+        }
+        else if(_newlocation != _miniMapCamera.transform.localPosition)
+        {
+        _miniMapCamera.transform.Translate(Vector3.up * Time.deltaTime);
+            if (_miniMapCamera.transform.localPosition.y > _newlocation.y + .001f)
+            {
+            _miniMapCamera.transform.localPosition = _newlocation;
+            Debug.Log("Please do this!");
+            }
+        }
     }
 
     public void MoveUp(float x, float y, float z)
     {
         transform.position += new Vector3(x, y, z);
-        _miniMapCamera.transform.position += new Vector3(0,1,0);
+        _newlocation += new Vector3(0,1,0);
         Player.transform.position += new Vector3(0, 3, 0);
     }
 
     public void MoveDown(float x, float y, float z)
     {
         transform.position += new Vector3(x, y, z);
-        _miniMapCamera.transform.position += new Vector3(0,-1,0);
+        _miniMapCamera.transform.localPosition += new Vector3(0,-1,0);
         Player.transform.position += new Vector3(0, -3, 0);
     }
     
     public void MoveRight(float x, float y, float z)
     {  
         transform.position += new Vector3(x, y, z);
-        _miniMapCamera.transform.position += new Vector3(1,0,0);
+        _miniMapCamera.transform.localPosition += new Vector3(1,0,0);
         Player.transform.position += new Vector3(3, 0, 0);
     }
 
     public void MoveLeft(float x, float y, float z)
     {  
         transform.position += new Vector3(x, y, z);
-        _miniMapCamera.transform.position += new Vector3(-1,0,0);
+        //_miniMapCamera.transform.position += new Vector3(-1,0,0);
+        _newlocation = _miniMapCamera.transform.localPosition + new Vector3(-1,0,0);
         Player.transform.position += new Vector3(-3, 0, 0);
+        Debug.Log(_newlocation);
     }
-
 
     public void CameraCoordinator()
     {
