@@ -15,14 +15,15 @@ public class RollBehaviour : StateMachineBehaviour
         playerController = player.GetComponent<PlayerController>();
         PlayerStats.SetSpeed(0);
         _anim.SetBool("IsRolling", true);
+        playerController.IsRolling = true;
+        playerController._capsuleCollider.enabled = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        player.transform.position += playerController.DiffPos * playerController.RollSpeed * Time.deltaTime;
+        playerController.Rb.position += playerController.DiffPos * playerController.RollSpeed * Time.deltaTime;
         playerController.RollSpeed -= playerController.RollSpeed * 10f * Time.deltaTime;
-        playerController._capsuleCollider.enabled = false;
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -31,6 +32,7 @@ public class RollBehaviour : StateMachineBehaviour
         playerController._capsuleCollider.enabled = true;
         PlayerStats.SetSpeed(PlayerStats.GetDefaultSpeed());
         _anim.SetBool("IsRolling", false);
+        playerController.IsRolling = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -12,12 +12,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private Camera _camera;
     [SerializeField] private Animator _anim;
-    private Rigidbody2D _rb;
+    public Rigidbody2D Rb;
     private CircleCollider2D _weaponCollider;
     public CapsuleCollider2D _capsuleCollider;
+    public BoxCollider2D _boxCollider;
     public Vector3 MousePosition;
     public Vector3 MouseWorldPosition;
-    public Vector3 DiffPos;
+    public Vector2 DiffPos;
     public float RollSpeed;
 
     [Space]
@@ -32,15 +33,18 @@ public class PlayerController : MonoBehaviour
     public bool InputReceived;
     private bool _staminaRegenBool;
     private bool isMoving;
+    public bool IsRolling;
 
 
     private void Awake()
     {
         playerControls = new PlayerActions();
-        _rb = GetComponent<Rigidbody2D>();
+        Rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _weaponCollider = GetComponent<CircleCollider2D>();
         _capsuleCollider = GetComponent<CapsuleCollider2D>();
+        _boxCollider = GetComponent<BoxCollider2D>();
+        _camera = GameObject.Find("Camera").GetComponent<Camera>();
     }
     private void Start()
     {
@@ -63,10 +67,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate() 
     {
-        if(DialogueManager.GetInstance().dialogueIsPlaying)
-        {
-            return;
-        }
         Move();
         Attack();
         Roll();
@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Roll()
     {
-        if(InputManager.GetInstance().GetRollPressed())
+        if(InputManager.GetInstance().GetRollPressed() && !IsRolling)
         {
             if(PlayerStats.GetCurrentStam() >= RollCost)
             {
@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
                 MousePosition.z = _camera.nearClipPlane + 1;
                 MouseWorldPosition = _camera.ScreenToWorldPoint(MousePosition);
                 DiffPos = MouseWorldPosition - player.transform.position;
-                RollSpeed = 10;
+                RollSpeed = 5;
                 StopCoroutine(_staminaRegening);
                 _staminaRegenBool = false;
                 PlayerStats.SetCurrentStam(PlayerStats.GetCurrentStam() - RollCost);
@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour
                 MousePosition.z = _camera.nearClipPlane + 1;
                 MouseWorldPosition = _camera.ScreenToWorldPoint(MousePosition);
                 DiffPos = MouseWorldPosition - player.transform.position;
-                RollSpeed = 10;
+                RollSpeed = 5;
                 StopCoroutine(_staminaRegening);
                 _staminaRegenBool = false;
                 PlayerStats.SetCurrentStam(0);
@@ -180,15 +180,15 @@ public class PlayerController : MonoBehaviour
     public void Move()
     {
         _moveInput = playerControls.Player_Map.Movement.ReadValue<Vector2>(); 
-        _rb.velocity = _moveInput * PlayerStats.GetSpeed();
-        _anim.SetFloat("Horizontal",_rb.velocity.x);
-        _anim.SetFloat("Vertical",_rb.velocity.y);
+        Rb.velocity = _moveInput * PlayerStats.GetSpeed();
+        _anim.SetFloat("Horizontal",Rb.velocity.x);
+        _anim.SetFloat("Vertical",Rb.velocity.y);
 
-        if(_rb.velocity.x != 0f)
+        if(Rb.velocity.x != 0f)
         {
             isMoving = true;
         }
-        else if (_rb.velocity.y != 0f)
+        else if (Rb.velocity.y != 0f)
         {
             isMoving = true;
         }
@@ -204,7 +204,7 @@ public class PlayerController : MonoBehaviour
         _anim.SetBool("Death", true);
         PlayerStats.SetCurrentHP(0);
         //play death animation
-        _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        Rb.constraints = RigidbodyConstraints2D.FreezeAll;
         //YouLose.SetActive(true);
     }
 

@@ -197,6 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d43598e447820ff429385447a9aa14ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _miniMapCamera: {fileID: 0}
+  _newlocation: {x: 0, y: 0, z: 0}
 --- !u!68 &2648191228080443016
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -230,14 +232,13 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.44
+  m_EdgeRadius: 0.21
   m_Points:
-  - {x: -9.835977, y: -5.5436544}
-  - {x: -9.700273, y: -5.4576283}
-  - {x: 9.854896, y: -5.454195}
-  - {x: 9.859891, y: 5.498344}
-  - {x: -9.814722, y: 5.4714184}
-  - {x: -9.788785, y: -5.5106883}
+  - {x: -10, y: 6}
+  - {x: -10, y: -6}
+  - {x: 10, y: -6}
+  - {x: 10, y: 6}
+  - {x: -10, y: 6}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0

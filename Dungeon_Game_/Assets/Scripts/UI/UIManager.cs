@@ -61,8 +61,8 @@ public class UIManager : MonoBehaviour
         _stats = _doc.rootVisualElement.Q("PlayerStats");
         _map = _doc.rootVisualElement.Q("Map");
         _HUD = _doc.rootVisualElement.Q("HUD");
-        scenemanager = GameObject.Find("SceneManager");
-        Menu = scenemanager.GetComponent<Menu>();
+        // scenemanager = GameObject.Find("SceneManager");
+        // Menu = scenemanager.GetComponent<Menu>();
 
         _healthValue = _doc.rootVisualElement.Q<Label>("HealthValue");
         HealthFill = _doc.rootVisualElement.Q<IMGUIContainer>("HealthFill");

@@ -72,11 +72,13 @@ public class DialogueManager : MonoBehaviour
 
     private void Start() 
     {
+
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
+        layoutAnimator = dialoguePanel.GetComponent<Animator>();
+
 
         // get the layout animator
-        layoutAnimator = dialoguePanel.GetComponent<Animator>();
 
         // get all of the choices text 
         choicesText = new TextMeshProUGUI[choices.Length];
