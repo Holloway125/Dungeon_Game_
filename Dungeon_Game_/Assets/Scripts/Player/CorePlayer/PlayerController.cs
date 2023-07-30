@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
                 MousePosition = Mouse.current.position.ReadValue();
                 MousePosition.z = _camera.nearClipPlane + 1;
                 MouseWorldPosition = _camera.ScreenToWorldPoint(MousePosition);
-                DiffPos = MouseWorldPosition - player.transform.position;
+                DiffPos = (MouseWorldPosition - player.transform.position).normalized;
             }
             else if(CanReceiveInput == false && InputReceived == false)
             {
@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
                 MousePosition = Mouse.current.position.ReadValue();
                 MousePosition.z = _camera.nearClipPlane + 1;
                 MouseWorldPosition = _camera.ScreenToWorldPoint(MousePosition);
-                DiffPos = MouseWorldPosition - player.transform.position;
+                DiffPos = (MouseWorldPosition - player.transform.position).normalized;
                 _anim.SetFloat("MouseX",DiffPos.x);
                 _anim.SetFloat("MouseY",DiffPos.y);
                 _anim.SetTrigger("FirstAttack");
@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
                 MousePosition = Mouse.current.position.ReadValue();
                 MousePosition.z = _camera.nearClipPlane + 1;
                 MouseWorldPosition = _camera.ScreenToWorldPoint(MousePosition);
-                DiffPos = MouseWorldPosition - player.transform.position;
+                DiffPos = (MouseWorldPosition - player.transform.position).normalized;
                 RollSpeed = 5;
                 StopCoroutine(_staminaRegening);
                 _staminaRegenBool = false;
@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
                 MousePosition = Mouse.current.position.ReadValue();
                 MousePosition.z = _camera.nearClipPlane + 1;
                 MouseWorldPosition = _camera.ScreenToWorldPoint(MousePosition);
-                DiffPos = MouseWorldPosition - player.transform.position;
+                DiffPos = (MouseWorldPosition - player.transform.position).normalized;
                 RollSpeed = 5;
                 StopCoroutine(_staminaRegening);
                 _staminaRegenBool = false;

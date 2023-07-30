@@ -22,8 +22,10 @@ public class RollBehaviour : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        //                                   *****Read Comment*****
+        //You can put normalized Diffpos to make the player go a set distance everytime no matter close the mouse is!!
         playerController.Rb.position += playerController.DiffPos * playerController.RollSpeed * Time.deltaTime;
-        playerController.RollSpeed -= playerController.RollSpeed * 10f * Time.deltaTime;
+        playerController.RollSpeed -= playerController.RollSpeed * Time.deltaTime;
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
