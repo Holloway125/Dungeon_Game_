@@ -76,55 +76,55 @@ public abstract class BaseEnemy : MonoBehaviour
     [HideInInspector]
     public bool Aggroed;
     [HideInInspector]
-    public Vector3 Home;
+    public Transform Home;
     [HideInInspector]
     public float DistanceFromHome;
 
 
-    BaseEnemyState currentState;
-    [HideInInspector]
-    public EnemyDefault DefaultState = new EnemyDefault();
-    [HideInInspector]
-    public EnemySuspicious SuspiciousState = new EnemySuspicious();
-    [HideInInspector]
-    public EnemyChasing ChasingState = new EnemyChasing();
-    [HideInInspector]
-    public EnemyAttacking AttackingState = new EnemyAttacking();
-    [HideInInspector]
-    public EnemyRetreating RetreatingState = new EnemyRetreating();
-    [HideInInspector]
-    public EnemyAbilityCast AbilityState = new EnemyAbilityCast();
-    [HideInInspector]
-    public EnemyDeathState DeathState = new EnemyDeathState();
-    [HideInInspector]
-    //For Animator
+    // BaseEnemyState currentState;
+    // [HideInInspector]
+    // public EnemyDefault DefaultState = new EnemyDefault();
+    // [HideInInspector]
+    // public EnemySuspicious SuspiciousState = new EnemySuspicious();
+    // [HideInInspector]
+    // public EnemyChasing ChasingState = new EnemyChasing();
+    // [HideInInspector]
+    // public EnemyAttacking AttackingState = new EnemyAttacking();
+    // [HideInInspector]
+    // public EnemyRetreating RetreatingState = new EnemyRetreating();
+    // [HideInInspector]
+    // public EnemyAbilityCast AbilityState = new EnemyAbilityCast();
+    // [HideInInspector]
+    // public EnemyDeathState DeathState = new EnemyDeathState();
+    // [HideInInspector]
+    // //For Animator
     private float angleDegree;
     public bool AttackAnimPlaying = false;
     public bool HasAbility;
     public bool HasAbility2;
-    public EnemyAbilityHolder Ability;
-    public EnemyAbilityHolder Ability2;
+    // public EnemyAbilityHolder Ability;
+    // public EnemyAbilityHolder Ability2;
 
     private float angle;
     private float MyAngleDegree;
 
 
-    public void SwitchState(BaseEnemyState state)
-    {
-        currentState = state;
-        state.EnterState(this);
-    }
+    // public void SwitchState(BaseEnemyState state)
+    // {
+    //     currentState = state;
+    //     state.EnterState(this);
+    // }
 
-    public void EnterAbilityState()
-    {
-        currentState = AbilityState;
-        AbilityState.EnterState(this);
-    }
+    // public void EnterAbilityState()
+    // {
+    //     currentState = AbilityState;
+    //     AbilityState.EnterState(this);
+    // }
 
-    public void ExitAbilityState()
-    {
-        currentState = ChasingState;
-    }
+    // public void ExitAbilityState()
+    // {
+    //     currentState = ChasingState;
+    // }
 
     protected virtual void Awake()
     {
@@ -134,30 +134,30 @@ public abstract class BaseEnemy : MonoBehaviour
         LevelSystem = Player.GetComponent<LevelSystem>();
         PlayerController = Player.GetComponent<PlayerController>();
         PlayerCollider = Player.GetComponent<CapsuleCollider2D>();
-        currentState = DefaultState;
+        //currentState = DefaultState;
         Rb = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
         AIDestinationSetterScript = GetComponent<AIDestinationSetter>();
         Vector3 dir = new Vector3(-21, 18, 0);
         Aggroed = false;
-        Home = this.transform.position;
+        Home = this.transform;
         AIDestinationSetterScript.target = Home;
         CurrentHealth = EnemyMaxHealth;
     }
     
     protected virtual void Start()
     {
-        currentState.EnterState(this);
+        //currentState.EnterState(this);
         EnemyDirection();
     }
 
     protected virtual void Update()
     {
-        currentState.UpdateState(this);
-        if (currentState != DefaultState)
-        {
-        EnemyDirection();
-        }
+        // currentState.UpdateState(this);
+        // if (currentState != DefaultState)
+        // {
+        // EnemyDirection();
+        // }
 
         Vector3 diffPos = Player.transform.position - this.transform.position;
         //returns a radian that can be used to convert to degrees 
@@ -221,11 +221,11 @@ public abstract class BaseEnemy : MonoBehaviour
 
     public void UpdateTarget()
     {
-        AIDestinationSetterScript.target = Player.transform.position;
+        AIDestinationSetterScript.target = Player.transform;
         Debug.Log("Targetting");
     }
 
-    public void UpdateTarget(Vector3 target)
+    public void UpdateTarget(Transform target)
     {
         AIDestinationSetterScript.target = target;
         Debug.Log("Targeting Vector");
@@ -235,7 +235,7 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         float angle;
         Vector3 Direction;
-        Direction = AIDestinationSetterScript.target - transform.position;
+        Direction = AIDestinationSetterScript.target.position - this.transform.position;
         angle = Mathf.Atan2(Direction.y, Direction.x);
         angleDegree = angle * Mathf.Rad2Deg;
 
@@ -351,10 +351,10 @@ public abstract class BaseEnemy : MonoBehaviour
 
     public virtual void Retreat()
     {
-        if (Vector3.Distance(AIDestinationSetterScript.target, Home) >= 5f)
+        if (Vector3.Distance(AIDestinationSetterScript.target.position, Home.position) >= 5f)
         {
         Vector3 RandomPoint = Random.insideUnitCircle;
-        AIDestinationSetterScript.target = Home + RandomPoint;
+        AIDestinationSetterScript.target.position = Home.position + RandomPoint;
         Animate("Run");
         // Debug.Log(Vector3.Distance(AIDestinationSetterScript.target, Home));
         }
@@ -367,7 +367,7 @@ public abstract class BaseEnemy : MonoBehaviour
         CurrentHealth -= damageAmount;
         if(CurrentHealth <= 0)
         {
-            SwitchState(DeathState);
+            Anim.Play("Death");
         }
     }
     
