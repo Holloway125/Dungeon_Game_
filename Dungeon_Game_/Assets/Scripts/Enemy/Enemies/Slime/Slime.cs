@@ -20,12 +20,12 @@ base.Start();
 }
 
 
-    public void LeapAbility()
-    {
-        var enemy = GetComponent<BaseEnemy>();
-        Vector2 Direction = new Vector2(enemy.Player.transform.position.x - this.transform.position.x, enemy.Player.transform.position.y - this.transform.position.y).normalized;
-        this.Rb.AddForce(Direction * JumpForce);
-    }
+    // public void LeapAbility()
+    // {
+    //     var enemy = GetComponent<BaseEnemy>();
+    //     Vector2 Direction = new Vector2(enemy.Player.transform.position.x - this.transform.position.x, enemy.Player.transform.position.y - this.transform.position.y).normalized;
+    //     this.Rb.AddForce(Direction * JumpForce);
+    // }
 
     // public override void TakeDamage(int damageAmount)
     // {

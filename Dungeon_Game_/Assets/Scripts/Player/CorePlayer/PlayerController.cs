@@ -13,9 +13,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private Animator _anim;
     public Rigidbody2D Rb;
-    private CircleCollider2D _weaponCollider;
-    public CapsuleCollider2D _capsuleCollider;
-    public BoxCollider2D _boxCollider;
+    public BoxCollider2D _weaponCollider;
+    public PolygonCollider2D _hitBox;
+    public BoxCollider2D _walkBox;
     public Vector3 MousePosition;
     public Vector3 MouseWorldPosition;
     public Vector2 DiffPos;
@@ -41,9 +41,8 @@ public class PlayerController : MonoBehaviour
         playerControls = new PlayerActions();
         Rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
-        _weaponCollider = GetComponent<CircleCollider2D>();
-        _capsuleCollider = GetComponent<CapsuleCollider2D>();
-        _boxCollider = GetComponent<BoxCollider2D>();
+        _hitBox = GetComponentInChildren<PolygonCollider2D>();
+        _walkBox = GetComponent<BoxCollider2D>();
         _camera = GameObject.Find("Camera").GetComponent<Camera>();
     }
     private void Start()

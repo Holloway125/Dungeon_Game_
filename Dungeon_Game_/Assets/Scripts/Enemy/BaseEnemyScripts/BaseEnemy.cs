@@ -17,7 +17,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public float EnemyMaxHealth;   
     public float CurrentHealth;
     public float Speed;
-    public int expGiven;
+    public int ExpGiven;
 // Defined on Awake/Start/Update/FixedUpdate Functions.
     [HideInInspector]
     public Animator Anim;
@@ -30,152 +30,33 @@ public abstract class BaseEnemy : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D Rb;
     [HideInInspector]
-    public AIPath movement;
+    public AIPath AIPath;
     [HideInInspector]
-    public AIDestinationSetter AIDestinationSetterScript;
+    public AIDestinationSetter AIDestinationSetter;
 
-    [Space]
-// Set in Inspector used for attacking Player.
-    [Header ("Range Settings")]
-    public float AttackRadius;
-    public float SuspiciousRadius;
-    public float ChaseRadius;
-    public float AggroRadius;
-    public int Leash;
+//     [Space]
+// // Set in Inspector used for attacking Player.
+//     [Header ("Range Settings")]
+//     public float AttackRadius;
+//     public float SuspiciousRadius;
+//     public float ChaseRadius;
+//     public float AggroRadius;
+//     public int Leash;
     [Space]
     [Header ("Attack Stats")]
     // If Enemy has weapon or ability thats played through an Animator then mark true in the Inspector.
+    public CircleCollider2D AttackTrigger;
     public bool HasAnAttack;
     public int AttackDamaage;
     public float AttackCooldown;
     [Space]
-    [Header ("Contact Attack Stats")]
-    // If Enemy has a on collision damage then mark true in the inspector
-    public bool HasContactAttack;
-    public int ContactDamage;
-    public float ContactAttackCooldown;
-
-    // Used for Attack.
-    [HideInInspector]
-    public bool IsCollided;
-    [HideInInspector]
     public Collider2D PlayerCollider;
-    // Used for Finite State Machine Logic.
-    [HideInInspector]
-    public bool IsInAttackRange;
-    [HideInInspector]
-    public bool IsInSuspiciousRange;
-    [HideInInspector]
-    public bool IsInAggroRange;
-    [HideInInspector]
-    public bool IsInChaseRange;
-    [HideInInspector]
-    public bool IsInSpawn;
-    [HideInInspector]
-    public bool LineOfSight;
-    [HideInInspector]
+    public AttackTrigger attackTrigger;
+
     public bool Aggroed;
-    [HideInInspector]
     public Transform Home;
-    [HideInInspector]
-    public float DistanceFromHome;
 
 
-    // BaseEnemyState currentState;
-    // [HideInInspector]
-    // public EnemyDefault DefaultState = new EnemyDefault();
-    // [HideInInspector]
-    // public EnemySuspicious SuspiciousState = new EnemySuspicious();
-    // [HideInInspector]
-    // public EnemyChasing ChasingState = new EnemyChasing();
-    // [HideInInspector]
-    // public EnemyAttacking AttackingState = new EnemyAttacking();
-    // [HideInInspector]
-    // public EnemyRetreating RetreatingState = new EnemyRetreating();
-    // [HideInInspector]
-    // public EnemyAbilityCast AbilityState = new EnemyAbilityCast();
-    // [HideInInspector]
-    // public EnemyDeathState DeathState = new EnemyDeathState();
-    // [HideInInspector]
-    // //For Animator
-    private float angleDegree;
-    public bool AttackAnimPlaying = false;
-    public bool HasAbility;
-    public bool HasAbility2;
-    // public EnemyAbilityHolder Ability;
-    // public EnemyAbilityHolder Ability2;
-
-    private float angle;
-    private float MyAngleDegree;
-
-
-    // public void SwitchState(BaseEnemyState state)
-    // {
-    //     currentState = state;
-    //     state.EnterState(this);
-    // }
-
-    // public void EnterAbilityState()
-    // {
-    //     currentState = AbilityState;
-    //     AbilityState.EnterState(this);
-    // }
-
-    // public void ExitAbilityState()
-    // {
-    //     currentState = ChasingState;
-    // }
-
-    protected virtual void Awake()
-    {
-        Player = GameObject.FindWithTag("Player");
-        movement = GetComponent<AIPath>();
-        movement.maxSpeed = Speed;
-        LevelSystem = Player.GetComponent<LevelSystem>();
-        PlayerController = Player.GetComponent<PlayerController>();
-        PlayerCollider = Player.GetComponent<CapsuleCollider2D>();
-        //currentState = DefaultState;
-        Rb = GetComponent<Rigidbody2D>();
-        Anim = GetComponent<Animator>();
-        AIDestinationSetterScript = GetComponent<AIDestinationSetter>();
-        Vector3 dir = new Vector3(-21, 18, 0);
-        Aggroed = false;
-        Home = this.transform;
-        AIDestinationSetterScript.target = Home;
-        CurrentHealth = EnemyMaxHealth;
-    }
-    
-    protected virtual void Start()
-    {
-        //currentState.EnterState(this);
-        EnemyDirection();
-    }
-
-    protected virtual void Update()
-    {
-        // currentState.UpdateState(this);
-        // if (currentState != DefaultState)
-        // {
-        // EnemyDirection();
-        // }
-
-        Vector3 diffPos = Player.transform.position - this.transform.position;
-        //returns a radian that can be used to convert to degrees 
-        angle = Mathf.Atan2(diffPos.y, diffPos.x);
-        //converts the radian to degrees in the range of (-180, 180)
-        MyAngleDegree = angle * Mathf.Rad2Deg;
-        //converts the range of (-180, 180) to a range of (0, 360) which then can be passed into the rotation z value of an object to set it rotation pointing to the cursors current position
-        if(MyAngleDegree < 0)
-        {
-            MyAngleDegree+=360;
-        }   
-        //Debug.Log(MyAngleDegree);
-    }
-
-    protected virtual void FixedUpdate()
-    {
-
-    }
 // Functions for determining which anim should play based on the direction the enemy is going
 
 //                        90
@@ -188,6 +69,67 @@ public abstract class BaseEnemy : MonoBehaviour
 //                        down
 //                         270    
 
+    public bool AttackAnimPlaying = false;
+    private float angle;
+    private float MyAngleDegree;
+
+    BaseEnemy instance;
+
+
+    protected virtual void Awake()
+    {
+        Player = GameObject.FindWithTag("Player");
+        AIPath = GetComponent<AIPath>();
+        AIPath.maxSpeed = Speed;
+        LevelSystem = Player.GetComponent<LevelSystem>();
+        PlayerController = Player.GetComponent<PlayerController>();
+        PlayerCollider = Player.GetComponent<PolygonCollider2D>();
+        attackTrigger = GetComponentInChildren<AttackTrigger>();
+        //currentState = DefaultState;
+        Rb = GetComponent<Rigidbody2D>();
+        Anim = GetComponent<Animator>();
+        AIDestinationSetter = GetComponent<AIDestinationSetter>();
+        Vector3 dir = new Vector3(-21, 18, 0);
+        Aggroed = false;
+        Home = this.transform;
+        AIDestinationSetter.target = Home;
+        CurrentHealth = EnemyMaxHealth;
+        instance = this;
+    }
+    
+    protected virtual void Start()
+    {
+
+    }
+
+    protected virtual void Update()
+    {
+        EnemyDirection();
+
+        // Vector3 diffPos = Player.transform.position - this.transform.position;
+        // //returns a radian that can be used to convert to degrees 
+        // angle = Mathf.Atan2(diffPos.y, diffPos.x);
+        // //converts the radian to degrees in the range of (-180, 180)
+        // MyAngleDegree = angle * Mathf.Rad2Deg;
+        // //converts the range of (-180, 180) to a range of (0, 360) which then can be passed into the rotation z value of an object to set it rotation pointing to the cursors current position
+        // if(MyAngleDegree < 0)
+        // {
+        //     MyAngleDegree+=360;
+        // }   
+        // //Debug.Log(MyAngleDegree);
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        if(attackTrigger.InRange == false && AttackAnimPlaying)
+        {
+            StopCoroutine("Attack");
+        }
+        else if(attackTrigger.InRange == true && !AttackAnimPlaying)
+        {
+            StartCoroutine("Attack");
+        }
+    }
 
     public void Animate(string action)
     {
@@ -207,140 +149,28 @@ public abstract class BaseEnemy : MonoBehaviour
         {
             Anim.Play($"{action}Right");   
         }
-
-    }
-
-    public void AttackAnimate()
-    {
-        if (!AttackAnimPlaying)
-        {
-            Animate("Attack");
-            Debug.Log("Attacking Player!");
-        }
-    }
-
-    public void UpdateTarget()
-    {
-        AIDestinationSetterScript.target = Player.transform;
-        Debug.Log("Targetting");
-    }
-
-    public void UpdateTarget(Transform target)
-    {
-        AIDestinationSetterScript.target = target;
-        Debug.Log("Targeting Vector");
     }
 
     public void EnemyDirection()
     {
-        float angle;
         Vector3 Direction;
-        Direction = AIDestinationSetterScript.target.position - this.transform.position;
-        angle = Mathf.Atan2(Direction.y, Direction.x);
-        angleDegree = angle * Mathf.Rad2Deg;
-
-        if (angleDegree <= 0)
-        {
-            angleDegree += 360;
-        }
-
-        if(angleDegree <= 360)
-        {       
-            if (angleDegree <= 300 && angleDegree >= 240)
-            {
-                Anim.SetBool("up",false);
-                Anim.SetBool("down",true);
-                Anim.SetBool("left",false);
-                Anim.SetBool("right",false);
-            }
-
-            else if (angleDegree <= 120 && angleDegree >= 60)
-            {
-                Anim.SetBool("up",true);
-                Anim.SetBool("down",false);
-                Anim.SetBool("left",false);
-                Anim.SetBool("right",false);
-            }
-
-            else if (angleDegree <= 360 && angleDegree >= 299 ||angleDegree <= 59 &&angleDegree >= 0)
-            {
-                Anim.SetBool("up",false);
-                Anim.SetBool("down",false);
-                Anim.SetBool("left",false);
-                Anim.SetBool("right",true);
-            }  
-
-            else if (angleDegree <= 241 && angleDegree >= 121)
-            {
-                Anim.SetBool("up",false);
-                Anim.SetBool("down",false);
-                Anim.SetBool("left",true); 
-                Anim.SetBool("right",false);
-            }
-        }
-
+        Direction = AIDestinationSetter.target.position - this.transform.position;
+        Anim.SetFloat("X", Direction.x);
+        Anim.SetFloat("Y", Direction.y);
     }   
-
-    public void LOS()  
-    {       
-        Vector2 origin = new Vector2(transform.position.x, transform.position.y);
-        Vector2 target = new Vector2(Player.transform.position.x + PlayerCollider.offset.x, Player.transform.position.y + PlayerCollider.offset.y);
-        RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, SuspiciousRadius, IgnoreTheseLayers);
-
-        if (hit.collider == PlayerCollider)
-        {
-            LineOfSight = true;
-        }
-
-        else
-        {
-            LineOfSight = false;
-        }
-
-        if (CurrentHealth > EnemyMaxHealth)
-        {
-            CurrentHealth = EnemyMaxHealth;
-        }
-    }
-
-//Function for doing damage
-    protected void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player" && HasContactAttack)
-        {
-            IsCollided = true;
-            StartCoroutine("ContactAttack");
-        }
-    }
-
-    protected void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player" && HasContactAttack)
-        {
-            IsCollided = false;
-            StopCoroutine("ContactAttack");
-        }
-    }
-
-// Coroutine that does damage over time when started.
-    public IEnumerator ContactAttack()
-    {
-        while(IsCollided)
-        {
-            PlayerController.TakeDamage(ContactDamage); 
-            yield return new WaitForSeconds(ContactAttackCooldown);
-        }
-        yield return null;
-    }
 
 // Coroutine used to play attack animation of Enemies that have an attack.
     public virtual IEnumerator Attack()
-    { 
-        if (HasAnAttack)
+    {
+        while(attackTrigger.InRange == true)
         {
-            Anim.Play("Attack");
-            yield return new WaitForSeconds(AttackCooldown);
+        Anim.Play("Attack");
+        Debug.Log(" Attacking ");
+        yield return new WaitForSeconds(AttackCooldown);
         }
+        AttackAnimPlaying = false;
+        Debug.Log("went to null yield");
+        yield return null;
     }   
 
     public virtual void InvokeRetreat()
@@ -351,17 +181,15 @@ public abstract class BaseEnemy : MonoBehaviour
 
     public virtual void Retreat()
     {
-        if (Vector3.Distance(AIDestinationSetterScript.target.position, Home.position) >= 5f)
+        if (Vector3.Distance(AIDestinationSetter.target.position, Home.position) >= 5f)
         {
         Vector3 RandomPoint = Random.insideUnitCircle;
-        AIDestinationSetterScript.target.position = Home.position + RandomPoint;
+        AIDestinationSetter.target.position = Home.position + RandomPoint;
         Animate("Run");
-        // Debug.Log(Vector3.Distance(AIDestinationSetterScript.target, Home));
+        // Debug.Log(Vector3.Distance(AIDestinationSetter.target, Home));
         }
     }
 
-// Called in PlayerController script to cause damage to Enemy
-// Can be overridden to change how much damage Enemy will take such as damaageAmount /= 2;.
     public virtual void TakeDamage(int damageAmount)
     {
         CurrentHealth -= damageAmount;
@@ -373,18 +201,86 @@ public abstract class BaseEnemy : MonoBehaviour
     
     public virtual void MonsterExp()
     {
-        LevelSystem.GainExperience(expGiven);
+        LevelSystem.GainExperience(ExpGiven);
     }
-
 
 // Used to Give experience and destroy gameObject in Animator.
     public virtual void Death()
     {
         Destroy(gameObject);
     }
+    // public void LOS()  
+    // {       
+    //     Vector2 origin = new Vector2(transform.position.x, transform.position.y);
+    //     Vector2 target = new Vector2(Player.transform.position.x + PlayerCollider.offset.x, Player.transform.position.y + PlayerCollider.offset.y);
+    //     RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, SuspiciousRadius, IgnoreTheseLayers);
 
+    //     if (hit.collider == PlayerCollider)
+    //     {
+    //         LineOfSight = true;
+    //     }
+
+    //     else
+    //     {
+    //         LineOfSight = false;
+    //     }
+    // }
+
+// Coroutine that does damage over time when started.
+    // public IEnumerator ContactAttack()
+    // {
+    //     while(IsCollided)
+    //     {
+    //         PlayerController.TakeDamage(ContactDamage); 
+    //         yield return new WaitForSeconds(ContactAttackCooldown);
+    //     }
+    //     yield return null;
+    // }
     // public virtual void DestroySuspect(GameObject Suspect)
     // {
     //     Destroy(Suspect);
     // }
+        //float angle;
+        // angle = Mathf.Atan2(Direction.y, Direction.x);
+        // angleDegree = angle * Mathf.Rad2Deg;
+
+        // if (angleDegree <= 0)
+        // {
+        //     angleDegree += 360;
+        // }
+
+        // if(angleDegree <= 360)
+        // {       
+        //     if (angleDegree <= 300 && angleDegree >= 240)
+        //     {
+        //         Anim.SetBool("up",false);
+        //         Anim.SetBool("down",true);
+        //         Anim.SetBool("left",false);
+        //         Anim.SetBool("right",false);
+        //     }
+
+        //     else if (angleDegree <= 120 && angleDegree >= 60)
+        //     {
+        //         Anim.SetBool("up",true);
+        //         Anim.SetBool("down",false);
+        //         Anim.SetBool("left",false);
+        //         Anim.SetBool("right",false);
+        //     }
+
+        //     else if (angleDegree <= 360 && angleDegree >= 299 ||angleDegree <= 59 &&angleDegree >= 0)
+        //     {
+        //         Anim.SetBool("up",false);
+        //         Anim.SetBool("down",false);
+        //         Anim.SetBool("left",false);
+        //         Anim.SetBool("right",true);
+        //     }  
+
+        //     else if (angleDegree <= 241 && angleDegree >= 121)
+        //     {
+        //         Anim.SetBool("up",false);
+        //         Anim.SetBool("down",false);
+        //         Anim.SetBool("left",true); 
+        //         Anim.SetBool("right",false);
+        //     }
+        // }
 }

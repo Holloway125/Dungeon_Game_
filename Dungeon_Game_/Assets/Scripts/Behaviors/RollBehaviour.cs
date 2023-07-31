@@ -16,7 +16,7 @@ public class RollBehaviour : StateMachineBehaviour
         PlayerStats.SetSpeed(0);
         _anim.SetBool("IsRolling", true);
         playerController.IsRolling = true;
-        playerController._capsuleCollider.enabled = false;
+        playerController._hitBox.enabled = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -31,7 +31,7 @@ public class RollBehaviour : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
      override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        playerController._capsuleCollider.enabled = true;
+        playerController._hitBox.enabled = true;
         PlayerStats.SetSpeed(PlayerStats.GetDefaultSpeed());
         _anim.SetBool("IsRolling", false);
         playerController.IsRolling = false;

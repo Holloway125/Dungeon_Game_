@@ -13,6 +13,8 @@ TagManager:
   - Camera
   - UI
   - MiniMapCamera
+  - Interact
+  - WalkBox
   layers:
   - Default
   - TransparentFX
@@ -20,11 +22,11 @@ TagManager:
   - Player
   - Water
   - UI
-  - interactable
+  - Interact
   - Enemy
   - EnvirCollider
-  - Weapon
-  - Map Markers
+  - NPC
+  - 
   - 
   - 
   - 
