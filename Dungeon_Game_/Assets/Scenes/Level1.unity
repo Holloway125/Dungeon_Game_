@@ -2523,11 +2523,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9088764900694696957, guid: 7989dc7594375d04492bc5dba8a312a5, type: 3}
   m_PrefabInstance: {fileID: 156438282}
   m_PrefabAsset: {fileID: 0}
---- !u!70 &157072858 stripped
-CapsuleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 7786453153001808674, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
-  m_PrefabInstance: {fileID: 713370007}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &157823006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10066,6 +10061,67 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9088764900694696957, guid: 7989dc7594375d04492bc5dba8a312a5, type: 3}
   m_PrefabInstance: {fileID: 566927216}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &572429310
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3025095135737002053, guid: a0f5c241451a493449a2ecab3abb9ee9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025095135737002053, guid: a0f5c241451a493449a2ecab3abb9ee9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025095135737002053, guid: a0f5c241451a493449a2ecab3abb9ee9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025095135737002053, guid: a0f5c241451a493449a2ecab3abb9ee9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025095135737002053, guid: a0f5c241451a493449a2ecab3abb9ee9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025095135737002053, guid: a0f5c241451a493449a2ecab3abb9ee9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025095135737002053, guid: a0f5c241451a493449a2ecab3abb9ee9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025095135737002053, guid: a0f5c241451a493449a2ecab3abb9ee9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025095135737002053, guid: a0f5c241451a493449a2ecab3abb9ee9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025095135737002053, guid: a0f5c241451a493449a2ecab3abb9ee9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3853512599450150633, guid: a0f5c241451a493449a2ecab3abb9ee9, type: 3}
+      propertyPath: m_Name
+      value: firstBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787462371242390107, guid: a0f5c241451a493449a2ecab3abb9ee9, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a0f5c241451a493449a2ecab3abb9ee9, type: 3}
 --- !u!4 &577690808 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7380497344706835734, guid: c3188689f47905f45b9db53648796ad0, type: 3}
@@ -10712,7 +10768,7 @@ PrefabInstance:
     - target: {fileID: 3995036121498226227, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: _capsuleCollider
       value: 
-      objectReference: {fileID: 157072858}
+      objectReference: {fileID: 0}
     - target: {fileID: 4358859265416030546, guid: dd25c6b98fc1e5840ad6dc2ebdc5c778, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 1
@@ -91818,3 +91874,4 @@ SceneRoots:
   - {fileID: 6425905323679006205}
   - {fileID: 4769031039461675553}
   - {fileID: 6532490993968618734}
+  - {fileID: 572429310}
